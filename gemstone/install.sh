@@ -9,10 +9,10 @@ iferr 4 abort
 iferr 5 logout
 iferr 6 exit
 errorCount
-output push GciLibraryApp.out only
+output push GciApp.out only
 errorCount
 fileformat utf8
-input ./GciLibraryApp.gs
+input ./GciApp.gs
 output pop
 errorCount
 commit

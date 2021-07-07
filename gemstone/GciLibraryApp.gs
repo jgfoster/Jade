@@ -1,34 +1,6 @@
-! ------------------- Class definition for GciLibraryApp
-expectvalue /Class
-doit
-WebApp subclass: 'GciLibraryApp'
-  instVarNames: #()
-  classVars: #()
-  classInstVars: #()
-  poolDictionaries: #()
-  inDictionary: WebGS
-  options: #()
-
-%
-expectvalue /Class
-doit
-GciLibraryApp comment:
-'No class-specific documentation for GciLibraryApp, hierarchy is:
-Object
-  WebApp( begin end exception html request response)
-    GciLibraryApp( main)
-'
-%
-expectvalue /Class
-doit
-GciLibraryApp category: 'User Interface'
-%
 ! ------------------- Remove existing behavior from GciLibraryApp
-expectvalue /Metaclass3
-doit
-GciLibraryApp removeAllMethods.
-GciLibraryApp class removeAllMethods.
-%
+removeAllMethods GciLibraryApp
+removeAllClassMethods GciLibraryApp
 ! ------------------- Class methods for GciLibraryApp
 set compile_env: 0
 category: 'required'
@@ -48,34 +20,13 @@ httpServerClass
 set compile_env: 0
 category: 'REST API'
 method: GciLibraryApp
-library
-
-	^SessionTemps current
-		at: #'library'
-		ifAbsentPut: [
-			GciLibrary new
-				GciInit;
-				GciSetNetEx_: System stoneName
-					_: nil
-					_: nil
-					_: '!tcp@localhost#netldi:gs64ldi#task!gemnetobject'
-					_: 0;
-				yourself]
-%
-method: GciLibraryApp
-setSessionFromArgs: args
-
-	(args at: 'session' ifAbsent: [nil]) ifNotNil: [:session |
-		self library GciSetSessionId_: session.
-	].
-%
-method: GciLibraryApp
 abort_gs: args
 
 	self setSessionFromArgs: args.
 	self library GciAbort.
 	^Dictionary new
 %
+category: 'REST API'
 method: GciLibraryApp
 begin_gs: args
 
@@ -83,6 +34,7 @@ begin_gs: args
 	self library GciBegin.
 	^Dictionary new
 %
+category: 'REST API'
 method: GciLibraryApp
 callInProgress_gs: args
 
@@ -91,6 +43,7 @@ callInProgress_gs: args
 		at: 'result' put: self library GciCallInProgress == 1;
 		yourself
 %
+category: 'REST API'
 method: GciLibraryApp
 commit_gs: args
 
@@ -99,6 +52,7 @@ commit_gs: args
 		at: 'result' put: self library GciCommit == 1;
 		yourself
 %
+category: 'REST API'
 method: GciLibraryApp
 getError_gs: args
 
@@ -118,6 +72,7 @@ getError_gs: args
 		at: 'reason' put: gciError reason;
 		yourself.
 %
+category: 'REST API'
 method: GciLibraryApp
 getSessionId_gs: args
 
@@ -125,6 +80,7 @@ getSessionId_gs: args
 		at: 'result' put: (self library GciGetSessionId);
 		yourself.
 %
+category: 'REST API'
 method: GciLibraryApp
 hardBreak_gs: args
 
@@ -132,6 +88,23 @@ hardBreak_gs: args
 	self library GciHardBreak.
 	^Dictionary new
 %
+category: 'REST API'
+method: GciLibraryApp
+library
+
+	^SessionTemps current
+		at: #'library'
+		ifAbsentPut: [
+			GciLibrary new
+				GciInit;
+				GciSetNetEx_: System stoneName
+					_: nil
+					_: nil
+					_: '!tcp@localhost#netldi:gs64ldi#task!gemnetobject'
+					_: 0;
+				yourself]
+%
+category: 'REST API'
 method: GciLibraryApp
 login_gs: args
 
@@ -149,6 +122,7 @@ login_gs: args
 		^self getError_gs: nil
 	].
 %
+category: 'REST API'
 method: GciLibraryApp
 logout_gs: args
 
@@ -157,6 +131,7 @@ logout_gs: args
 	self library GciLogout.
 	^Dictionary new
 %
+category: 'REST API'
 method: GciLibraryApp
 nbEnd_gs: args
 
@@ -169,6 +144,7 @@ nbEnd_gs: args
 		at: 'result' put: (result int64At: 0);
 		yourself
 %
+category: 'REST API'
 method: GciLibraryApp
 nbExecuteStr_gs: args
 
@@ -177,6 +153,15 @@ nbExecuteStr_gs: args
 		_: 16r14. 	"OOP_NIL"
 	^Dictionary new
 %
+category: 'REST API'
+method: GciLibraryApp
+setSessionFromArgs: args
+
+	(args at: 'session' ifAbsent: [nil]) ifNotNil: [:session |
+		self library GciSetSessionId_: session.
+	].
+%
+category: 'REST API'
 method: GciLibraryApp
 softBreak_gs: args
 
@@ -184,6 +169,7 @@ softBreak_gs: args
 	self library GciSoftBreak.
 	^Dictionary new
 %
+category: 'REST API'
 method: GciLibraryApp
 version_gs: args
 

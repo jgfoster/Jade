@@ -83,8 +83,6 @@ void main() {
   });
 
   test('logout', () async {
-    expect(await gci.getSessionId(), equals(1));
     await gci.logout();
-    expect(await gci.getSessionId(), equals(0));
   });
 }

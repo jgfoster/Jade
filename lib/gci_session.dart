@@ -15,9 +15,9 @@ class GciSession {
 
   GciSession(this.host);
 
-  Future<Map<String, dynamic>?> getError() async {
-    final url = Uri.parse(host + 'getError.gs');
-    var body = {'session': session};
+  Future<String> post(String name, Map<String, dynamic> body) async {
+    final url = Uri.parse(host + name);
+    body['session'] = session;
     final response = await http.post(
       url,
       headers: headers,
@@ -26,125 +26,51 @@ class GciSession {
     if (response.statusCode != 200) {
       throw StateError(response.body);
     }
-    if (response.body == '{}') {
-      return null;
-    }
-    return jsonDecode(response.body)['result'];
+    return response.body;
+  }
+
+  Future<Map<String, dynamic>?> getError() async {
+    return jsonDecode(await post('getError.gs', {}))['result'];
   }
 
   Future<void> abort() async {
-    final url = Uri.parse(host + 'abort.gs');
-    var body = {'session': session};
-    final response = await http.post(
-      url,
-      headers: headers,
-      body: jsonEncode(body),
-    );
-    if (response.statusCode != 200) {
-      throw StateError(response.body);
-    }
+    await post('abort.gs', {});
   }
 
   Future<void> begin() async {
-    final url = Uri.parse(host + 'begin.gs');
-    var body = {'session': session};
-    final response = await http.post(
-      url,
-      headers: headers,
-      body: jsonEncode(body),
-    );
-    if (response.statusCode != 200) {
-      throw StateError(response.body);
-    }
+    await post('begin.gs', {});
   }
 
   Future<bool> commit() async {
-    final url = Uri.parse(host + 'commit.gs');
-    var body = {'session': session};
-    final response = await http.post(
-      url,
-      headers: headers,
-      body: jsonEncode(body),
-    );
-    if (response.statusCode != 200) {
-      throw StateError(response.body);
-    }
-    return jsonDecode(response.body)['result'];
+    return jsonDecode(await post('commit.gs', {}))['result'];
   }
 
   Future<int> getSessionId() async {
-    final url = Uri.parse(host + 'getSessionId.gs');
-    var body = {};
-    final response = await http.post(
-      url,
-      headers: headers,
-      body: jsonEncode(body),
-    );
-    if (response.statusCode != 200) {
-      throw StateError(response.body);
-    }
-    return jsonDecode(response.body)['result'];
+    return jsonDecode(await post('getSessionId.gs', {}))['result'];
   }
 
   Future<String> getVersion() async {
-    final url = Uri.parse(host + 'version.gs');
-    var body = {};
-    final response = await http.post(
-      url,
-      headers: headers,
-      body: jsonEncode(body),
-    );
-    if (response.statusCode != 200) {
-      throw StateError(response.body);
-    }
-    return jsonDecode(response.body)['result'];
+    return jsonDecode(await post('version.gs', {}))['result'];
   }
 
   Future<void> hardBreak() async {
-    final url = Uri.parse(host + 'hardBreak.gs');
-    var body = {'session': session};
-    final response = await http.post(
-      url,
-      headers: headers,
-      body: jsonEncode(body),
-    );
-    if (response.statusCode != 200) {
-      throw StateError(response.body);
-    }
+    await post('hardBreak.gs', {});
   }
 
   Future<bool> isCallInProgress() async {
-    final url = Uri.parse(host + 'callInProgress.gs');
-    var body = {'session': session};
-    final response = await http.post(
-      url,
-      headers: headers,
-      body: jsonEncode(body),
-    );
-    if (response.statusCode != 200) {
-      throw StateError(response.body);
-    }
-    return jsonDecode(response.body)['result'];
+    return jsonDecode(await post('callInProgress.gs', {}))['result'];
   }
 
   Future<void> login(String username, String password) async {
     if (session > 0) {
       throw StateError('Session already logged in!');
     }
-    final url = Uri.parse(host + 'login.gs');
-    var body = {
+    Map<String, dynamic> body = {
       'username': username,
       'password': password,
     };
-    final response = await http.post(
-      url,
-      headers: headers,
-      body: jsonEncode(body),
-    );
-    if (response.statusCode != 200) {
-      throw StateError(response.body);
-    }
-    final result = jsonDecode(response.body);
+    var response = await post('login.gs', body);
+    final result = jsonDecode(response);
     session = result['result'] ?? 0;
     if (session > 0) {
       return;
@@ -153,30 +79,11 @@ class GciSession {
   }
 
   Future<void> logout() async {
-    final url = Uri.parse(host + 'logout.gs');
-    var body = {'session': session};
-    final response = await http.post(
-      url,
-      headers: headers,
-      body: jsonEncode(body),
-    );
-    session = 0;
-    if (response.statusCode != 200) {
-      throw StateError(response.body);
-    }
+    await post('logout.gs', {});
   }
 
   Future<void> nbExecuteStr(String source) async {
-    final url = Uri.parse(host + 'nbExecuteStr.gs');
-    var body = {'session': session, 'source': source};
-    final response = await http.post(
-      url,
-      headers: headers,
-      body: jsonEncode(body),
-    );
-    if (response.statusCode != 200) {
-      throw StateError(response.body);
-    }
+    await post('nbExecuteStr.gs', {'source': source});
   }
 
   /*
@@ -188,29 +95,10 @@ class GciSession {
   } GciNbProgressEType;
   */
   Future<Map<String, dynamic>> nbEnd() async {
-    final url = Uri.parse(host + 'nbEnd.gs');
-    var body = {'session': session};
-    final response = await http.post(
-      url,
-      headers: headers,
-      body: jsonEncode(body),
-    );
-    if (response.statusCode != 200) {
-      throw StateError(response.body);
-    }
-    return jsonDecode(response.body);
+    return jsonDecode(await post('nbEnd.gs', {}));
   }
 
   Future<void> softBreak() async {
-    final url = Uri.parse(host + 'softBreak.gs');
-    var body = {'session': session};
-    final response = await http.post(
-      url,
-      headers: headers,
-      body: jsonEncode(body),
-    );
-    if (response.statusCode != 200) {
-      throw StateError(response.body);
-    }
+    await post('softBreak.gs', {});
   }
 }
