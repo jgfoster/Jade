@@ -242,6 +242,32 @@ class GciTravBufType{ public:   uint allocatedBytes;   uint usedBytes;   ByteTyp
 '
 %
 set compile_env: 0
+! ------------------- Class definition for JadeServer
+expectvalue /Class
+doit
+Object subclass: 'JadeServer'
+  instVarNames: #( request response socket)
+  classVars: #()
+  classInstVars: #()
+  poolDictionaries: #()
+  inDictionary: GciApp
+  options: #()
+
+%
+expectvalue /Class
+doit
+JadeServer comment: 
+'API version 1 has the following request and response format:
+
+byte 1: the value 1 to indicate API v1
+bytes 2-5: an unsigned 32-bit integer (big-endian) indicating the size of the remainder
+remainder: UTF8 for a JSON object'
+%
+expectvalue /Class
+doit
+JadeServer category: 'User Interface'
+%
+set compile_env: 0
 ! ------------------- Class definition for GciLibraryApp
 expectvalue /Class
 doit
@@ -284,3 +310,4 @@ input GciStoreTravDoArgsSType_continueArgs.gs
 input GciStoreTravDoArgsSType_executestr.gs
 input GciStoreTravDoArgsSType_perform.gs
 input GciTravBufType.gs
+input JadeServer.gs
