@@ -320,20 +320,22 @@ stopSession: anInteger
 
 	System stopSession: anInteger.
 ! !
-!JadeServer categoriesFor: #_addSessionWithId:toStream:!private!Sessions! !
-!JadeServer categoriesFor: #_streamType!private!Transcript! !
-!JadeServer categoriesFor: #_stringType!private!Transcript! !
-!JadeServer categoriesFor: #_systemConfigAsDictionary!private!Transcript! !
-!JadeServer categoriesFor: #allSessions!public!Sessions! !
-!JadeServer categoriesFor: #descriptionOfConfigOption:!public!Transcript! !
-!JadeServer categoriesFor: #descriptionOfErrorNumber:!public!Sessions! !
-!JadeServer categoriesFor: #gemCacheStatisticsForSessionId:!public!Sessions! !
-!JadeServer categoriesFor: #mySessionInfo!public!Transcript! !
-!JadeServer categoriesFor: #sendSigAbortToSession:!public!Sessions! !
-!JadeServer categoriesFor: #sendSigUsr1ToSession:!public!Sessions! !
-!JadeServer categoriesFor: #sleepAndCommit!public!Transcript! !
-!JadeServer categoriesFor: #stoneInfo!public!Transcript! !
-!JadeServer categoriesFor: #stopSession:!public!Sessions! !
+!JadeServer categoriesForMethods!
+_addSessionWithId:toStream:!private!Sessions! !
+_streamType!private!Transcript! !
+_stringType!private!Transcript! !
+_systemConfigAsDictionary!private!Transcript! !
+allSessions!public!Sessions! !
+descriptionOfConfigOption:!public!Transcript! !
+descriptionOfErrorNumber:!public!Sessions! !
+gemCacheStatisticsForSessionId:!public!Sessions! !
+mySessionInfo!public!Transcript! !
+sendSigAbortToSession:!public!Sessions! !
+sendSigUsr1ToSession:!public!Sessions! !
+sleepAndCommit!public!Transcript! !
+stoneInfo!public!Transcript! !
+stopSession:!public!Sessions! !
+!
 
 !JadeServer32bit methodsFor!
 
@@ -347,7 +349,9 @@ _addSessionWithId: anInteger toStream: aStream
 		_addSessionWithId: anInteger 
 		toStream: aStream.
 ! !
-!JadeServer32bit categoriesFor: #_addSessionWithId:toStream:!private!Sessions! !
+!JadeServer32bit categoriesForMethods!
+_addSessionWithId:toStream:!private!Sessions! !
+!
 
 !JadeServer64bit methodsFor!
 
@@ -376,9 +380,11 @@ _stringType
 
 	^(Globals at: #StringConfiguration ifAbsent: [String]) name
 ! !
-!JadeServer64bit categoriesFor: #_addSessionWithId:toStream:!private!Sessions! !
-!JadeServer64bit categoriesFor: #_streamType!private!Transcript! !
-!JadeServer64bit categoriesFor: #_stringType!private!Transcript! !
+!JadeServer64bit categoriesForMethods!
+_addSessionWithId:toStream:!private!Sessions! !
+_streamType!private!Transcript! !
+_stringType!private!Transcript! !
+!
 
 "End of package definition"!
 

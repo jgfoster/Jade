@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Object subclass: #JadeFileIn
 	instanceVariableNames: 'gciSession stream line words text category className packageName'
@@ -352,37 +352,39 @@ stream: aStream
 
 	stream := aStream.
 ! !
-!JadeFileIn categoriesFor: #defineClass!public! !
-!JadeFileIn categoriesFor: #defineClassMethod!public! !
-!JadeFileIn categoriesFor: #defineInstanceMethod!public! !
-!JadeFileIn categoriesFor: #defineMethod:inClassNamed:inPackageNamed:inCategory:!public! !
-!JadeFileIn categoriesFor: #doIt!public! !
-!JadeFileIn categoriesFor: #doIt:!public! !
-!JadeFileIn categoriesFor: #fileInPath:session:!public! !
-!JadeFileIn categoriesFor: #fileInStream:session:!public! !
-!JadeFileIn categoriesFor: #fileInString:session:!public! !
-!JadeFileIn categoriesFor: #fileInXML:forBrowser:!public! !
-!JadeFileIn categoriesFor: #isDefineClass!public! !
-!JadeFileIn categoriesFor: #isPostloadScript!public! !
-!JadeFileIn categoriesFor: #isPreloadScript!public! !
-!JadeFileIn categoriesFor: #isRemoveAllMethods!public! !
-!JadeFileIn categoriesFor: #processLine!public! !
-!JadeFileIn categoriesFor: #read!public! !
-!JadeFileIn categoriesFor: #readCommit!public! !
-!JadeFileIn categoriesFor: #readDoIt!public! !
-!JadeFileIn categoriesFor: #readErrorCount!public! !
-!JadeFileIn categoriesFor: #readExpectValue!public! !
-!JadeFileIn categoriesFor: #readInput!public! !
-!JadeFileIn categoriesFor: #readRemoveAllClassMethods!public! !
-!JadeFileIn categoriesFor: #readRemoveAllMethods!public! !
-!JadeFileIn categoriesFor: #readSend!public! !
-!JadeFileIn categoriesFor: #readSetClass!public! !
-!JadeFileIn categoriesFor: #readSetCompileEnv!public! !
-!JadeFileIn categoriesFor: #readUpToPercent!public! !
-!JadeFileIn categoriesFor: #readWithProgress:!public! !
-!JadeFileIn categoriesFor: #readWithProgressA:!public! !
-!JadeFileIn categoriesFor: #removeMethods!public! !
-!JadeFileIn categoriesFor: #reportCompileFailure:!public! !
-!JadeFileIn categoriesFor: #setCategory!packages!public! !
-!JadeFileIn categoriesFor: #stream:!public! !
+!JadeFileIn categoriesForMethods!
+defineClass!public! !
+defineClassMethod!public! !
+defineInstanceMethod!public! !
+defineMethod:inClassNamed:inPackageNamed:inCategory:!public! !
+doIt!public! !
+doIt:!public! !
+fileInPath:session:!public! !
+fileInStream:session:!public! !
+fileInString:session:!public! !
+fileInXML:forBrowser:!public! !
+isDefineClass!public! !
+isPostloadScript!public! !
+isPreloadScript!public! !
+isRemoveAllMethods!public! !
+processLine!public! !
+read!public! !
+readCommit!public! !
+readDoIt!public! !
+readErrorCount!public! !
+readExpectValue!public! !
+readInput!public! !
+readRemoveAllClassMethods!public! !
+readRemoveAllMethods!public! !
+readSend!public! !
+readSetClass!public! !
+readSetCompileEnv!public! !
+readUpToPercent!public! !
+readWithProgress:!public! !
+readWithProgressA:!public! !
+removeMethods!public! !
+reportCompileFailure:!public! !
+setCategory!packages!public! !
+stream:!public! !
+!
 

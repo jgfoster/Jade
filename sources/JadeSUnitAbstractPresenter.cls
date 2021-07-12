@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadePresenter subclass: #JadeSUnitAbstractPresenter
 	instanceVariableNames: 'testCasesPresenter textResultPresenter'
@@ -82,11 +82,13 @@ setColorFor: aJadeTestResult
 				do: [:eachTest | eachTest == gsTestMethod ifTrue: [eachTest setPassed]]].
 	testCasesPresenter view invalidate.
 	textResultPresenter view backcolor: aJadeTestResult backgroundColor! !
-!JadeSUnitAbstractPresenter categoriesFor: #abortTransaction!public! !
-!JadeSUnitAbstractPresenter categoriesFor: #commitTransaction!public! !
-!JadeSUnitAbstractPresenter categoriesFor: #createComponents!public! !
-!JadeSUnitAbstractPresenter categoriesFor: #reset!public! !
-!JadeSUnitAbstractPresenter categoriesFor: #runTests:in:!public! !
-!JadeSUnitAbstractPresenter categoriesFor: #runTests:in:result:!public! !
-!JadeSUnitAbstractPresenter categoriesFor: #setColorFor:!public! !
+!JadeSUnitAbstractPresenter categoriesForMethods!
+abortTransaction!public! !
+commitTransaction!public! !
+createComponents!public! !
+reset!public! !
+runTests:in:!public! !
+runTests:in:result:!public! !
+setColorFor:!public! !
+!
 

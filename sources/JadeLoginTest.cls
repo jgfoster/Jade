@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 TestCase subclass: #JadeLoginTest
 	instanceVariableNames: ''
@@ -60,7 +60,9 @@ transcriptShell
 	].
 	^list first.
 ! !
-!JadeLoginTest categoriesFor: #loginShell!public! !
-!JadeLoginTest categoriesFor: #test!public! !
-!JadeLoginTest categoriesFor: #transcriptShell!public! !
+!JadeLoginTest categoriesForMethods!
+loginShell!public! !
+test!public! !
+transcriptShell!public! !
+!
 

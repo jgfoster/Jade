@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadeServer subclass: #JadeServer64bit
 	instanceVariableNames: ''
@@ -41,10 +41,12 @@ _mcInitialsA: aString
 homeMethodFor: aGsMethod
 
 	^[aGsMethod homeMethod] on: Error do: [:ex | ex return: aGsMethod]! !
-!JadeServer64bit categoriesFor: #_asString:!private!Transcript! !
-!JadeServer64bit categoriesFor: #_installTranscript!private!Transcript! !
-!JadeServer64bit categoriesFor: #_mcInitialsA:!private! !
-!JadeServer64bit categoriesFor: #homeMethodFor:!private! !
+!JadeServer64bit categoriesForMethods!
+_asString:!private!Transcript! !
+_installTranscript!private!Transcript! !
+_mcInitialsA:!private! !
+homeMethodFor:!private! !
+!
 
 !JadeServer64bit class methodsFor!
 
@@ -60,5 +62,7 @@ gsClassDefinitionStringFor: aClass
 		instancesInvariant: false
 		isModifiable: false.'
 ! !
-!JadeServer64bit class categoriesFor: #gsClassDefinitionStringFor:!public! !
+!JadeServer64bit class categoriesForMethods!
+gsClassDefinitionStringFor:!public! !
+!
 

@@ -67,8 +67,10 @@ asCharacterCollection
 		writeStream nextPut: readStream next.
 	].
 	^readStream contents! !
-!String categoriesFor: #asBoolean!converting!JGF!public! !
-!String categoriesFor: #asCharacterCollection!converting!JGF!public! !
+!String categoriesForMethods!
+asBoolean!converting!JGF!public! !
+asCharacterCollection!converting!JGF!public! !
+!
 
 !UserLibrary methodsFor!
 
@@ -99,17 +101,21 @@ forceSystemReboot
 
 	^self exitWindowsEx: 2 + 4. "EWX_REBOOT + EWX_FORCE"
 ! !
-!UserLibrary categoriesFor: #exitWindowsEx:!JGF!public!win32 functions-system information! !
-!UserLibrary categoriesFor: #exitWindowsEx:_:!JGF!public!win32 functions-system information! !
-!UserLibrary categoriesFor: #forceSystemLogoff!JGF!public!win32 functions-system information! !
-!UserLibrary categoriesFor: #forceSystemReboot!JGF!public!win32 functions-system information! !
+!UserLibrary categoriesForMethods!
+exitWindowsEx:!JGF!public!win32 functions-system information! !
+exitWindowsEx:_:!JGF!public!win32 functions-system information! !
+forceSystemLogoff!JGF!public!win32 functions-system information! !
+forceSystemReboot!JGF!public!win32 functions-system information! !
+!
 
 !WriteStream methodsFor!
 
 lf
 	self nextPut: Character lf.
 ! !
-!WriteStream categoriesFor: #lf!JGF!public! !
+!WriteStream categoriesForMethods!
+lf!JGF!public! !
+!
 
 "End of package definition"!
 

@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadeServer64bit24 subclass: #JadeServer64bit3x
 	instanceVariableNames: 'environment'
@@ -173,20 +173,22 @@ nextPutAll: anObject
 		selector:#'nextPutAll:'
 		args: (Array with: (self _asString: anObject)).
 	exception defaultAction.  "return error direct to GCI"! !
-!JadeServer64bit3x categoriesFor: #_allSelectors!Debugger!GsObject!private!System Browser! !
-!JadeServer64bit3x categoriesFor: #_asString:!private!Transcript! !
-!JadeServer64bit3x categoriesFor: #_categoryOfMethod:!private!System Browser! !
-!JadeServer64bit3x categoriesFor: #_describeMethod:!private! !
-!JadeServer64bit3x categoriesFor: #_environmentForMethod:!private! !
-!JadeServer64bit3x categoriesFor: #_inspectNamedInstanceVariablesOf:on:!private!Transcript! !
-!JadeServer64bit3x categoriesFor: #_installTranscript!private!Transcript! !
-!JadeServer64bit3x categoriesFor: #_keysForDictionary:!private! !
-!JadeServer64bit3x categoriesFor: #_methodSignatureForSelector:!private!System Browser! !
-!JadeServer64bit3x categoriesFor: #debugString:fromContext:environment:!public! !
-!JadeServer64bit3x categoriesFor: #executeString:fromContext:environment:!public! !
-!JadeServer64bit3x categoriesFor: #gemCacheStatisticsForSessionId:!public!Sessions! !
-!JadeServer64bit3x categoriesFor: #homeMethodFor:!private! !
-!JadeServer64bit3x categoriesFor: #nextPutAll:!public!Transcript! !
+!JadeServer64bit3x categoriesForMethods!
+_allSelectors!Debugger!GsObject!private!System Browser! !
+_asString:!private!Transcript! !
+_categoryOfMethod:!private!System Browser! !
+_describeMethod:!private! !
+_environmentForMethod:!private! !
+_inspectNamedInstanceVariablesOf:on:!private!Transcript! !
+_installTranscript!private!Transcript! !
+_keysForDictionary:!private! !
+_methodSignatureForSelector:!private!System Browser! !
+debugString:fromContext:environment:!public! !
+executeString:fromContext:environment:!public! !
+gemCacheStatisticsForSessionId:!public!Sessions! !
+homeMethodFor:!private! !
+nextPutAll:!public!Transcript! !
+!
 
 !JadeServer64bit3x class methodsFor!
 
@@ -194,5 +196,7 @@ gsMethodClassName
 
 	^'GsNMethod'
 ! !
-!JadeServer64bit3x class categoriesFor: #gsMethodClassName!public! !
+!JadeServer64bit3x class categoriesForMethods!
+gsMethodClassName!public! !
+!
 

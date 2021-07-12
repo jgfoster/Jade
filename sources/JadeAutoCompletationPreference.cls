@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadePreferenceObject subclass: #JadeAutoCompletationPreference
 	instanceVariableNames: 'isEnabled logEnabled filterObjectMethods filterPrimitiveMethods hideClassVars hideInstClassVars hidePoolDictionaries'
@@ -88,22 +88,24 @@ publishedAspects
 		add: (Aspect boolean: #hideInstClassVars);
 		add: (Aspect boolean: #hidePoolDictionaries).
 	^aspects! !
-!JadeAutoCompletationPreference categoriesFor: #displayString!public! !
-!JadeAutoCompletationPreference categoriesFor: #filterObjectMethods!accessing!private! !
-!JadeAutoCompletationPreference categoriesFor: #filterObjectMethods:!accessing!private! !
-!JadeAutoCompletationPreference categoriesFor: #filterPrimitiveMethods!accessing!private! !
-!JadeAutoCompletationPreference categoriesFor: #filterPrimitiveMethods:!accessing!private! !
-!JadeAutoCompletationPreference categoriesFor: #hideClassVars!accessing!private! !
-!JadeAutoCompletationPreference categoriesFor: #hideClassVars:!accessing!private! !
-!JadeAutoCompletationPreference categoriesFor: #hideInstClassVars!accessing!private! !
-!JadeAutoCompletationPreference categoriesFor: #hideInstClassVars:!accessing!private! !
-!JadeAutoCompletationPreference categoriesFor: #hidePoolDictionaries!accessing!private! !
-!JadeAutoCompletationPreference categoriesFor: #hidePoolDictionaries:!accessing!private! !
-!JadeAutoCompletationPreference categoriesFor: #icon!public! !
-!JadeAutoCompletationPreference categoriesFor: #initialize!public! !
-!JadeAutoCompletationPreference categoriesFor: #isEnabled!accessing!private! !
-!JadeAutoCompletationPreference categoriesFor: #isEnabled:!accessing!private! !
-!JadeAutoCompletationPreference categoriesFor: #logEnabled!accessing!private! !
-!JadeAutoCompletationPreference categoriesFor: #logEnabled:!accessing!private! !
-!JadeAutoCompletationPreference categoriesFor: #publishedAspects!public! !
+!JadeAutoCompletationPreference categoriesForMethods!
+displayString!public! !
+filterObjectMethods!accessing!private! !
+filterObjectMethods:!accessing!private! !
+filterPrimitiveMethods!accessing!private! !
+filterPrimitiveMethods:!accessing!private! !
+hideClassVars!accessing!private! !
+hideClassVars:!accessing!private! !
+hideInstClassVars!accessing!private! !
+hideInstClassVars:!accessing!private! !
+hidePoolDictionaries!accessing!private! !
+hidePoolDictionaries:!accessing!private! !
+icon!public! !
+initialize!public! !
+isEnabled!accessing!private! !
+isEnabled:!accessing!private! !
+logEnabled!accessing!private! !
+logEnabled:!accessing!private! !
+publishedAspects!public! !
+!
 

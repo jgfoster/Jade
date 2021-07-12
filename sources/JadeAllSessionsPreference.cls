@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadePreferenceObject subclass: #JadeAllSessionsPreference
 	instanceVariableNames: ''
@@ -55,22 +55,26 @@ publishedAspects
 	self gciSession isAutoMigrate ifNotNil: [aspects add: (Aspect boolean: #autoMigrate)].
 	self gciSession isShowUnimplementedMessages ifNotNil: [aspects add: (Aspect boolean: #isShowUnimplementedMessages)].
 	^aspects! !
-!JadeAllSessionsPreference categoriesFor: #autoCommit!public! !
-!JadeAllSessionsPreference categoriesFor: #autoCommit:!public! !
-!JadeAllSessionsPreference categoriesFor: #autoMigrate!public! !
-!JadeAllSessionsPreference categoriesFor: #autoMigrate:!public! !
-!JadeAllSessionsPreference categoriesFor: #displayString!public! !
-!JadeAllSessionsPreference categoriesFor: #icon!public! !
-!JadeAllSessionsPreference categoriesFor: #isShowUnimplementedMessages!public! !
-!JadeAllSessionsPreference categoriesFor: #isShowUnimplementedMessages:!public! !
-!JadeAllSessionsPreference categoriesFor: #nativeCode!public! !
-!JadeAllSessionsPreference categoriesFor: #nativeCode:!public! !
-!JadeAllSessionsPreference categoriesFor: #publishedAspects!public! !
+!JadeAllSessionsPreference categoriesForMethods!
+autoCommit!public! !
+autoCommit:!public! !
+autoMigrate!public! !
+autoMigrate:!public! !
+displayString!public! !
+icon!public! !
+isShowUnimplementedMessages!public! !
+isShowUnimplementedMessages:!public! !
+nativeCode!public! !
+nativeCode:!public! !
+publishedAspects!public! !
+!
 
 !JadeAllSessionsPreference class methodsFor!
 
 icon
 
 	^Icon fromId: 'ListView.ico'! !
-!JadeAllSessionsPreference class categoriesFor: #icon!public! !
+!JadeAllSessionsPreference class categoriesForMethods!
+icon!public! !
+!
 

@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 DWORDField subclass: #OopType32Field
 	instanceVariableNames: ''
@@ -13,5 +13,7 @@ OopType32Field comment: ''!
 fieldClass
 
 	^OopType32.! !
-!OopType32Field categoriesFor: #fieldClass!public! !
+!OopType32Field categoriesForMethods!
+fieldClass!public! !
+!
 

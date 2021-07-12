@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Presenter subclass: #JadePresenter
 	instanceVariableNames: 'gciSession'
@@ -74,11 +74,13 @@ updateMenuBar: aMenuBar withName: aString itemsFrom: aPresenter
 			at: i.
 	].
 ! !
-!JadePresenter categoriesFor: #gciSession!public! !
-!JadePresenter categoriesFor: #gciSession:!public! !
-!JadePresenter categoriesFor: #resetCursor!public! !
-!JadePresenter categoriesFor: #subMenuName!menus!public! !
-!JadePresenter categoriesFor: #subMenuPresenter!menus!public! !
-!JadePresenter categoriesFor: #updateMenuBar:!menus!public! !
-!JadePresenter categoriesFor: #updateMenuBar:withName:itemsFrom:!menus!public! !
+!JadePresenter categoriesForMethods!
+gciSession!public! !
+gciSession:!public! !
+resetCursor!public! !
+subMenuName!menus!public! !
+subMenuPresenter!menus!public! !
+updateMenuBar:!menus!public! !
+updateMenuBar:withName:itemsFrom:!menus!public! !
+!
 

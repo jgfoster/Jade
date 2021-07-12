@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Error subclass: #GciError
 	instanceVariableNames: ''
@@ -21,6 +21,8 @@ signalWith: aGciErrSType
 		signal: aGciErrSType message
 		with: aGciErrSType.
 ! !
-!GciError class categoriesFor: #signal:!public! !
-!GciError class categoriesFor: #signalWith:!public! !
+!GciError class categoriesForMethods!
+signal:!public! !
+signalWith:!public! !
+!
 

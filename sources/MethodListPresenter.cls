@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadePresenterA subclass: #MethodListPresenter
 	instanceVariableNames: 'methodListPresenter'
@@ -227,33 +227,35 @@ withSelectorDo: aBlock
 	(selector := ChoicePrompter choices: list) isNil ifTrue: [^self].
 	aBlock value: selector.
 ! !
-!MethodListPresenter categoriesFor: #anyMethod!public! !
-!MethodListPresenter categoriesFor: #browseClass!public! !
-!MethodListPresenter categoriesFor: #browseImplementors!public! !
-!MethodListPresenter categoriesFor: #browseImplementorsOf!public! !
-!MethodListPresenter categoriesFor: #browseMethodsContaining!public! !
-!MethodListPresenter categoriesFor: #browseSenders!public! !
-!MethodListPresenter categoriesFor: #browseSendersOf!public! !
-!MethodListPresenter categoriesFor: #createComponents!public! !
-!MethodListPresenter categoriesFor: #createSchematicWiring!drag & drop!public! !
-!MethodListPresenter categoriesFor: #deleteMethods!menus!public! !
-!MethodListPresenter categoriesFor: #list:!public! !
-!MethodListPresenter categoriesFor: #methodSelectionChanged!drag & drop!public! !
-!MethodListPresenter categoriesFor: #onDrag:!drag & drop!public! !
-!MethodListPresenter categoriesFor: #onLeftButtonPressed:!drag & drop!public! !
-!MethodListPresenter categoriesFor: #primaryPresenter!drag & drop!label edit!public! !
-!MethodListPresenter categoriesFor: #queryCommand:!public! !
-!MethodListPresenter categoriesFor: #removeFromList!menus!public! !
-!MethodListPresenter categoriesFor: #runTests!public! !
-!MethodListPresenter categoriesFor: #selectedClasses!public! !
-!MethodListPresenter categoriesFor: #selectedMethod!public! !
-!MethodListPresenter categoriesFor: #selectFirstMethod!public! !
-!MethodListPresenter categoriesFor: #selectionOrNil!public! !
-!MethodListPresenter categoriesFor: #selectMethod:!public! !
-!MethodListPresenter categoriesFor: #showHistory!menus!public! !
-!MethodListPresenter categoriesFor: #subMenuName!menus!public! !
-!MethodListPresenter categoriesFor: #subMenuPresenter!menus!public! !
-!MethodListPresenter categoriesFor: #withSelectorDo:!public! !
+!MethodListPresenter categoriesForMethods!
+anyMethod!public! !
+browseClass!public! !
+browseImplementors!public! !
+browseImplementorsOf!public! !
+browseMethodsContaining!public! !
+browseSenders!public! !
+browseSendersOf!public! !
+createComponents!public! !
+createSchematicWiring!drag & drop!public! !
+deleteMethods!menus!public! !
+list:!public! !
+methodSelectionChanged!drag & drop!public! !
+onDrag:!drag & drop!public! !
+onLeftButtonPressed:!drag & drop!public! !
+primaryPresenter!drag & drop!label edit!public! !
+queryCommand:!public! !
+removeFromList!menus!public! !
+runTests!public! !
+selectedClasses!public! !
+selectedMethod!public! !
+selectFirstMethod!public! !
+selectionOrNil!public! !
+selectMethod:!public! !
+showHistory!menus!public! !
+subMenuName!menus!public! !
+subMenuPresenter!menus!public! !
+withSelectorDo:!public! !
+!
 
 !MethodListPresenter class methodsFor!
 
@@ -278,6 +280,8 @@ resource_MultiClass_view
 	"
 
 	^#(#'!!STL' 4 788558 10 ##(Smalltalk.STBViewProxy) ##(Smalltalk.ContainerView) 34 15 nil nil 34 2 8 1409286144 131073 416 nil nil nil 5 nil nil nil 416 1180166 ##(Smalltalk.ProportionalLayout) 170 176 8 #() false 170 192 34 2 410 ##(Smalltalk.ListView) 34 45 nil 416 34 2 8 1140920905 1025 576 590662 2 ##(Smalltalk.ListModel) 138 144 528 nil 1310726 ##(Smalltalk.IdentitySearchPolicy) 327686 ##(Smalltalk.Color) #default nil 13 265030 4 ##(Smalltalk.Menu) nil true 34 12 984134 2 ##(Smalltalk.CommandMenuItem) 1 1180998 4 ##(Smalltalk.CommandDescription) #removeFromList 8 'Remove from &List' 1 1 nil nil nil 802 1 834 #browseClass 8 'Browse &Class' 1 1 nil nil nil 802 1 834 #deleteMethods 8 '&Delete method(s)' 1 1 nil nil nil 802 1 834 #showHistory 8 'Show &History' 1 1 nil nil nil 983366 1 ##(Smalltalk.DividerMenuItem) 4097 802 1 834 #browseImplementors 8 'Browse &Implementors' 1 1 nil nil nil 802 1 834 #browseImplementorsOf 8 'Browse Implementors of ...' 1 1 nil nil nil 802 1 834 #browseSenders 8 'Browse &Senders' 1 1 nil nil nil 802 1 834 #browseSendersOf 8 'Browse Senders of ...' 1 1 nil nil nil 802 1 834 #browseMethodsContaining 8 'Browse Methods Containing ...' 1 1 nil nil nil 1026 4097 802 1 834 #runTests 8 'Run &Test(s)' 1 1 nil nil nil 8 '' nil 134217729 nil nil nil nil nil nil nil 576 nil 8 1924746528 459270 ##(Smalltalk.Message) #displayString 8 #() nil 1049926 1 ##(Smalltalk.IconImageManager) nil nil nil nil nil nil 138 144 34 5 920646 5 ##(Smalltalk.ListViewColumn) 8 'Dictionary' 201 #left 1394 #displayString 8 #() 1394 #<= 1568 787814 3 ##(Smalltalk.BlockClosure) 0 nil 1180966 ##(Smalltalk.CompiledExpression) 3 1 1600 8 'doIt' 8 '[:each | each gsClass dictionary]' 8 #[31 105 226 0 159 106] #gsClass #dictionary 1616 7 257 nil nil 576 nil 1 nil nil 1506 8 'Class Category' 241 #left 1394 #displayString 8 #() 1394 #<= 1760 1602 0 nil 1634 3 1 ##(Smalltalk.UndefinedObject) 8 'doIt' 8 '[:each | each gsClass category]' 8 #[31 105 226 0 159 106] #gsClass #category 1792 7 257 nil nil 576 nil 3 nil nil 1506 8 'Class' 241 #left 1394 #displayString 8 #() 1394 #<= 1920 1602 0 nil 1634 3 1 1600 8 'doIt' 8 '[:each | each gsClass name]' 8 #[31 105 226 0 159 106] #gsClass #name 1952 7 257 nil nil 576 nil 3 nil nil 1506 8 'Method Category' 241 #left 1394 #displayString 1760 1394 #<= 1760 1602 0 nil 1634 2 1 ##(Smalltalk.UndefinedObject) 8 'doIt' 8 '[:each | each category]' 8 #[30 105 226 0 106] #category 2096 7 257 nil nil 576 nil 3 nil nil 1506 8 'Method' 241 #left 1394 #displayString 1424 1394 #<= 8 #() 1602 0 nil 1634 2 1 1600 8 'doIt' 8 '[:each | each name]' 8 #[30 105 226 0 106] #name 2256 7 257 nil nil 576 nil 3 nil nil #report 8 #() nil 131169 nil 1 nil nil nil nil nil nil nil nil nil nil nil nil nil nil nil 983302 ##(Smalltalk.MessageSequence) 138 144 34 3 721670 ##(Smalltalk.MessageSend) #createAt:extent: 34 2 328198 ##(Smalltalk.Point) 1 1 2466 1201 401 576 2418 #contextMenu: 34 1 768 576 2418 #text: 34 1 8 'Dictionary' 576 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 88 2 0 0 200 0 0 0] 8 #() 2466 193 193 nil 35 8 'methodList' nil 2354 138 144 34 1 2418 #createAt:extent: 34 2 2466 5119 21 2466 1201 401 416 2594 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 9 0 0 10 0 0 0 87 12 0 0 210 0 0 0] 34 1 576 2656 nil 27 )! !
-!MethodListPresenter class categoriesFor: #publishedEventsOfInstances!public! !
-!MethodListPresenter class categoriesFor: #resource_MultiClass_view!public!resources-views! !
+!MethodListPresenter class categoriesForMethods!
+publishedEventsOfInstances!public! !
+resource_MultiClass_view!public!resources-views! !
+!
 

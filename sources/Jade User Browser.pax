@@ -250,17 +250,19 @@ userList
 	list do: [:each | self _addUser: each toStream: stream].
 	^self _encodeString: stream contents.
 ! !
-!JadeServer categoriesFor: #_addUser:toStream:!private!UserProfile! !
-!JadeServer categoriesFor: #addGroup:toUser:!public!UserProfile! !
-!JadeServer categoriesFor: #addPrivilege:toUser:!public!UserProfile! !
-!JadeServer categoriesFor: #allUsersPasswordLimits!public!UserProfile! !
-!JadeServer categoriesFor: #dictionaryListFor:!public! !
-!JadeServer categoriesFor: #groupListFor:!public!UserProfile! !
-!JadeServer categoriesFor: #newUser:!public!UserProfile! !
-!JadeServer categoriesFor: #privilegeListFor:!public!UserProfile! !
-!JadeServer categoriesFor: #removeGroup:fromUser:!public!UserProfile! !
-!JadeServer categoriesFor: #removePrivilege:fromUser:!public!UserProfile! !
-!JadeServer categoriesFor: #userList!public!UserProfile! !
+!JadeServer categoriesForMethods!
+_addUser:toStream:!private!UserProfile! !
+addGroup:toUser:!public!UserProfile! !
+addPrivilege:toUser:!public!UserProfile! !
+allUsersPasswordLimits!public!UserProfile! !
+dictionaryListFor:!public! !
+groupListFor:!public!UserProfile! !
+newUser:!public!UserProfile! !
+privilegeListFor:!public!UserProfile! !
+removeGroup:fromUser:!public!UserProfile! !
+removePrivilege:fromUser:!public!UserProfile! !
+userList!public!UserProfile! !
+!
 
 !JadeServer32bit methodsFor!
 
@@ -274,7 +276,9 @@ _addUser: aUserProfile toStream: aStream
 		_addUser: aUserProfile 
 		toStream: aStream.
 ! !
-!JadeServer32bit categoriesFor: #_addUser:toStream:!private!UserProfile! !
+!JadeServer32bit categoriesForMethods!
+_addUser:toStream:!private!UserProfile! !
+!
 
 !JadeServer64bit methodsFor!
 
@@ -289,7 +293,9 @@ _addUser: aUserProfile toStream: aStream
 		ex return.
 	].
 ! !
-!JadeServer64bit categoriesFor: #_addUser:toStream:!private!UserProfile! !
+!JadeServer64bit categoriesForMethods!
+_addUser:toStream:!private!UserProfile! !
+!
 
 !JadeTextDocument methodsFor!
 
@@ -302,7 +308,9 @@ jadeBrowseUsers
 		warning: 'Server initialization failed at login.'
 		caption: 'Unable to Open Browser'.
 ! !
-!JadeTextDocument categoriesFor: #jadeBrowseUsers!Jade!private! !
+!JadeTextDocument categoriesForMethods!
+jadeBrowseUsers!Jade!private! !
+!
 
 !JadeToolsToolBarPresenter methodsFor!
 
@@ -310,7 +318,9 @@ browseUsers
 
 	AllUsersShell showOnSession: gciSession.
 ! !
-!JadeToolsToolBarPresenter categoriesFor: #browseUsers!public! !
+!JadeToolsToolBarPresenter categoriesForMethods!
+browseUsers!public! !
+!
 
 "End of package definition"!
 

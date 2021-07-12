@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsApplicationError subclass: #GsHaltError
 	instanceVariableNames: ''
@@ -16,5 +16,7 @@ wantsToHandle: aGciErrorSType session: aGciSession
 		aGciErrorSType message = 'a Halt occurred (error 2709)'].
 
 ! !
-!GsHaltError class categoriesFor: #wantsToHandle:session:!public! !
+!GsHaltError class categoriesForMethods!
+wantsToHandle:session:!public! !
+!
 

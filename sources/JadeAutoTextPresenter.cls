@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadeTextPresenter subclass: #JadeAutoTextPresenter
 	instanceVariableNames: 'lastGsShape lastWord lastCharacter currentWord temporaries arguments altMode'
@@ -358,42 +358,44 @@ updateAutocompletationTextWith: aKeyEvent
 					ifTrue: [currentWord notEmpty ifTrue: [currentWord allButLast] ifFalse: ['']]
 					ifFalse: [currentWord , key]).
 	"self transcriptOutput."! !
-!JadeAutoTextPresenter categoriesFor: #autocompletationConfiguration!autocompletion!public! !
-!JadeAutoTextPresenter categoriesFor: #autocompleteForAlphaNumeric!autocompletation cycle!autocompletion!public! !
-!JadeAutoTextPresenter categoriesFor: #autocompleteForEnter!autocompletation cycle!autocompletion!public! !
-!JadeAutoTextPresenter categoriesFor: #autocompleteForRightAlt!autocompletation cycle!autocompletion!public! !
-!JadeAutoTextPresenter categoriesFor: #autocompleteForSpace!autocompletation cycle!autocompletion!public! !
-!JadeAutoTextPresenter categoriesFor: #autocompleteForTab!autocompletion!public! !
-!JadeAutoTextPresenter categoriesFor: #clearAutocompletation!autocompletation cycle!autocompletion!public! !
-!JadeAutoTextPresenter categoriesFor: #codePresenterIsMethod!public! !
-!JadeAutoTextPresenter categoriesFor: #configuration!autocompletion!public! !
-!JadeAutoTextPresenter categoriesFor: #controlKeys!autocompletion!public! !
-!JadeAutoTextPresenter categoriesFor: #createSchematicWiring!public! !
-!JadeAutoTextPresenter categoriesFor: #currentWord!accessing!private! !
-!JadeAutoTextPresenter categoriesFor: #currentWord:!accessing!private! !
-!JadeAutoTextPresenter categoriesFor: #getArgumentsNames!autocompletion!autocompletion lists!public! !
-!JadeAutoTextPresenter categoriesFor: #getClassesName!public! !
-!JadeAutoTextPresenter categoriesFor: #getClassMethodsFor:!autocompletion!public! !
-!JadeAutoTextPresenter categoriesFor: #getMappedStringToClass!autocompletion lists!public! !
-!JadeAutoTextPresenter categoriesFor: #getMethodsForAnyone!autocompletion lists!public! !
-!JadeAutoTextPresenter categoriesFor: #getMethodsForSelf!autocompletion lists!public! !
-!JadeAutoTextPresenter categoriesFor: #getNamesAfterAssigment!autocompletion lists!public! !
-!JadeAutoTextPresenter categoriesFor: #getNamesForAlphaNumeric!autocompletion!autocompletion lists!public! !
-!JadeAutoTextPresenter categoriesFor: #getTemporaries!autocompletion lists!public! !
-!JadeAutoTextPresenter categoriesFor: #initialize!public! !
-!JadeAutoTextPresenter categoriesFor: #insertText:at:!autocompletation cycle!autocompletion!public! !
-!JadeAutoTextPresenter categoriesFor: #lastCharacter!accessing!private! !
-!JadeAutoTextPresenter categoriesFor: #lastCharacter:!accessing!private! !
-!JadeAutoTextPresenter categoriesFor: #lastGsShape!accessing!private! !
-!JadeAutoTextPresenter categoriesFor: #lastGsShape:!accessing!private! !
-!JadeAutoTextPresenter categoriesFor: #lastWord!accessing!private! !
-!JadeAutoTextPresenter categoriesFor: #lastWord:!accessing!private! !
-!JadeAutoTextPresenter categoriesFor: #logMethodName:info:!public! !
-!JadeAutoTextPresenter categoriesFor: #onAutoComplete:startingAt:accept:!autocompletation cycle!autocompletion!public! !
-!JadeAutoTextPresenter categoriesFor: #onKeyPressed:!autocompletation cycle!autocompletion!public! !
-!JadeAutoTextPresenter categoriesFor: #processKeyPressed:!autocompletation cycle!autocompletion!public! !
-!JadeAutoTextPresenter categoriesFor: #registry!autocompletion!public! !
-!JadeAutoTextPresenter categoriesFor: #showAutoCompletionList:prefixLength:!autocompletation cycle!public! !
-!JadeAutoTextPresenter categoriesFor: #transcriptOutput!autocompletion!public! !
-!JadeAutoTextPresenter categoriesFor: #updateAutocompletationTextWith:!autocompletation cycle!autocompletion!public! !
+!JadeAutoTextPresenter categoriesForMethods!
+autocompletationConfiguration!autocompletion!public! !
+autocompleteForAlphaNumeric!autocompletation cycle!autocompletion!public! !
+autocompleteForEnter!autocompletation cycle!autocompletion!public! !
+autocompleteForRightAlt!autocompletation cycle!autocompletion!public! !
+autocompleteForSpace!autocompletation cycle!autocompletion!public! !
+autocompleteForTab!autocompletion!public! !
+clearAutocompletation!autocompletation cycle!autocompletion!public! !
+codePresenterIsMethod!public! !
+configuration!autocompletion!public! !
+controlKeys!autocompletion!public! !
+createSchematicWiring!public! !
+currentWord!accessing!private! !
+currentWord:!accessing!private! !
+getArgumentsNames!autocompletion!autocompletion lists!public! !
+getClassesName!public! !
+getClassMethodsFor:!autocompletion!public! !
+getMappedStringToClass!autocompletion lists!public! !
+getMethodsForAnyone!autocompletion lists!public! !
+getMethodsForSelf!autocompletion lists!public! !
+getNamesAfterAssigment!autocompletion lists!public! !
+getNamesForAlphaNumeric!autocompletion!autocompletion lists!public! !
+getTemporaries!autocompletion lists!public! !
+initialize!public! !
+insertText:at:!autocompletation cycle!autocompletion!public! !
+lastCharacter!accessing!private! !
+lastCharacter:!accessing!private! !
+lastGsShape!accessing!private! !
+lastGsShape:!accessing!private! !
+lastWord!accessing!private! !
+lastWord:!accessing!private! !
+logMethodName:info:!public! !
+onAutoComplete:startingAt:accept:!autocompletation cycle!autocompletion!public! !
+onKeyPressed:!autocompletation cycle!autocompletion!public! !
+processKeyPressed:!autocompletation cycle!autocompletion!public! !
+registry!autocompletion!public! !
+showAutoCompletionList:prefixLength:!autocompletation cycle!public! !
+transcriptOutput!autocompletion!public! !
+updateAutocompletationTextWith:!autocompletation cycle!autocompletion!public! !
+!
 

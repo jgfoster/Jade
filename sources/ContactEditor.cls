@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 ContactsShell subclass: #ContactEditor
 	instanceVariableNames: 'contact namePresenter titlePresenter phonePresenter'
@@ -70,15 +70,17 @@ writeLock
 
 	self attemptLock: #write.
 ! !
-!ContactEditor categoriesFor: #attemptLock:!public! !
-!ContactEditor categoriesFor: #cancel!public! !
-!ContactEditor categoriesFor: #contact:!accessing!public! !
-!ContactEditor categoriesFor: #createComponents!public! !
-!ContactEditor categoriesFor: #onViewOpened!public! !
-!ContactEditor categoriesFor: #readLock!public! !
-!ContactEditor categoriesFor: #save!public! !
-!ContactEditor categoriesFor: #updateFields!public! !
-!ContactEditor categoriesFor: #writeLock!public! !
+!ContactEditor categoriesForMethods!
+attemptLock:!public! !
+cancel!public! !
+contact:!accessing!public! !
+createComponents!public! !
+onViewOpened!public! !
+readLock!public! !
+save!public! !
+updateFields!public! !
+writeLock!public! !
+!
 
 !ContactEditor class methodsFor!
 
@@ -103,7 +105,9 @@ showOn: aContact inSession: aGciSession
 		showShell;
 		yourself.
 ! !
-!ContactEditor class categoriesFor: #resource_Default_view!public!resources-views! !
-!ContactEditor class categoriesFor: #showOn:!public! !
-!ContactEditor class categoriesFor: #showOn:inSession:!public! !
+!ContactEditor class categoriesForMethods!
+resource_Default_view!public!resources-views! !
+showOn:!public! !
+showOn:inSession:!public! !
+!
 

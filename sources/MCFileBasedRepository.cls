@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 MCRepository subclass: #MCFileBasedRepository
 	instanceVariableNames: ''
@@ -59,10 +59,12 @@ versionInfoForPackageNamed: packageName version: versionName
 
 	^self versionInfoForPackageNamed: packageName , '-' , versionName.
 ! !
-!MCFileBasedRepository categoriesFor: #allVersionInfoNames!public! !
-!MCFileBasedRepository categoriesFor: #fullNameOfPackage:versionName:!public! !
-!MCFileBasedRepository categoriesFor: #loadPackageNamed:versionName:!public! !
-!MCFileBasedRepository categoriesFor: #patchFrom:to:!public! !
-!MCFileBasedRepository categoriesFor: #topazFrom:!public! !
-!MCFileBasedRepository categoriesFor: #versionInfoForPackageNamed:version:!public! !
+!MCFileBasedRepository categoriesForMethods!
+allVersionInfoNames!public! !
+fullNameOfPackage:versionName:!public! !
+loadPackageNamed:versionName:!public! !
+patchFrom:to:!public! !
+topazFrom:!public! !
+versionInfoForPackageNamed:version:!public! !
+!
 

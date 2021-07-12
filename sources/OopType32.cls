@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 DWORD subclass: #OopType32
 	instanceVariableNames: ''
@@ -58,15 +58,17 @@ printOn: aStream
 
 	aStream nextPutAll: 'Oop(' , self value printString , ')'.
 ! !
-!OopType32 categoriesFor: #is64BitBoolean!public! !
-!OopType32 categoriesFor: #is64BitCharacter!public! !
-!OopType32 categoriesFor: #is64BitSmallInteger!public! !
-!OopType32 categoriesFor: #is6xBoolean!public! !
-!OopType32 categoriesFor: #is6xCharacter!public! !
-!OopType32 categoriesFor: #is6xSmallInteger!public! !
-!OopType32 categoriesFor: #isGsNil!public! !
-!OopType32 categoriesFor: #isSmallDouble!public! !
-!OopType32 categoriesFor: #printOn:!public! !
+!OopType32 categoriesForMethods!
+is64BitBoolean!public! !
+is64BitCharacter!public! !
+is64BitSmallInteger!public! !
+is6xBoolean!public! !
+is6xCharacter!public! !
+is6xSmallInteger!public! !
+isGsNil!public! !
+isSmallDouble!public! !
+printOn:!public! !
+!
 
 !OopType32 class methodsFor!
 
@@ -74,5 +76,7 @@ elementSize
 
 	^4.
 ! !
-!OopType32 class categoriesFor: #elementSize!public! !
+!OopType32 class categoriesForMethods!
+elementSize!public! !
+!
 

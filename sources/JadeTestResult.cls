@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Object subclass: #JadeTestResult
 	instanceVariableNames: 'failures errors passed summary'
@@ -83,29 +83,33 @@ summary
 
 summary: anObject
 	summary := anObject! !
-!JadeTestResult categoriesFor: #addError:!public! !
-!JadeTestResult categoriesFor: #addFailure:!public! !
-!JadeTestResult categoriesFor: #addPassed:!public! !
-!JadeTestResult categoriesFor: #backgroundColor!public! !
-!JadeTestResult categoriesFor: #errors!accessing!private! !
-!JadeTestResult categoriesFor: #errors:!accessing!private! !
-!JadeTestResult categoriesFor: #failures!accessing!private! !
-!JadeTestResult categoriesFor: #failures:!accessing!private! !
-!JadeTestResult categoriesFor: #hasErrors!public! !
-!JadeTestResult categoriesFor: #hasPassed!public! !
-!JadeTestResult categoriesFor: #hasWarnings!public! !
-!JadeTestResult categoriesFor: #initialize!public! !
-!JadeTestResult categoriesFor: #numberOfTests!public! !
-!JadeTestResult categoriesFor: #passed!accessing!private! !
-!JadeTestResult categoriesFor: #passed:!accessing!private! !
-!JadeTestResult categoriesFor: #setSummary!public! !
-!JadeTestResult categoriesFor: #summary!accessing!private! !
-!JadeTestResult categoriesFor: #summary:!accessing!private! !
+!JadeTestResult categoriesForMethods!
+addError:!public! !
+addFailure:!public! !
+addPassed:!public! !
+backgroundColor!public! !
+errors!accessing!private! !
+errors:!accessing!private! !
+failures!accessing!private! !
+failures:!accessing!private! !
+hasErrors!public! !
+hasPassed!public! !
+hasWarnings!public! !
+initialize!public! !
+numberOfTests!public! !
+passed!accessing!private! !
+passed:!accessing!private! !
+setSummary!public! !
+summary!accessing!private! !
+summary:!accessing!private! !
+!
 
 !JadeTestResult class methodsFor!
 
 new
 
 	^super new initialize! !
-!JadeTestResult class categoriesFor: #new!public! !
+!JadeTestResult class categoriesForMethods!
+new!public! !
+!
 

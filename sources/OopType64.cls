@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 ULARGE_INTEGER subclass: #OopType64
 	instanceVariableNames: 'objectInfo'
@@ -269,28 +269,30 @@ smallDoubleAsFloat
 	].
 	^(frac + 16r8000000000000 / 16r8000000000000 * (2 raisedTo: expn - 127) * sign) asFloat.
 ! !
-!OopType64 categoriesFor: #=!public! !
-!OopType64 categoriesFor: #asDate!converting!public! !
-!OopType64 categoriesFor: #asDateAndTime!converting!public! !
-!OopType64 categoriesFor: #asFraction!converting!public! !
-!OopType64 categoriesFor: #asScaledDecimal!converting!public! !
-!OopType64 categoriesFor: #asSmallInteger!converting!public! !
-!OopType64 categoriesFor: #asTime!converting!public! !
-!OopType64 categoriesFor: #isBoolean!public!testing! !
-!OopType64 categoriesFor: #isCharacter!public!testing! !
-!OopType64 categoriesFor: #isGsNil!public!testing! !
-!OopType64 categoriesFor: #isImmediate!public!testing! !
-!OopType64 categoriesFor: #isOopIllegal!public!testing! !
-!OopType64 categoriesFor: #isSmallDate!public!testing! !
-!OopType64 categoriesFor: #isSmallDateAndTime!public!testing! !
-!OopType64 categoriesFor: #isSmallDouble!public!testing! !
-!OopType64 categoriesFor: #isSmallFraction!public!testing! !
-!OopType64 categoriesFor: #isSmallInteger!public!testing! !
-!OopType64 categoriesFor: #isSmallScaledDecimal!public!testing! !
-!OopType64 categoriesFor: #isSmallTime!public!testing! !
-!OopType64 categoriesFor: #isSpecial!public!testing! !
-!OopType64 categoriesFor: #objectInfo!accessing!public! !
-!OopType64 categoriesFor: #objectInfo:!accessing!public! !
-!OopType64 categoriesFor: #printOn:!public! !
-!OopType64 categoriesFor: #smallDoubleAsFloat!converting!public! !
+!OopType64 categoriesForMethods!
+=!public! !
+asDate!converting!public! !
+asDateAndTime!converting!public! !
+asFraction!converting!public! !
+asScaledDecimal!converting!public! !
+asSmallInteger!converting!public! !
+asTime!converting!public! !
+isBoolean!public!testing! !
+isCharacter!public!testing! !
+isGsNil!public!testing! !
+isImmediate!public!testing! !
+isOopIllegal!public!testing! !
+isSmallDate!public!testing! !
+isSmallDateAndTime!public!testing! !
+isSmallDouble!public!testing! !
+isSmallFraction!public!testing! !
+isSmallInteger!public!testing! !
+isSmallScaledDecimal!public!testing! !
+isSmallTime!public!testing! !
+isSpecial!public!testing! !
+objectInfo!accessing!public! !
+objectInfo:!accessing!public! !
+printOn:!public! !
+smallDoubleAsFloat!converting!public! !
+!
 

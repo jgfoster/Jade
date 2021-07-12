@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 SmalltalkSyntaxTutorial subclass: #GemStoneSyntaxTutorial
 	instanceVariableNames: ''
@@ -597,29 +597,31 @@ so, select the line (or click anywhere on the line) and do one of the following:
 ProfStef goto: 2.
 ProfStef next.'
 ! !
-!GemStoneSyntaxTutorial categoriesFor: #basicTypesArray!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #basicTypesCharacters!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #basicTypesNumbers!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #basicTypesString!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #basicTypesSymbol!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #blocks!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #blocksAssignation!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #conditionals!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #debugger!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #displaying!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #evaluatingVsDisplaying!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #gemStoneEnvironment!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #inspecting!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #instantiation!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #iterators!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #loops!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #mathematicalPrecedence!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #messageSyntaxBinary!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #messageSyntaxCascade!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #messageSyntaxExecutionOrder!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #reflection!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #reflectionContinued!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #tableOfContents!contents!public! !
-!GemStoneSyntaxTutorial categoriesFor: #theEnd!pages!public! !
-!GemStoneSyntaxTutorial categoriesFor: #welcome!pages!public! !
+!GemStoneSyntaxTutorial categoriesForMethods!
+basicTypesArray!pages!public! !
+basicTypesCharacters!pages!public! !
+basicTypesNumbers!pages!public! !
+basicTypesString!pages!public! !
+basicTypesSymbol!pages!public! !
+blocks!pages!public! !
+blocksAssignation!pages!public! !
+conditionals!pages!public! !
+debugger!pages!public! !
+displaying!pages!public! !
+evaluatingVsDisplaying!pages!public! !
+gemStoneEnvironment!pages!public! !
+inspecting!pages!public! !
+instantiation!pages!public! !
+iterators!pages!public! !
+loops!pages!public! !
+mathematicalPrecedence!pages!public! !
+messageSyntaxBinary!pages!public! !
+messageSyntaxCascade!pages!public! !
+messageSyntaxExecutionOrder!pages!public! !
+reflection!pages!public! !
+reflectionContinued!pages!public! !
+tableOfContents!contents!public! !
+theEnd!pages!public! !
+welcome!pages!public! !
+!
 

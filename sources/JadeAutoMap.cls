@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Object subclass: #JadeAutoMap
 	instanceVariableNames: 'name gsClassShapeName'
@@ -27,8 +27,10 @@ name
 
 name: anObject
 	name := anObject! !
-!JadeAutoMap categoriesFor: #gsClassShapeName!accessing!private! !
-!JadeAutoMap categoriesFor: #gsClassShapeName:!accessing!private! !
-!JadeAutoMap categoriesFor: #name!accessing!private! !
-!JadeAutoMap categoriesFor: #name:!accessing!private! !
+!JadeAutoMap categoriesForMethods!
+gsClassShapeName!accessing!private! !
+gsClassShapeName:!accessing!private! !
+name!accessing!private! !
+name:!accessing!private! !
+!
 

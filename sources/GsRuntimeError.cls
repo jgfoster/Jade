@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsError subclass: #GsRuntimeError
 	instanceVariableNames: ''
@@ -14,7 +14,9 @@ isResumableInGem
 
 	^true.
 ! !
-!GsRuntimeError categoriesFor: #isResumableInGem!public! !
+!GsRuntimeError categoriesForMethods!
+isResumableInGem!public! !
+!
 
 !GsRuntimeError class methodsFor!
 
@@ -22,5 +24,7 @@ wantsToHandle: aGciErrorSType session: aGciSession
 
 	^aGciErrorSType isRuntimeErrorInSession: aGciSession.
 ! !
-!GsRuntimeError class categoriesFor: #wantsToHandle:session:!public! !
+!GsRuntimeError class categoriesForMethods!
+wantsToHandle:session:!public! !
+!
 

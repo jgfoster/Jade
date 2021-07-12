@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadePresenter subclass: #JadeRewriteChangesBrowser
 	instanceVariableNames: 'changedMethodsPresenter differencePresenter'
@@ -18,5 +18,7 @@ createComponents
 
 	differencePresenter := self add: DifferencesPresenter new name: 'diff'.
 	! !
-!JadeRewriteChangesBrowser categoriesFor: #createComponents!public! !
+!JadeRewriteChangesBrowser categoriesForMethods!
+createComponents!public! !
+!
 

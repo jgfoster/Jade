@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 LibGciRpc64_3_4_0 subclass: #LibGciRpc64_3_6_0
 	instanceVariableNames: ''
@@ -18,5 +18,7 @@ specialFromOop: anOop
 	anOop isSmallDate			ifTrue: [^anOop asDate			].
 	^super specialFromOop: anOop
 ! !
-!LibGciRpc64_3_6_0 categoriesFor: #specialFromOop:!public! !
+!LibGciRpc64_3_6_0 categoriesForMethods!
+specialFromOop:!public! !
+!
 

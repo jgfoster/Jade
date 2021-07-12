@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadeShell subclass: #JadeRewriteMethodsListShell
 	instanceVariableNames: 'rewriteMethodsListPresenter'
@@ -45,12 +45,14 @@ shellName
 updateCaption
 
 	self caption: self shellName! !
-!JadeRewriteMethodsListShell categoriesFor: #createComponents!public! !
-!JadeRewriteMethodsListShell categoriesFor: #currentRule!public! !
-!JadeRewriteMethodsListShell categoriesFor: #defaultPresenterClass!public! !
-!JadeRewriteMethodsListShell categoriesFor: #isMethodPresenterValue!public! !
-!JadeRewriteMethodsListShell categoriesFor: #model:!public! !
-!JadeRewriteMethodsListShell categoriesFor: #quoteSourceCode:!public! !
-!JadeRewriteMethodsListShell categoriesFor: #shellName!public! !
-!JadeRewriteMethodsListShell categoriesFor: #updateCaption!public! !
+!JadeRewriteMethodsListShell categoriesForMethods!
+createComponents!public! !
+currentRule!public! !
+defaultPresenterClass!public! !
+isMethodPresenterValue!public! !
+model:!public! !
+quoteSourceCode:!public! !
+shellName!public! !
+updateCaption!public! !
+!
 

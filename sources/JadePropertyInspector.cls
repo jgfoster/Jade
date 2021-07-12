@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 PropertyInspector subclass: #JadePropertyInspector
 	instanceVariableNames: ''
@@ -14,5 +14,7 @@ popupEditAspect
 	"Action the currently selected aspect using the current aspect presenter"
 
 	parentPresenter openCustomPopUpFor: aspectTreePresenter selection name ifNone: [super popupEditAspect]! !
-!JadePropertyInspector categoriesFor: #popupEditAspect!public! !
+!JadePropertyInspector categoriesForMethods!
+popupEditAspect!public! !
+!
 

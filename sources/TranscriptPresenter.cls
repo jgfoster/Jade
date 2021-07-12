@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 CodeSourcePresenter subclass: #TranscriptPresenter
 	instanceVariableNames: ''
@@ -80,13 +80,15 @@ tab
 
 	^self nextPutAll: Character tab asString.
 ! !
-!TranscriptPresenter categoriesFor: #cr!public! !
-!TranscriptPresenter categoriesFor: #edit:!public! !
-!TranscriptPresenter categoriesFor: #editCut!public! !
-!TranscriptPresenter categoriesFor: #editDelete!public! !
-!TranscriptPresenter categoriesFor: #nextPut:!public! !
-!TranscriptPresenter categoriesFor: #nextPutAll:!public! !
-!TranscriptPresenter categoriesFor: #onViewOpened!public! !
-!TranscriptPresenter categoriesFor: #show:!public! !
-!TranscriptPresenter categoriesFor: #tab!public! !
+!TranscriptPresenter categoriesForMethods!
+cr!public! !
+edit:!public! !
+editCut!public! !
+editDelete!public! !
+nextPut:!public! !
+nextPutAll:!public! !
+onViewOpened!public! !
+show:!public! !
+tab!public! !
+!
 

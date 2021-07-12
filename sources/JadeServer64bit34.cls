@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadeServer64bit33 subclass: #JadeServer64bit34
 	instanceVariableNames: ''
@@ -54,8 +54,10 @@ executeString: aString fromContext: anObject environment: anInteger
 		ex resume.
 	].
 ! !
-!JadeServer64bit34 categoriesFor: #_environmentSuperClassFor:!private!System Browser! !
-!JadeServer64bit34 categoriesFor: #classOrganizer!private! !
-!JadeServer64bit34 categoriesFor: #debugString:fromContext:environment:!public! !
-!JadeServer64bit34 categoriesFor: #executeString:fromContext:environment:!public! !
+!JadeServer64bit34 categoriesForMethods!
+_environmentSuperClassFor:!private!System Browser! !
+classOrganizer!private! !
+debugString:fromContext:environment:!public! !
+executeString:fromContext:environment:!public! !
+!
 

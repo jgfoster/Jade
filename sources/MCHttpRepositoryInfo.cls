@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Object subclass: #MCHttpRepositoryInfo
 	instanceVariableNames: 'location user password'
@@ -34,13 +34,15 @@ user
 
 user: anObject
 	user := anObject! !
-!MCHttpRepositoryInfo categoriesFor: #initialize!private! !
-!MCHttpRepositoryInfo categoriesFor: #location!accessing!private! !
-!MCHttpRepositoryInfo categoriesFor: #location:!accessing!private! !
-!MCHttpRepositoryInfo categoriesFor: #password!accessing!private! !
-!MCHttpRepositoryInfo categoriesFor: #password:!accessing!private! !
-!MCHttpRepositoryInfo categoriesFor: #user!accessing!private! !
-!MCHttpRepositoryInfo categoriesFor: #user:!accessing!private! !
+!MCHttpRepositoryInfo categoriesForMethods!
+initialize!private! !
+location!accessing!private! !
+location:!accessing!private! !
+password!accessing!private! !
+password:!accessing!private! !
+user!accessing!private! !
+user:!accessing!private! !
+!
 
 !MCHttpRepositoryInfo class methodsFor!
 
@@ -50,5 +52,7 @@ new
 		initialize;
 		yourself.
 ! !
-!MCHttpRepositoryInfo class categoriesFor: #new!public! !
+!MCHttpRepositoryInfo class categoriesForMethods!
+new!public! !
+!
 

@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 VWComponent subclass: #VWClass
 	instanceVariableNames: 'superClass indexedType instVars classInstVars imports comment methods'
@@ -193,14 +193,16 @@ readOther
 	instVars 		notEmpty ifTrue: [instVars 		:= instVars 		first string subStrings].
 	classInstVars 	notEmpty ifTrue: [classInstVars 	:= classInstVars 	first string subStrings].
 ! !
-!VWClass categoriesFor: #addMethod:!public! !
-!VWClass categoriesFor: #addMethods:!public! !
-!VWClass categoriesFor: #comment:!public! !
-!VWClass categoriesFor: #initializer!public! !
-!VWClass categoriesFor: #methods!public! !
-!VWClass categoriesFor: #printBytesTopazFileInOn:!public! !
-!VWClass categoriesFor: #printCommentOn:!public! !
-!VWClass categoriesFor: #printObjectsTopazFileInOn:!public! !
-!VWClass categoriesFor: #printTopazFileInOn:!public! !
-!VWClass categoriesFor: #readOther!public! !
+!VWClass categoriesForMethods!
+addMethod:!public! !
+addMethods:!public! !
+comment:!public! !
+initializer!public! !
+methods!public! !
+printBytesTopazFileInOn:!public! !
+printCommentOn:!public! !
+printObjectsTopazFileInOn:!public! !
+printTopazFileInOn:!public! !
+readOther!public! !
+!
 

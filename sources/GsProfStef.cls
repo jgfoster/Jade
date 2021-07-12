@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadeWorkspace subclass: #GsProfStef
 	instanceVariableNames: 'dictionaryName index tutorial'
@@ -91,18 +91,20 @@ updateLesson
 	codePane text: string.
 	self updateCaption.
 ! !
-!GsProfStef categoriesFor: #executeSelectionOrLine!public! !
-!GsProfStef categoriesFor: #first!public! !
-!GsProfStef categoriesFor: #goto:!public! !
-!GsProfStef categoriesFor: #initialize!public! !
-!GsProfStef categoriesFor: #lesson!public! !
-!GsProfStef categoriesFor: #next!public! !
-!GsProfStef categoriesFor: #onCloseRequested!public! !
-!GsProfStef categoriesFor: #onViewDestroyed!public! !
-!GsProfStef categoriesFor: #onViewOpened!public! !
-!GsProfStef categoriesFor: #previous!public! !
-!GsProfStef categoriesFor: #updateCaption!private!updating! !
-!GsProfStef categoriesFor: #updateLesson!public! !
+!GsProfStef categoriesForMethods!
+executeSelectionOrLine!public! !
+first!public! !
+goto:!public! !
+initialize!public! !
+lesson!public! !
+next!public! !
+onCloseRequested!public! !
+onViewDestroyed!public! !
+onViewOpened!public! !
+previous!public! !
+updateCaption!private!updating! !
+updateLesson!public! !
+!
 
 !GsProfStef class methodsFor!
 
@@ -174,13 +176,15 @@ showOnSession: aGciSession
 			current first.
 		].
 	].! !
-!GsProfStef class categoriesFor: #clearCurrent!public! !
-!GsProfStef class categoriesFor: #current!public! !
-!GsProfStef class categoriesFor: #first!navigation!public! !
-!GsProfStef class categoriesFor: #go!navigation!public! !
-!GsProfStef class categoriesFor: #goto:!navigation!public! !
-!GsProfStef class categoriesFor: #icon!constants!public! !
-!GsProfStef class categoriesFor: #next!navigation!public! !
-!GsProfStef class categoriesFor: #previous!navigation!public! !
-!GsProfStef class categoriesFor: #showOnSession:!public! !
+!GsProfStef class categoriesForMethods!
+clearCurrent!public! !
+current!public! !
+first!navigation!public! !
+go!navigation!public! !
+goto:!navigation!public! !
+icon!constants!public! !
+next!navigation!public! !
+previous!navigation!public! !
+showOnSession:!public! !
+!
 

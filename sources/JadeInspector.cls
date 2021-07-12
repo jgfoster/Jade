@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadeTextDocument subclass: #JadeInspector
 	instanceVariableNames: 'instVarListPresenter'
@@ -144,19 +144,21 @@ setDocumentPresenterLabel
 setLastGsShape: className
 
 	codePane setDocumentPresenterWith: (self registry getClass: className)! !
-!JadeInspector categoriesFor: #contextObject!private! !
-!JadeInspector categoriesFor: #createComponents!accessing!private! !
-!JadeInspector categoriesFor: #createSchematicWiring!accessing!private! !
-!JadeInspector categoriesFor: #displayObject!accessing!private! !
-!JadeInspector categoriesFor: #inspectInstVar!accessing!private! !
-!JadeInspector categoriesFor: #isJadeInspector!private! !
-!JadeInspector categoriesFor: #isModified!private! !
-!JadeInspector categoriesFor: #model:!private! !
-!JadeInspector categoriesFor: #onViewOpened!accessing!private! !
-!JadeInspector categoriesFor: #openNavigationInspector!accessing!private! !
-!JadeInspector categoriesFor: #selectedInstVar!accessing!private! !
-!JadeInspector categoriesFor: #setDocumentPresenterLabel!accessing!private! !
-!JadeInspector categoriesFor: #setLastGsShape:!accessing!private! !
+!JadeInspector categoriesForMethods!
+contextObject!private! !
+createComponents!accessing!private! !
+createSchematicWiring!accessing!private! !
+displayObject!accessing!private! !
+inspectInstVar!accessing!private! !
+isJadeInspector!private! !
+isModified!private! !
+model:!private! !
+onViewOpened!accessing!private! !
+openNavigationInspector!accessing!private! !
+selectedInstVar!accessing!private! !
+setDocumentPresenterLabel!accessing!private! !
+setLastGsShape:!accessing!private! !
+!
 
 !JadeInspector class methodsFor!
 
@@ -217,11 +219,13 @@ showOn: anObject session: aGciSession
 		showShell;
 		yourself.
 ! !
-!JadeInspector class categoriesFor: #defaultInspectorClass!public! !
-!JadeInspector class categoriesFor: #resource_Default_view!public! !
-!JadeInspector class categoriesFor: #resource_Special_view!public!resources-views! !
-!JadeInspector class categoriesFor: #setDefaultInspectorClass:!public! !
-!JadeInspector class categoriesFor: #setNavigationInspector!public! !
-!JadeInspector class categoriesFor: #setNormalInspector!public! !
-!JadeInspector class categoriesFor: #showOn:session:!public! !
+!JadeInspector class categoriesForMethods!
+defaultInspectorClass!public! !
+resource_Default_view!public! !
+resource_Special_view!public!resources-views! !
+setDefaultInspectorClass:!public! !
+setNavigationInspector!public! !
+setNormalInspector!public! !
+showOn:session:!public! !
+!
 

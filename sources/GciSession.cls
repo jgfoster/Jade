@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Object subclass: #GciSession
 	instanceVariableNames: 'briefDescription clientForwarders eventCount gciSessionId gemHost gemNRS heartbeatProcess isAutoCommit isAutoMigrate isHandlingClientForwarderSend isNativeCode isPackagePolicyEnabled isShowUnimplementedMessages library netPort netTask oopsToRelease server serverClass stoneHost stoneName stoneNRS stoneSerial stoneSessionID userID'
@@ -1119,116 +1119,118 @@ valueOfOop: anOopType
 
 	^library session: gciSessionId valueOfOop: anOopType.
 ! !
-!GciSession categoriesFor: #_executeString:fromContextOop:environment:!library-server!private! !
-!GciSession categoriesFor: #_send:to:withAll:!library-server!private! !
-!GciSession categoriesFor: #_server!private! !
-!GciSession categoriesFor: #abort!Jade convenience!public! !
-!GciSession categoriesFor: #addRangeStopTo:withSource:!accessing!public! !
-!GciSession categoriesFor: #attemptSocket!private! !
-!GciSession categoriesFor: #begin!Jade convenience!public! !
-!GciSession categoriesFor: #beInvalidSession!library-client!public! !
-!GciSession categoriesFor: #briefDescription!public! !
-!GciSession categoriesFor: #clearStack:!Jade!library-server!public! !
-!GciSession categoriesFor: #clientForwardError:!public! !
-!GciSession categoriesFor: #clientForwarders!public! !
-!GciSession categoriesFor: #commit!Jade convenience!public! !
-!GciSession categoriesFor: #debugString:fromContext:environment:!long running!public! !
-!GciSession categoriesFor: #debugToFilePath:!Jade convenience!library-client!public! !
-!GciSession categoriesFor: #decode:!public! !
-!GciSession categoriesFor: #encode:!public! !
-!GciSession categoriesFor: #evaluate:!library-server!long running!private! !
-!GciSession categoriesFor: #evaluateA:!long running!private! !
-!GciSession categoriesFor: #eventCount!public! !
-!GciSession categoriesFor: #executeString:!Jade convenience!public! !
-!GciSession categoriesFor: #executeString:fromContext:environment:!long running!public! !
-!GciSession categoriesFor: #fetchBytes:!library-server!private! !
-!GciSession categoriesFor: #forceLogout!Jade!public! !
-!GciSession categoriesFor: #gciSessionId!public! !
-!GciSession categoriesFor: #gciVersion!library-client!public! !
-!GciSession categoriesFor: #gemHost!accessing!public! !
-!GciSession categoriesFor: #gsHasPragmas!public! !
-!GciSession categoriesFor: #handlingClientForwarderSendDo:!library-server!long running!private! !
-!GciSession categoriesFor: #hardBreak!Jade!library-server!public! !
-!GciSession categoriesFor: #hasHeartbeat!heartbeat!public! !
-!GciSession categoriesFor: #hasServer!public! !
-!GciSession categoriesFor: #heartbeat:arguments:!heartbeat!library-server!private! !
-!GciSession categoriesFor: #idleWarning!heartbeat!private! !
-!GciSession categoriesFor: #incrementEventCount!long running!private! !
-!GciSession categoriesFor: #indexOfClientForwarder:!public! !
-!GciSession categoriesFor: #initializeLibrary:stoneNRS:gemNRS:userID:password:hostUserID:password:initials:debugPath:!library-server!private! !
-!GciSession categoriesFor: #initializeServer!library-server!private! !
-!GciSession categoriesFor: #isAutoCommit!accessing!public! !
-!GciSession categoriesFor: #isAutoCommit:!accessing!public! !
-!GciSession categoriesFor: #isAutoMigrate!accessing!public! !
-!GciSession categoriesFor: #isAutoMigrate:!accessing!public! !
-!GciSession categoriesFor: #isLinkedGem!public! !
-!GciSession categoriesFor: #isNativeCode!accessing!public! !
-!GciSession categoriesFor: #isNativeCode:!accessing!public! !
-!GciSession categoriesFor: #isOopType:!library-client!public! !
-!GciSession categoriesFor: #isPackagePolicyEnabled!public! !
-!GciSession categoriesFor: #isRemoteGem!public! !
-!GciSession categoriesFor: #isShowUnimplementedMessages!accessing!public! !
-!GciSession categoriesFor: #isShowUnimplementedMessages:!accessing!public! !
-!GciSession categoriesFor: #isValidSession!public! !
-!GciSession categoriesFor: #libraryVersion!library-client!public! !
-!GciSession categoriesFor: #loadLibrary:debugPath:!library-client!public! !
-!GciSession categoriesFor: #logout!Jade!library-server!public! !
-!GciSession categoriesFor: #logoutRequested!Jade!public! !
-!GciSession categoriesFor: #message:caption:icon:buttons:!OmniBrowser!public! !
-!GciSession categoriesFor: #netPort!accessing!public! !
-!GciSession categoriesFor: #netTask!accessing!public! !
-!GciSession categoriesFor: #oopFalse!library-oops!public! !
-!GciSession categoriesFor: #oopForInteger:!library-server!public! !
-!GciSession categoriesFor: #oopForString:!library-server!public! !
-!GciSession categoriesFor: #oopGemStoneError!library-client!public! !
-!GciSession categoriesFor: #oopIllegal!library-client!public! !
-!GciSession categoriesFor: #oopNil!library-oops!public! !
-!GciSession categoriesFor: #oopTrue!library-oops!public! !
-!GciSession categoriesFor: #oopTypeFor:!library-client!public! !
-!GciSession categoriesFor: #oopTypeWithOop:!library-client!public! !
-!GciSession categoriesFor: #postLoginAs:!private! !
-!GciSession categoriesFor: #printString:!Jade convenience!public! !
-!GciSession categoriesFor: #prompt:caption:!OmniBrowser!public! !
-!GciSession categoriesFor: #releaseOop:!Jade convenience!public! !
-!GciSession categoriesFor: #releaseOops:!Jade!library-server!public! !
-!GciSession categoriesFor: #releaseOopsInBackground!Jade!library-server!public! !
-!GciSession categoriesFor: #returningResultOrErrorDo:!long running!private! !
-!GciSession categoriesFor: #send:to:!Jade convenience!public! !
-!GciSession categoriesFor: #send:to:withAll:!Jade convenience!long running!public! !
-!GciSession categoriesFor: #sendInterpreted:to:withAll:!Jade convenience!library-server!long running!public! !
-!GciSession categoriesFor: #serverArrayFor:!Jade convenience!library-oops!public! !
-!GciSession categoriesFor: #serverClass!accessing!public! !
-!GciSession categoriesFor: #serverPerform:!Jade convenience!public! !
-!GciSession categoriesFor: #serverPerform:with:!Jade convenience!public! !
-!GciSession categoriesFor: #serverPerform:with:with:!Jade convenience!public! !
-!GciSession categoriesFor: #serverPerform:with:with:with:!Jade convenience!public! !
-!GciSession categoriesFor: #serverPerform:with:with:with:with:!Jade convenience!public! !
-!GciSession categoriesFor: #serverPerform:withArguments:!Jade convenience!public! !
-!GciSession categoriesFor: #serverPerformInterpreted:with:with:!Jade convenience!public! !
-!GciSession categoriesFor: #serverPerformInterpreted:with:with:with:!Jade convenience!public! !
-!GciSession categoriesFor: #serverPerformInterpreted:withArguments:!Jade convenience!public! !
-!GciSession categoriesFor: #setInitials:!private! !
-!GciSession categoriesFor: #signalConfirmationRequestUsing:!OmniBrowser!public! !
-!GciSession categoriesFor: #signalInformRequestUsing:!OmniBrowser!public! !
-!GciSession categoriesFor: #signalMultiLineTextRequestUsing:!OmniBrowser!public! !
-!GciSession categoriesFor: #signalTextRequestUsing:!OmniBrowser!public! !
-!GciSession categoriesFor: #softBreak!Jade!library-server!public! !
-!GciSession categoriesFor: #startHeartbeat!heartbeat!private! !
-!GciSession categoriesFor: #stepInto:inFrame:!public! !
-!GciSession categoriesFor: #stepOut:inFrame:!public! !
-!GciSession categoriesFor: #stepOver:inFrame:!public! !
-!GciSession categoriesFor: #stoneHost!accessing!public! !
-!GciSession categoriesFor: #stoneName!accessing!public! !
-!GciSession categoriesFor: #stoneSerial!private! !
-!GciSession categoriesFor: #stoneSessionID!public! !
-!GciSession categoriesFor: #stopHeartbeat!heartbeat!private! !
-!GciSession categoriesFor: #terminate:!public! !
-!GciSession categoriesFor: #titleBarFor:!public! !
-!GciSession categoriesFor: #updatePreferences!private! !
-!GciSession categoriesFor: #updatePreferencesFrom:!private! !
-!GciSession categoriesFor: #userID!public! !
-!GciSession categoriesFor: #valueOfArrayOop:!Jade convenience!library-server!public! !
-!GciSession categoriesFor: #valueOfOop:!Jade convenience!library-server!public! !
+!GciSession categoriesForMethods!
+_executeString:fromContextOop:environment:!library-server!private! !
+_send:to:withAll:!library-server!private! !
+_server!private! !
+abort!Jade convenience!public! !
+addRangeStopTo:withSource:!accessing!public! !
+attemptSocket!private! !
+begin!Jade convenience!public! !
+beInvalidSession!library-client!public! !
+briefDescription!public! !
+clearStack:!Jade!library-server!public! !
+clientForwardError:!public! !
+clientForwarders!public! !
+commit!Jade convenience!public! !
+debugString:fromContext:environment:!long running!public! !
+debugToFilePath:!Jade convenience!library-client!public! !
+decode:!public! !
+encode:!public! !
+evaluate:!library-server!long running!private! !
+evaluateA:!long running!private! !
+eventCount!public! !
+executeString:!Jade convenience!public! !
+executeString:fromContext:environment:!long running!public! !
+fetchBytes:!library-server!private! !
+forceLogout!Jade!public! !
+gciSessionId!public! !
+gciVersion!library-client!public! !
+gemHost!accessing!public! !
+gsHasPragmas!public! !
+handlingClientForwarderSendDo:!library-server!long running!private! !
+hardBreak!Jade!library-server!public! !
+hasHeartbeat!heartbeat!public! !
+hasServer!public! !
+heartbeat:arguments:!heartbeat!library-server!private! !
+idleWarning!heartbeat!private! !
+incrementEventCount!long running!private! !
+indexOfClientForwarder:!public! !
+initializeLibrary:stoneNRS:gemNRS:userID:password:hostUserID:password:initials:debugPath:!library-server!private! !
+initializeServer!library-server!private! !
+isAutoCommit!accessing!public! !
+isAutoCommit:!accessing!public! !
+isAutoMigrate!accessing!public! !
+isAutoMigrate:!accessing!public! !
+isLinkedGem!public! !
+isNativeCode!accessing!public! !
+isNativeCode:!accessing!public! !
+isOopType:!library-client!public! !
+isPackagePolicyEnabled!public! !
+isRemoteGem!public! !
+isShowUnimplementedMessages!accessing!public! !
+isShowUnimplementedMessages:!accessing!public! !
+isValidSession!public! !
+libraryVersion!library-client!public! !
+loadLibrary:debugPath:!library-client!public! !
+logout!Jade!library-server!public! !
+logoutRequested!Jade!public! !
+message:caption:icon:buttons:!OmniBrowser!public! !
+netPort!accessing!public! !
+netTask!accessing!public! !
+oopFalse!library-oops!public! !
+oopForInteger:!library-server!public! !
+oopForString:!library-server!public! !
+oopGemStoneError!library-client!public! !
+oopIllegal!library-client!public! !
+oopNil!library-oops!public! !
+oopTrue!library-oops!public! !
+oopTypeFor:!library-client!public! !
+oopTypeWithOop:!library-client!public! !
+postLoginAs:!private! !
+printString:!Jade convenience!public! !
+prompt:caption:!OmniBrowser!public! !
+releaseOop:!Jade convenience!public! !
+releaseOops:!Jade!library-server!public! !
+releaseOopsInBackground!Jade!library-server!public! !
+returningResultOrErrorDo:!long running!private! !
+send:to:!Jade convenience!public! !
+send:to:withAll:!Jade convenience!long running!public! !
+sendInterpreted:to:withAll:!Jade convenience!library-server!long running!public! !
+serverArrayFor:!Jade convenience!library-oops!public! !
+serverClass!accessing!public! !
+serverPerform:!Jade convenience!public! !
+serverPerform:with:!Jade convenience!public! !
+serverPerform:with:with:!Jade convenience!public! !
+serverPerform:with:with:with:!Jade convenience!public! !
+serverPerform:with:with:with:with:!Jade convenience!public! !
+serverPerform:withArguments:!Jade convenience!public! !
+serverPerformInterpreted:with:with:!Jade convenience!public! !
+serverPerformInterpreted:with:with:with:!Jade convenience!public! !
+serverPerformInterpreted:withArguments:!Jade convenience!public! !
+setInitials:!private! !
+signalConfirmationRequestUsing:!OmniBrowser!public! !
+signalInformRequestUsing:!OmniBrowser!public! !
+signalMultiLineTextRequestUsing:!OmniBrowser!public! !
+signalTextRequestUsing:!OmniBrowser!public! !
+softBreak!Jade!library-server!public! !
+startHeartbeat!heartbeat!private! !
+stepInto:inFrame:!public! !
+stepOut:inFrame:!public! !
+stepOver:inFrame:!public! !
+stoneHost!accessing!public! !
+stoneName!accessing!public! !
+stoneSerial!private! !
+stoneSessionID!public! !
+stopHeartbeat!heartbeat!private! !
+terminate:!public! !
+titleBarFor:!public! !
+updatePreferences!private! !
+updatePreferencesFrom:!private! !
+userID!public! !
+valueOfArrayOop:!Jade convenience!library-server!public! !
+valueOfOop:!Jade convenience!library-server!public! !
+!
 
 !GciSession class methodsFor!
 
@@ -1271,7 +1273,9 @@ publishedEventsOfInstances
     		yourself.
     
 ! !
-!GciSession class categoriesFor: #libraryClass:stoneNRS:gemNRS:userID:password:hostUserID:password:initials:debugPath:!public! !
-!GciSession class categoriesFor: #new!public! !
-!GciSession class categoriesFor: #publishedEventsOfInstances!public! !
+!GciSession class categoriesForMethods!
+libraryClass:stoneNRS:gemNRS:userID:password:hostUserID:password:initials:debugPath:!public! !
+new!public! !
+publishedEventsOfInstances!public! !
+!
 

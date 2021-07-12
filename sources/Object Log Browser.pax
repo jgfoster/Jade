@@ -108,7 +108,9 @@ sbObjectLog: anOrderedCollection
 		writeStream lf.
 	].
 ! !
-!JadeServer categoriesFor: #sbObjectLog:!private!System Browser! !
+!JadeServer categoriesForMethods!
+sbObjectLog:!private!System Browser! !
+!
 
 !JadeTextDocument methodsFor!
 
@@ -121,7 +123,9 @@ jadeBrowseObjectLog
 		warning: 'Server initialization failed at login.'
 		caption: 'Unable to Open Browser'.
 ! !
-!JadeTextDocument categoriesFor: #jadeBrowseObjectLog!Jade!private! !
+!JadeTextDocument categoriesForMethods!
+jadeBrowseObjectLog!Jade!private! !
+!
 
 "End of package definition"!
 

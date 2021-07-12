@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 TestResource subclass: #GciLibraryTestResource
 	instanceVariableNames: 'library session'
@@ -38,8 +38,10 @@ tearDown
 	].
 	super tearDown.
 ! !
-!GciLibraryTestResource categoriesFor: #libraryClass!private! !
-!GciLibraryTestResource categoriesFor: #session!accessing!public! !
-!GciLibraryTestResource categoriesFor: #setUp!private! !
-!GciLibraryTestResource categoriesFor: #tearDown!private! !
+!GciLibraryTestResource categoriesForMethods!
+libraryClass!private! !
+session!accessing!public! !
+setUp!private! !
+tearDown!private! !
+!
 

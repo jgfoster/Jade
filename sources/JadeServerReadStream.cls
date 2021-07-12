@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 ReadStream subclass: #JadeServerReadStream
 	instanceVariableNames: ''
@@ -45,8 +45,10 @@ upToTab
 
 	^self upTo: Character tab
 ! !
-!JadeServerReadStream categoriesFor: #nextLineAsList!public! !
-!JadeServerReadStream categoriesFor: #nextList!public! !
-!JadeServerReadStream categoriesFor: #nextParagraph!public! !
-!JadeServerReadStream categoriesFor: #upToTab!public! !
+!JadeServerReadStream categoriesForMethods!
+nextLineAsList!public! !
+nextList!public! !
+nextParagraph!public! !
+upToTab!public! !
+!
 

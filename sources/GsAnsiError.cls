@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsError subclass: #GsAnsiError
 	instanceVariableNames: ''
@@ -14,5 +14,7 @@ wantsToHandle: aGciErrorSType session: aGciSession
 
 	^false.
 ! !
-!GsAnsiError class categoriesFor: #wantsToHandle:session:!public! !
+!GsAnsiError class categoriesForMethods!
+wantsToHandle:session:!public! !
+!
 

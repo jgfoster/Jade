@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsFatalError subclass: #GsInvalidSessionError
 	instanceVariableNames: ''
@@ -23,8 +23,10 @@ signal
 		ifNil: [^self]
 		ifNotNil: [:aGciSession | aGciSession beInvalidSession].
 	super signal.! !
-!GsInvalidSessionError categoriesFor: #defaultAction!public! !
-!GsInvalidSessionError categoriesFor: #signal!public! !
+!GsInvalidSessionError categoriesForMethods!
+defaultAction!public! !
+signal!public! !
+!
 
 !GsInvalidSessionError class methodsFor!
 
@@ -32,5 +34,7 @@ wantsToHandle: aGciErrorSType session: aGciSession
 
 	^aGciErrorSType isInvalidSessionInSession: aGciSession.
 ! !
-!GsInvalidSessionError class categoriesFor: #wantsToHandle:session:!public! !
+!GsInvalidSessionError class categoriesForMethods!
+wantsToHandle:session:!public! !
+!
 

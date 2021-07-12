@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsObject subclass: #GsSession
 	instanceVariableNames: 'backlog cacheDesc description hasOldestCR host hostId id ip lifeTime objects pages primitive priority process quietTime serial state transaction viewAge voteState'
@@ -146,33 +146,35 @@ viewAge
 
 voteState
 	^voteState! !
-!GsSession categoriesFor: #backlog!accessing!public! !
-!GsSession categoriesFor: #cacheDesc!accessing!public! !
-!GsSession categoriesFor: #description!accessing!public! !
-!GsSession categoriesFor: #hasOldestCR!accessing!public! !
-!GsSession categoriesFor: #host!accessing!public! !
-!GsSession categoriesFor: #hostId!accessing!public! !
-!GsSession categoriesFor: #id!accessing!public! !
-!GsSession categoriesFor: #initialize:!public! !
-!GsSession categoriesFor: #initializeXML:!private! !
-!GsSession categoriesFor: #ip!accessing!public! !
-!GsSession categoriesFor: #lifeTime!accessing!public! !
-!GsSession categoriesFor: #objects!accessing!public! !
-!GsSession categoriesFor: #pages!accessing!public! !
-!GsSession categoriesFor: #primitive!accessing!public! !
-!GsSession categoriesFor: #priority!accessing!public! !
-!GsSession categoriesFor: #process!accessing!public! !
-!GsSession categoriesFor: #quietTime!accessing!public! !
-!GsSession categoriesFor: #sendSigAbort!accessing!public! !
-!GsSession categoriesFor: #sendSigUsr1!accessing!public! !
-!GsSession categoriesFor: #serial!accessing!public! !
-!GsSession categoriesFor: #state!accessing!public! !
-!GsSession categoriesFor: #stopSession!accessing!public! !
-!GsSession categoriesFor: #stringFromSeconds:!accessing!public! !
-!GsSession categoriesFor: #transaction!accessing!public! !
-!GsSession categoriesFor: #updatePrimitive!public! !
-!GsSession categoriesFor: #viewAge!accessing!public! !
-!GsSession categoriesFor: #voteState!accessing!public! !
+!GsSession categoriesForMethods!
+backlog!accessing!public! !
+cacheDesc!accessing!public! !
+description!accessing!public! !
+hasOldestCR!accessing!public! !
+host!accessing!public! !
+hostId!accessing!public! !
+id!accessing!public! !
+initialize:!public! !
+initializeXML:!private! !
+ip!accessing!public! !
+lifeTime!accessing!public! !
+objects!accessing!public! !
+pages!accessing!public! !
+primitive!accessing!public! !
+priority!accessing!public! !
+process!accessing!public! !
+quietTime!accessing!public! !
+sendSigAbort!accessing!public! !
+sendSigUsr1!accessing!public! !
+serial!accessing!public! !
+state!accessing!public! !
+stopSession!accessing!public! !
+stringFromSeconds:!accessing!public! !
+transaction!accessing!public! !
+updatePrimitive!public! !
+viewAge!accessing!public! !
+voteState!accessing!public! !
+!
 
 !GsSession class methodsFor!
 
@@ -192,6 +194,8 @@ xmlBaseName
 
 	^'sessions'.
 ! !
-!GsSession class categoriesFor: #fromXML:session:!public! !
-!GsSession class categoriesFor: #xmlBaseName!public! !
+!GsSession class categoriesForMethods!
+fromXML:session:!public! !
+xmlBaseName!public! !
+!
 

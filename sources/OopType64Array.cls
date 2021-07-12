@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 ExternalArray subclass: #OopType64Array
 	instanceVariableNames: ''
@@ -31,10 +31,12 @@ uncheckedAt: index  put: anOopType64
 		put: anOopType64 value.
 
 ! !
-!OopType64Array categoriesFor: #elementClass!constants!public! !
-!OopType64Array categoriesFor: #size:!public! !
-!OopType64Array categoriesFor: #uncheckedAt:!accessing!private! !
-!OopType64Array categoriesFor: #uncheckedAt:put:!accessing!private! !
+!OopType64Array categoriesForMethods!
+elementClass!constants!public! !
+size:!public! !
+uncheckedAt:!accessing!private! !
+uncheckedAt:put:!accessing!private! !
+!
 
 !OopType64Array class methodsFor!
 
@@ -49,6 +51,8 @@ fromBytes: aByteArray
 		bytes: aByteArray;
 		yourself.
 ! !
-!OopType64Array class categoriesFor: #elementSize!instance creation!private! !
-!OopType64Array class categoriesFor: #fromBytes:!public! !
+!OopType64Array class categoriesForMethods!
+elementSize!instance creation!private! !
+fromBytes:!public! !
+!
 

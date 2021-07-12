@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Model subclass: #JadeLogin
 	instanceVariableNames: 'debugPath gemHost gemNRS gemService gemTask gemType gemVersion gsPassword gsUserID hostPassword hostUserID initials lastLogin loginType session stoneHost stoneName stoneNRS transcript'
@@ -330,53 +330,55 @@ transcript: aJadeTranscript
 
 	transcript := aJadeTranscript.
 ! !
-!JadeLogin categoriesFor: #asXML!public! !
-!JadeLogin categoriesFor: #debugPath!accessing!public! !
-!JadeLogin categoriesFor: #debugPath:!accessing!public! !
-!JadeLogin categoriesFor: #gemHost!accessing!public! !
-!JadeLogin categoriesFor: #gemHost:!accessing!public! !
-!JadeLogin categoriesFor: #gemNRS!accessing!public! !
-!JadeLogin categoriesFor: #gemNRS:!accessing!public! !
-!JadeLogin categoriesFor: #gemService!accessing!public! !
-!JadeLogin categoriesFor: #gemService:!accessing!public! !
-!JadeLogin categoriesFor: #gemTask!accessing!public! !
-!JadeLogin categoriesFor: #gemTask:!accessing!public! !
-!JadeLogin categoriesFor: #gemType!accessing!public! !
-!JadeLogin categoriesFor: #gemType:!accessing!public! !
-!JadeLogin categoriesFor: #gemVersion!accessing!public! !
-!JadeLogin categoriesFor: #gemVersion:!public! !
-!JadeLogin categoriesFor: #generateGemNRS!private! !
-!JadeLogin categoriesFor: #generateStoneNRS!private! !
-!JadeLogin categoriesFor: #gsPassword!accessing!public! !
-!JadeLogin categoriesFor: #gsPassword:!accessing!public! !
-!JadeLogin categoriesFor: #gsUserID!accessing!public! !
-!JadeLogin categoriesFor: #gsUserID:!accessing!public! !
-!JadeLogin categoriesFor: #hostPassword!accessing!public! !
-!JadeLogin categoriesFor: #hostPassword:!accessing!public! !
-!JadeLogin categoriesFor: #hostUserID!accessing!public! !
-!JadeLogin categoriesFor: #hostUserID:!accessing!public! !
-!JadeLogin categoriesFor: #icon!public! !
-!JadeLogin categoriesFor: #initializeFromXML:!public! !
-!JadeLogin categoriesFor: #initials!accessing!public! !
-!JadeLogin categoriesFor: #initials:!accessing!public! !
-!JadeLogin categoriesFor: #isAbleToLoadLibrary!public! !
-!JadeLogin categoriesFor: #lastLogin!accessing!public! !
-!JadeLogin categoriesFor: #lastLoginString!accessing!public! !
-!JadeLogin categoriesFor: #login!public! !
-!JadeLogin categoriesFor: #loginType!accessing!public! !
-!JadeLogin categoriesFor: #loginType:!accessing!public! !
-!JadeLogin categoriesFor: #postCopy!public! !
-!JadeLogin categoriesFor: #saveDefault!public! !
-!JadeLogin categoriesFor: #session!accessing!public! !
-!JadeLogin categoriesFor: #session:!accessing!public! !
-!JadeLogin categoriesFor: #stoneHost!accessing!public! !
-!JadeLogin categoriesFor: #stoneHost:!accessing!public! !
-!JadeLogin categoriesFor: #stoneName!accessing!public! !
-!JadeLogin categoriesFor: #stoneName:!accessing!public! !
-!JadeLogin categoriesFor: #stoneNRS!accessing!public! !
-!JadeLogin categoriesFor: #stoneNRS:!accessing!public! !
-!JadeLogin categoriesFor: #transcript!accessing!public! !
-!JadeLogin categoriesFor: #transcript:!accessing!public! !
+!JadeLogin categoriesForMethods!
+asXML!public! !
+debugPath!accessing!public! !
+debugPath:!accessing!public! !
+gemHost!accessing!public! !
+gemHost:!accessing!public! !
+gemNRS!accessing!public! !
+gemNRS:!accessing!public! !
+gemService!accessing!public! !
+gemService:!accessing!public! !
+gemTask!accessing!public! !
+gemTask:!accessing!public! !
+gemType!accessing!public! !
+gemType:!accessing!public! !
+gemVersion!accessing!public! !
+gemVersion:!public! !
+generateGemNRS!private! !
+generateStoneNRS!private! !
+gsPassword!accessing!public! !
+gsPassword:!accessing!public! !
+gsUserID!accessing!public! !
+gsUserID:!accessing!public! !
+hostPassword!accessing!public! !
+hostPassword:!accessing!public! !
+hostUserID!accessing!public! !
+hostUserID:!accessing!public! !
+icon!public! !
+initializeFromXML:!public! !
+initials!accessing!public! !
+initials:!accessing!public! !
+isAbleToLoadLibrary!public! !
+lastLogin!accessing!public! !
+lastLoginString!accessing!public! !
+login!public! !
+loginType!accessing!public! !
+loginType:!accessing!public! !
+postCopy!public! !
+saveDefault!public! !
+session!accessing!public! !
+session:!accessing!public! !
+stoneHost!accessing!public! !
+stoneHost:!accessing!public! !
+stoneName!accessing!public! !
+stoneName:!accessing!public! !
+stoneNRS!accessing!public! !
+stoneNRS:!accessing!public! !
+transcript!accessing!public! !
+transcript:!accessing!public! !
+!
 
 !JadeLogin class methodsFor!
 
@@ -439,9 +441,11 @@ new
 
 	^self fromXML: self defaultXML
 ! !
-!JadeLogin class categoriesFor: #default!public! !
-!JadeLogin class categoriesFor: #defaultPath!public! !
-!JadeLogin class categoriesFor: #defaultXML!public! !
-!JadeLogin class categoriesFor: #fromXML:!public! !
-!JadeLogin class categoriesFor: #new!public! !
+!JadeLogin class categoriesForMethods!
+default!public! !
+defaultPath!public! !
+defaultXML!public! !
+fromXML:!public! !
+new!public! !
+!
 

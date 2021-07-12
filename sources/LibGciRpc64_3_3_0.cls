@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 LibGciRpc64_3_1_0 subclass: #LibGciRpc64_3_3_0
 	instanceVariableNames: ''
@@ -175,16 +175,18 @@ specialFromOop: anOop
 verifyEnvironment: anInteger
 
 	anInteger == 0 ifFalse: [self error: 'Only environment 0 is supported in this version!!!!!!!!'].! !
-!LibGciRpc64_3_3_0 categoriesFor: #fetchBytes:classOop:!public! !
-!LibGciRpc64_3_3_0 categoriesFor: #gciExecute_:_:_:!private! !
-!LibGciRpc64_3_3_0 categoriesFor: #gciExecuteFromContextDbg_:_:_:_:_:!private! !
-!LibGciRpc64_3_3_0 categoriesFor: #gciExecuteStrFromContextDbg_:_:_:_:_:_:_:!private! !
-!LibGciRpc64_3_3_0 categoriesFor: #gciNbExecute_:_:_:!private! !
-!LibGciRpc64_3_3_0 categoriesFor: #gciNbExecuteStrFromContextDbg_:_:_:_:_:_:_:!private! !
-!LibGciRpc64_3_3_0 categoriesFor: #gciNewUtf8String_:_:_:!private! !
-!LibGciRpc64_3_3_0 categoriesFor: #oopClassUtf8!public! !
-!LibGciRpc64_3_3_0 categoriesFor: #session:execute:context:environment:!public! !
-!LibGciRpc64_3_3_0 categoriesFor: #session:oopForString:!public! !
-!LibGciRpc64_3_3_0 categoriesFor: #specialFromOop:!public! !
-!LibGciRpc64_3_3_0 categoriesFor: #verifyEnvironment:!public! !
+!LibGciRpc64_3_3_0 categoriesForMethods!
+fetchBytes:classOop:!public! !
+gciExecute_:_:_:!private! !
+gciExecuteFromContextDbg_:_:_:_:_:!private! !
+gciExecuteStrFromContextDbg_:_:_:_:_:_:_:!private! !
+gciNbExecute_:_:_:!private! !
+gciNbExecuteStrFromContextDbg_:_:_:_:_:_:_:!private! !
+gciNewUtf8String_:_:_:!private! !
+oopClassUtf8!public! !
+session:execute:context:environment:!public! !
+session:oopForString:!public! !
+specialFromOop:!public! !
+verifyEnvironment:!public! !
+!
 

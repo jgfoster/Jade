@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadeServer64bit subclass: #JadeServer64bit24
 	instanceVariableNames: ''
@@ -23,7 +23,9 @@ oopOf: anObject
 
 	^Reflection oopOf: anObject.
 ! !
-!JadeServer64bit24 categoriesFor: #_isClientForwarder:!private! !
-!JadeServer64bit24 categoriesFor: #gemCacheStatisticsForSessionId:!public!Sessions! !
-!JadeServer64bit24 categoriesFor: #oopOf:!private! !
+!JadeServer64bit24 categoriesForMethods!
+_isClientForwarder:!private! !
+gemCacheStatisticsForSessionId:!public!Sessions! !
+oopOf:!private! !
+!
 

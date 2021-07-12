@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadeImageStripper subclass: #ContactsImageStripper
 	instanceVariableNames: ''
@@ -23,6 +23,8 @@ requiredPackageNames
 		add: 'Jade Login';
 		yourself.
 ! !
-!ContactsImageStripper categoriesFor: #closeLoginShells!public! !
-!ContactsImageStripper categoriesFor: #requiredPackageNames!public! !
+!ContactsImageStripper categoriesForMethods!
+closeLoginShells!public! !
+requiredPackageNames!public! !
+!
 

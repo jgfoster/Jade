@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadePreferenceObject subclass: #JadeMethodExplorerPreference
 	instanceVariableNames: ''
@@ -32,16 +32,20 @@ publishedAspects
 	aspects
 		add: (Aspect choice: #methodExplorerClass from: (Array with: JadeMethodListPresenter with: JadeTreeMethodListPresenter)).
 	^aspects! !
-!JadeMethodExplorerPreference categoriesFor: #displayString!public! !
-!JadeMethodExplorerPreference categoriesFor: #icon!public! !
-!JadeMethodExplorerPreference categoriesFor: #methodExplorerClass!public! !
-!JadeMethodExplorerPreference categoriesFor: #methodExplorerClass:!public! !
-!JadeMethodExplorerPreference categoriesFor: #publishedAspects!public! !
+!JadeMethodExplorerPreference categoriesForMethods!
+displayString!public! !
+icon!public! !
+methodExplorerClass!public! !
+methodExplorerClass:!public! !
+publishedAspects!public! !
+!
 
 !JadeMethodExplorerPreference class methodsFor!
 
 icon
 
 	^Icon fromId: 'MethodBrowser.ico'! !
-!JadeMethodExplorerPreference class categoriesFor: #icon!public! !
+!JadeMethodExplorerPreference class categoriesForMethods!
+icon!public! !
+!
 

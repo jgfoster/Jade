@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GciSingleThreadedLibrary subclass: #Gcilw6x
 	instanceVariableNames: ''
@@ -272,55 +272,57 @@ specialFromOop: anOop
 	].
 	^nil.
 ! !
-!Gcilw6x categoriesFor: #errorStructureClass!private! !
-!Gcilw6x categoriesFor: #gciClearStack:!private! !
-!Gcilw6x categoriesFor: #gciContinueWith:_:_:_:!private! !
-!Gcilw6x categoriesFor: #gciErr:!private! !
-!Gcilw6x categoriesFor: #gciExecuteStrFromContext:_:_:!private! !
-!Gcilw6x categoriesFor: #gciFetchBytes:_:_:_:!private! !
-!Gcilw6x categoriesFor: #gciFetchChars:_:_:_:!private! !
-!Gcilw6x categoriesFor: #gciFetchClass:!private! !
-!Gcilw6x categoriesFor: #gciFetchObjImpl:!private! !
-!Gcilw6x categoriesFor: #gciFetchSize:!private! !
-!Gcilw6x categoriesFor: #gciFetchVaryingOops:_:_:_:!private! !
-!Gcilw6x categoriesFor: #gciLongToOop:!private! !
-!Gcilw6x categoriesFor: #gciNbContinueWith:_:_:_:!private! !
-!Gcilw6x categoriesFor: #gciNbExecuteStrFromContext:_:_:!private! !
-!Gcilw6x categoriesFor: #gciNbPerform:_:_:_:!private! !
-!Gcilw6x categoriesFor: #gciNewString:!private! !
-!Gcilw6x categoriesFor: #gciOopToChr:!private! !
-!Gcilw6x categoriesFor: #gciPerform:_:_:_:!private! !
-!Gcilw6x categoriesFor: #gciReleaseOops:_:!private! !
-!Gcilw6x categoriesFor: #gciResolveSymbol:_:!private! !
-!Gcilw6x categoriesFor: #oopAsciiNul!public!Reserved OOPs! !
-!Gcilw6x categoriesFor: #oopAt:!public! !
-!Gcilw6x categoriesFor: #oopClassArray!public! !
-!Gcilw6x categoriesFor: #oopClassByteArray!public! !
-!Gcilw6x categoriesFor: #oopClassDoubleByteString!public! !
-!Gcilw6x categoriesFor: #oopClassQuadByteString!public! !
-!Gcilw6x categoriesFor: #oopClassString!public!Reserved OOPs! !
-!Gcilw6x categoriesFor: #oopClassSymbol!public! !
-!Gcilw6x categoriesFor: #oopClassSystem!public!Reserved OOPs! !
-!Gcilw6x categoriesFor: #oopClassUnicode16!public! !
-!Gcilw6x categoriesFor: #oopClassUnicode32!public! !
-!Gcilw6x categoriesFor: #oopClassUnicode7!public! !
-!Gcilw6x categoriesFor: #oopFalse!public!Reserved OOPs! !
-!Gcilw6x categoriesFor: #oopForInteger:!public! !
-!Gcilw6x categoriesFor: #oopGemStoneError!public!Reserved OOPs! !
-!Gcilw6x categoriesFor: #oopIllegal!public!Reserved OOPs! !
-!Gcilw6x categoriesFor: #oopMaxSmallInteger!public!Reserved OOPs! !
-!Gcilw6x categoriesFor: #oopMinSmallInteger!public!Reserved OOPs! !
-!Gcilw6x categoriesFor: #oopMinusOne!public!Reserved OOPs! !
-!Gcilw6x categoriesFor: #oopNil!public!Reserved OOPs! !
-!Gcilw6x categoriesFor: #oopOne!public!Reserved OOPs! !
-!Gcilw6x categoriesFor: #oopRemoteNil!public!Reserved OOPs! !
-!Gcilw6x categoriesFor: #oopTrue!public!Reserved OOPs! !
-!Gcilw6x categoriesFor: #oopTwo!public!Reserved OOPs! !
-!Gcilw6x categoriesFor: #oopTypeArrayClass!public! !
-!Gcilw6x categoriesFor: #oopTypeClass!public! !
-!Gcilw6x categoriesFor: #oopTypeWithOop:!public! !
-!Gcilw6x categoriesFor: #oopZero!public!Reserved OOPs! !
-!Gcilw6x categoriesFor: #specialFromOop:!public! !
+!Gcilw6x categoriesForMethods!
+errorStructureClass!private! !
+gciClearStack:!private! !
+gciContinueWith:_:_:_:!private! !
+gciErr:!private! !
+gciExecuteStrFromContext:_:_:!private! !
+gciFetchBytes:_:_:_:!private! !
+gciFetchChars:_:_:_:!private! !
+gciFetchClass:!private! !
+gciFetchObjImpl:!private! !
+gciFetchSize:!private! !
+gciFetchVaryingOops:_:_:_:!private! !
+gciLongToOop:!private! !
+gciNbContinueWith:_:_:_:!private! !
+gciNbExecuteStrFromContext:_:_:!private! !
+gciNbPerform:_:_:_:!private! !
+gciNewString:!private! !
+gciOopToChr:!private! !
+gciPerform:_:_:_:!private! !
+gciReleaseOops:_:!private! !
+gciResolveSymbol:_:!private! !
+oopAsciiNul!public!Reserved OOPs! !
+oopAt:!public! !
+oopClassArray!public! !
+oopClassByteArray!public! !
+oopClassDoubleByteString!public! !
+oopClassQuadByteString!public! !
+oopClassString!public!Reserved OOPs! !
+oopClassSymbol!public! !
+oopClassSystem!public!Reserved OOPs! !
+oopClassUnicode16!public! !
+oopClassUnicode32!public! !
+oopClassUnicode7!public! !
+oopFalse!public!Reserved OOPs! !
+oopForInteger:!public! !
+oopGemStoneError!public!Reserved OOPs! !
+oopIllegal!public!Reserved OOPs! !
+oopMaxSmallInteger!public!Reserved OOPs! !
+oopMinSmallInteger!public!Reserved OOPs! !
+oopMinusOne!public!Reserved OOPs! !
+oopNil!public!Reserved OOPs! !
+oopOne!public!Reserved OOPs! !
+oopRemoteNil!public!Reserved OOPs! !
+oopTrue!public!Reserved OOPs! !
+oopTwo!public!Reserved OOPs! !
+oopTypeArrayClass!public! !
+oopTypeClass!public! !
+oopTypeWithOop:!public! !
+oopZero!public!Reserved OOPs! !
+specialFromOop:!public! !
+!
 
 !Gcilw6x class methodsFor!
 
@@ -328,5 +330,7 @@ fileNameSearch
 
 	^self name , '.dll'
 ! !
-!Gcilw6x class categoriesFor: #fileNameSearch!public! !
+!Gcilw6x class categoriesForMethods!
+fileNameSearch!public! !
+!
 

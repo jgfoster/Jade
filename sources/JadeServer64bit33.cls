@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadeServer64bit32 subclass: #JadeServer64bit33
 	instanceVariableNames: 'socket'
@@ -438,34 +438,36 @@ readSocket: anInteger
 	socket write: bytes.
 	^bytes size.
 ! !
-!JadeServer64bit33 categoriesFor: #_decodeString:!private! !
-!JadeServer64bit33 categoriesFor: #_encodeString:!private! !
-!JadeServer64bit33 categoriesFor: #_gemLogPath!private!Transcript! !
-!JadeServer64bit33 categoriesFor: #_nameOfFirstDictionaryReferencing:!private! !
-!JadeServer64bit33 categoriesFor: #_objectSecurityPolicyFor:!private! !
-!JadeServer64bit33 categoriesFor: #_string!private! !
-!JadeServer64bit33 categoriesFor: #acceptConnection!public! !
-!JadeServer64bit33 categoriesFor: #add:toByteStream:!public!streaming! !
-!JadeServer64bit33 categoriesFor: #addArray:toByteStream:!public!streaming! !
-!JadeServer64bit33 categoriesFor: #addException:toByteStream:!public!streaming! !
-!JadeServer64bit33 categoriesFor: #addExternalInteger:toByteStream:!public!streaming! !
-!JadeServer64bit33 categoriesFor: #addInteger:toByteStream:!public!streaming! !
-!JadeServer64bit33 categoriesFor: #addPositiveInteger:toByteStream:!public!streaming! !
-!JadeServer64bit33 categoriesFor: #addPositiveInteger:toByteStream:code:size:!public!streaming! !
-!JadeServer64bit33 categoriesFor: #addString:toByteStream:!public!streaming! !
-!JadeServer64bit33 categoriesFor: #addSymbol:toByteStream:!public!streaming! !
-!JadeServer64bit33 categoriesFor: #addUtf8:toByteStream:!public!streaming! !
-!JadeServer64bit33 categoriesFor: #doSocketRequest!public!Socket! !
-!JadeServer64bit33 categoriesFor: #environmentAt:!public!Socket! !
-!JadeServer64bit33 categoriesFor: #environmentAt:put:!public!Socket! !
-!JadeServer64bit33 categoriesFor: #initialize!public! !
-!JadeServer64bit33 categoriesFor: #isInDolphin!public!testing! !
-!JadeServer64bit33 categoriesFor: #isInGemStone!public!testing! !
-!JadeServer64bit33 categoriesFor: #makeListener!public! !
-!JadeServer64bit33 categoriesFor: #processAction:!public!Socket! !
-!JadeServer64bit33 categoriesFor: #readExceptionFrom:!public!Socket!streaming! !
-!JadeServer64bit33 categoriesFor: #readExceptionFrom:errorClass:!public!Socket!streaming! !
-!JadeServer64bit33 categoriesFor: #readObjectFrom:!public!streaming! !
-!JadeServer64bit33 categoriesFor: #readObjectFrom:errorClass:!public!streaming! !
-!JadeServer64bit33 categoriesFor: #readSocket:!public!Socket! !
+!JadeServer64bit33 categoriesForMethods!
+_decodeString:!private! !
+_encodeString:!private! !
+_gemLogPath!private!Transcript! !
+_nameOfFirstDictionaryReferencing:!private! !
+_objectSecurityPolicyFor:!private! !
+_string!private! !
+acceptConnection!public! !
+add:toByteStream:!public!streaming! !
+addArray:toByteStream:!public!streaming! !
+addException:toByteStream:!public!streaming! !
+addExternalInteger:toByteStream:!public!streaming! !
+addInteger:toByteStream:!public!streaming! !
+addPositiveInteger:toByteStream:!public!streaming! !
+addPositiveInteger:toByteStream:code:size:!public!streaming! !
+addString:toByteStream:!public!streaming! !
+addSymbol:toByteStream:!public!streaming! !
+addUtf8:toByteStream:!public!streaming! !
+doSocketRequest!public!Socket! !
+environmentAt:!public!Socket! !
+environmentAt:put:!public!Socket! !
+initialize!public! !
+isInDolphin!public!testing! !
+isInGemStone!public!testing! !
+makeListener!public! !
+processAction:!public!Socket! !
+readExceptionFrom:!public!Socket!streaming! !
+readExceptionFrom:errorClass:!public!Socket!streaming! !
+readObjectFrom:!public!streaming! !
+readObjectFrom:errorClass:!public!streaming! !
+readSocket:!public!Socket! !
+!
 

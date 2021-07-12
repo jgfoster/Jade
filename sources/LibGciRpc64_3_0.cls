@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 LibGciRpc64 subclass: #LibGciRpc64_3_0
 	instanceVariableNames: ''
@@ -20,8 +20,10 @@ gciErr: errorReport
 	<cdecl: bool GciErr GciErrSType64_30*>
 	^self invalidCall: _failureCode
 ! !
-!LibGciRpc64_3_0 categoriesFor: #errorStructureClass!private! !
-!LibGciRpc64_3_0 categoriesFor: #gciErr:!private! !
+!LibGciRpc64_3_0 categoriesForMethods!
+errorStructureClass!private! !
+gciErr:!private! !
+!
 
 !LibGciRpc64_3_0 class methodsFor!
 
@@ -34,6 +36,8 @@ fileNameSearch
 
 	^'libgcirpc64-301.dll'
 ! !
-!LibGciRpc64_3_0 class categoriesFor: #displayName!public! !
-!LibGciRpc64_3_0 class categoriesFor: #fileNameSearch!public! !
+!LibGciRpc64_3_0 class categoriesForMethods!
+displayName!public! !
+fileNameSearch!public! !
+!
 

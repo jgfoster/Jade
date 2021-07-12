@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 LibGciRpc64_3_3_0 subclass: #LibGciRpc64_3_4_0
 	instanceVariableNames: ''
@@ -12,5 +12,7 @@ LibGciRpc64_3_4_0 comment: ''!
 
 verifyEnvironment: anInteger
 	"Other environments supported"! !
-!LibGciRpc64_3_4_0 categoriesFor: #verifyEnvironment:!public! !
+!LibGciRpc64_3_4_0 categoriesForMethods!
+verifyEnvironment:!public! !
+!
 

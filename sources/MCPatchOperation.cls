@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsObject subclass: #MCPatchOperation
 	instanceVariableNames: ''
@@ -78,19 +78,21 @@ typeString
 
 	^self class name copyFrom: 3 to: self class name size.
 ! !
-!MCPatchOperation categoriesFor: #<=!public! !
-!MCPatchOperation categoriesFor: #className!public! !
-!MCPatchOperation categoriesFor: #hasEquivalentText!public! !
-!MCPatchOperation categoriesFor: #initialize:session:!public! !
-!MCPatchOperation categoriesFor: #modificationMemo!public! !
-!MCPatchOperation categoriesFor: #modificationMemoMarkers!public! !
-!MCPatchOperation categoriesFor: #modificationText!public! !
-!MCPatchOperation categoriesFor: #obsoletionMemo!public! !
-!MCPatchOperation categoriesFor: #obsoletionMemoMarkers!public! !
-!MCPatchOperation categoriesFor: #obsoletionText!public! !
-!MCPatchOperation categoriesFor: #selector!public! !
-!MCPatchOperation categoriesFor: #sortString!public! !
-!MCPatchOperation categoriesFor: #typeString!public! !
+!MCPatchOperation categoriesForMethods!
+<=!public! !
+className!public! !
+hasEquivalentText!public! !
+initialize:session:!public! !
+modificationMemo!public! !
+modificationMemoMarkers!public! !
+modificationText!public! !
+obsoletionMemo!public! !
+obsoletionMemoMarkers!public! !
+obsoletionText!public! !
+selector!public! !
+sortString!public! !
+typeString!public! !
+!
 
 !MCPatchOperation class methodsFor!
 
@@ -108,5 +110,7 @@ fromStream: aStream session: aGciSession
 		initialize: aStream
 		session:  aGciSession.
 ! !
-!MCPatchOperation class categoriesFor: #fromStream:session:!public! !
+!MCPatchOperation class categoriesForMethods!
+fromStream:session:!public! !
+!
 

@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 DWORD subclass: #GciSessionId
 	instanceVariableNames: ''
@@ -14,5 +14,7 @@ printOn: aStream
 
 	self value printOn: aStream.
 ! !
-!GciSessionId categoriesFor: #printOn:!public! !
+!GciSessionId categoriesForMethods!
+printOn:!public! !
+!
 

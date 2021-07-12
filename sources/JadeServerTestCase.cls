@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 TestCase subclass: #JadeServerTestCase
 	instanceVariableNames: ''
@@ -65,5 +65,7 @@ testSocket
 		assert: (encoder readObjectFrom: stream) == nil;
 		yourself.
 ! !
-!JadeServerTestCase categoriesFor: #testSocket!public! !
+!JadeServerTestCase categoriesForMethods!
+testSocket!public! !
+!
 

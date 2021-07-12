@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Object subclass: #VWMethods
 	instanceVariableNames: 'package className isMeta category methods'
@@ -76,12 +76,14 @@ processElement: aKey value: aValue
 	MessageBox notify: 'Sorry, we are not yet prepared to handle ' , aKey printString , ' (we only support the #''class-id'', #''category'', and #''body'' keys)!!'.
 	Keyboard default isShiftDown ifTrue: [self halt].
 ! !
-!VWMethods categoriesFor: #className!public! !
-!VWMethods categoriesFor: #initialize:!public! !
-!VWMethods categoriesFor: #package!public! !
-!VWMethods categoriesFor: #printTopazFileInOn:!public! !
-!VWMethods categoriesFor: #processBody:!public! !
-!VWMethods categoriesFor: #processCategory:!public! !
-!VWMethods categoriesFor: #processClassName:!public! !
-!VWMethods categoriesFor: #processElement:value:!public! !
+!VWMethods categoriesForMethods!
+className!public! !
+initialize:!public! !
+package!public! !
+printTopazFileInOn:!public! !
+processBody:!public! !
+processCategory:!public! !
+processClassName:!public! !
+processElement:value:!public! !
+!
 

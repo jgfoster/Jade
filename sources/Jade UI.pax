@@ -171,7 +171,9 @@ debugError
 	^JadeDebugger reportError: self.
 
 ! !
-!GsError categoriesFor: #debugError!public! !
+!GsError categoriesForMethods!
+debugError!public! !
+!
 
 !GsObject methodsFor!
 
@@ -179,7 +181,9 @@ gsInspect
 
 	JadeInspector showOn: self oopType session: gciSession.
 ! !
-!GsObject categoriesFor: #gsInspect!public! !
+!GsObject categoriesForMethods!
+gsInspect!public! !
+!
 
 !GsProcess methodsFor!
 
@@ -221,11 +225,13 @@ trimStackToLevel: anInteger
 		to: self
 		withAll: (Array with: anInteger).
 ! !
-!GsProcess categoriesFor: #stepInto:!public! !
-!GsProcess categoriesFor: #stepOut:!public! !
-!GsProcess categoriesFor: #stepOver:!public! !
-!GsProcess categoriesFor: #terminate!public! !
-!GsProcess categoriesFor: #trimStackToLevel:!public! !
+!GsProcess categoriesForMethods!
+stepInto:!public! !
+stepOut:!public! !
+stepOver:!public! !
+terminate!public! !
+trimStackToLevel:!public! !
+!
 
 !JadeServer methodsFor!
 
@@ -402,19 +408,21 @@ step: aGsProcess inFrame: anInteger
 
 	aGsProcess _stepOverInFrame: anInteger.
 ! !
-!JadeServer categoriesFor: #_asAsciiString:!Debugger!private! !
-!JadeServer categoriesFor: #_oopAndStringFor:!Debugger!private! !
-!JadeServer categoriesFor: #_recompile:withSource:!Debugger!private! !
-!JadeServer categoriesFor: #_sourceForProcess:frame:!Debugger!private! !
-!JadeServer categoriesFor: #_stepPointFromProcess:frame:method:level:!Debugger!private! !
-!JadeServer categoriesFor: #_stepPointsForBreaksInMethod:!Debugger!private! !
-!JadeServer categoriesFor: #_trimStackOf:toLevel:!Debugger!private! !
-!JadeServer categoriesFor: #compile:frame:process:!Debugger!public! !
-!JadeServer categoriesFor: #isResumableCategory:number:context:!Debugger!public! !
-!JadeServer categoriesFor: #showUnimplementedMessages!public! !
-!JadeServer categoriesFor: #showUnimplementedMessages:!public! !
-!JadeServer categoriesFor: #sourceForProcess:frame:!public! !
-!JadeServer categoriesFor: #step:inFrame:!Debugger!public! !
+!JadeServer categoriesForMethods!
+_asAsciiString:!Debugger!private! !
+_oopAndStringFor:!Debugger!private! !
+_recompile:withSource:!Debugger!private! !
+_sourceForProcess:frame:!Debugger!private! !
+_stepPointFromProcess:frame:method:level:!Debugger!private! !
+_stepPointsForBreaksInMethod:!Debugger!private! !
+_trimStackOf:toLevel:!Debugger!private! !
+compile:frame:process:!Debugger!public! !
+isResumableCategory:number:context:!Debugger!public! !
+showUnimplementedMessages!public! !
+showUnimplementedMessages:!public! !
+sourceForProcess:frame:!public! !
+step:inFrame:!Debugger!public! !
+!
 
 !JadeServer32bit methodsFor!
 
@@ -471,11 +479,13 @@ sourceForProcess: gsProcess frame: level
 		_sourceForProcess: gsProcess 
 		frame: level).
 ! !
-!JadeServer32bit categoriesFor: #_oopAndStringFor:!Debugger!private! !
-!JadeServer32bit categoriesFor: #_recompile:withSource:!Debugger!private! !
-!JadeServer32bit categoriesFor: #_stepPointFromProcess:frame:method:level:!Debugger!private! !
-!JadeServer32bit categoriesFor: #_trimStackOf:toLevel:!Debugger!private! !
-!JadeServer32bit categoriesFor: #sourceForProcess:frame:!Debugger!public! !
+!JadeServer32bit categoriesForMethods!
+_oopAndStringFor:!Debugger!private! !
+_recompile:withSource:!Debugger!private! !
+_stepPointFromProcess:frame:method:level:!Debugger!private! !
+_trimStackOf:toLevel:!Debugger!private! !
+sourceForProcess:frame:!Debugger!public! !
+!
 
 !JadeServer64bit methodsFor!
 
@@ -529,11 +539,13 @@ sourceForProcess: gsProcess frame: level
 			ex return: (self _asAsciiString: ('?????' , ex description , Character cr asString , (GsProcess stackReportToLevel: 50))).
 	].
 ! !
-!JadeServer64bit categoriesFor: #_oopAndStringFor:!Debugger!private! !
-!JadeServer64bit categoriesFor: #_recompile:withSource:!Debugger!private! !
-!JadeServer64bit categoriesFor: #_stepPointFromProcess:frame:method:level:!Debugger!private! !
-!JadeServer64bit categoriesFor: #_trimStackOf:toLevel:!Debugger!private! !
-!JadeServer64bit categoriesFor: #sourceForProcess:frame:!Debugger!public! !
+!JadeServer64bit categoriesForMethods!
+_oopAndStringFor:!Debugger!private! !
+_recompile:withSource:!Debugger!private! !
+_stepPointFromProcess:frame:method:level:!Debugger!private! !
+_trimStackOf:toLevel:!Debugger!private! !
+sourceForProcess:frame:!Debugger!public! !
+!
 
 !JadeServer64bit33 methodsFor!
 
@@ -549,7 +561,9 @@ _stepPointFromProcess: gsProcess frame: aFrame method: gsMethod level: anInteger
 	homeMethod := self homeMethodFor: localMethod.
 	^homeMethod _sourceOffsets indexOf: sourceOffset.
 	! !
-!JadeServer64bit33 categoriesFor: #_stepPointFromProcess:frame:method:level:!Debugger!private! !
+!JadeServer64bit33 categoriesForMethods!
+_stepPointFromProcess:frame:method:level:!Debugger!private! !
+!
 
 !JadeServer64bit3x methodsFor!
 
@@ -557,7 +571,9 @@ _stepPointsForBreaksInMethod: gsMethod
 	"Private - Presumably there is a way to do this, just not the same as 32-bit and 64-bit 2.x"
 
 	^#()! !
-!JadeServer64bit3x categoriesFor: #_stepPointsForBreaksInMethod:!Debugger!private! !
+!JadeServer64bit3x categoriesForMethods!
+_stepPointsForBreaksInMethod:!Debugger!private! !
+!
 
 !JadeTextDocument methodsFor!
 
@@ -584,20 +600,26 @@ jadeInspect
 	result := self jadeExecuteAndDisplay: false.
 	JadeInspector showOn: result session: gciSession.
 ! !
-!JadeTextDocument categoriesFor: #fileIn!private! !
-!JadeTextDocument categoriesFor: #jadeInspect!Jade!private! !
+!JadeTextDocument categoriesForMethods!
+fileIn!private! !
+jadeInspect!Jade!private! !
+!
 
 !JadeToolsToolBarPresenter methodsFor!
 
 jadePreferences
 	JadePreferencesShell showOnSession: gciSession! !
-!JadeToolsToolBarPresenter categoriesFor: #jadePreferences!public! !
+!JadeToolsToolBarPresenter categoriesForMethods!
+jadePreferences!public! !
+!
 
 !StdioFileStream class methodsFor!
 
 getEncodingNames
 	^ClassForEncoding keys asSortedCollection asArray! !
-!StdioFileStream class categoriesFor: #getEncodingNames!public! !
+!StdioFileStream class categoriesForMethods!
+getEncodingNames!public! !
+!
 
 "End of package definition"!
 

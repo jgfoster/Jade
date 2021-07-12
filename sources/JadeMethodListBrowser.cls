@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadeShell subclass: #JadeMethodListBrowser
 	instanceVariableNames: ''
@@ -46,12 +46,14 @@ switchToTreeView
 
 	self view destroy.
 ! !
-!JadeMethodListBrowser categoriesFor: #defaultPresenterName!public! !
-!JadeMethodListBrowser categoriesFor: #presenterClass!overrides!private! !
-!JadeMethodListBrowser categoriesFor: #shellName!overrides!private! !
-!JadeMethodListBrowser categoriesFor: #statusBarText:!private! !
-!JadeMethodListBrowser categoriesFor: #switchToListView!public! !
-!JadeMethodListBrowser categoriesFor: #switchToTreeView!public! !
+!JadeMethodListBrowser categoriesForMethods!
+defaultPresenterName!public! !
+presenterClass!overrides!private! !
+shellName!overrides!private! !
+statusBarText:!private! !
+switchToListView!public! !
+switchToTreeView!public! !
+!
 
 !JadeMethodListBrowser class methodsFor!
 
@@ -88,7 +90,9 @@ showOnSession: aGciSession
 		showShell;
 		yourself.
 ! !
-!JadeMethodListBrowser class categoriesFor: #resource_List_view!public!resources-views! !
-!JadeMethodListBrowser class categoriesFor: #resource_Tree_view!public!resources-views! !
-!JadeMethodListBrowser class categoriesFor: #showOnSession:!public! !
+!JadeMethodListBrowser class categoriesForMethods!
+resource_List_view!public!resources-views! !
+resource_Tree_view!public!resources-views! !
+showOnSession:!public! !
+!
 

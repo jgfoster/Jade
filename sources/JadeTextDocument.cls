@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 TextDocument subclass: #JadeTextDocument
 	instanceVariableNames: 'gciSession codePane environment'
@@ -454,57 +454,59 @@ validateUserInterface
 		view == DeafObject current ifTrue: [ex return: nil].
 		ex pass.
 	].! !
-!JadeTextDocument categoriesFor: #abortTransaction!Jade!private! !
-!JadeTextDocument categoriesFor: #aboutJade!private! !
-!JadeTextDocument categoriesFor: #activeTextEdit!private! !
-!JadeTextDocument categoriesFor: #addQuotesToSelection!edit!private! !
-!JadeTextDocument categoriesFor: #codePresenterIsMethod!private! !
-!JadeTextDocument categoriesFor: #codeSourcePresenterClass!private! !
-!JadeTextDocument categoriesFor: #commitTransaction!Jade!private! !
-!JadeTextDocument categoriesFor: #contextObject!Jade!private! !
-!JadeTextDocument categoriesFor: #continueTransaction!Jade!private! !
-!JadeTextDocument categoriesFor: #createComponents!private! !
-!JadeTextDocument categoriesFor: #currentSelectionOrLine!Jade!private! !
-!JadeTextDocument categoriesFor: #editCopy!edit!private! !
-!JadeTextDocument categoriesFor: #editCut!edit!private! !
-!JadeTextDocument categoriesFor: #editDelete!edit!private! !
-!JadeTextDocument categoriesFor: #editFind!edit!private! !
-!JadeTextDocument categoriesFor: #editFindNext!edit!private! !
-!JadeTextDocument categoriesFor: #editPaste!edit!private! !
-!JadeTextDocument categoriesFor: #editReplace!edit!private! !
-!JadeTextDocument categoriesFor: #editSelectAll!edit!private! !
-!JadeTextDocument categoriesFor: #environment:!accessing!public! !
-!JadeTextDocument categoriesFor: #executeSelectionOrLine!Jade!private! !
-!JadeTextDocument categoriesFor: #fileIn:!private! !
-!JadeTextDocument categoriesFor: #fileNew!private! !
-!JadeTextDocument categoriesFor: #fileOpen!private! !
-!JadeTextDocument categoriesFor: #gciSession!private! !
-!JadeTextDocument categoriesFor: #gciSession:!private! !
-!JadeTextDocument categoriesFor: #getDocumentData!accessing!private! !
-!JadeTextDocument categoriesFor: #help!private! !
-!JadeTextDocument categoriesFor: #initialize!overrides!public! !
-!JadeTextDocument categoriesFor: #jadeDebug!Jade!private! !
-!JadeTextDocument categoriesFor: #jadeDisplay!Jade!private! !
-!JadeTextDocument categoriesFor: #jadeExecute!Jade!private! !
-!JadeTextDocument categoriesFor: #jadeExecuteAndDisplay:!Jade!private! !
-!JadeTextDocument categoriesFor: #jadeExecuteAndDisplay:result:!Jade!private! !
-!JadeTextDocument categoriesFor: #logoutRequested:!private! !
-!JadeTextDocument categoriesFor: #onCloseRequested:!private! !
-!JadeTextDocument categoriesFor: #onPromptToSaveChanges:!private! !
-!JadeTextDocument categoriesFor: #onViewClosed!private! !
-!JadeTextDocument categoriesFor: #onViewOpened!private! !
-!JadeTextDocument categoriesFor: #print!private! !
-!JadeTextDocument categoriesFor: #queryCommand:!commands!private! !
-!JadeTextDocument categoriesFor: #removeQuotesFromSelection!edit!private! !
-!JadeTextDocument categoriesFor: #saveDocument!private! !
-!JadeTextDocument categoriesFor: #setDocumentData:!accessing!private! !
-!JadeTextDocument categoriesFor: #showError:on:!private! !
-!JadeTextDocument categoriesFor: #showSelection!edit!private! !
-!JadeTextDocument categoriesFor: #showText:!private! !
-!JadeTextDocument categoriesFor: #updateCodeFont!private! !
-!JadeTextDocument categoriesFor: #updateStatusBar!private! !
-!JadeTextDocument categoriesFor: #updateStatusBarItem:with:!private! !
-!JadeTextDocument categoriesFor: #validateUserInterface!overrides!private! !
+!JadeTextDocument categoriesForMethods!
+abortTransaction!Jade!private! !
+aboutJade!private! !
+activeTextEdit!private! !
+addQuotesToSelection!edit!private! !
+codePresenterIsMethod!private! !
+codeSourcePresenterClass!private! !
+commitTransaction!Jade!private! !
+contextObject!Jade!private! !
+continueTransaction!Jade!private! !
+createComponents!private! !
+currentSelectionOrLine!Jade!private! !
+editCopy!edit!private! !
+editCut!edit!private! !
+editDelete!edit!private! !
+editFind!edit!private! !
+editFindNext!edit!private! !
+editPaste!edit!private! !
+editReplace!edit!private! !
+editSelectAll!edit!private! !
+environment:!accessing!public! !
+executeSelectionOrLine!Jade!private! !
+fileIn:!private! !
+fileNew!private! !
+fileOpen!private! !
+gciSession!private! !
+gciSession:!private! !
+getDocumentData!accessing!private! !
+help!private! !
+initialize!overrides!public! !
+jadeDebug!Jade!private! !
+jadeDisplay!Jade!private! !
+jadeExecute!Jade!private! !
+jadeExecuteAndDisplay:!Jade!private! !
+jadeExecuteAndDisplay:result:!Jade!private! !
+logoutRequested:!private! !
+onCloseRequested:!private! !
+onPromptToSaveChanges:!private! !
+onViewClosed!private! !
+onViewOpened!private! !
+print!private! !
+queryCommand:!commands!private! !
+removeQuotesFromSelection!edit!private! !
+saveDocument!private! !
+setDocumentData:!accessing!private! !
+showError:on:!private! !
+showSelection!edit!private! !
+showText:!private! !
+updateCodeFont!private! !
+updateStatusBar!private! !
+updateStatusBarItem:with:!private! !
+validateUserInterface!overrides!private! !
+!
 
 !JadeTextDocument class methodsFor!
 
@@ -550,10 +552,12 @@ shutdownOnExit
 
 	^false.
 ! !
-!JadeTextDocument class categoriesFor: #defaultFileExtension!public! !
-!JadeTextDocument class categoriesFor: #fileTypes!public! !
-!JadeTextDocument class categoriesFor: #icon!public! !
-!JadeTextDocument class categoriesFor: #openOnSession:!public! !
-!JadeTextDocument class categoriesFor: #showOnSession:!public! !
-!JadeTextDocument class categoriesFor: #shutdownOnExit!public! !
+!JadeTextDocument class categoriesForMethods!
+defaultFileExtension!public! !
+fileTypes!public! !
+icon!public! !
+openOnSession:!public! !
+showOnSession:!public! !
+shutdownOnExit!public! !
+!
 

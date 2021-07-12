@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsEventError subclass: #GsSoftBreak
 	instanceVariableNames: ''
@@ -14,5 +14,7 @@ wantsToHandle: aGciErrorSType session: aGciSession
 
 	^aGciErrorSType isSoftBreakInSession: aGciSession.
 ! !
-!GsSoftBreak class categoriesFor: #wantsToHandle:session:!public! !
+!GsSoftBreak class categoriesForMethods!
+wantsToHandle:session:!public! !
+!
 

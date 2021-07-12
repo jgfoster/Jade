@@ -111,10 +111,12 @@ processes
 	^self _encodeString: stream contents.
 
 ! !
-!JadeServer categoriesFor: #_addProcess:to:withStatus:scheduler:!private!Processes! !
-!JadeServer categoriesFor: #_addProcess2:to:withStatus:scheduler:!private!Processes! !
-!JadeServer categoriesFor: #_waitingProcesses!private!Processes! !
-!JadeServer categoriesFor: #processes!Processes!public! !
+!JadeServer categoriesForMethods!
+_addProcess:to:withStatus:scheduler:!private!Processes! !
+_addProcess2:to:withStatus:scheduler:!private!Processes! !
+_waitingProcesses!private!Processes! !
+processes!Processes!public! !
+!
 
 !JadeServer64bit33 methodsFor!
 
@@ -125,7 +127,9 @@ _waitingProcesses
 	^ProcessorScheduler scheduler waitingProcesses reject: [:each | each == processToIgnore]
 
 ! !
-!JadeServer64bit33 categoriesFor: #_waitingProcesses!private!Processes! !
+!JadeServer64bit33 categoriesForMethods!
+_waitingProcesses!private!Processes! !
+!
 
 !JadeServer64bit3x methodsFor!
 
@@ -155,8 +159,10 @@ _addProcess2: aProcess to: aStream withStatus: aString scheduler: aScheduler
 "10"		"live or terminated"
 		yourself.
 ! !
-!JadeServer64bit3x categoriesFor: #_addProcess:to:withStatus:scheduler:!private!Processes! !
-!JadeServer64bit3x categoriesFor: #_addProcess2:to:withStatus:scheduler:!private!Processes! !
+!JadeServer64bit3x categoriesForMethods!
+_addProcess:to:withStatus:scheduler:!private!Processes! !
+_addProcess2:to:withStatus:scheduler:!private!Processes! !
+!
 
 !JadeTranscript methodsFor!
 
@@ -164,7 +170,9 @@ browseProcesses
 
 	JadeProcessBrowser showOnSession: gciSession.
 ! !
-!JadeTranscript categoriesFor: #browseProcesses!public! !
+!JadeTranscript categoriesForMethods!
+browseProcesses!public! !
+!
 
 "End of package definition"!
 

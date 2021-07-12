@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 ExternalStructure subclass: #GciErrSType
 	instanceVariableNames: 'args stack'
@@ -115,22 +115,24 @@ stack
 stack: anObject
 	stack := anObject.
 ! !
-!GciErrSType categoriesFor: #args:!public! !
-!GciErrSType categoriesFor: #isApplicationErrorInSession:!public! !
-!GciErrSType categoriesFor: #isClientForwarderSendInSession:!public! !
-!GciErrSType categoriesFor: #isCompileErrorInSession:!public! !
-!GciErrSType categoriesFor: #isDoesNotUnderstandInSession:!public! !
-!GciErrSType categoriesFor: #isEventErrorInSession:!public! !
-!GciErrSType categoriesFor: #isGemStoneErrorCategoryInSession:!public! !
-!GciErrSType categoriesFor: #isHardBreakInSession:!public! !
-!GciErrSType categoriesFor: #isInvalidSessionInSession:!public! !
-!GciErrSType categoriesFor: #isOverlappingGCIErrorInSession:!public! !
-!GciErrSType categoriesFor: #isPauseInSession:!public! !
-!GciErrSType categoriesFor: #isRuntimeErrorInSession:!public! !
-!GciErrSType categoriesFor: #isSoftBreakInSession:!public! !
-!GciErrSType categoriesFor: #isStackBreakpointInSession:!public! !
-!GciErrSType categoriesFor: #number!public! !
-!GciErrSType categoriesFor: #oopTypeClass!public! !
-!GciErrSType categoriesFor: #stack!public! !
-!GciErrSType categoriesFor: #stack:!public! !
+!GciErrSType categoriesForMethods!
+args:!public! !
+isApplicationErrorInSession:!public! !
+isClientForwarderSendInSession:!public! !
+isCompileErrorInSession:!public! !
+isDoesNotUnderstandInSession:!public! !
+isEventErrorInSession:!public! !
+isGemStoneErrorCategoryInSession:!public! !
+isHardBreakInSession:!public! !
+isInvalidSessionInSession:!public! !
+isOverlappingGCIErrorInSession:!public! !
+isPauseInSession:!public! !
+isRuntimeErrorInSession:!public! !
+isSoftBreakInSession:!public! !
+isStackBreakpointInSession:!public! !
+number!public! !
+oopTypeClass!public! !
+stack!public! !
+stack:!public! !
+!
 

@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsObject subclass: #GsMethod2
 	instanceVariableNames: 'gsClass category isTestCase'
@@ -84,14 +84,16 @@ setBreakAtStepPoint: anInteger
 		to: oopType	
 		with: anInteger.
 ! !
-!GsMethod2 categoriesFor: #<=!public! !
-!GsMethod2 categoriesFor: #asUpdatedVersion:!public! !
-!GsMethod2 categoriesFor: #category!public! !
-!GsMethod2 categoriesFor: #classCategory!public! !
-!GsMethod2 categoriesFor: #clearBreakAtStepPoint:!Breakpoints!public! !
-!GsMethod2 categoriesFor: #gsClass!public! !
-!GsMethod2 categoriesFor: #initialize:!public! !
-!GsMethod2 categoriesFor: #isTestCase!public! !
-!GsMethod2 categoriesFor: #printOn:!public! !
-!GsMethod2 categoriesFor: #setBreakAtStepPoint:!Breakpoints!public! !
+!GsMethod2 categoriesForMethods!
+<=!public! !
+asUpdatedVersion:!public! !
+category!public! !
+classCategory!public! !
+clearBreakAtStepPoint:!Breakpoints!public! !
+gsClass!public! !
+initialize:!public! !
+isTestCase!public! !
+printOn:!public! !
+setBreakAtStepPoint:!Breakpoints!public! !
+!
 

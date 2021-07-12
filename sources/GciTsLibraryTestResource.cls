@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GciLibraryTestResource subclass: #GciTsLibraryTestResource
 	instanceVariableNames: ''
@@ -14,5 +14,7 @@ libraryClass
 
 	^LibGciTs_3_3
 ! !
-!GciTsLibraryTestResource categoriesFor: #libraryClass!private! !
+!GciTsLibraryTestResource categoriesForMethods!
+libraryClass!private! !
+!
 

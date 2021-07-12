@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GciErrSType subclass: #GciErrSType64_30
 	instanceVariableNames: ''
@@ -127,27 +127,29 @@ reason: anObject
 	size := anObject byteSize - 1 min: (63 * 1).
 	anObject replaceBytesOf: bytes from: 1139 to: 1138 + size startingAt: 1.
 	bytes at: size+1139 put: 0! !
-!GciErrSType64_30 categoriesFor: #argCount!**compiled accessors**!public! !
-!GciErrSType64_30 categoriesFor: #argCount:!public! !
-!GciErrSType64_30 categoriesFor: #args!**compiled accessors**!public! !
-!GciErrSType64_30 categoriesFor: #category!**compiled accessors**!public! !
-!GciErrSType64_30 categoriesFor: #category:!public! !
-!GciErrSType64_30 categoriesFor: #categoryOop!public! !
-!GciErrSType64_30 categoriesFor: #context!**compiled accessors**!public! !
-!GciErrSType64_30 categoriesFor: #context:!public! !
-!GciErrSType64_30 categoriesFor: #contextOop!public! !
-!GciErrSType64_30 categoriesFor: #exceptionObj!**compiled accessors**!public! !
-!GciErrSType64_30 categoriesFor: #exceptionObj:!public! !
-!GciErrSType64_30 categoriesFor: #exceptionObjOop!public! !
-!GciErrSType64_30 categoriesFor: #fatal!**compiled accessors**!public! !
-!GciErrSType64_30 categoriesFor: #fatal:!public! !
-!GciErrSType64_30 categoriesFor: #message!**compiled accessors**!public! !
-!GciErrSType64_30 categoriesFor: #message:!public! !
-!GciErrSType64_30 categoriesFor: #number!**compiled accessors**!public! !
-!GciErrSType64_30 categoriesFor: #number:!public! !
-!GciErrSType64_30 categoriesFor: #oopTypeClass!public! !
-!GciErrSType64_30 categoriesFor: #reason!**compiled accessors**!public! !
-!GciErrSType64_30 categoriesFor: #reason:!public! !
+!GciErrSType64_30 categoriesForMethods!
+argCount!**compiled accessors**!public! !
+argCount:!public! !
+args!**compiled accessors**!public! !
+category!**compiled accessors**!public! !
+category:!public! !
+categoryOop!public! !
+context!**compiled accessors**!public! !
+context:!public! !
+contextOop!public! !
+exceptionObj!**compiled accessors**!public! !
+exceptionObj:!public! !
+exceptionObjOop!public! !
+fatal!**compiled accessors**!public! !
+fatal:!public! !
+message!**compiled accessors**!public! !
+message:!public! !
+number!**compiled accessors**!public! !
+number:!public! !
+oopTypeClass!public! !
+reason!**compiled accessors**!public! !
+reason:!public! !
+!
 
 !GciErrSType64_30 class methodsFor!
 
@@ -186,5 +188,7 @@ defineFields
 		defineField: #reason				type: reasonField					;
 		yourself.
 ! !
-!GciErrSType64_30 class categoriesFor: #defineFields!public! !
+!GciErrSType64_30 class categoriesForMethods!
+defineFields!public! !
+!
 

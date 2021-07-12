@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsError subclass: #GsCompileError
 	instanceVariableNames: 'list'
@@ -22,8 +22,10 @@ list
 
 	^list.
 ! !
-!GsCompileError categoriesFor: #gatherData!public! !
-!GsCompileError categoriesFor: #list!public! !
+!GsCompileError categoriesForMethods!
+gatherData!public! !
+list!public! !
+!
 
 !GsCompileError class methodsFor!
 
@@ -49,6 +51,8 @@ wantsToHandle: aGciErrorSType session: aGciSession
 
 	^aGciErrorSType isCompileErrorInSession: aGciSession.
 ! !
-!GsCompileError class categoriesFor: #errorListFor:inSession:!public! !
-!GsCompileError class categoriesFor: #wantsToHandle:session:!public! !
+!GsCompileError class categoriesForMethods!
+errorListFor:inSession:!public! !
+wantsToHandle:session:!public! !
+!
 

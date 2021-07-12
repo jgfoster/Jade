@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Gcilw6x subclass: #Gcilw66
 	instanceVariableNames: ''
@@ -14,5 +14,7 @@ displayName
 
 	^'32-bit 6.6.x'.
 ! !
-!Gcilw66 class categoriesFor: #displayName!public! !
+!Gcilw66 class categoriesForMethods!
+displayName!public! !
+!
 

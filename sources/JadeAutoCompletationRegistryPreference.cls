@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadePreferenceObject subclass: #JadeAutoCompletationRegistryPreference
 	instanceVariableNames: 'registry variableMap paramMap'
@@ -404,57 +404,59 @@ variableMap
 
 variableMap: anObject
 	variableMap := anObject! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #configuration!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #defaultFileName!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #displayString!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #fileOut!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #getAllClassesNames!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #getAllClassMethods!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #getAllClassMethodsButObject!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #getAllClassMethodsFor:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #getAllClassVarOf:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #getAllGlobalMethods!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #getAllInstClassVarOf:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #getAllInstVarNamesOf:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #getAllMethods!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #getAllMethodsButObject!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #getAllMethodsFor:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #getAllPoolDictionariesOf:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #getAllVarNamesOf:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #getClass:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #getClassesNamedWith:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #hasMapFor:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #hasMapForClassNamed:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #icon!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #includesClassNamed:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #initialize!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #initializeParamMap!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #mapFor:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #mapToDisplay!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #openCustomPopUpFor:ifNone:!custom shell!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #paramFor:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #paramFor:index:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #paramMap!accessing!private! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #paramMap:!accessing!private! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #paramsToDisplay!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #publishedAspects!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #register:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #registerMap:gsClassName:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #registerParamFor:param:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #registry!accessing!private! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #registry:!accessing!private! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #registryAsSortedCollection!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #setAsDefault!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #showParamMapShell!custom shell!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #showRegistryShell!custom shell!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #showVariableMapShell!custom shell!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #unregister:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #unregisterClassNamed:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #unregisterMap:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #unregisterParam:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #updateGsClassForMapStrings:!public! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #variableMap!accessing!private! !
-!JadeAutoCompletationRegistryPreference categoriesFor: #variableMap:!accessing!private! !
+!JadeAutoCompletationRegistryPreference categoriesForMethods!
+configuration!public! !
+defaultFileName!public! !
+displayString!public! !
+fileOut!public! !
+getAllClassesNames!public! !
+getAllClassMethods!public! !
+getAllClassMethodsButObject!public! !
+getAllClassMethodsFor:!public! !
+getAllClassVarOf:!public! !
+getAllGlobalMethods!public! !
+getAllInstClassVarOf:!public! !
+getAllInstVarNamesOf:!public! !
+getAllMethods!public! !
+getAllMethodsButObject!public! !
+getAllMethodsFor:!public! !
+getAllPoolDictionariesOf:!public! !
+getAllVarNamesOf:!public! !
+getClass:!public! !
+getClassesNamedWith:!public! !
+hasMapFor:!public! !
+hasMapForClassNamed:!public! !
+icon!public! !
+includesClassNamed:!public! !
+initialize!public! !
+initializeParamMap!public! !
+mapFor:!public! !
+mapToDisplay!public! !
+openCustomPopUpFor:ifNone:!custom shell!public! !
+paramFor:!public! !
+paramFor:index:!public! !
+paramMap!accessing!private! !
+paramMap:!accessing!private! !
+paramsToDisplay!public! !
+publishedAspects!public! !
+register:!public! !
+registerMap:gsClassName:!public! !
+registerParamFor:param:!public! !
+registry!accessing!private! !
+registry:!accessing!private! !
+registryAsSortedCollection!public! !
+setAsDefault!public! !
+showParamMapShell!custom shell!public! !
+showRegistryShell!custom shell!public! !
+showVariableMapShell!custom shell!public! !
+unregister:!public! !
+unregisterClassNamed:!public! !
+unregisterMap:!public! !
+unregisterParam:!public! !
+updateGsClassForMapStrings:!public! !
+variableMap!accessing!private! !
+variableMap:!accessing!private! !
+!
 
 !JadeAutoCompletationRegistryPreference class methodsFor!
 
@@ -465,5 +467,7 @@ newFromFile: pathFile
 	obj := self binaryReadFrom: fileStream.
 	fileStream close.
 	^obj! !
-!JadeAutoCompletationRegistryPreference class categoriesFor: #newFromFile:!public! !
+!JadeAutoCompletationRegistryPreference class categoriesForMethods!
+newFromFile:!public! !
+!
 

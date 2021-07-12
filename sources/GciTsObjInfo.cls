@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 ExternalStructure subclass: #GciTsObjInfo
 	instanceVariableNames: 'data'
@@ -165,28 +165,30 @@ objSize: anObject
 	"Set the receiver's objSize field to the value of anObject."
 
 	bytes sqwordAtOffset: 16 put: anObject! !
-!GciTsObjInfo categoriesFor: #_bits!**compiled accessors**!public! !
-!GciTsObjInfo categoriesFor: #_bits:!**compiled accessors**!public! !
-!GciTsObjInfo categoriesFor: #access!**compiled accessors**!public! !
-!GciTsObjInfo categoriesFor: #access:!**compiled accessors**!public! !
-!GciTsObjInfo categoriesFor: #data!accessing!public! !
-!GciTsObjInfo categoriesFor: #data:!accessing!public! !
-!GciTsObjInfo categoriesFor: #implementation!public!testing! !
-!GciTsObjInfo categoriesFor: #isIndexable!public!testing! !
-!GciTsObjInfo categoriesFor: #isInvariant!public!testing! !
-!GciTsObjInfo categoriesFor: #isReadable!public!testing! !
-!GciTsObjInfo categoriesFor: #isWriteable!public!testing! !
-!GciTsObjInfo categoriesFor: #namedSize!**compiled accessors**!public! !
-!GciTsObjInfo categoriesFor: #namedSize:!**compiled accessors**!public! !
-!GciTsObjInfo categoriesFor: #objClass!**compiled accessors**!public! !
-!GciTsObjInfo categoriesFor: #objClass:!**compiled accessors**!public! !
-!GciTsObjInfo categoriesFor: #objClassOop!public! !
-!GciTsObjInfo categoriesFor: #objectSecurityPolicyId!**compiled accessors**!public! !
-!GciTsObjInfo categoriesFor: #objectSecurityPolicyId:!**compiled accessors**!public! !
-!GciTsObjInfo categoriesFor: #objId!**compiled accessors**!public! !
-!GciTsObjInfo categoriesFor: #objId:!**compiled accessors**!public! !
-!GciTsObjInfo categoriesFor: #objSize!**compiled accessors**!public! !
-!GciTsObjInfo categoriesFor: #objSize:!**compiled accessors**!public! !
+!GciTsObjInfo categoriesForMethods!
+_bits!**compiled accessors**!public! !
+_bits:!**compiled accessors**!public! !
+access!**compiled accessors**!public! !
+access:!**compiled accessors**!public! !
+data!accessing!public! !
+data:!accessing!public! !
+implementation!public!testing! !
+isIndexable!public!testing! !
+isInvariant!public!testing! !
+isReadable!public!testing! !
+isWriteable!public!testing! !
+namedSize!**compiled accessors**!public! !
+namedSize:!**compiled accessors**!public! !
+objClass!**compiled accessors**!public! !
+objClass:!**compiled accessors**!public! !
+objClassOop!public! !
+objectSecurityPolicyId!**compiled accessors**!public! !
+objectSecurityPolicyId:!**compiled accessors**!public! !
+objId!**compiled accessors**!public! !
+objId:!**compiled accessors**!public! !
+objSize!**compiled accessors**!public! !
+objSize:!**compiled accessors**!public! !
+!
 
 !GciTsObjInfo class methodsFor!
 
@@ -204,5 +206,7 @@ defineFields
 		defineField: #access							type: SWORDField	new	;
 		yourself.
 ! !
-!GciTsObjInfo class categoriesFor: #defineFields!public! !
+!GciTsObjInfo class categoriesForMethods!
+defineFields!public! !
+!
 

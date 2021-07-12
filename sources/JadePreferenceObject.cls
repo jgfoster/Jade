@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Object subclass: #JadePreferenceObject
 	instanceVariableNames: ''
@@ -23,9 +23,11 @@ openCustomPopUpFor: symbolName ifNone: aNiladicValuable
 	Subclasses with special options (can no be implemented using Dolphin Aspects mechanism) should rewrite this method  (see JadeAutoCompletationRegistryPreference)."
 
 	^aNiladicValuable value! !
-!JadePreferenceObject categoriesFor: #default!public! !
-!JadePreferenceObject categoriesFor: #gciSession!public! !
-!JadePreferenceObject categoriesFor: #openCustomPopUpFor:ifNone:!custom shell!public! !
+!JadePreferenceObject categoriesForMethods!
+default!public! !
+gciSession!public! !
+openCustomPopUpFor:ifNone:!custom shell!public! !
+!
 
 !JadePreferenceObject class methodsFor!
 
@@ -41,7 +43,9 @@ gciSession
 gciSession: aGciSession
 
 	^GCISession := aGciSession! !
-!JadePreferenceObject class categoriesFor: #default!public! !
-!JadePreferenceObject class categoriesFor: #gciSession!public! !
-!JadePreferenceObject class categoriesFor: #gciSession:!public! !
+!JadePreferenceObject class categoriesForMethods!
+default!public! !
+gciSession!public! !
+gciSession:!public! !
+!
 

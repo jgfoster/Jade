@@ -119,11 +119,13 @@ superclassesOf: aClass isMeta: aBoolean
 	list := myClass _allSuperList , (Array with: myClass).
 	^self _encodeString: (self _stringForClassList: list).
 ! !
-!JadeServer categoriesFor: #_addClass:toStream:!Classes!private! !
-!JadeServer categoriesFor: #_addClass:toStream:isVisible:fromDictionary:!Classes!private! !
-!JadeServer categoriesFor: #_stringForClassList:!Classes!private! !
-!JadeServer categoriesFor: #classOrganizer!Classes!private! !
-!JadeServer categoriesFor: #superclassesOf:isMeta:!Classes!public! !
+!JadeServer categoriesForMethods!
+_addClass:toStream:!Classes!private! !
+_addClass:toStream:isVisible:fromDictionary:!Classes!private! !
+_stringForClassList:!Classes!private! !
+classOrganizer!Classes!private! !
+superclassesOf:isMeta:!Classes!public! !
+!
 
 "End of package definition"!
 

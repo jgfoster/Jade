@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadeLoginShell subclass: #ContactsLoginShell
 	instanceVariableNames: ''
@@ -69,7 +69,9 @@ postLogin: aGciSession
 		ContactsBrowser showOn: aGciSession.
 	].
 ! !
-!ContactsLoginShell categoriesFor: #initialSetupCode!public! !
-!ContactsLoginShell categoriesFor: #onViewOpened!public! !
-!ContactsLoginShell categoriesFor: #postLogin:!public! !
+!ContactsLoginShell categoriesForMethods!
+initialSetupCode!public! !
+onViewOpened!public! !
+postLogin:!public! !
+!
 

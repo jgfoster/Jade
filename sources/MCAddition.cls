@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 MCPatchOperation subclass: #MCAddition
 	instanceVariableNames: 'definition'
@@ -54,14 +54,16 @@ selector
 
 	^definition selector.
 ! !
-!MCAddition categoriesFor: #className!public! !
-!MCAddition categoriesFor: #definition!public! !
-!MCAddition categoriesFor: #definition:!public! !
-!MCAddition categoriesFor: #detailsString!public! !
-!MCAddition categoriesFor: #initialize:!public! !
-!MCAddition categoriesFor: #modificationMemo!public! !
-!MCAddition categoriesFor: #modificationSource!public! !
-!MCAddition categoriesFor: #modificationText!public! !
-!MCAddition categoriesFor: #obsoletionSource!public! !
-!MCAddition categoriesFor: #selector!public! !
+!MCAddition categoriesForMethods!
+className!public! !
+definition!public! !
+definition:!public! !
+detailsString!public! !
+initialize:!public! !
+modificationMemo!public! !
+modificationSource!public! !
+modificationText!public! !
+obsoletionSource!public! !
+selector!public! !
+!
 

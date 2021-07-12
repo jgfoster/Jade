@@ -78,7 +78,9 @@ jadeInspect
 	result := self jadeExecuteAndDisplay: false.	result == self ifTrue: [^self].
 	JadeInspector showOn: result session: gciSession.
 ! !
-!CodeSourcePresenter categoriesFor: #jadeInspect!Jade!private! !
+!CodeSourcePresenter categoriesForMethods!
+jadeInspect!Jade!private! !
+!
 
 !JadeServer methodsFor!
 
@@ -180,14 +182,16 @@ printStringOf: anObject to: anInteger
 
 	^self _encodeString: (self _printStringOf: anObject to: anInteger).
 ! !
-!JadeServer categoriesFor: #_inspectDictionary:on:!private! !
-!JadeServer categoriesFor: #_inspectNamedInstanceVariablesOf:on:!private! !
-!JadeServer categoriesFor: #_print:on:!Inspector!public! !
-!JadeServer categoriesFor: #_printStringOf:!Inspector!private! !
-!JadeServer categoriesFor: #_printStringOf:to:!Inspector!public! !
-!JadeServer categoriesFor: #inspect:!Inspector!public! !
-!JadeServer categoriesFor: #printStringOf:!Inspector!public! !
-!JadeServer categoriesFor: #printStringOf:to:!Inspector!public! !
+!JadeServer categoriesForMethods!
+_inspectDictionary:on:!private! !
+_inspectNamedInstanceVariablesOf:on:!private! !
+_print:on:!Inspector!public! !
+_printStringOf:!Inspector!private! !
+_printStringOf:to:!Inspector!public! !
+inspect:!Inspector!public! !
+printStringOf:!Inspector!public! !
+printStringOf:to:!Inspector!public! !
+!
 
 !JadeServer64bit24 methodsFor!
 
@@ -213,8 +217,10 @@ inspect: anObject
 		ifTrue: [self _encodeString: (self _inspectClientForwarder: anObject)]
 		ifFalse: [super inspect: anObject].
 ! !
-!JadeServer64bit24 categoriesFor: #_inspectClientForwarder:!Inspector!private! !
-!JadeServer64bit24 categoriesFor: #inspect:!Inspector!public! !
+!JadeServer64bit24 categoriesForMethods!
+_inspectClientForwarder:!Inspector!private! !
+inspect:!Inspector!public! !
+!
 
 !JadeServer64bit33 methodsFor!
 
@@ -222,7 +228,9 @@ _printStringOf: anObject
 
 	(anObject isKindOf: Utf8) ifTrue: [^anObject decodeToUnicode].
 	^super _printStringOf: anObject! !
-!JadeServer64bit33 categoriesFor: #_printStringOf:!Inspector!public! !
+!JadeServer64bit33 categoriesForMethods!
+_printStringOf:!Inspector!public! !
+!
 
 !JadeServer64bit3x methodsFor!
 
@@ -278,14 +286,18 @@ inspect: anObject
 	stream nextPutAll: string.
 	^self _encodeString: stream contents.
 ! !
-!JadeServer64bit3x categoriesFor: #inspect:!Inspector!public!Transcript! !
+!JadeServer64bit3x categoriesForMethods!
+inspect:!Inspector!public!Transcript! !
+!
 
 !Object methodsFor!
 
 isJadeInspector
 
 	^false! !
-!Object categoriesFor: #isJadeInspector!public!testing! !
+!Object categoriesForMethods!
+isJadeInspector!public!testing! !
+!
 
 "End of package definition"!
 

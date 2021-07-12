@@ -156,18 +156,22 @@ runTestNamed: testName in: gsClass
 	testResult := (self objectNamed: (self _decodeString: gsClass)) run: (self _decodeString: testName) asSymbol.
 
 	^self _encodeString: testResult errorCount printString, ',' ,testResult failureCount printString, ',', testResult passedCount printString! !
-!JadeServer categoriesFor: #debugTestNamed:of:!public!Test Browser! !
-!JadeServer categoriesFor: #getPackagesNamesWithTestClasses!public!Test Browser! !
-!JadeServer categoriesFor: #getTestCaseClassesNamesOf:!public!Test Browser! !
-!JadeServer categoriesFor: #getTestMethodsNamesOf:!public!Test Browser! !
-!JadeServer categoriesFor: #runTestNamed:in:!public!Test Browser! !
+!JadeServer categoriesForMethods!
+debugTestNamed:of:!public!Test Browser! !
+getPackagesNamesWithTestClasses!public!Test Browser! !
+getTestCaseClassesNamesOf:!public!Test Browser! !
+getTestMethodsNamesOf:!public!Test Browser! !
+runTestNamed:in:!public!Test Browser! !
+!
 
 !JadeToolsToolBarPresenter methodsFor!
 
 browseTests
 
 	JadeSUnitBrowser showOnSession: gciSession.! !
-!JadeToolsToolBarPresenter categoriesFor: #browseTests!public! !
+!JadeToolsToolBarPresenter categoriesForMethods!
+browseTests!public! !
+!
 
 "End of package definition"!
 

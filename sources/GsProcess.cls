@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsObject subclass: #GsProcess
 	instanceVariableNames: 'stack type'
@@ -74,13 +74,15 @@ type
 
 type: anObject
 	type := anObject! !
-!GsProcess categoriesFor: #description!public! !
-!GsProcess categoriesFor: #frameForLevel:!public! !
-!GsProcess categoriesFor: #gciSession:!public! !
-!GsProcess categoriesFor: #printOn:!public! !
-!GsProcess categoriesFor: #stack!public! !
-!GsProcess categoriesFor: #type!accessing!public! !
-!GsProcess categoriesFor: #type:!accessing!public! !
+!GsProcess categoriesForMethods!
+description!public! !
+frameForLevel:!public! !
+gciSession:!public! !
+printOn:!public! !
+stack!public! !
+type!accessing!public! !
+type:!accessing!public! !
+!
 
 !GsProcess class methodsFor!
 
@@ -96,6 +98,8 @@ xmlBaseName
 
 	^'process'.
 ! !
-!GsProcess class categoriesFor: #session:oopType:!public! !
-!GsProcess class categoriesFor: #xmlBaseName!public! !
+!GsProcess class categoriesForMethods!
+session:oopType:!public! !
+xmlBaseName!public! !
+!
 

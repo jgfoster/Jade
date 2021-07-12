@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 MCFileBasedRepository subclass: #MCHttpRepository
 	instanceVariableNames: ''
@@ -43,8 +43,10 @@ userAndPassword
 		serverPerform: #'mcUserAndPasswordInHTTP:' 
 		with: self.
 ! !
-!MCHttpRepository categoriesFor: #storeVersion:name:message:from:!public! !
-!MCHttpRepository categoriesFor: #updateVersionDialogTabIn:!public! !
-!MCHttpRepository categoriesFor: #user:password:!public! !
-!MCHttpRepository categoriesFor: #userAndPassword!public! !
+!MCHttpRepository categoriesForMethods!
+storeVersion:name:message:from:!public! !
+updateVersionDialogTabIn:!public! !
+user:password:!public! !
+userAndPassword!public! !
+!
 

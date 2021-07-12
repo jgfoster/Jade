@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 VWComponent subclass: #VWNameSpace
 	instanceVariableNames: 'imports'
@@ -14,5 +14,7 @@ readOther
 
 	imports := (element entityAt: #'imports') elements first string trimBlanks.
 ! !
-!VWNameSpace categoriesFor: #readOther!public! !
+!VWNameSpace categoriesForMethods!
+readOther!public! !
+!
 

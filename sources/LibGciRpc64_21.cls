@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 LibGciRpc64 subclass: #LibGciRpc64_21
 	instanceVariableNames: ''
@@ -19,6 +19,8 @@ fileNameSearch
 
 	^'libgcirpc64-214.dll'
 ! !
-!LibGciRpc64_21 class categoriesFor: #displayName!public! !
-!LibGciRpc64_21 class categoriesFor: #fileNameSearch!public! !
+!LibGciRpc64_21 class categoriesForMethods!
+displayName!public! !
+fileNameSearch!public! !
+!
 

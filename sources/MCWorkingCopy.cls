@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsObject subclass: #MCWorkingCopy
 	instanceVariableNames: 'isModified ancestors repositories'
@@ -120,17 +120,19 @@ versionNameAndMessage
 	list := string subStrings: Character tab.
 	^list first -> list last.
 ! !
-!MCWorkingCopy categoriesFor: #addRepository:!public! !
-!MCWorkingCopy categoriesFor: #ancestors!public! !
-!MCWorkingCopy categoriesFor: #authorInitials:!public! !
-!MCWorkingCopy categoriesFor: #globals!public! !
-!MCWorkingCopy categoriesFor: #initialize:!public! !
-!MCWorkingCopy categoriesFor: #isModified!public! !
-!MCWorkingCopy categoriesFor: #mcRepositoryFrom:!public! !
-!MCWorkingCopy categoriesFor: #mcVersionInfoFrom:!public! !
-!MCWorkingCopy categoriesFor: #newVersionWithName:message:!public! !
-!MCWorkingCopy categoriesFor: #removeRepository:!public! !
-!MCWorkingCopy categoriesFor: #repositories!public! !
-!MCWorkingCopy categoriesFor: #uniqueVersionName!public! !
-!MCWorkingCopy categoriesFor: #versionNameAndMessage!public! !
+!MCWorkingCopy categoriesForMethods!
+addRepository:!public! !
+ancestors!public! !
+authorInitials:!public! !
+globals!public! !
+initialize:!public! !
+isModified!public! !
+mcRepositoryFrom:!public! !
+mcVersionInfoFrom:!public! !
+newVersionWithName:message:!public! !
+removeRepository:!public! !
+repositories!public! !
+uniqueVersionName!public! !
+versionNameAndMessage!public! !
+!
 

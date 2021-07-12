@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsAnsiError subclass: #GsTestFailure
 	instanceVariableNames: ''
@@ -14,5 +14,7 @@ wantsToHandle: aGciErrorSType session: aGciSession
 
 	^aGciErrorSType message = 'aTestFailure signal: ''Assertion failed'''.
 ! !
-!GsTestFailure class categoriesFor: #wantsToHandle:session:!public! !
+!GsTestFailure class categoriesForMethods!
+wantsToHandle:session:!public! !
+!
 

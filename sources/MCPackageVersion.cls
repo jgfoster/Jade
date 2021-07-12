@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsObject subclass: #MCPackageVersion
 	instanceVariableNames: 'date time author id ancestors stepChildren message'
@@ -58,13 +58,15 @@ stepChildren
 
 time
 	^time! !
-!MCPackageVersion categoriesFor: #ancestors!accessing!public! !
-!MCPackageVersion categoriesFor: #author!accessing!public! !
-!MCPackageVersion categoriesFor: #date!accessing!public! !
-!MCPackageVersion categoriesFor: #id!accessing!public! !
-!MCPackageVersion categoriesFor: #initialize:!public! !
-!MCPackageVersion categoriesFor: #initialize:session:!public! !
-!MCPackageVersion categoriesFor: #message!accessing!public! !
-!MCPackageVersion categoriesFor: #stepChildren!accessing!public! !
-!MCPackageVersion categoriesFor: #time!accessing!public! !
+!MCPackageVersion categoriesForMethods!
+ancestors!accessing!public! !
+author!accessing!public! !
+date!accessing!public! !
+id!accessing!public! !
+initialize:!public! !
+initialize:session:!public! !
+message!accessing!public! !
+stepChildren!accessing!public! !
+time!accessing!public! !
+!
 

@@ -882,49 +882,51 @@ mcWorkingCopyClass
 
 	^self objectInBaseNamed: #'MCWorkingCopy'.
 ! !
-!JadeServer categoriesFor: #_describeMCAddition:on:!Monticello!private! !
-!JadeServer categoriesFor: #_describeMCClassDefinition:on:!Monticello!private! !
-!JadeServer categoriesFor: #_describeMCDefinition:on:!Monticello!private! !
-!JadeServer categoriesFor: #_describeMCMethodDefinition:on:!Monticello!private! !
-!JadeServer categoriesFor: #_describeMCModification:on:!Monticello!private! !
-!JadeServer categoriesFor: #_describeMCOrganizationDefinition:on:!Monticello!private! !
-!JadeServer categoriesFor: #_describeMCRemoval:on:!Monticello!private! !
-!JadeServer categoriesFor: #_mcDescriptionOfPatch:baseName:alternateName:!Monticello!private! !
-!JadeServer categoriesFor: #_mcLoadedVersionNames!Monticello!private! !
-!JadeServer categoriesFor: #_mcRepositoryFrom:!Monticello!private! !
-!JadeServer categoriesFor: #_mcTopazFrom:on:!Monticello!private! !
-!JadeServer categoriesFor: #authorInitials:!Monticello!public! !
-!JadeServer categoriesFor: #mcAddHttpRepository:!Monticello!public! !
-!JadeServer categoriesFor: #mcAddRepository:toPackage:!Monticello!public! !
-!JadeServer categoriesFor: #mcAllFileNamesIn:!Monticello!public! !
-!JadeServer categoriesFor: #mcAllVersionNamesInDict:!Monticello!public! !
-!JadeServer categoriesFor: #mcCreationTemplateFor:!Monticello!public! !
-!JadeServer categoriesFor: #mcHttpRepository:user:password:!Monticello!public! !
-!JadeServer categoriesFor: #mcInitials:!Monticello!public! !
-!JadeServer categoriesFor: #mcLoadedVersionNames!Monticello!public! !
-!JadeServer categoriesFor: #mcNewDirectoryRepository:!Monticello!public! !
-!JadeServer categoriesFor: #mcNewFileTreeRepository:!Monticello!public! !
-!JadeServer categoriesFor: #mcNewGitHubRepository:!Monticello!public! !
-!JadeServer categoriesFor: #mcNewServerDirectoryRepository:!Monticello!public! !
-!JadeServer categoriesFor: #mcPatchFrom:to:inDictionaryRepository:!Monticello!public! !
-!JadeServer categoriesFor: #mcPatchFrom:to:inFileBasedRepository:!Monticello!public! !
-!JadeServer categoriesFor: #mcRemoveRepository:!Monticello!public! !
-!JadeServer categoriesFor: #mcRepositoryFrom:!Monticello!public! !
-!JadeServer categoriesFor: #mcRepositoryGroup!Monticello!public! !
-!JadeServer categoriesFor: #mcRepositoryList!Monticello!public! !
-!JadeServer categoriesFor: #mcStore:name:message:repository:!Monticello!public! !
-!JadeServer categoriesFor: #mcTopazFrom:inDictionaryRepository:!Monticello!public! !
-!JadeServer categoriesFor: #mcTopazFrom:inFileRepository:!Monticello!public! !
-!JadeServer categoriesFor: #mcUniqueVersionNameFor:!Monticello!public! !
-!JadeServer categoriesFor: #mcUserAndPasswordInHTTP:!Monticello!public! !
-!JadeServer categoriesFor: #mcVersionInfoFrom:!Monticello!public! !
-!JadeServer categoriesFor: #mcVersionInfoFromDictionaryPackageNamed:in:!Monticello!public! !
-!JadeServer categoriesFor: #mcVersionInfoFromFileNamed:in:!Monticello!public! !
-!JadeServer categoriesFor: #mcVersionLoad:fromDictionary:autoMigrate:!Monticello!public! !
-!JadeServer categoriesFor: #mcVersionLoad:fromFile:autoMigrate:!Monticello!public! !
-!JadeServer categoriesFor: #mcVersionMerge:from:autoMigrate:!Monticello!public! !
-!JadeServer categoriesFor: #mcVersionNameAndMessageFrom:!Monticello!public! !
-!JadeServer categoriesFor: #mcWorkingCopyClass!Monticello!private! !
+!JadeServer categoriesForMethods!
+_describeMCAddition:on:!Monticello!private! !
+_describeMCClassDefinition:on:!Monticello!private! !
+_describeMCDefinition:on:!Monticello!private! !
+_describeMCMethodDefinition:on:!Monticello!private! !
+_describeMCModification:on:!Monticello!private! !
+_describeMCOrganizationDefinition:on:!Monticello!private! !
+_describeMCRemoval:on:!Monticello!private! !
+_mcDescriptionOfPatch:baseName:alternateName:!Monticello!private! !
+_mcLoadedVersionNames!Monticello!private! !
+_mcRepositoryFrom:!Monticello!private! !
+_mcTopazFrom:on:!Monticello!private! !
+authorInitials:!Monticello!public! !
+mcAddHttpRepository:!Monticello!public! !
+mcAddRepository:toPackage:!Monticello!public! !
+mcAllFileNamesIn:!Monticello!public! !
+mcAllVersionNamesInDict:!Monticello!public! !
+mcCreationTemplateFor:!Monticello!public! !
+mcHttpRepository:user:password:!Monticello!public! !
+mcInitials:!Monticello!public! !
+mcLoadedVersionNames!Monticello!public! !
+mcNewDirectoryRepository:!Monticello!public! !
+mcNewFileTreeRepository:!Monticello!public! !
+mcNewGitHubRepository:!Monticello!public! !
+mcNewServerDirectoryRepository:!Monticello!public! !
+mcPatchFrom:to:inDictionaryRepository:!Monticello!public! !
+mcPatchFrom:to:inFileBasedRepository:!Monticello!public! !
+mcRemoveRepository:!Monticello!public! !
+mcRepositoryFrom:!Monticello!public! !
+mcRepositoryGroup!Monticello!public! !
+mcRepositoryList!Monticello!public! !
+mcStore:name:message:repository:!Monticello!public! !
+mcTopazFrom:inDictionaryRepository:!Monticello!public! !
+mcTopazFrom:inFileRepository:!Monticello!public! !
+mcUniqueVersionNameFor:!Monticello!public! !
+mcUserAndPasswordInHTTP:!Monticello!public! !
+mcVersionInfoFrom:!Monticello!public! !
+mcVersionInfoFromDictionaryPackageNamed:in:!Monticello!public! !
+mcVersionInfoFromFileNamed:in:!Monticello!public! !
+mcVersionLoad:fromDictionary:autoMigrate:!Monticello!public! !
+mcVersionLoad:fromFile:autoMigrate:!Monticello!public! !
+mcVersionMerge:from:autoMigrate:!Monticello!public! !
+mcVersionNameAndMessageFrom:!Monticello!public! !
+mcWorkingCopyClass!Monticello!private! !
+!
 
 !JadeTextDocument methodsFor!
 
@@ -937,7 +939,9 @@ jadeBrowseMonticello
 		warning: 'Server initialization failed at login.'
 		caption: 'Unable to Open Browser'.
 ! !
-!JadeTextDocument categoriesFor: #jadeBrowseMonticello!Jade!private! !
+!JadeTextDocument categoriesForMethods!
+jadeBrowseMonticello!Jade!private! !
+!
 
 !JadeToolsToolBarPresenter methodsFor!
 
@@ -945,7 +949,9 @@ browseMonticello
 
 	MCRepositoryBrowser showOnSession: gciSession.
 ! !
-!JadeToolsToolBarPresenter categoriesFor: #browseMonticello!public! !
+!JadeToolsToolBarPresenter categoriesForMethods!
+browseMonticello!public! !
+!
 
 "End of package definition"!
 

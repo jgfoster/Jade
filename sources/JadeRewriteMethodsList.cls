@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadePresenter subclass: #JadeRewriteMethodsList
 	instanceVariableNames: 'methodsPresenter'
@@ -41,10 +41,12 @@ removeFromList
 	methodsPresenter hasSelection ifFalse: [^self].
 
 	methodsPresenter model remove: methodsPresenter selection! !
-!JadeRewriteMethodsList categoriesFor: #createComponents!public! !
-!JadeRewriteMethodsList categoriesFor: #createSchematicWiring!public! !
-!JadeRewriteMethodsList categoriesFor: #initialize!public! !
-!JadeRewriteMethodsList categoriesFor: #model:!public! !
-!JadeRewriteMethodsList categoriesFor: #onSelectorChanged!public! !
-!JadeRewriteMethodsList categoriesFor: #removeFromList!code actions!public! !
+!JadeRewriteMethodsList categoriesForMethods!
+createComponents!public! !
+createSchematicWiring!public! !
+initialize!public! !
+model:!public! !
+onSelectorChanged!public! !
+removeFromList!code actions!public! !
+!
 

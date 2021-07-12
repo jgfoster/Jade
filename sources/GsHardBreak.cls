@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsEventError subclass: #GsHardBreak
 	instanceVariableNames: ''
@@ -14,5 +14,7 @@ wantsToHandle: aGciErrorSType session: aGciSession
 
 	^aGciErrorSType isHardBreakInSession: aGciSession.
 ! !
-!GsHardBreak class categoriesFor: #wantsToHandle:session:!public! !
+!GsHardBreak class categoriesForMethods!
+wantsToHandle:session:!public! !
+!
 

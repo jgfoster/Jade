@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GciErrSType subclass: #GciErrSType64
 	instanceVariableNames: ''
@@ -98,22 +98,24 @@ oopTypeClass
 
 	^OopType64.
 ! !
-!GciErrSType64 categoriesFor: #argCount!**compiled accessors**!public! !
-!GciErrSType64 categoriesFor: #argCount:!public! !
-!GciErrSType64 categoriesFor: #args!**compiled accessors**!public! !
-!GciErrSType64 categoriesFor: #category!**compiled accessors**!public! !
-!GciErrSType64 categoriesFor: #category:!public! !
-!GciErrSType64 categoriesFor: #categoryOop!public! !
-!GciErrSType64 categoriesFor: #context!**compiled accessors**!public! !
-!GciErrSType64 categoriesFor: #context:!public! !
-!GciErrSType64 categoriesFor: #contextOop!public! !
-!GciErrSType64 categoriesFor: #fatal!**compiled accessors**!public! !
-!GciErrSType64 categoriesFor: #fatal:!public! !
-!GciErrSType64 categoriesFor: #message!**compiled accessors**!public! !
-!GciErrSType64 categoriesFor: #message:!public! !
-!GciErrSType64 categoriesFor: #number!**compiled accessors**!public! !
-!GciErrSType64 categoriesFor: #number:!public! !
-!GciErrSType64 categoriesFor: #oopTypeClass!public! !
+!GciErrSType64 categoriesForMethods!
+argCount!**compiled accessors**!public! !
+argCount:!public! !
+args!**compiled accessors**!public! !
+category!**compiled accessors**!public! !
+category:!public! !
+categoryOop!public! !
+context!**compiled accessors**!public! !
+context:!public! !
+contextOop!public! !
+fatal!**compiled accessors**!public! !
+fatal:!public! !
+message!**compiled accessors**!public! !
+message:!public! !
+number!**compiled accessors**!public! !
+number:!public! !
+oopTypeClass!public! !
+!
 
 !GciErrSType64 class methodsFor!
 
@@ -144,5 +146,7 @@ defineFields
 		defineField: #message	type: stringField						;
 		yourself.
 ! !
-!GciErrSType64 class categoriesFor: #defineFields!public! !
+!GciErrSType64 class categoriesForMethods!
+defineFields!public! !
+!
 

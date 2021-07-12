@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsObject subclass: #GsMethod
 	instanceVariableNames: 'behavior behaviorName breakPoints category isReadOnly originalSource source stepPoints unimplementedSelectors warnings'
@@ -138,23 +138,25 @@ unimplementedSelectors
 
 warnings
 	^warnings! !
-!GsMethod categoriesFor: #<=!public! !
-!GsMethod categoriesFor: #=!public! !
-!GsMethod categoriesFor: #behavior!accessing!public! !
-!GsMethod categoriesFor: #breakPoints!accessing!public! !
-!GsMethod categoriesFor: #category!accessing!public! !
-!GsMethod categoriesFor: #clearBreakAtStepPoint:!accessing!public! !
-!GsMethod categoriesFor: #hash!public! !
-!GsMethod categoriesFor: #initialize:session:!public! !
-!GsMethod categoriesFor: #isReadOnly!accessing!public! !
-!GsMethod categoriesFor: #originalSource!accessing!public! !
-!GsMethod categoriesFor: #printOn:!public! !
-!GsMethod categoriesFor: #selector!public! !
-!GsMethod categoriesFor: #setBreakAtStepPoint:!accessing!public! !
-!GsMethod categoriesFor: #source!accessing!public! !
-!GsMethod categoriesFor: #stepPoints!accessing!public! !
-!GsMethod categoriesFor: #unimplementedSelectors!accessing!public! !
-!GsMethod categoriesFor: #warnings!accessing!public! !
+!GsMethod categoriesForMethods!
+<=!public! !
+=!public! !
+behavior!accessing!public! !
+breakPoints!accessing!public! !
+category!accessing!public! !
+clearBreakAtStepPoint:!accessing!public! !
+hash!public! !
+initialize:session:!public! !
+isReadOnly!accessing!public! !
+originalSource!accessing!public! !
+printOn:!public! !
+selector!public! !
+setBreakAtStepPoint:!accessing!public! !
+source!accessing!public! !
+stepPoints!accessing!public! !
+unimplementedSelectors!accessing!public! !
+warnings!accessing!public! !
+!
 
 !GsMethod class methodsFor!
 
@@ -225,7 +227,9 @@ fromGsMethod2: aGsMethod2
 		initialize: (JadeServerReadStream on: string)
 		session: aGsMethod2 gciSession
 ! !
-!GsMethod class categoriesFor: #add24RangeStopTo:withSource:!public! !
-!GsMethod class categoriesFor: #addRangeStopTo:withSource:!public! !
-!GsMethod class categoriesFor: #fromGsMethod2:!public! !
+!GsMethod class categoriesForMethods!
+add24RangeStopTo:withSource:!public! !
+addRangeStopTo:withSource:!public! !
+fromGsMethod2:!public! !
+!
 

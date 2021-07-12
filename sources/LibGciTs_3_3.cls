@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GciThreadSafeLibrary subclass: #LibGciTs_3_3
 	instanceVariableNames: ''
@@ -20,8 +20,10 @@ gciErr: errorReport
 	<cdecl: bool GciErr GciErrSType64_31*>
 	^self invalidCall: _failureCode
 ! !
-!LibGciTs_3_3 categoriesFor: #errorStructureClass!private! !
-!LibGciTs_3_3 categoriesFor: #gciErr:!private! !
+!LibGciTs_3_3 categoriesForMethods!
+errorStructureClass!private! !
+gciErr:!private! !
+!
 
 !LibGciTs_3_3 class methodsFor!
 
@@ -35,6 +37,8 @@ fileNameSearch
 
 	^'libgcits-3.3.0-32.dll'.
 ! !
-!LibGciTs_3_3 class categoriesFor: #displayName!public! !
-!LibGciTs_3_3 class categoriesFor: #fileNameSearch!public! !
+!LibGciTs_3_3 class categoriesForMethods!
+displayName!public! !
+fileNameSearch!public! !
+!
 

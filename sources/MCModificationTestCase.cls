@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 TestCase subclass: #MCModificationTestCase
 	instanceVariableNames: ''
@@ -139,14 +139,16 @@ test04
 		assert: newMarkers = (Array with: #'added' -> 4);
 		yourself.
 ! !
-!MCModificationTestCase categoriesFor: #methods:!public! !
-!MCModificationTestCase categoriesFor: #methods01!public! !
-!MCModificationTestCase categoriesFor: #methods02!public! !
-!MCModificationTestCase categoriesFor: #methods03!public! !
-!MCModificationTestCase categoriesFor: #methods04!public! !
-!MCModificationTestCase categoriesFor: #oopTypeWithOop:!public! !
-!MCModificationTestCase categoriesFor: #test01!public! !
-!MCModificationTestCase categoriesFor: #test02!public! !
-!MCModificationTestCase categoriesFor: #test03!public! !
-!MCModificationTestCase categoriesFor: #test04!public! !
+!MCModificationTestCase categoriesForMethods!
+methods:!public! !
+methods01!public! !
+methods02!public! !
+methods03!public! !
+methods04!public! !
+oopTypeWithOop:!public! !
+test01!public! !
+test02!public! !
+test03!public! !
+test04!public! !
+!
 

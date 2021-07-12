@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadeServer64bit3x subclass: #JadeServer64bit32
 	instanceVariableNames: ''
@@ -24,8 +24,10 @@ _setSessionState
 
 	System __sessionStateAt: 3 put: self.
 ! !
-!JadeServer64bit32 categoriesFor: #_gsPackagePolicy!private! !
-!JadeServer64bit32 categoriesFor: #_setSessionState!public! !
+!JadeServer64bit32 categoriesForMethods!
+_gsPackagePolicy!private! !
+_setSessionState!public! !
+!
 
 !JadeServer64bit32 class methodsFor!
 
@@ -44,6 +46,8 @@ sessionStateCode
 	"Avoid deprecated method and still use 'Topaz session state' (since we know Topaz isn't running!!)"
 
 	^'System __sessionStateAt: 3 put: server.'! !
-!JadeServer64bit32 class categoriesFor: #gsClassDefinitionStringFor:!public! !
-!JadeServer64bit32 class categoriesFor: #sessionStateCode!public! !
+!JadeServer64bit32 class categoriesForMethods!
+gsClassDefinitionStringFor:!public! !
+sessionStateCode!public! !
+!
 

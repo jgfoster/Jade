@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 MCDefinition subclass: #MCClassDefinition
 	instanceVariableNames: 'className definition'
@@ -44,10 +44,12 @@ initialize: aStream
 source
 
 	^self displayMemo! !
-!MCClassDefinition categoriesFor: #className!public! !
-!MCClassDefinition categoriesFor: #detailsString!public! !
-!MCClassDefinition categoriesFor: #displayMemo!public! !
-!MCClassDefinition categoriesFor: #displayText!public! !
-!MCClassDefinition categoriesFor: #initialize:!public! !
-!MCClassDefinition categoriesFor: #source!public! !
+!MCClassDefinition categoriesForMethods!
+className!public! !
+detailsString!public! !
+displayMemo!public! !
+displayText!public! !
+initialize:!public! !
+source!public! !
+!
 

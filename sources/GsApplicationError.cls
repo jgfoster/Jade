@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsRuntimeError subclass: #GsApplicationError
 	instanceVariableNames: ''
@@ -14,5 +14,7 @@ wantsToHandle: aGciErrorSType session: aGciSession
 
 	^aGciErrorSType isApplicationErrorInSession: aGciSession.
 ! !
-!GsApplicationError class categoriesFor: #wantsToHandle:session:!public! !
+!GsApplicationError class categoriesForMethods!
+wantsToHandle:session:!public! !
+!
 

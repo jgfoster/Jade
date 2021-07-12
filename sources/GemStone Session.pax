@@ -254,14 +254,18 @@ jadeServerClass
 
 	self subclassResponsibility.
 ! !
-!GciLibrary categoriesFor: #jadeServerClass!public!subclassResponsibility! !
+!GciLibrary categoriesForMethods!
+jadeServerClass!public!subclassResponsibility! !
+!
 
 !GciLibrary class methodsFor!
 
 gciSessionClass
 
 	^GciSession! !
-!GciLibrary class categoriesFor: #gciSessionClass!public! !
+!GciLibrary class categoriesForMethods!
+gciSessionClass!public! !
+!
 
 !Gcilw6x methodsFor!
 
@@ -269,7 +273,9 @@ jadeServerClass
 
 	^JadeServer32bit
 ! !
-!Gcilw6x categoriesFor: #jadeServerClass!public! !
+!Gcilw6x categoriesForMethods!
+jadeServerClass!public! !
+!
 
 !LibGciRpc64 methodsFor!
 
@@ -277,7 +283,9 @@ jadeServerClass
 
 	^JadeServer64bit
 ! !
-!LibGciRpc64 categoriesFor: #jadeServerClass!public! !
+!LibGciRpc64 categoriesForMethods!
+jadeServerClass!public! !
+!
 
 !LibGciRpc64_24 methodsFor!
 
@@ -285,7 +293,9 @@ jadeServerClass
 
 	^JadeServer64bit24
 ! !
-!LibGciRpc64_24 categoriesFor: #jadeServerClass!public! !
+!LibGciRpc64_24 categoriesForMethods!
+jadeServerClass!public! !
+!
 
 !LibGciRpc64_24 class methodsFor!
 
@@ -293,7 +303,9 @@ gciSessionClass
 
 	^GciSession24
 ! !
-!LibGciRpc64_24 class categoriesFor: #gciSessionClass!public! !
+!LibGciRpc64_24 class categoriesForMethods!
+gciSessionClass!public! !
+!
 
 !LibGciRpc64_3_0 methodsFor!
 
@@ -301,7 +313,9 @@ jadeServerClass
 
 	^JadeServer64bit3x
 ! !
-!LibGciRpc64_3_0 categoriesFor: #jadeServerClass!public! !
+!LibGciRpc64_3_0 categoriesForMethods!
+jadeServerClass!public! !
+!
 
 !LibGciRpc64_3_0 class methodsFor!
 
@@ -309,7 +323,9 @@ gciSessionClass
 
 	^GciSession30
 ! !
-!LibGciRpc64_3_0 class categoriesFor: #gciSessionClass!public! !
+!LibGciRpc64_3_0 class categoriesForMethods!
+gciSessionClass!public! !
+!
 
 !LibGciRpc64_3_1_0 methodsFor!
 
@@ -317,7 +333,9 @@ jadeServerClass
 
 	^JadeServer64bit3x
 ! !
-!LibGciRpc64_3_1_0 categoriesFor: #jadeServerClass!public! !
+!LibGciRpc64_3_1_0 categoriesForMethods!
+jadeServerClass!public! !
+!
 
 !LibGciRpc64_3_2_0 methodsFor!
 
@@ -325,7 +343,9 @@ jadeServerClass
 
 	^JadeServer64bit32
 ! !
-!LibGciRpc64_3_2_0 categoriesFor: #jadeServerClass!public! !
+!LibGciRpc64_3_2_0 categoriesForMethods!
+jadeServerClass!public! !
+!
 
 !LibGciRpc64_3_3_0 methodsFor!
 
@@ -333,7 +353,9 @@ jadeServerClass
 
 	^JadeServer64bit33
 ! !
-!LibGciRpc64_3_3_0 categoriesFor: #jadeServerClass!public! !
+!LibGciRpc64_3_3_0 categoriesForMethods!
+jadeServerClass!public! !
+!
 
 !LibGciRpc64_3_3_0 class methodsFor!
 
@@ -341,7 +363,9 @@ gciSessionClass
 
 	^GciSession33
 ! !
-!LibGciRpc64_3_3_0 class categoriesFor: #gciSessionClass!public! !
+!LibGciRpc64_3_3_0 class categoriesForMethods!
+gciSessionClass!public! !
+!
 
 !LibGciRpc64_3_4_0 methodsFor!
 
@@ -349,7 +373,9 @@ jadeServerClass
 
 	^JadeServer64bit34
 ! !
-!LibGciRpc64_3_4_0 categoriesFor: #jadeServerClass!public! !
+!LibGciRpc64_3_4_0 categoriesForMethods!
+jadeServerClass!public! !
+!
 
 !LibGciTs_3_3 methodsFor!
 
@@ -357,7 +383,9 @@ jadeServerClass
 
 	^JadeServer64bit33
 ! !
-!LibGciTs_3_3 categoriesFor: #jadeServerClass!public! !
+!LibGciTs_3_3 categoriesForMethods!
+jadeServerClass!public! !
+!
 
 "End of package definition"!
 

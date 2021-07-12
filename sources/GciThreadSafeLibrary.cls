@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GciLibrary subclass: #GciThreadSafeLibrary
 	instanceVariableNames: ''
@@ -906,119 +906,121 @@ version
 	productCode == 3 ifFalse: [self error: 'Unexpected product code (' , productCode printString , ')'].
 	string := string copyFrom: 1 to: (string indexOf: (Character codePoint: 0)) - 1.
 	^string! !
-!GciThreadSafeLibrary categoriesFor: #abortSession:!public!required! !
-!GciThreadSafeLibrary categoriesFor: #beginSession:!public!required! !
-!GciThreadSafeLibrary categoriesFor: #characterForOop:!public! !
-!GciThreadSafeLibrary categoriesFor: #classForSpecial:!public! !
-!GciThreadSafeLibrary categoriesFor: #commitSession:!public!required! !
-!GciThreadSafeLibrary categoriesFor: #fetchObjImpl:!private!subclassResponsibility! !
-!GciThreadSafeLibrary categoriesFor: #gciError:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsAbort:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsBegin:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsBreak:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsCharToOop:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsClearStack:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsCommit:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsContinueWith:_:_:_:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsDoubleToOop:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsDoubleToSmallDouble:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsExecute:_:_:_:_:_:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsFetchBytes:_:_:_:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsFetchChars:_:_:_:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsFetchClass:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsFetchObjInfo:_:_:_:_:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsFetchOops:_:_:_:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsFetchSize:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsFetchSpecialClass:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsFetchVaryingSize:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsGemTrace:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsI64ToOop:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsLogin:_:_:_:_:_:_:_:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsLogout:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsNewString:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsObjExists:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsOopIsSpecial:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsOopToChar:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsOopToDouble:_:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsOopToI64:_:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsPerform:_:_:_:_:_:_:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsReleaseAllObjs:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsReleaseObjs:_:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsResolveSymbol:_:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsResolveSymbolObj:_:_:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsSessionIsRemote:!private! !
-!GciThreadSafeLibrary categoriesFor: #GciTsVersion:_:!private! !
-!GciThreadSafeLibrary categoriesFor: #hardBreakSession:!public!required! !
-!GciThreadSafeLibrary categoriesFor: #initialize!private! !
-!GciThreadSafeLibrary categoriesFor: #loginHostUser:hostPassword:gsUser:gsPassword:gemNRS:stoneNRS:!public!required! !
-!GciThreadSafeLibrary categoriesFor: #loginToStone:hostUser:hostPassword:hostPasswordIsEncrypted:gemNRS:gsUser:gsPassword:loginFlags:haltOnErrorNumber:!public!threaded! !
-!GciThreadSafeLibrary categoriesFor: #loginUser:password:gemNRS:stoneNRS:!public! !
-!GciThreadSafeLibrary categoriesFor: #logoutSession:!public!required! !
-!GciThreadSafeLibrary categoriesFor: #oopAsciiNul!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopClassArray!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopClassByteArray!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopClassCharacter!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopClassDoubleByteString!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopClassQuadByteString!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopClassSmallDouble!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopClassSmallFraction!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopClassSmallInteger!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopClassString!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopClassSymbol!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopClassSystem!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopClassUnicode16!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopClassUnicode32!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopClassUnicode7!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopFalse!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopForCharacter:!public! !
-!GciThreadSafeLibrary categoriesFor: #oopForSmallDouble:!public! !
-!GciThreadSafeLibrary categoriesFor: #oopGemStoneError!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopIllegal!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopIsSpecial:!public! !
-!GciThreadSafeLibrary categoriesFor: #oopMaxSmallInteger!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopMinSmallInteger!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopMinusOne!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopNil!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopOne!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopRemoteNil!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopTrue!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopTwo!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopTypeArrayClass!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #oopTypeClass!public! !
-!GciThreadSafeLibrary categoriesFor: #oopTypeWithOop:!public! !
-!GciThreadSafeLibrary categoriesFor: #oopZero!public!Reserved OOPs! !
-!GciThreadSafeLibrary categoriesFor: #releaseAllObjectsInSession:!public!required! !
-!GciThreadSafeLibrary categoriesFor: #session:breakHard:!public! !
-!GciThreadSafeLibrary categoriesFor: #session:clearStack:!public!required! !
-!GciThreadSafeLibrary categoriesFor: #session:continue:with:error:!public! !
-!GciThreadSafeLibrary categoriesFor: #session:continue:with:error:flags:!public!threaded! !
-!GciThreadSafeLibrary categoriesFor: #session:continue:withError:!public! !
-!GciThreadSafeLibrary categoriesFor: #session:continue:withObject:!public!required! !
-!GciThreadSafeLibrary categoriesFor: #session:doubleForOop:!public! !
-!GciThreadSafeLibrary categoriesFor: #session:execute:!public! !
-!GciThreadSafeLibrary categoriesFor: #session:execute:context:!public!required! !
-!GciThreadSafeLibrary categoriesFor: #session:execute:context:symbolList:!public!threaded! !
-!GciThreadSafeLibrary categoriesFor: #session:fetchBytes:!public!required! !
-!GciThreadSafeLibrary categoriesFor: #session:fetchClass:!public! !
-!GciThreadSafeLibrary categoriesFor: #session:fetchObject:!public! !
-!GciThreadSafeLibrary categoriesFor: #session:fetchObjects:!public!required! !
-!GciThreadSafeLibrary categoriesFor: #session:fetchSize:!public! !
-!GciThreadSafeLibrary categoriesFor: #session:fetchString:!public! !
-!GciThreadSafeLibrary categoriesFor: #session:fetchVaryingSize:!public! !
-!GciThreadSafeLibrary categoriesFor: #session:gemTrace:!public! !
-!GciThreadSafeLibrary categoriesFor: #session:integerForOop:!public! !
-!GciThreadSafeLibrary categoriesFor: #session:objectExists:!public! !
-!GciThreadSafeLibrary categoriesFor: #session:objectNamed:!public! !
-!GciThreadSafeLibrary categoriesFor: #session:objectNamed:inSymbolList:!public! !
-!GciThreadSafeLibrary categoriesFor: #session:objectNamedOop:inSymbolList:!public! !
-!GciThreadSafeLibrary categoriesFor: #session:oopForDouble:!public! !
-!GciThreadSafeLibrary categoriesFor: #session:oopForInteger:!public! !
-!GciThreadSafeLibrary categoriesFor: #session:oopForString:!public!required! !
-!GciThreadSafeLibrary categoriesFor: #session:releaseOops:!public!required! !
-!GciThreadSafeLibrary categoriesFor: #session:send:to:!public! !
-!GciThreadSafeLibrary categoriesFor: #session:send:to:with:!public!required!threaded! !
-!GciThreadSafeLibrary categoriesFor: #session:valueOfOop:!public! !
-!GciThreadSafeLibrary categoriesFor: #sessionIsRemote:!public! !
-!GciThreadSafeLibrary categoriesFor: #softBreakSession:!public!required! !
-!GciThreadSafeLibrary categoriesFor: #version!public! !
+!GciThreadSafeLibrary categoriesForMethods!
+abortSession:!public!required! !
+beginSession:!public!required! !
+characterForOop:!public! !
+classForSpecial:!public! !
+commitSession:!public!required! !
+fetchObjImpl:!private!subclassResponsibility! !
+gciError:!private! !
+GciTsAbort:_:!private! !
+GciTsBegin:_:!private! !
+GciTsBreak:_:_:!private! !
+GciTsCharToOop:!private! !
+GciTsClearStack:_:_:!private! !
+GciTsCommit:_:!private! !
+GciTsContinueWith:_:_:_:_:_:!private! !
+GciTsDoubleToOop:_:_:!private! !
+GciTsDoubleToSmallDouble:!private! !
+GciTsExecute:_:_:_:_:_:_:_:!private! !
+GciTsFetchBytes:_:_:_:_:_:!private! !
+GciTsFetchChars:_:_:_:_:_:!private! !
+GciTsFetchClass:_:_:!private! !
+GciTsFetchObjInfo:_:_:_:_:_:_:!private! !
+GciTsFetchOops:_:_:_:_:_:!private! !
+GciTsFetchSize:_:_:!private! !
+GciTsFetchSpecialClass:!private! !
+GciTsFetchVaryingSize:_:_:!private! !
+GciTsGemTrace:_:_:!private! !
+GciTsI64ToOop:_:_:!private! !
+GciTsLogin:_:_:_:_:_:_:_:_:_:!private! !
+GciTsLogout:_:!private! !
+GciTsNewString:_:_:!private! !
+GciTsObjExists:_:!private! !
+GciTsOopIsSpecial:!private! !
+GciTsOopToChar:!private! !
+GciTsOopToDouble:_:_:_:!private! !
+GciTsOopToI64:_:_:_:!private! !
+GciTsPerform:_:_:_:_:_:_:_:_:!private! !
+GciTsReleaseAllObjs:_:!private! !
+GciTsReleaseObjs:_:_:_:!private! !
+GciTsResolveSymbol:_:_:_:!private! !
+GciTsResolveSymbolObj:_:_:_:!private! !
+GciTsSessionIsRemote:!private! !
+GciTsVersion:_:!private! !
+hardBreakSession:!public!required! !
+initialize!private! !
+loginHostUser:hostPassword:gsUser:gsPassword:gemNRS:stoneNRS:!public!required! !
+loginToStone:hostUser:hostPassword:hostPasswordIsEncrypted:gemNRS:gsUser:gsPassword:loginFlags:haltOnErrorNumber:!public!threaded! !
+loginUser:password:gemNRS:stoneNRS:!public! !
+logoutSession:!public!required! !
+oopAsciiNul!public!Reserved OOPs! !
+oopClassArray!public!Reserved OOPs! !
+oopClassByteArray!public!Reserved OOPs! !
+oopClassCharacter!public!Reserved OOPs! !
+oopClassDoubleByteString!public!Reserved OOPs! !
+oopClassQuadByteString!public!Reserved OOPs! !
+oopClassSmallDouble!public!Reserved OOPs! !
+oopClassSmallFraction!public!Reserved OOPs! !
+oopClassSmallInteger!public!Reserved OOPs! !
+oopClassString!public!Reserved OOPs! !
+oopClassSymbol!public!Reserved OOPs! !
+oopClassSystem!public!Reserved OOPs! !
+oopClassUnicode16!public!Reserved OOPs! !
+oopClassUnicode32!public!Reserved OOPs! !
+oopClassUnicode7!public!Reserved OOPs! !
+oopFalse!public!Reserved OOPs! !
+oopForCharacter:!public! !
+oopForSmallDouble:!public! !
+oopGemStoneError!public!Reserved OOPs! !
+oopIllegal!public!Reserved OOPs! !
+oopIsSpecial:!public! !
+oopMaxSmallInteger!public!Reserved OOPs! !
+oopMinSmallInteger!public!Reserved OOPs! !
+oopMinusOne!public!Reserved OOPs! !
+oopNil!public!Reserved OOPs! !
+oopOne!public!Reserved OOPs! !
+oopRemoteNil!public!Reserved OOPs! !
+oopTrue!public!Reserved OOPs! !
+oopTwo!public!Reserved OOPs! !
+oopTypeArrayClass!public!Reserved OOPs! !
+oopTypeClass!public! !
+oopTypeWithOop:!public! !
+oopZero!public!Reserved OOPs! !
+releaseAllObjectsInSession:!public!required! !
+session:breakHard:!public! !
+session:clearStack:!public!required! !
+session:continue:with:error:!public! !
+session:continue:with:error:flags:!public!threaded! !
+session:continue:withError:!public! !
+session:continue:withObject:!public!required! !
+session:doubleForOop:!public! !
+session:execute:!public! !
+session:execute:context:!public!required! !
+session:execute:context:symbolList:!public!threaded! !
+session:fetchBytes:!public!required! !
+session:fetchClass:!public! !
+session:fetchObject:!public! !
+session:fetchObjects:!public!required! !
+session:fetchSize:!public! !
+session:fetchString:!public! !
+session:fetchVaryingSize:!public! !
+session:gemTrace:!public! !
+session:integerForOop:!public! !
+session:objectExists:!public! !
+session:objectNamed:!public! !
+session:objectNamed:inSymbolList:!public! !
+session:objectNamedOop:inSymbolList:!public! !
+session:oopForDouble:!public! !
+session:oopForInteger:!public! !
+session:oopForString:!public!required! !
+session:releaseOops:!public!required! !
+session:send:to:!public! !
+session:send:to:with:!public!required!threaded! !
+session:valueOfOop:!public! !
+sessionIsRemote:!public! !
+softBreakSession:!public!required! !
+version!public! !
+!
 

@@ -176,9 +176,11 @@ stepPointsFor: aGsMethod
 		with: aGsMethod
 		with: self.
 ! !
-!GsClass categoriesFor: #methodsUpTo:filterList:isVariables:!Methods!public! !
-!GsClass categoriesFor: #sourceFor:!Methods!public! !
-!GsClass categoriesFor: #stepPointsFor:!Methods!public! !
+!GsClass categoriesForMethods!
+methodsUpTo:filterList:isVariables:!Methods!public! !
+sourceFor:!Methods!public! !
+stepPointsFor:!Methods!public! !
+!
 
 !JadePresenterA methodsFor!
 
@@ -198,8 +200,10 @@ browseSendersOf: aGsMethodOrString
 		browseSendersOf: aGsMethodOrString;
 		yourself.
 ! !
-!JadePresenterA categoriesFor: #browseImplementorsOf:!public! !
-!JadePresenterA categoriesFor: #browseSendersOf:!public! !
+!JadePresenterA categoriesForMethods!
+browseImplementorsOf:!public! !
+browseSendersOf:!public! !
+!
 
 !JadeServer methodsFor!
 
@@ -664,34 +668,36 @@ streamOfMethods: aList
 
 	^self _encodeString: (self _streamOfMethods: aList)
 ! !
-!JadeServer categoriesFor: #_addMethod:toStream:!Methods!private! !
-!JadeServer categoriesFor: #_behavior:categoryOfSelector:!Methods!private! !
-!JadeServer categoriesFor: #_behaviorFor:in:!Methods!private! !
-!JadeServer categoriesFor: #_implementorsOf:!Methods!private! !
-!JadeServer categoriesFor: #_methodsContaining:!Methods!private! !
-!JadeServer categoriesFor: #_methodsFor:categories:!Methods!private! !
-!JadeServer categoriesFor: #_methodsFor:filter:isVariables:!Methods!private! !
-!JadeServer categoriesFor: #_methodsFor:variables:!Methods!private! !
-!JadeServer categoriesFor: #_packageNameFor:!Methods!private! !
-!JadeServer categoriesFor: #_referencesToObject:!Methods!private! !
-!JadeServer categoriesFor: #_sendersOf:!Methods!private! !
-!JadeServer categoriesFor: #_streamOfMethods:!Methods!private! !
-!JadeServer categoriesFor: #_stringOfLineNumbersWithBreaksIn:!Methods!private! !
-!JadeServer categoriesFor: #browseHistoryOfMethod:!Methods!public! !
-!JadeServer categoriesFor: #compileMethod:behavior:symbolList:inCategory:!Methods!private!System Browser! !
-!JadeServer categoriesFor: #compileMethod:behavior:user:inCategory:!Methods!public! !
-!JadeServer categoriesFor: #deleteMethod:!Methods!public! !
-!JadeServer categoriesFor: #implementorsOf:!Methods!public! !
-!JadeServer categoriesFor: #implementorsOf:startingAt:!public! !
-!JadeServer categoriesFor: #methodsContaining:!Methods!public! !
-!JadeServer categoriesFor: #methodsFor:upTo:filter:isVariables:!Methods!public! !
-!JadeServer categoriesFor: #runAsTest:!Methods!public! !
-!JadeServer categoriesFor: #sbSaveMethod:!private!System Browser! !
-!JadeServer categoriesFor: #selectorsMatching:!Methods!public! !
-!JadeServer categoriesFor: #sendersOf:!Methods!public! !
-!JadeServer categoriesFor: #sourceFor:in:!Methods!public! !
-!JadeServer categoriesFor: #stepPointsFor:in:!Methods!public! !
-!JadeServer categoriesFor: #streamOfMethods:!Methods!public! !
+!JadeServer categoriesForMethods!
+_addMethod:toStream:!Methods!private! !
+_behavior:categoryOfSelector:!Methods!private! !
+_behaviorFor:in:!Methods!private! !
+_implementorsOf:!Methods!private! !
+_methodsContaining:!Methods!private! !
+_methodsFor:categories:!Methods!private! !
+_methodsFor:filter:isVariables:!Methods!private! !
+_methodsFor:variables:!Methods!private! !
+_packageNameFor:!Methods!private! !
+_referencesToObject:!Methods!private! !
+_sendersOf:!Methods!private! !
+_streamOfMethods:!Methods!private! !
+_stringOfLineNumbersWithBreaksIn:!Methods!private! !
+browseHistoryOfMethod:!Methods!public! !
+compileMethod:behavior:symbolList:inCategory:!Methods!private!System Browser! !
+compileMethod:behavior:user:inCategory:!Methods!public! !
+deleteMethod:!Methods!public! !
+implementorsOf:!Methods!public! !
+implementorsOf:startingAt:!public! !
+methodsContaining:!Methods!public! !
+methodsFor:upTo:filter:isVariables:!Methods!public! !
+runAsTest:!Methods!public! !
+sbSaveMethod:!private!System Browser! !
+selectorsMatching:!Methods!public! !
+sendersOf:!Methods!public! !
+sourceFor:in:!Methods!public! !
+stepPointsFor:in:!Methods!public! !
+streamOfMethods:!Methods!public! !
+!
 
 !JadeServer64bit33 methodsFor!
 
@@ -700,7 +706,9 @@ sendersOf: anObject
 	^(anObject isKindOf: Utf8)
 		ifTrue: [super sendersOf: (self _decodeString: anObject)]
 		ifFalse: [super sendersOf: anObject]! !
-!JadeServer64bit33 categoriesFor: #sendersOf:!Methods!public! !
+!JadeServer64bit33 categoriesForMethods!
+sendersOf:!Methods!public! !
+!
 
 !JadeServer64bit3x methodsFor!
 
@@ -752,9 +760,11 @@ compileMethod: methodString behavior: aBehavior symbolList: aSymbolList inCatego
 		ex return: method -> warnings.
 	].
 ! !
-!JadeServer64bit3x categoriesFor: #_behavior:categoryOfSelector:!Methods!private! !
-!JadeServer64bit3x categoriesFor: #_methodsFor:categories:!Methods!private! !
-!JadeServer64bit3x categoriesFor: #compileMethod:behavior:symbolList:inCategory:!Methods!private!System Browser! !
+!JadeServer64bit3x categoriesForMethods!
+_behavior:categoryOfSelector:!Methods!private! !
+_methodsFor:categories:!Methods!private! !
+compileMethod:behavior:symbolList:inCategory:!Methods!private!System Browser! !
+!
 
 "End of package definition"!
 

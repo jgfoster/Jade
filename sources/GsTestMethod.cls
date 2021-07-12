@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Object subclass: #GsTestMethod
 	instanceVariableNames: 'className methodName result'
@@ -54,16 +54,18 @@ setPassed
 
 	result := 'passed'
 	! !
-!GsTestMethod categoriesFor: #className!accessing!private! !
-!GsTestMethod categoriesFor: #className:!accessing!private! !
-!GsTestMethod categoriesFor: #icon!public! !
-!GsTestMethod categoriesFor: #methodName!accessing!private! !
-!GsTestMethod categoriesFor: #methodName:!accessing!private! !
-!GsTestMethod categoriesFor: #result!accessing!private! !
-!GsTestMethod categoriesFor: #result:!accessing!private! !
-!GsTestMethod categoriesFor: #setError!public! !
-!GsTestMethod categoriesFor: #setFailure!public! !
-!GsTestMethod categoriesFor: #setPassed!public! !
+!GsTestMethod categoriesForMethods!
+className!accessing!private! !
+className:!accessing!private! !
+icon!public! !
+methodName!accessing!private! !
+methodName:!accessing!private! !
+result!accessing!private! !
+result:!accessing!private! !
+setError!public! !
+setFailure!public! !
+setPassed!public! !
+!
 
 !GsTestMethod class methodsFor!
 
@@ -84,7 +86,9 @@ newOn: className methodName: methodName
 		className: className;
 		methodName: methodName;
 		yourself! !
-!GsTestMethod class categoriesFor: #icon!public! !
-!GsTestMethod class categoriesFor: #name:!public! !
-!GsTestMethod class categoriesFor: #newOn:methodName:!public! !
+!GsTestMethod class categoriesForMethods!
+icon!public! !
+name:!public! !
+newOn:methodName:!public! !
+!
 

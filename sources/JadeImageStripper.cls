@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 ImageStripper subclass: #JadeImageStripper
 	instanceVariableNames: ''
@@ -167,17 +167,19 @@ requiredPackageNames
 		add: 'Jade Process Browser';
 		add: 'Jade Tutorial';
 		yourself! !
-!JadeImageStripper categoriesFor: #closeLoginShells!public! !
-!JadeImageStripper categoriesFor: #copyRuntimeFiles!public! !
-!JadeImageStripper categoriesFor: #createVersionResource!public! !
-!JadeImageStripper categoriesFor: #exeIconFile!operations!public! !
-!JadeImageStripper categoriesFor: #finishedWith:!public! !
-!JadeImageStripper categoriesFor: #loadJadeServerSourceCache!public! !
-!JadeImageStripper categoriesFor: #logRemainingClasses!public! !
-!JadeImageStripper categoriesFor: #prepareExternalStructures!private! !
-!JadeImageStripper categoriesFor: #prepareToStrip!public! !
-!JadeImageStripper categoriesFor: #requiredClasses!public! !
-!JadeImageStripper categoriesFor: #requiredPackageNames!public! !
+!JadeImageStripper categoriesForMethods!
+closeLoginShells!public! !
+copyRuntimeFiles!public! !
+createVersionResource!public! !
+exeIconFile!operations!public! !
+finishedWith:!public! !
+loadJadeServerSourceCache!public! !
+logRemainingClasses!public! !
+prepareExternalStructures!private! !
+prepareToStrip!public! !
+requiredClasses!public! !
+requiredPackageNames!public! !
+!
 
 !JadeImageStripper class methodsFor!
 
@@ -205,5 +207,7 @@ JadeImageStripper versionHistory.
 	].
 	^stream contents.
 ! !
-!JadeImageStripper class categoriesFor: #versionHistory!public! !
+!JadeImageStripper class categoriesForMethods!
+versionHistory!public! !
+!
 

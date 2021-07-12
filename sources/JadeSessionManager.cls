@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 RuntimeSessionManager subclass: #JadeSessionManager
 	instanceVariableNames: ''
@@ -41,11 +41,13 @@ windowSystemStartup
 	ScintillaLibrary open: 'bin\SciLexer.dll'.		"Since this isn't adjacent to the executable, it needs a path to find it"
 	super windowSystemStartup.
 ! !
-!JadeSessionManager categoriesFor: #defaultResLibPath!public! !
-!JadeSessionManager categoriesFor: #main!public! !
-!JadeSessionManager categoriesFor: #pause!public! !
-!JadeSessionManager categoriesFor: #version!public! !
-!JadeSessionManager categoriesFor: #windowSystemStartup!public! !
+!JadeSessionManager categoriesForMethods!
+defaultResLibPath!public! !
+main!public! !
+pause!public! !
+version!public! !
+windowSystemStartup!public! !
+!
 
 !JadeSessionManager class methodsFor!
 
@@ -87,9 +89,11 @@ version
 		ifTrue: [Version]
 		ifFalse: ['Development'].
 ! !
-!JadeSessionManager class categoriesFor: #getVersion!public! !
-!JadeSessionManager class categoriesFor: #gitDescribe:!public! !
-!JadeSessionManager class categoriesFor: #mainShellClass!public! !
-!JadeSessionManager class categoriesFor: #setVersion!public! !
-!JadeSessionManager class categoriesFor: #version!public! !
+!JadeSessionManager class categoriesForMethods!
+getVersion!public! !
+gitDescribe:!public! !
+mainShellClass!public! !
+setVersion!public! !
+version!public! !
+!
 

@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadeServer subclass: #JadeServer32bit
 	instanceVariableNames: ''
@@ -41,9 +41,11 @@ _mcInitialsA: aString
 	super _mcInitialsA: aString.
 	^true.
 ! !
-!JadeServer32bit categoriesFor: #_asString:!private!Transcript! !
-!JadeServer32bit categoriesFor: #_installTranscript!private!Transcript! !
-!JadeServer32bit categoriesFor: #_mcInitialsA:!private! !
+!JadeServer32bit categoriesForMethods!
+_asString:!private!Transcript! !
+_installTranscript!private!Transcript! !
+_mcInitialsA:!private! !
+!
 
 !JadeServer32bit class methodsFor!
 
@@ -60,5 +62,7 @@ gsClassDefinitionStringFor: aClass
 		instancesInvariant: false
 		isModifiable: false.'
 ! !
-!JadeServer32bit class categoriesFor: #gsClassDefinitionStringFor:!public! !
+!JadeServer32bit class categoriesForMethods!
+gsClassDefinitionStringFor:!public! !
+!
 

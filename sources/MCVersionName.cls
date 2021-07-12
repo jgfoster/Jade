@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Object subclass: #MCVersionName
 	instanceVariableNames: 'name isLoaded isModified'
@@ -48,15 +48,17 @@ printOn: aStream
 		ifFalse: [name].
 	aStream nextPutAll: string.
 ! !
-!MCVersionName categoriesFor: #<=!public! !
-!MCVersionName categoriesFor: #initialize!public! !
-!MCVersionName categoriesFor: #isLoaded!accessing!public! !
-!MCVersionName categoriesFor: #isLoaded:!accessing!public! !
-!MCVersionName categoriesFor: #isModified!accessing!public! !
-!MCVersionName categoriesFor: #isModified:!accessing!public! !
-!MCVersionName categoriesFor: #name!accessing!public! !
-!MCVersionName categoriesFor: #name:!accessing!public! !
-!MCVersionName categoriesFor: #printOn:!public! !
+!MCVersionName categoriesForMethods!
+<=!public! !
+initialize!public! !
+isLoaded!accessing!public! !
+isLoaded:!accessing!public! !
+isModified!accessing!public! !
+isModified:!accessing!public! !
+name!accessing!public! !
+name:!accessing!public! !
+printOn:!public! !
+!
 
 !MCVersionName class methodsFor!
 
@@ -66,5 +68,7 @@ new
 		initialize;
 		yourself.
 ! !
-!MCVersionName class categoriesFor: #new!public! !
+!MCVersionName class categoriesForMethods!
+new!public! !
+!
 

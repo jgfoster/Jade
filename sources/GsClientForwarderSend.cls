@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsEventError subclass: #GsClientForwarderSend
 	instanceVariableNames: ''
@@ -25,7 +25,9 @@ signal
 	self gatherData.
 	^tag clientForwardError: gciErrSType.
 ! !
-!GsClientForwarderSend categoriesFor: #signal!public! !
+!GsClientForwarderSend categoriesForMethods!
+signal!public! !
+!
 
 !GsClientForwarderSend class methodsFor!
 
@@ -33,5 +35,7 @@ wantsToHandle: aGciErrorSType session: aGciSession
 
 	^aGciErrorSType isClientForwarderSendInSession: aGciSession.
 ! !
-!GsClientForwarderSend class categoriesFor: #wantsToHandle:session:!public! !
+!GsClientForwarderSend class categoriesForMethods!
+wantsToHandle:session:!public! !
+!
 

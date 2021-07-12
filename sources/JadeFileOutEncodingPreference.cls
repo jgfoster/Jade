@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadePreferenceObject subclass: #JadeFileOutEncodingPreference
 	instanceVariableNames: ''
@@ -33,15 +33,19 @@ publishedAspects
 	aspects := super publishedAspects.
 	aspects add: (Aspect choice: #jadeFileOutEncoding from: StdioFileStream getEncodingNames).
 	^aspects! !
-!JadeFileOutEncodingPreference categoriesFor: #displayString!public! !
-!JadeFileOutEncodingPreference categoriesFor: #icon!public! !
-!JadeFileOutEncodingPreference categoriesFor: #jadeFileOutEncoding!public! !
-!JadeFileOutEncodingPreference categoriesFor: #jadeFileOutEncoding:!public! !
-!JadeFileOutEncodingPreference categoriesFor: #publishedAspects!public! !
+!JadeFileOutEncodingPreference categoriesForMethods!
+displayString!public! !
+icon!public! !
+jadeFileOutEncoding!public! !
+jadeFileOutEncoding:!public! !
+publishedAspects!public! !
+!
 
 !JadeFileOutEncodingPreference class methodsFor!
 
 icon
 	^String icon! !
-!JadeFileOutEncodingPreference class categoriesFor: #icon!public! !
+!JadeFileOutEncodingPreference class categoriesForMethods!
+icon!public! !
+!
 

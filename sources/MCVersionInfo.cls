@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsObject subclass: #MCVersionInfo
 	instanceVariableNames: 'date time author id ancestors stepChildren message'
@@ -37,9 +37,11 @@ timeStamp
 
 	^date , ' ' , time.
 ! !
-!MCVersionInfo categoriesFor: #gciSession:oop:!public! !
-!MCVersionInfo categoriesFor: #message!public! !
-!MCVersionInfo categoriesFor: #timeStamp!public! !
+!MCVersionInfo categoriesForMethods!
+gciSession:oop:!public! !
+message!public! !
+timeStamp!public! !
+!
 
 !MCVersionInfo class methodsFor!
 
@@ -49,5 +51,7 @@ gciSession: aGciSession oop: anInteger
 		gciSession: aGciSession 
 		oop: anInteger.
 ! !
-!MCVersionInfo class categoriesFor: #gciSession:oop:!public! !
+!MCVersionInfo class categoriesForMethods!
+gciSession:oop:!public! !
+!
 

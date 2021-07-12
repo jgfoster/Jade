@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 LibGciRpc64_3_0 subclass: #LibGciRpc64_3_1_0
 	instanceVariableNames: ''
@@ -20,8 +20,10 @@ gciErr: errorReport
 	<cdecl: bool GciErr GciErrSType64_31*>
 	^self invalidCall: _failureCode
 ! !
-!LibGciRpc64_3_1_0 categoriesFor: #errorStructureClass!private! !
-!LibGciRpc64_3_1_0 categoriesFor: #gciErr:!private! !
+!LibGciRpc64_3_1_0 categoriesForMethods!
+errorStructureClass!private! !
+gciErr:!private! !
+!
 
 !LibGciRpc64_3_1_0 class methodsFor!
 
@@ -48,7 +50,9 @@ version
 		dot := '.'.
 	].
 	^stream contents! !
-!LibGciRpc64_3_1_0 class categoriesFor: #displayName!public! !
-!LibGciRpc64_3_1_0 class categoriesFor: #fileNameSearch!public! !
-!LibGciRpc64_3_1_0 class categoriesFor: #version!public! !
+!LibGciRpc64_3_1_0 class categoriesForMethods!
+displayName!public! !
+fileNameSearch!public! !
+version!public! !
+!
 

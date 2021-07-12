@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Object subclass: #JadeAbstractHistoryEntry
 	instanceVariableNames: 'methodName className classCategory'
@@ -70,18 +70,20 @@ printOn: target
 
 
 	target nextPutAll: ('aHistoryEntry ', self getClassName, '>>', self getMethodName)! !
-!JadeAbstractHistoryEntry categoriesFor: #classCategory!accessing!private! !
-!JadeAbstractHistoryEntry categoriesFor: #classCategory:!accessing!private! !
-!JadeAbstractHistoryEntry categoriesFor: #className!accessing!private! !
-!JadeAbstractHistoryEntry categoriesFor: #className:!accessing!private! !
-!JadeAbstractHistoryEntry categoriesFor: #getClassName!public! !
-!JadeAbstractHistoryEntry categoriesFor: #getMethodName!public! !
-!JadeAbstractHistoryEntry categoriesFor: #hasAllValues!public! !
-!JadeAbstractHistoryEntry categoriesFor: #hasClassName!public! !
-!JadeAbstractHistoryEntry categoriesFor: #hasMethodName!public! !
-!JadeAbstractHistoryEntry categoriesFor: #methodName!accessing!private! !
-!JadeAbstractHistoryEntry categoriesFor: #methodName:!accessing!private! !
-!JadeAbstractHistoryEntry categoriesFor: #printOn:!public! !
+!JadeAbstractHistoryEntry categoriesForMethods!
+classCategory!accessing!private! !
+classCategory:!accessing!private! !
+className!accessing!private! !
+className:!accessing!private! !
+getClassName!public! !
+getMethodName!public! !
+hasAllValues!public! !
+hasClassName!public! !
+hasMethodName!public! !
+methodName!accessing!private! !
+methodName:!accessing!private! !
+printOn:!public! !
+!
 
 !JadeAbstractHistoryEntry class methodsFor!
 
@@ -90,5 +92,7 @@ newFrom: aJadeAutoSystemBrowserPresenter
 	^super new initialize
 		populateFrom: aJadeAutoSystemBrowserPresenter;
 		yourself! !
-!JadeAbstractHistoryEntry class categoriesFor: #newFrom:!public! !
+!JadeAbstractHistoryEntry class categoriesForMethods!
+newFrom:!public! !
+!
 

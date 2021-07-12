@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Object subclass: #GciActivity
 	instanceVariableNames: 'index process sessionId time request msStart msSemaphore msResult response window'
@@ -153,23 +153,25 @@ writeOn: aStream
 		print: self msForResponse; tab;
 		print: response; cr.
 ! !
-!GciActivity categoriesFor: #canBreak!public! !
-!GciActivity categoriesFor: #enableWindow!public! !
-!GciActivity categoriesFor: #gotSemaphore!public! !
-!GciActivity categoriesFor: #index!accessing!public! !
-!GciActivity categoriesFor: #initializeSessionId:description:window:!public! !
-!GciActivity categoriesFor: #msForResponse!accessing!public! !
-!GciActivity categoriesFor: #msForSemaphore!accessing!public! !
-!GciActivity categoriesFor: #processId!accessing!public! !
-!GciActivity categoriesFor: #request!accessing!public! !
-!GciActivity categoriesFor: #response!accessing!public! !
-!GciActivity categoriesFor: #result:!public! !
-!GciActivity categoriesFor: #session:activity:critical:!public! !
-!GciActivity categoriesFor: #sessionId!accessing!public! !
-!GciActivity categoriesFor: #time!accessing!public! !
-!GciActivity categoriesFor: #triggerActivityChanged!public! !
-!GciActivity categoriesFor: #trimString:!public! !
-!GciActivity categoriesFor: #writeOn:!public! !
+!GciActivity categoriesForMethods!
+canBreak!public! !
+enableWindow!public! !
+gotSemaphore!public! !
+index!accessing!public! !
+initializeSessionId:description:window:!public! !
+msForResponse!accessing!public! !
+msForSemaphore!accessing!public! !
+processId!accessing!public! !
+request!accessing!public! !
+response!accessing!public! !
+result:!public! !
+session:activity:critical:!public! !
+sessionId!accessing!public! !
+time!accessing!public! !
+triggerActivityChanged!public! !
+trimString:!public! !
+writeOn:!public! !
+!
 
 !GciActivity class methodsFor!
 
@@ -190,7 +192,9 @@ newWithSessionId: anInteger description: aString window: aView
 		initializeSessionId: anInteger description: aString window: aView;
 		yourself
 ! !
-!GciActivity class categoriesFor: #activity!public! !
-!GciActivity class categoriesFor: #new!public! !
-!GciActivity class categoriesFor: #newWithSessionId:description:window:!public! !
+!GciActivity class categoriesForMethods!
+activity!public! !
+new!public! !
+newWithSessionId:description:window:!public! !
+!
 

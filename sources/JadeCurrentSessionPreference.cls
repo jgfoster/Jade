@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadePreferenceObject subclass: #JadeCurrentSessionPreference
 	instanceVariableNames: ''
@@ -46,19 +46,23 @@ publishedAspects
 		add: (Aspect font: #codeFont);
 		add: (Aspect boolean: #debug).
 	^aspects! !
-!JadeCurrentSessionPreference categoriesFor: #codeFont!public! !
-!JadeCurrentSessionPreference categoriesFor: #codeFont:!public! !
-!JadeCurrentSessionPreference categoriesFor: #debug!public! !
-!JadeCurrentSessionPreference categoriesFor: #debug:!public! !
-!JadeCurrentSessionPreference categoriesFor: #defaultFont!public! !
-!JadeCurrentSessionPreference categoriesFor: #defaultFont:!public! !
-!JadeCurrentSessionPreference categoriesFor: #displayString!public! !
-!JadeCurrentSessionPreference categoriesFor: #icon!public! !
-!JadeCurrentSessionPreference categoriesFor: #publishedAspects!public! !
+!JadeCurrentSessionPreference categoriesForMethods!
+codeFont!public! !
+codeFont:!public! !
+debug!public! !
+debug:!public! !
+defaultFont!public! !
+defaultFont:!public! !
+displayString!public! !
+icon!public! !
+publishedAspects!public! !
+!
 
 !JadeCurrentSessionPreference class methodsFor!
 
 icon
 	^Icon fromId: 'SMALLTALKOPTIONSFOLDER.ICO'! !
-!JadeCurrentSessionPreference class categoriesFor: #icon!public! !
+!JadeCurrentSessionPreference class categoriesForMethods!
+icon!public! !
+!
 

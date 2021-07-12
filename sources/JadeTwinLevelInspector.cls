@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 TwinLevelInspector subclass: #JadeTwinLevelInspector
 	instanceVariableNames: ''
@@ -24,6 +24,8 @@ openCustomPopUpFor: aSymbol ifNone: aNiladicValuable
 	self selectionOrNil ifNil: [^self].
 
 	self selectionOrNil openCustomPopUpFor: aSymbol ifNone: aNiladicValuable ! !
-!JadeTwinLevelInspector categoriesFor: #createComponents!private! !
-!JadeTwinLevelInspector categoriesFor: #openCustomPopUpFor:ifNone:!public! !
+!JadeTwinLevelInspector categoriesForMethods!
+createComponents!private! !
+openCustomPopUpFor:ifNone:!public! !
+!
 

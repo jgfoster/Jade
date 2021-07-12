@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsEventError subclass: #GsPause
 	instanceVariableNames: ''
@@ -14,5 +14,7 @@ wantsToHandle: aGciErrorSType session: aGciSession
 
 	^aGciErrorSType isPauseInSession: aGciSession.
 ! !
-!GsPause class categoriesFor: #wantsToHandle:session:!public! !
+!GsPause class categoriesForMethods!
+wantsToHandle:session:!public! !
+!
 

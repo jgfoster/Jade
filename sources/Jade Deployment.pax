@@ -75,21 +75,27 @@ RuntimeSessionManager subclass: #JadeSessionManager
 jadeSessionManagerClass
 
 	^JadeSessionManager! !
-!GciSession categoriesFor: #jadeSessionManagerClass!public! !
+!GciSession categoriesForMethods!
+jadeSessionManagerClass!public! !
+!
 
 !JadeServer class methodsFor!
 
 jadeSessionManagerClass
 
 	^JadeSessionManager! !
-!JadeServer class categoriesFor: #jadeSessionManagerClass!public! !
+!JadeServer class categoriesForMethods!
+jadeSessionManagerClass!public! !
+!
 
 !JadeTranscript methodsFor!
 
 jadeSessionManagerClass
 
 	^JadeSessionManager! !
-!JadeTranscript categoriesFor: #jadeSessionManagerClass!public! !
+!JadeTranscript categoriesForMethods!
+jadeSessionManagerClass!public! !
+!
 
 "End of package definition"!
 

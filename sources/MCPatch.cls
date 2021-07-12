@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsObject subclass: #MCPatch
 	instanceVariableNames: 'operations'
@@ -29,6 +29,8 @@ initialize: aString session: aGciSession
 
 operations
 	^operations! !
-!MCPatch categoriesFor: #initialize:session:!public! !
-!MCPatch categoriesFor: #operations!public! !
+!MCPatch categoriesForMethods!
+initialize:session:!public! !
+operations!public! !
+!
 

@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Object subclass: #JadeGsMethodShape
 	instanceVariableNames: 'ownerClass methodName source replacementSource isInstanceMethod packageName applied'
@@ -76,25 +76,27 @@ source
 
 source: anObject
 	source := anObject! !
-!JadeGsMethodShape categoriesFor: #applied!accessing!private! !
-!JadeGsMethodShape categoriesFor: #applied:!accessing!private! !
-!JadeGsMethodShape categoriesFor: #apply!public! !
-!JadeGsMethodShape categoriesFor: #beClassMethod!public! !
-!JadeGsMethodShape categoriesFor: #initialize!public! !
-!JadeGsMethodShape categoriesFor: #isInstanceMethod!accessing!private! !
-!JadeGsMethodShape categoriesFor: #isInstanceMethod:!accessing!private! !
-!JadeGsMethodShape categoriesFor: #methodName!accessing!private! !
-!JadeGsMethodShape categoriesFor: #methodName:!accessing!private! !
-!JadeGsMethodShape categoriesFor: #ownerClass!accessing!private! !
-!JadeGsMethodShape categoriesFor: #ownerClass:!accessing!private! !
-!JadeGsMethodShape categoriesFor: #packageName!accessing!private! !
-!JadeGsMethodShape categoriesFor: #packageName:!accessing!private! !
-!JadeGsMethodShape categoriesFor: #printClass!public! !
-!JadeGsMethodShape categoriesFor: #printOn:!public! !
-!JadeGsMethodShape categoriesFor: #replacementSource!accessing!private! !
-!JadeGsMethodShape categoriesFor: #replacementSource:!accessing!private! !
-!JadeGsMethodShape categoriesFor: #source!accessing!private! !
-!JadeGsMethodShape categoriesFor: #source:!accessing!private! !
+!JadeGsMethodShape categoriesForMethods!
+applied!accessing!private! !
+applied:!accessing!private! !
+apply!public! !
+beClassMethod!public! !
+initialize!public! !
+isInstanceMethod!accessing!private! !
+isInstanceMethod:!accessing!private! !
+methodName!accessing!private! !
+methodName:!accessing!private! !
+ownerClass!accessing!private! !
+ownerClass:!accessing!private! !
+packageName!accessing!private! !
+packageName:!accessing!private! !
+printClass!public! !
+printOn:!public! !
+replacementSource!accessing!private! !
+replacementSource:!accessing!private! !
+source!accessing!private! !
+source:!accessing!private! !
+!
 
 !JadeGsMethodShape class methodsFor!
 
@@ -105,5 +107,7 @@ newFor: className methodName: methodName source: source
 		methodName: methodName;
 		source: source;
 		yourself! !
-!JadeGsMethodShape class categoriesFor: #newFor:methodName:source:!public! !
+!JadeGsMethodShape class categoriesForMethods!
+newFor:methodName:source:!public! !
+!
 

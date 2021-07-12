@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsObject subclass: #MCRepository
 	instanceVariableNames: ''
@@ -106,18 +106,20 @@ versionInfoForPackageNamed: aString
 
 versionInfoForPackageNamed: aString version: aString2 
 	^Error notYetImplemented! !
-!MCRepository categoriesFor: #allVersionInfoNames!public! !
-!MCRepository categoriesFor: #creationTemplate!public! !
-!MCRepository categoriesFor: #fullNameOfPackage:versionName:!public! !
-!MCRepository categoriesFor: #initialize:!public! !
-!MCRepository categoriesFor: #isDefault!public! !
-!MCRepository categoriesFor: #loadPackageNamed:versionName:!public! !
-!MCRepository categoriesFor: #packageList!public! !
-!MCRepository categoriesFor: #patchFrom:to:!public! !
-!MCRepository categoriesFor: #storeVersion:name:message:from:!public! !
-!MCRepository categoriesFor: #topazFrom:!public! !
-!MCRepository categoriesFor: #versionInfoForPackageNamed:!public! !
-!MCRepository categoriesFor: #versionInfoForPackageNamed:version:!public! !
+!MCRepository categoriesForMethods!
+allVersionInfoNames!public! !
+creationTemplate!public! !
+fullNameOfPackage:versionName:!public! !
+initialize:!public! !
+isDefault!public! !
+loadPackageNamed:versionName:!public! !
+packageList!public! !
+patchFrom:to:!public! !
+storeVersion:name:message:from:!public! !
+topazFrom:!public! !
+versionInfoForPackageNamed:!public! !
+versionInfoForPackageNamed:version:!public! !
+!
 
 !MCRepository class methodsFor!
 
@@ -166,8 +168,10 @@ listFromString: aString session: aGciSession
 
 	^(super listFromString: aString session: aGciSession) reject: [:each | each isNil].
 ! !
-!MCRepository class categoriesFor: #allIn:!public! !
-!MCRepository class categoriesFor: #fromString:session:!public! !
-!MCRepository class categoriesFor: #gciSession:oop:!public! !
-!MCRepository class categoriesFor: #listFromString:session:!public! !
+!MCRepository class categoriesForMethods!
+allIn:!public! !
+fromString:session:!public! !
+gciSession:oop:!public! !
+listFromString:session:!public! !
+!
 

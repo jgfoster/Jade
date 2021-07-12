@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Shell subclass: #JadeShell
 	instanceVariableNames: 'gciSession myPresenter'
@@ -86,16 +86,18 @@ updateCaption
 
 	self caption: (gciSession titleBarFor: self shellName).
 ! !
-!JadeShell categoriesFor: #createComponents!private! !
-!JadeShell categoriesFor: #gciSession!private! !
-!JadeShell categoriesFor: #gciSession:!private! !
-!JadeShell categoriesFor: #logoutRequested:!private! !
-!JadeShell categoriesFor: #onViewClosed!private! !
-!JadeShell categoriesFor: #onViewOpened!private! !
-!JadeShell categoriesFor: #presenterClass!overrides!private! !
-!JadeShell categoriesFor: #primaryPresenter!public! !
-!JadeShell categoriesFor: #shellName!overrides!private! !
-!JadeShell categoriesFor: #updateCaption!overrides!private! !
+!JadeShell categoriesForMethods!
+createComponents!private! !
+gciSession!private! !
+gciSession:!private! !
+logoutRequested:!private! !
+onViewClosed!private! !
+onViewOpened!private! !
+presenterClass!overrides!private! !
+primaryPresenter!public! !
+shellName!overrides!private! !
+updateCaption!overrides!private! !
+!
 
 !JadeShell class methodsFor!
 
@@ -117,6 +119,8 @@ showOnSession: aGciSession
 		showShell;
 		yourself.
 ! !
-!JadeShell class categoriesFor: #icon!public! !
-!JadeShell class categoriesFor: #showOnSession:!public! !
+!JadeShell class categoriesForMethods!
+icon!public! !
+showOnSession:!public! !
+!
 

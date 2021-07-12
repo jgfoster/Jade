@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 MCDefinition subclass: #MCMethodDefinition
 	instanceVariableNames: 'classIsMeta source category selector className timeStamp'
@@ -56,14 +56,16 @@ source
 
 timeStamp
 	^timeStamp! !
-!MCMethodDefinition categoriesFor: #category!accessing!public! !
-!MCMethodDefinition categoriesFor: #classIsMeta!accessing!public! !
-!MCMethodDefinition categoriesFor: #className!accessing!public! !
-!MCMethodDefinition categoriesFor: #detailsString!public! !
-!MCMethodDefinition categoriesFor: #displayMemo!public! !
-!MCMethodDefinition categoriesFor: #displayText!public! !
-!MCMethodDefinition categoriesFor: #initialize:!private! !
-!MCMethodDefinition categoriesFor: #selector!accessing!public! !
-!MCMethodDefinition categoriesFor: #source!accessing!public! !
-!MCMethodDefinition categoriesFor: #timeStamp!accessing!public! !
+!MCMethodDefinition categoriesForMethods!
+category!accessing!public! !
+classIsMeta!accessing!public! !
+className!accessing!public! !
+detailsString!public! !
+displayMemo!public! !
+displayText!public! !
+initialize:!private! !
+selector!accessing!public! !
+source!accessing!public! !
+timeStamp!accessing!public! !
+!
 

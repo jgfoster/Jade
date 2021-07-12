@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsObject subclass: #GsGlobal
 	instanceVariableNames: 'gsClassName data'
@@ -26,7 +26,9 @@ initialize: aList
 	gsClassName := aList at: 3.
 	data := aList at: 4.
 ! !
-!GsGlobal categoriesFor: #data!public! !
-!GsGlobal categoriesFor: #gsClassName!public! !
-!GsGlobal categoriesFor: #initialize:!public! !
+!GsGlobal categoriesForMethods!
+data!public! !
+gsClassName!public! !
+initialize:!public! !
+!
 

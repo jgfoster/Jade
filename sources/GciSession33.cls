@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GciSession30 subclass: #GciSession33
 	instanceVariableNames: ''
@@ -39,8 +39,10 @@ encode: aString
 gsHasPragmas
 
 	^true! !
-!GciSession33 categoriesFor: #attemptSocket!Jade!public! !
-!GciSession33 categoriesFor: #decode:!public! !
-!GciSession33 categoriesFor: #encode:!public! !
-!GciSession33 categoriesFor: #gsHasPragmas!public! !
+!GciSession33 categoriesForMethods!
+attemptSocket!Jade!public! !
+decode:!public! !
+encode:!public! !
+gsHasPragmas!public! !
+!
 

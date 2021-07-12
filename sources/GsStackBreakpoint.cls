@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsEventError subclass: #GsStackBreakpoint
 	instanceVariableNames: ''
@@ -14,7 +14,9 @@ isStackBreakpoint
 
 	^true.
 ! !
-!GsStackBreakpoint categoriesFor: #isStackBreakpoint!public! !
+!GsStackBreakpoint categoriesForMethods!
+isStackBreakpoint!public! !
+!
 
 !GsStackBreakpoint class methodsFor!
 
@@ -22,5 +24,7 @@ wantsToHandle: aGciErrorSType session: aGciSession
 
 	^aGciErrorSType isStackBreakpointInSession: aGciSession.
 ! !
-!GsStackBreakpoint class categoriesFor: #wantsToHandle:session:!public! !
+!GsStackBreakpoint class categoriesForMethods!
+wantsToHandle:session:!public! !
+!
 

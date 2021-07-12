@@ -85,7 +85,9 @@ subStringsTrimmingTrailingEmptyElement: separatorOrSeparators
 	nonLastEmptyElementArray last isEmpty ifTrue: [^nonLastEmptyElementArray allButLast].
 
 	^nonLastEmptyElementArray! !
-!String categoriesFor: #subStringsTrimmingTrailingEmptyElement:!copying!public! !
+!String categoriesForMethods!
+subStringsTrimmingTrailingEmptyElement:!copying!public! !
+!
 
 "End of package definition"!
 

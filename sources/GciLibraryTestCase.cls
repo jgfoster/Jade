@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 TestCase subclass: #GciLibraryTestCase
 	instanceVariableNames: 'library session'
@@ -477,43 +477,45 @@ test_version
 		assert: (string beginsWith: '3.3');
 		yourself.
 ! !
-!GciLibraryTestCase categoriesFor: #test_abort!public! !
-!GciLibraryTestCase categoriesFor: #test_begin!public! !
-!GciLibraryTestCase categoriesFor: #test_break!public! !
-!GciLibraryTestCase categoriesFor: #test_charToOop!public! !
-!GciLibraryTestCase categoriesFor: #test_clearStack!public! !
-!GciLibraryTestCase categoriesFor: #test_commit!public! !
-!GciLibraryTestCase categoriesFor: #test_continue!public! !
-!GciLibraryTestCase categoriesFor: #test_doubleToOop!public! !
-!GciLibraryTestCase categoriesFor: #test_doubleToSmallDouble!public! !
-!GciLibraryTestCase categoriesFor: #test_execute!public! !
-!GciLibraryTestCase categoriesFor: #test_fetchBytes!public! !
-!GciLibraryTestCase categoriesFor: #test_fetchClass!public! !
-!GciLibraryTestCase categoriesFor: #test_fetchObject1!public! !
-!GciLibraryTestCase categoriesFor: #test_fetchObject2!public! !
-!GciLibraryTestCase categoriesFor: #test_fetchObject3!public! !
-!GciLibraryTestCase categoriesFor: #test_fetchObject4!public! !
-!GciLibraryTestCase categoriesFor: #test_fetchObjects!public! !
-!GciLibraryTestCase categoriesFor: #test_fetchSize!public! !
-!GciLibraryTestCase categoriesFor: #test_fetchSpecialClass!public! !
-!GciLibraryTestCase categoriesFor: #test_fetchString!public! !
-!GciLibraryTestCase categoriesFor: #test_fetchVaryingSize!public! !
-!GciLibraryTestCase categoriesFor: #test_gemTrace!public! !
-!GciLibraryTestCase categoriesFor: #test_i64ToOop!public! !
-!GciLibraryTestCase categoriesFor: #test_login!public! !
-!GciLibraryTestCase categoriesFor: #test_newString!public! !
-!GciLibraryTestCase categoriesFor: #test_objExists!public! !
-!GciLibraryTestCase categoriesFor: #test_oopIsSpecial!public! !
-!GciLibraryTestCase categoriesFor: #test_oopToChar!public! !
-!GciLibraryTestCase categoriesFor: #test_oopToDouble!public! !
-!GciLibraryTestCase categoriesFor: #test_oopToI64!public! !
-!GciLibraryTestCase categoriesFor: #test_perform!public! !
-!GciLibraryTestCase categoriesFor: #test_releaseAllObjs!public! !
-!GciLibraryTestCase categoriesFor: #test_releaseOops!public! !
-!GciLibraryTestCase categoriesFor: #test_resolveSymbol!public! !
-!GciLibraryTestCase categoriesFor: #test_resolveSymbolOop!public! !
-!GciLibraryTestCase categoriesFor: #test_sessionIsRemote!public! !
-!GciLibraryTestCase categoriesFor: #test_version!public! !
+!GciLibraryTestCase categoriesForMethods!
+test_abort!public! !
+test_begin!public! !
+test_break!public! !
+test_charToOop!public! !
+test_clearStack!public! !
+test_commit!public! !
+test_continue!public! !
+test_doubleToOop!public! !
+test_doubleToSmallDouble!public! !
+test_execute!public! !
+test_fetchBytes!public! !
+test_fetchClass!public! !
+test_fetchObject1!public! !
+test_fetchObject2!public! !
+test_fetchObject3!public! !
+test_fetchObject4!public! !
+test_fetchObjects!public! !
+test_fetchSize!public! !
+test_fetchSpecialClass!public! !
+test_fetchString!public! !
+test_fetchVaryingSize!public! !
+test_gemTrace!public! !
+test_i64ToOop!public! !
+test_login!public! !
+test_newString!public! !
+test_objExists!public! !
+test_oopIsSpecial!public! !
+test_oopToChar!public! !
+test_oopToDouble!public! !
+test_oopToI64!public! !
+test_perform!public! !
+test_releaseAllObjs!public! !
+test_releaseOops!public! !
+test_resolveSymbol!public! !
+test_resolveSymbolOop!public! !
+test_sessionIsRemote!public! !
+test_version!public! !
+!
 
 !GciLibraryTestCase class methodsFor!
 
@@ -521,5 +523,7 @@ isAbstract
 
 	^self name == #'GciLibraryTestCase'
 ! !
-!GciLibraryTestCase class categoriesFor: #isAbstract!public! !
+!GciLibraryTestCase class categoriesForMethods!
+isAbstract!public! !
+!
 

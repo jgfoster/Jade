@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Object subclass: #VWComponent
 	instanceVariableNames: 'element name environment category package isPrivate sharedVariables'
@@ -96,16 +96,18 @@ readCommon
 	sharedVariables := Dictionary new.
 	self readAttributes.
 ! !
-!VWComponent categoriesFor: #addSharedVar:initializer:!public! !
-!VWComponent categoriesFor: #category!public! !
-!VWComponent categoriesFor: #environment!public! !
-!VWComponent categoriesFor: #initialize:!public! !
-!VWComponent categoriesFor: #initializerFor:!public! !
-!VWComponent categoriesFor: #name!public! !
-!VWComponent categoriesFor: #package!public! !
-!VWComponent categoriesFor: #printOn:!public! !
-!VWComponent categoriesFor: #readAttributes!public! !
-!VWComponent categoriesFor: #readCommon!public! !
+!VWComponent categoriesForMethods!
+addSharedVar:initializer:!public! !
+category!public! !
+environment!public! !
+initialize:!public! !
+initializerFor:!public! !
+name!public! !
+package!public! !
+printOn:!public! !
+readAttributes!public! !
+readCommon!public! !
+!
 
 !VWComponent class methodsFor!
 
@@ -115,5 +117,7 @@ from: anElement
 		initialize: anElement;
 		yourself.
 ! !
-!VWComponent class categoriesFor: #from:!public! !
+!VWComponent class categoriesForMethods!
+from:!public! !
+!
 

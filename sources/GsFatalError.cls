@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsError subclass: #GsFatalError
 	instanceVariableNames: ''
@@ -18,7 +18,9 @@ defaultAction
 	self gciSession beInvalidSession.
 	TerminateProcess signal.
 ! !
-!GsFatalError categoriesFor: #defaultAction!public! !
+!GsFatalError categoriesForMethods!
+defaultAction!public! !
+!
 
 !GsFatalError class methodsFor!
 
@@ -26,5 +28,7 @@ wantsToHandle: aGciErrorSType session: aGciSession
 
 	^aGciErrorSType number // 1000 = 4.
 ! !
-!GsFatalError class categoriesFor: #wantsToHandle:session:!public! !
+!GsFatalError class categoriesForMethods!
+wantsToHandle:session:!public! !
+!
 

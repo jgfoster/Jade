@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 MCServerDirectoryRepository subclass: #MCFileTreeRepository
 	instanceVariableNames: ''
@@ -29,6 +29,8 @@ packageList
 	].
 	^list.
 ! !
-!MCFileTreeRepository categoriesFor: #fullNameOfPackage:versionName:!public! !
-!MCFileTreeRepository categoriesFor: #packageList!public! !
+!MCFileTreeRepository categoriesForMethods!
+fullNameOfPackage:versionName:!public! !
+packageList!public! !
+!
 

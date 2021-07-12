@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Error subclass: #GsError
 	instanceVariableNames: 'gciErrSType gsProcess'
@@ -108,19 +108,21 @@ terminateProcess
 	self gciSession terminate: self errorReport contextOop.
 	self error: 'We should never get here!!'.
 ! !
-!GsError categoriesFor: #defaultAction!public! !
-!GsError categoriesFor: #errorReport!public! !
-!GsError categoriesFor: #gatherData!public! !
-!GsError categoriesFor: #gciErrSType:!accessing!private! !
-!GsError categoriesFor: #gciSession!accessing!public! !
-!GsError categoriesFor: #gsProcess!accessing!private! !
-!GsError categoriesFor: #isResumableInGem!public! !
-!GsError categoriesFor: #isStackBreakpoint!public! !
-!GsError categoriesFor: #processOop!public! !
-!GsError categoriesFor: #reportError!public! !
-!GsError categoriesFor: #reportErrorMessage!public! !
-!GsError categoriesFor: #signal!public! !
-!GsError categoriesFor: #terminateProcess!accessing!public! !
+!GsError categoriesForMethods!
+defaultAction!public! !
+errorReport!public! !
+gatherData!public! !
+gciErrSType:!accessing!private! !
+gciSession!accessing!public! !
+gsProcess!accessing!private! !
+isResumableInGem!public! !
+isStackBreakpoint!public! !
+processOop!public! !
+reportError!public! !
+reportErrorMessage!public! !
+signal!public! !
+terminateProcess!accessing!public! !
+!
 
 !GsError class methodsFor!
 
@@ -183,13 +185,15 @@ wantsToHandle: aGciErrorSType session: aGciSession
 
 	^true.
 ! !
-!GsError class categoriesFor: #classToHandle:session:!public! !
-!GsError class categoriesFor: #forSession:!public! !
-!GsError class categoriesFor: #forSession:gciErrSType:!public! !
-!GsError class categoriesFor: #signal:!public! !
-!GsError class categoriesFor: #signal:with:!public! !
-!GsError class categoriesFor: #signalGCI:!public! !
-!GsError class categoriesFor: #signalGCI:gciErrSType:!public! !
-!GsError class categoriesFor: #signalWith:!public! !
-!GsError class categoriesFor: #wantsToHandle:session:!public! !
+!GsError class categoriesForMethods!
+classToHandle:session:!public! !
+forSession:!public! !
+forSession:gciErrSType:!public! !
+signal:!public! !
+signal:with:!public! !
+signalGCI:!public! !
+signalGCI:gciErrSType:!public! !
+signalWith:!public! !
+wantsToHandle:session:!public! !
+!
 

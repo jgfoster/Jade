@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Object subclass: #JadeTextStyles
 	instanceVariableNames: 'colorForCompileError colorForNoEdits colorForUnsavedEdits textStyles'
@@ -174,16 +174,18 @@ textStyles
 
 textStyles: anObject
 	textStyles := anObject! !
-!JadeTextStyles categoriesFor: #colorForCompileError!accessing!public! !
-!JadeTextStyles categoriesFor: #colorForCompileError:!accessing!public! !
-!JadeTextStyles categoriesFor: #colorForNoEdits!accessing!public! !
-!JadeTextStyles categoriesFor: #colorForNoEdits:!accessing!public! !
-!JadeTextStyles categoriesFor: #colorForUnsavedEdits!accessing!public! !
-!JadeTextStyles categoriesFor: #colorForUnsavedEdits:!accessing!public! !
-!JadeTextStyles categoriesFor: #defaultTextStyles!public! !
-!JadeTextStyles categoriesFor: #resetColors!public! !
-!JadeTextStyles categoriesFor: #textStyles!accessing!public! !
-!JadeTextStyles categoriesFor: #textStyles:!accessing!public! !
+!JadeTextStyles categoriesForMethods!
+colorForCompileError!accessing!public! !
+colorForCompileError:!accessing!public! !
+colorForNoEdits!accessing!public! !
+colorForNoEdits:!accessing!public! !
+colorForUnsavedEdits!accessing!public! !
+colorForUnsavedEdits:!accessing!public! !
+defaultTextStyles!public! !
+resetColors!public! !
+textStyles!accessing!public! !
+textStyles:!accessing!public! !
+!
 
 !JadeTextStyles class methodsFor!
 
@@ -191,5 +193,7 @@ default
 
 	^default ifNil: [default := self new].
 ! !
-!JadeTextStyles class categoriesFor: #default!public! !
+!JadeTextStyles class categoriesForMethods!
+default!public! !
+!
 

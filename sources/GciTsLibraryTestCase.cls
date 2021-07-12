@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GciLibraryTestCase subclass: #GciTsLibraryTestCase
 	instanceVariableNames: ''
@@ -27,13 +27,17 @@ test_break
 		session: session breakHard: true;
 		yourself.
 ! !
-!GciTsLibraryTestCase categoriesFor: #setUp!private! !
-!GciTsLibraryTestCase categoriesFor: #test_break!public! !
+!GciTsLibraryTestCase categoriesForMethods!
+setUp!private! !
+test_break!public! !
+!
 
 !GciTsLibraryTestCase class methodsFor!
 
 resources
 
 	^IdentitySet with: GciTsLibraryTestResource! !
-!GciTsLibraryTestCase class categoriesFor: #resources!public! !
+!GciTsLibraryTestCase class categoriesForMethods!
+resources!public! !
+!
 

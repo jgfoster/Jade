@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Shell subclass: #ContactsShell
 	instanceVariableNames: ''
@@ -14,5 +14,7 @@ icon
 
 	^Icon fromFile: 'icons\GS32.ico'.
 ! !
-!ContactsShell class categoriesFor: #icon!public! !
+!ContactsShell class categoriesForMethods!
+icon!public! !
+!
 

@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsObject subclass: #GsStackFrame
 	instanceVariableNames: 'ipOffset frameOffset gsMethod stepPoint vars offsets breaks source'
@@ -78,21 +78,23 @@ vars
 
 vars: anObject
 	vars := anObject! !
-!GsStackFrame categoriesFor: #breaks!public! !
-!GsStackFrame categoriesFor: #frameOffset!accessing!private! !
-!GsStackFrame categoriesFor: #frameOffset:!accessing!private! !
-!GsStackFrame categoriesFor: #gsMethod!accessing!public! !
-!GsStackFrame categoriesFor: #initialize:!public! !
-!GsStackFrame categoriesFor: #initializeXML:!public! !
-!GsStackFrame categoriesFor: #ipOffset!accessing!private! !
-!GsStackFrame categoriesFor: #ipOffset:!accessing!private! !
-!GsStackFrame categoriesFor: #offsets!accessing!private! !
-!GsStackFrame categoriesFor: #source!accessing!private! !
-!GsStackFrame categoriesFor: #source:!accessing!private! !
-!GsStackFrame categoriesFor: #stepPoint!accessing!private! !
-!GsStackFrame categoriesFor: #stepPoint:!accessing!private! !
-!GsStackFrame categoriesFor: #vars!accessing!private! !
-!GsStackFrame categoriesFor: #vars:!accessing!private! !
+!GsStackFrame categoriesForMethods!
+breaks!public! !
+frameOffset!accessing!private! !
+frameOffset:!accessing!private! !
+gsMethod!accessing!public! !
+initialize:!public! !
+initializeXML:!public! !
+ipOffset!accessing!private! !
+ipOffset:!accessing!private! !
+offsets!accessing!private! !
+source!accessing!private! !
+source:!accessing!private! !
+stepPoint!accessing!private! !
+stepPoint:!accessing!private! !
+vars!accessing!private! !
+vars:!accessing!private! !
+!
 
 !GsStackFrame class methodsFor!
 
@@ -100,5 +102,7 @@ xmlBaseName
 
 	^'frame'.
 ! !
-!GsStackFrame class categoriesFor: #xmlBaseName!public! !
+!GsStackFrame class categoriesForMethods!
+xmlBaseName!public! !
+!
 

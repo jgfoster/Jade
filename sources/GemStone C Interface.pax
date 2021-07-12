@@ -553,7 +553,9 @@ decodeFromUTF8
 	].
 	^Utf8String withAll: writeStream contents
 ! !
-!ByteArray categoriesFor: #decodeFromUTF8!encode/decode!public! !
+!ByteArray categoriesForMethods!
+decodeFromUTF8!encode/decode!public! !
+!
 
 "End of package definition"!
 

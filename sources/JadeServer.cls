@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Object subclass: #JadeServer
 	instanceVariableNames: 'classList classOrganizers readStream writeStream selectedClass methodFilterType methodFilters selections showUnimplementedMessages'
@@ -590,73 +590,75 @@ terminate: aGsProcess
 	aGsProcess terminate.
 	(Delay forMilliseconds: 10) wait.	"allow forked processes to finish"
 ! !
-!JadeServer categoriesFor: #_addToPureExportSet:!private! !
-!JadeServer categoriesFor: #_allSelectors!Debugger!GsObject!private!System Browser! !
-!JadeServer categoriesFor: #_asString:!private!Transcript! !
-!JadeServer categoriesFor: #_categoryOfMethod:!private!System Browser! !
-!JadeServer categoriesFor: #_currentUserMayEditMethod:!private!System Browser! !
-!JadeServer categoriesFor: #_decodeString:!private! !
-!JadeServer categoriesFor: #_defectiveTestsIn:!private! !
-!JadeServer categoriesFor: #_describeMethod:!Debugger!GsObject!private!System Browser! !
-!JadeServer categoriesFor: #_encodeString:!private! !
-!JadeServer categoriesFor: #_environmentForMethod:!private! !
-!JadeServer categoriesFor: #_environmentSuperClassFor:!private!System Browser! !
-!JadeServer categoriesFor: #_gemLogPath!private!Transcript! !
-!JadeServer categoriesFor: #_gsPackagePolicy!private! !
-!JadeServer categoriesFor: #_gsPackagePolicyClass!private! !
-!JadeServer categoriesFor: #_initializeMoticello!private! !
-!JadeServer categoriesFor: #_installTranscript!private!Transcript! !
-!JadeServer categoriesFor: #_isClientForwarder:!Debugger!private! !
-!JadeServer categoriesFor: #_keysForDictionary:!private! !
-!JadeServer categoriesFor: #_mcHttpRepositoryClass!private! !
-!JadeServer categoriesFor: #_mcInitialsA:!private! !
-!JadeServer categoriesFor: #_mcPackageClass!private! !
-!JadeServer categoriesFor: #_methodSignatureForSelector:!private!System Browser! !
-!JadeServer categoriesFor: #_millisecondsElapsedTime:!private!System Browser! !
-!JadeServer categoriesFor: #_moveMethod:toCategory:!private! !
-!JadeServer categoriesFor: #_nameOfFirstDictionaryReferencing:!private! !
-!JadeServer categoriesFor: #_nextLine!private!System Browser! !
-!JadeServer categoriesFor: #_nextLineAsList!private!System Browser! !
-!JadeServer categoriesFor: #_objectForOop:!private! !
-!JadeServer categoriesFor: #_preferences!private! !
-!JadeServer categoriesFor: #_registerOBNotifications!private! !
-!JadeServer categoriesFor: #_registerOBNotificationsForPlatform:clientForwarder:!private! !
-!JadeServer categoriesFor: #_setSessionState!private! !
-!JadeServer categoriesFor: #_string!private! !
-!JadeServer categoriesFor: #_writeStreamOnString!private! !
-!JadeServer categoriesFor: #abort!public! !
-!JadeServer categoriesFor: #addJadeServerToUserGlobals!public! !
-!JadeServer categoriesFor: #beginTransaction!public! !
-!JadeServer categoriesFor: #clearBreakAtStepPoint:inMethod:!Methods!public! !
-!JadeServer categoriesFor: #commit!public! !
-!JadeServer categoriesFor: #contents!public! !
-!JadeServer categoriesFor: #cr!public!Transcript! !
-!JadeServer categoriesFor: #debugString:fromContext:environment:!public! !
-!JadeServer categoriesFor: #describeMethod:!Debugger!GsObject!public!System Browser! !
-!JadeServer categoriesFor: #errorListFor:!public! !
-!JadeServer categoriesFor: #executeString:fromContext:environment:!public! !
-!JadeServer categoriesFor: #hasDirtyObjects!public! !
-!JadeServer categoriesFor: #heartbeat!public!Sessions! !
-!JadeServer categoriesFor: #homeMethodFor:!private! !
-!JadeServer categoriesFor: #initialize!public! !
-!JadeServer categoriesFor: #makeListener!private! !
-!JadeServer categoriesFor: #mcRemoveRepository:fromPackage:!public! !
-!JadeServer categoriesFor: #message:caption:icon:buttons:!OmniBrowser!public! !
-!JadeServer categoriesFor: #nextPut:!public!Transcript! !
-!JadeServer categoriesFor: #nextPutAll:!public!Transcript! !
-!JadeServer categoriesFor: #obConfirmationRequest:!OmniBrowser!public! !
-!JadeServer categoriesFor: #obInformRequest:!OmniBrowser!public! !
-!JadeServer categoriesFor: #objectInBaseNamed:!private! !
-!JadeServer categoriesFor: #objectNamed:!private! !
-!JadeServer categoriesFor: #obTextRequest:!OmniBrowser!public! !
-!JadeServer categoriesFor: #oopOf:!private! !
-!JadeServer categoriesFor: #preferences!public! !
-!JadeServer categoriesFor: #prompt:caption:!OmniBrowser!public! !
-!JadeServer categoriesFor: #reset!public!Transcript! !
-!JadeServer categoriesFor: #setBreakAtStepPoint:inMethod:!Methods!public! !
-!JadeServer categoriesFor: #show:!public!Transcript! !
-!JadeServer categoriesFor: #stackForProcess:!public! !
-!JadeServer categoriesFor: #terminate:!Processes!public! !
+!JadeServer categoriesForMethods!
+_addToPureExportSet:!private! !
+_allSelectors!Debugger!GsObject!private!System Browser! !
+_asString:!private!Transcript! !
+_categoryOfMethod:!private!System Browser! !
+_currentUserMayEditMethod:!private!System Browser! !
+_decodeString:!private! !
+_defectiveTestsIn:!private! !
+_describeMethod:!Debugger!GsObject!private!System Browser! !
+_encodeString:!private! !
+_environmentForMethod:!private! !
+_environmentSuperClassFor:!private!System Browser! !
+_gemLogPath!private!Transcript! !
+_gsPackagePolicy!private! !
+_gsPackagePolicyClass!private! !
+_initializeMoticello!private! !
+_installTranscript!private!Transcript! !
+_isClientForwarder:!Debugger!private! !
+_keysForDictionary:!private! !
+_mcHttpRepositoryClass!private! !
+_mcInitialsA:!private! !
+_mcPackageClass!private! !
+_methodSignatureForSelector:!private!System Browser! !
+_millisecondsElapsedTime:!private!System Browser! !
+_moveMethod:toCategory:!private! !
+_nameOfFirstDictionaryReferencing:!private! !
+_nextLine!private!System Browser! !
+_nextLineAsList!private!System Browser! !
+_objectForOop:!private! !
+_preferences!private! !
+_registerOBNotifications!private! !
+_registerOBNotificationsForPlatform:clientForwarder:!private! !
+_setSessionState!private! !
+_string!private! !
+_writeStreamOnString!private! !
+abort!public! !
+addJadeServerToUserGlobals!public! !
+beginTransaction!public! !
+clearBreakAtStepPoint:inMethod:!Methods!public! !
+commit!public! !
+contents!public! !
+cr!public!Transcript! !
+debugString:fromContext:environment:!public! !
+describeMethod:!Debugger!GsObject!public!System Browser! !
+errorListFor:!public! !
+executeString:fromContext:environment:!public! !
+hasDirtyObjects!public! !
+heartbeat!public!Sessions! !
+homeMethodFor:!private! !
+initialize!public! !
+makeListener!private! !
+mcRemoveRepository:fromPackage:!public! !
+message:caption:icon:buttons:!OmniBrowser!public! !
+nextPut:!public!Transcript! !
+nextPutAll:!public!Transcript! !
+obConfirmationRequest:!OmniBrowser!public! !
+obInformRequest:!OmniBrowser!public! !
+objectInBaseNamed:!private! !
+objectNamed:!private! !
+obTextRequest:!OmniBrowser!public! !
+oopOf:!private! !
+preferences!public! !
+prompt:caption:!OmniBrowser!public! !
+reset!public!Transcript! !
+setBreakAtStepPoint:inMethod:!Methods!public! !
+show:!public!Transcript! !
+stackForProcess:!public! !
+terminate:!Processes!public! !
+!
 
 !JadeServer class methodsFor!
 
@@ -755,11 +757,13 @@ new
 sessionStateCode
 
 	^'System _sessionStateAt: 3 put: server.'! !
-!JadeServer class categoriesFor: #addGsStringForClass:to:!public! !
-!JadeServer class categoriesFor: #classVarsForGemStone!public! !
-!JadeServer class categoriesFor: #gsClassDefinitionStringFor:!public! !
-!JadeServer class categoriesFor: #gsMethodClassName!public! !
-!JadeServer class categoriesFor: #gsString!public! !
-!JadeServer class categoriesFor: #new!public! !
-!JadeServer class categoriesFor: #sessionStateCode!public! !
+!JadeServer class categoriesForMethods!
+addGsStringForClass:to:!public! !
+classVarsForGemStone!public! !
+gsClassDefinitionStringFor:!public! !
+gsMethodClassName!public! !
+gsString!public! !
+new!public! !
+sessionStateCode!public! !
+!
 

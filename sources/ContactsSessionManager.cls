@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadeSessionManager subclass: #ContactsSessionManager
 	instanceVariableNames: ''
@@ -14,5 +14,7 @@ mainShellClass
 
 	^ContactsLoginShell.
 ! !
-!ContactsSessionManager class categoriesFor: #mainShellClass!public! !
+!ContactsSessionManager class categoriesForMethods!
+mainShellClass!public! !
+!
 

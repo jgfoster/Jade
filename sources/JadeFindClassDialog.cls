@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadeValueDialog subclass: #JadeFindClassDialog
 	instanceVariableNames: 'classListPresenter nameEntryPresenter availableClasses'
@@ -47,11 +47,13 @@ updateClassList
 		classListPresenter selectionByIndex: 1.
 	].
 ! !
-!JadeFindClassDialog categoriesFor: #createComponents!private! !
-!JadeFindClassDialog categoriesFor: #createSchematicWiring!private! !
-!JadeFindClassDialog categoriesFor: #ok!private! !
-!JadeFindClassDialog categoriesFor: #onViewOpened!private! !
-!JadeFindClassDialog categoriesFor: #updateClassList!private! !
+!JadeFindClassDialog categoriesForMethods!
+createComponents!private! !
+createSchematicWiring!private! !
+ok!private! !
+onViewOpened!private! !
+updateClassList!private! !
+!
 
 !JadeFindClassDialog class methodsFor!
 
@@ -74,6 +76,8 @@ resource_ThreeColumnView
 	"
 
 	^#(#'!!STL' 4 788558 10 ##(Smalltalk.STBViewProxy) ##(Smalltalk.DialogView) 34 30 nil nil 8 #(13107200 65536) 416 nil 327686 ##(Smalltalk.Color) #default nil 165 nil nil nil 416 852230 ##(Smalltalk.FramingLayout) 170 176 34 8 410 ##(Smalltalk.StaticText) 34 16 nil 416 34 2 8 1140850944 1 560 nil nil nil 7 nil nil nil 560 nil 8 1948742096 852486 ##(Smalltalk.NullConverter) nil nil nil 983302 ##(Smalltalk.MessageSequence) 138 144 34 2 721670 ##(Smalltalk.MessageSend) #createAt:extent: 34 2 328198 ##(Smalltalk.Point) 21 21 786 181 41 560 738 #text: 34 1 8 'Partial Name:' 560 983302 ##(Smalltalk.WINDOWPLACEMENT) 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 10 0 0 0 10 0 0 0 100 0 0 0 30 0 0 0] 8 #() 786 193 193 nil 27 1181766 2 ##(Smalltalk.FramingConstraints) 1180678 ##(Smalltalk.FramingCalculation) #fixedParentLeft 1 994 #fixedViewLeft 181 994 #fixedParentTop 1 994 #fixedViewTop 41 410 ##(Smalltalk.ReferenceView) 34 14 nil 416 34 2 8 1140850688 131073 1072 nil nil nil 7 nil nil nil 1072 1180230 1 ##(Smalltalk.ResourceIdentifier) ##(Smalltalk.Presenter) #resource_OK_Cancel_button_block nil 674 138 144 34 1 738 #createAt:extent: 34 2 786 21 443 786 1129 61 1072 882 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 10 0 0 0 221 0 0 0 62 2 0 0 251 0 0 0] 8 #() 944 nil 27 962 1008 1 994 #fixedParentRight 1 994 #fixedParentBottom -49 1056 61 410 ##(Smalltalk.ListView) 34 30 nil 416 34 2 8 1140920397 1025 1376 590662 2 ##(Smalltalk.ListModel) 138 144 1312 nil 1310726 ##(Smalltalk.IdentitySearchPolicy) 480 nil 7 nil nil nil 1376 nil 8 1948796688 ##(Smalltalk.BasicListAbstract) nil 1049926 1 ##(Smalltalk.IconImageManager) nil nil nil nil nil nil 138 144 34 4 920646 5 ##(Smalltalk.ListViewColumn) 8 'Name' 401 #left ##(Smalltalk.BasicListAbstract) ##(Smalltalk.SortedCollection) 787814 3 ##(Smalltalk.BlockClosure) 0 nil 1180966 ##(Smalltalk.CompiledExpression) 4 1 1648 8 'doIt' 8 '[:each | each value at: 1 ifAbsent: ['''']]' 8 #[31 105 17 142 63 32 111 29 106 191 106] 8 '' #at:ifAbsent: 1664 1650 0 nil 1696 17 1 nil 7 257 nil nil 1376 nil 1 nil nil 1602 8 'Dictionary' 191 #left ##(Smalltalk.BasicListAbstract) ##(Smalltalk.SortedCollection) 1650 0 nil 1682 4 1 1648 8 'doIt' 8 '[:each | each value at: 2 ifAbsent: ['''']]' 8 #[31 105 17 142 64 32 111 29 106 191 106] 1760 #at:ifAbsent: 1824 1650 0 nil 1840 17 1 nil 7 257 nil nil 1376 nil 1 nil nil 1602 8 'Category' 271 #left 459270 ##(Smalltalk.Message) #displayString 8 #() ##(Smalltalk.SortedCollection) 1650 0 nil 1682 4 1 1648 8 'doIt' 8 '[:each | each value at: 3 ifAbsent: ['''']]' 8 #[31 105 17 142 214 3 32 111 29 106 191 106] 1760 #at:ifAbsent: 2000 1650 0 nil 2016 19 1 nil 7 257 nil nil 1376 nil 1 nil nil 1602 8 'Package' 271 #left 1954 #displayString 8 #() 1954 #<= 2144 1650 0 nil 1682 4 1 1648 8 'doIt' 8 '[:each | each value at: 4 ifAbsent: ['''']]' 8 #[31 105 17 142 214 4 32 111 29 106 191 106] 1760 #at:ifAbsent: 2176 1650 0 nil 2192 19 1 nil 7 257 nil nil 1376 nil 1 nil nil #report 1312 nil 131169 nil 34 4 nil nil 786 1 1 nil 674 138 144 34 2 738 #createAt:extent: 34 2 786 21 71 786 1129 373 1376 738 #text: 34 1 8 'Name' 1376 882 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 10 0 0 0 35 0 0 0 62 2 0 0 221 0 0 0] 8 #() 944 nil 27 962 1008 1 1344 1 1040 51 1360 -49 410 ##(Smalltalk.TextEdit) 34 16 nil 416 34 2 8 1140916352 1025 2528 nil 480 nil 7 nil nil nil 2528 nil 8 1948764528 642 nil nil 5 674 138 144 34 2 738 #createAt:extent: 34 2 786 211 21 786 939 41 2528 738 #text: 34 1 8 '*' 2528 882 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 105 0 0 0 10 0 0 0 62 2 0 0 30 0 0 0] 8 #() 944 nil 27 962 1008 191 1344 1 1040 1 1056 41 170 192 34 4 2528 8 'nameEntry' 1376 8 'classList' 590342 ##(Smalltalk.Rectangle) 786 21 21 786 21 21 nil nil nil nil 10685 nil nil nil nil 1 nil nil 590598 ##(Smalltalk.Semaphore) nil nil 1 nil 8 2002158288 674 138 144 34 3 738 #createAt:extent: 34 2 786 2559 21 786 1201 591 416 738 #text: 34 1 8 'Jade Find Class Dialog' 416 738 #updateMenuBar 1312 416 882 8 #[44 0 0 0 0 0 0 0 0 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 4 0 0 10 0 0 0 87 7 0 0 49 1 0 0] 34 4 560 2528 1376 1072 944 nil 27 )! !
-!JadeFindClassDialog class categoriesFor: #resource_Default_view!public!resources-views! !
-!JadeFindClassDialog class categoriesFor: #resource_ThreeColumnView!public!resources-views! !
+!JadeFindClassDialog class categoriesForMethods!
+resource_Default_view!public!resources-views! !
+resource_ThreeColumnView!public!resources-views! !
+!
 

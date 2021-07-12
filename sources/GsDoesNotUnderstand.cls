@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsRuntimeError subclass: #GsDoesNotUnderstand
 	instanceVariableNames: ''
@@ -14,5 +14,7 @@ wantsToHandle: aGciErrorSType session: aGciSession
 
 	^aGciErrorSType isDoesNotUnderstandInSession: aGciSession.
 ! !
-!GsDoesNotUnderstand class categoriesFor: #wantsToHandle:session:!public! !
+!GsDoesNotUnderstand class categoriesForMethods!
+wantsToHandle:session:!public! !
+!
 

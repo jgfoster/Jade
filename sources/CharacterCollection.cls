@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 ArrayedCollection variableSubclass: #CharacterCollection
 	instanceVariableNames: ''
@@ -27,7 +27,9 @@ asUtf8String
 	writeStream := WriteStream on: Utf8String new.
 	self do: [:each | writeStream nextPut: each].
 	^writeStream contents! !
-!CharacterCollection categoriesFor: #asCharacterCollection!public! !
-!CharacterCollection categoriesFor: #asUtf16String!public! !
-!CharacterCollection categoriesFor: #asUtf8String!public! !
+!CharacterCollection categoriesForMethods!
+asCharacterCollection!public! !
+asUtf16String!public! !
+asUtf8String!public! !
+!
 

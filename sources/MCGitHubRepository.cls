@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 MCFileTreeRepository subclass: #MCGitHubRepository
 	instanceVariableNames: ''
@@ -17,6 +17,8 @@ fullNameOfPackage: packageName versionName: versionName
 versionInfoForPackageNamed: aString version: ignored 
 
 	^self versionInfoForPackageNamed: aString , '.package'.! !
-!MCGitHubRepository categoriesFor: #fullNameOfPackage:versionName:!public! !
-!MCGitHubRepository categoriesFor: #versionInfoForPackageNamed:version:!public! !
+!MCGitHubRepository categoriesForMethods!
+fullNameOfPackage:versionName:!public! !
+versionInfoForPackageNamed:version:!public! !
+!
 

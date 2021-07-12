@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsObject subclass: #MCPackage
 	instanceVariableNames: 'repository versionNames loaded'
@@ -68,14 +68,16 @@ versionNames: aList
 	list := list asSortedCollection.	"at first it seemed that the server provided them in order but that seems to not be consistent"
 	list := list collect: [:each | MCVersionName new name: each value].
 	versionNames := list.! !
-!MCPackage categoriesFor: #infoForVersion:!public! !
-!MCPackage categoriesFor: #isLoaded!public! !
-!MCPackage categoriesFor: #isModified!public! !
-!MCPackage categoriesFor: #loaded:!public! !
-!MCPackage categoriesFor: #loadedEditionName!public! !
-!MCPackage categoriesFor: #name:!public! !
-!MCPackage categoriesFor: #repository!accessing!public! !
-!MCPackage categoriesFor: #repository:!accessing!public! !
-!MCPackage categoriesFor: #versionNames!accessing!public! !
-!MCPackage categoriesFor: #versionNames:!accessing!public! !
+!MCPackage categoriesForMethods!
+infoForVersion:!public! !
+isLoaded!public! !
+isModified!public! !
+loaded:!public! !
+loadedEditionName!public! !
+name:!public! !
+repository!accessing!public! !
+repository:!accessing!public! !
+versionNames!accessing!public! !
+versionNames:!accessing!public! !
+!
 

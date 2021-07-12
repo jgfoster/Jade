@@ -60,14 +60,18 @@ JadeWorkspace subclass: #GsProfStef
 isProfStefAvailable
 
 	^false! !
-!GciSession categoriesFor: #isProfStefAvailable!accessing!public! !
+!GciSession categoriesForMethods!
+isProfStefAvailable!accessing!public! !
+!
 
 !GciSession33 methodsFor!
 
 isProfStefAvailable
 
 	^true! !
-!GciSession33 categoriesFor: #isProfStefAvailable!accessing!public! !
+!GciSession33 categoriesForMethods!
+isProfStefAvailable!accessing!public! !
+!
 
 !JadeServer64bit32 methodsFor!
 
@@ -124,16 +128,20 @@ removeProfStef
 		(each at: 1) removeKey: (each at: 2).
 	].
 ! !
-!JadeServer64bit32 categoriesFor: #addProfStef!public!Tutorial! !
-!JadeServer64bit32 categoriesFor: #newProfStefClass!public!Tutorial! !
-!JadeServer64bit32 categoriesFor: #removeProfStef!public!Tutorial! !
+!JadeServer64bit32 categoriesForMethods!
+addProfStef!public!Tutorial! !
+newProfStefClass!public!Tutorial! !
+removeProfStef!public!Tutorial! !
+!
 
 !JadeTranscript methodsFor!
 
 profStef
 
 	GsProfStef showOnSession: gciSession.! !
-!JadeTranscript categoriesFor: #profStef!event handling!public! !
+!JadeTranscript categoriesForMethods!
+profStef!event handling!public! !
+!
 
 "End of package definition"!
 

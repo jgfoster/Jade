@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Object subclass: #VWSourceFile
 	instanceVariableNames: 'timeStamp classes methods nameSpaces properties initializers stream'
@@ -278,31 +278,33 @@ removeSPort
 	list := list select: [:each | each beginsWith: 'Sp'].
 	list do: [:each | self removeAllInPackage: each].
 ! !
-!VWSourceFile categoriesFor: #addClass:!public! !
-!VWSourceFile categoriesFor: #addComment:!public! !
-!VWSourceFile categoriesFor: #addComponentProperty:!public! !
-!VWSourceFile categoriesFor: #addInitialize:!public! !
-!VWSourceFile categoriesFor: #addInitialize:value:!public! !
-!VWSourceFile categoriesFor: #addInitializeClass:!public! !
-!VWSourceFile categoriesFor: #addInitializeVariable:!public! !
-!VWSourceFile categoriesFor: #addMethods:!public! !
-!VWSourceFile categoriesFor: #addNameSpace:!public! !
-!VWSourceFile categoriesFor: #addSharedVariable:!public! !
-!VWSourceFile categoriesFor: #addTimeStamp:!public! !
-!VWSourceFile categoriesFor: #asTopazFileIn!public! !
-!VWSourceFile categoriesFor: #createClasses!public! !
-!VWSourceFile categoriesFor: #createInitializers!public! !
-!VWSourceFile categoriesFor: #createMethods!public! !
-!VWSourceFile categoriesFor: #createPackageComments!public! !
-!VWSourceFile categoriesFor: #createSymbolDictionaries!public! !
-!VWSourceFile categoriesFor: #globalNamed:!public! !
-!VWSourceFile categoriesFor: #initializeFromFilePath:!public! !
-!VWSourceFile categoriesFor: #initializeFromString:!public! !
-!VWSourceFile categoriesFor: #initializeFromXMLDocument:!public! !
-!VWSourceFile categoriesFor: #packages!public! !
-!VWSourceFile categoriesFor: #processElement:value:!public! !
-!VWSourceFile categoriesFor: #removeAllInPackage:!public! !
-!VWSourceFile categoriesFor: #removeSPort!public! !
+!VWSourceFile categoriesForMethods!
+addClass:!public! !
+addComment:!public! !
+addComponentProperty:!public! !
+addInitialize:!public! !
+addInitialize:value:!public! !
+addInitializeClass:!public! !
+addInitializeVariable:!public! !
+addMethods:!public! !
+addNameSpace:!public! !
+addSharedVariable:!public! !
+addTimeStamp:!public! !
+asTopazFileIn!public! !
+createClasses!public! !
+createInitializers!public! !
+createMethods!public! !
+createPackageComments!public! !
+createSymbolDictionaries!public! !
+globalNamed:!public! !
+initializeFromFilePath:!public! !
+initializeFromString:!public! !
+initializeFromXMLDocument:!public! !
+packages!public! !
+processElement:value:!public! !
+removeAllInPackage:!public! !
+removeSPort!public! !
+!
 
 !VWSourceFile class methodsFor!
 
@@ -328,7 +330,9 @@ fromString: aString
 		yourself.
 
 ! !
-!VWSourceFile class categoriesFor: #fromDocument:!public! !
-!VWSourceFile class categoriesFor: #fromPath:!public! !
-!VWSourceFile class categoriesFor: #fromString:!public! !
+!VWSourceFile class categoriesForMethods!
+fromDocument:!public! !
+fromPath:!public! !
+fromString:!public! !
+!
 

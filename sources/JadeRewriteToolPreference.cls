@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadePreferenceObject subclass: #JadeRewriteToolPreference
 	instanceVariableNames: 'formatterClass'
@@ -28,8 +28,10 @@ publishedAspects
 	aspects
 		add: (Aspect choice: #formatterClass from: (Array with: 'RBFormatter' with: 'RBConfigurableFormatter')).
 	^aspects! !
-!JadeRewriteToolPreference categoriesFor: #displayString!public! !
-!JadeRewriteToolPreference categoriesFor: #formatterClass!accessing!private! !
-!JadeRewriteToolPreference categoriesFor: #formatterClass:!accessing!private! !
-!JadeRewriteToolPreference categoriesFor: #publishedAspects!public! !
+!JadeRewriteToolPreference categoriesForMethods!
+displayString!public! !
+formatterClass!accessing!private! !
+formatterClass:!accessing!private! !
+publishedAspects!public! !
+!
 

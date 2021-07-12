@@ -138,7 +138,9 @@ fileInClass: aString
 	].
 	oldString = sourceString ifFalse: [sourceString evaluate].
 ! !
-!JadeServer categoriesFor: #fileInClass:!Classes!public! !
+!JadeServer categoriesForMethods!
+fileInClass:!Classes!public! !
+!
 
 "End of package definition"!
 

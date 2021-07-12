@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 MCRepository subclass: #MCDictionaryRepository
 	instanceVariableNames: ''
@@ -94,13 +94,15 @@ versionInfoForPackageNamed: aString version: aString2
 	string := gciSession decode: string.
 	version := MCPackageVersion fromString: string session: gciSession.
 	^version! !
-!MCDictionaryRepository categoriesFor: #allVersionInfoNames!public! !
-!MCDictionaryRepository categoriesFor: #fullNameOfPackage:versionName:!public! !
-!MCDictionaryRepository categoriesFor: #isDefault!public! !
-!MCDictionaryRepository categoriesFor: #loadPackageNamed:versionName:!public! !
-!MCDictionaryRepository categoriesFor: #patchFrom:to:!public! !
-!MCDictionaryRepository categoriesFor: #topazFrom:!public! !
-!MCDictionaryRepository categoriesFor: #updateVersionDialogTabIn:!public! !
-!MCDictionaryRepository categoriesFor: #versionInfoFor:!public! !
-!MCDictionaryRepository categoriesFor: #versionInfoForPackageNamed:version:!public! !
+!MCDictionaryRepository categoriesForMethods!
+allVersionInfoNames!public! !
+fullNameOfPackage:versionName:!public! !
+isDefault!public! !
+loadPackageNamed:versionName:!public! !
+patchFrom:to:!public! !
+topazFrom:!public! !
+updateVersionDialogTabIn:!public! !
+versionInfoFor:!public! !
+versionInfoForPackageNamed:version:!public! !
+!
 

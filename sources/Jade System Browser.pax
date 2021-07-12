@@ -242,7 +242,9 @@ newMethodPresenter
 
 	^JadeTextPresenter new.
 ! !
-!JadeBrowserPresenter categoriesFor: #newMethodPresenter!public! !
+!JadeBrowserPresenter categoriesForMethods!
+newMethodPresenter!public! !
+!
 
 !JadeServer methodsFor!
 
@@ -1860,108 +1862,110 @@ writeList: aList
 	aList do: [:each | writeStream nextPutAll: each; tab].
 	writeStream lf.
 ! !
-!JadeServer categoriesFor: #_addMethodCategoryNamesToMethodFilters!private!System Browser! !
-!JadeServer categoriesFor: #_browseMethodHistoryOf:in:!private!System Browser! !
-!JadeServer categoriesFor: #_class:includesSelector:!Classes!private! !
-!JadeServer categoriesFor: #_compiledMethodAt:inClass:!private!System Browser! !
-!JadeServer categoriesFor: #_isPackagePolicyEnabled!private!System Browser! !
-!JadeServer categoriesFor: #_objectSecurityPolicyFor:!private!System Browser! !
-!JadeServer categoriesFor: #_packagePolicy:includesSelector:forClass:!private!System Browser! !
-!JadeServer categoriesFor: #_selectedClassOverridesSelector:!private!System Browser! !
-!JadeServer categoriesFor: #_systemBrowserCommand!private!System Browser! !
-!JadeServer categoriesFor: #class:includesSelector:!Classes!public! !
-!JadeServer categoriesFor: #dictionaryAndSymbolOf:!private!System Browser! !
-!JadeServer categoriesFor: #dictionaryAndSymbolOf:forUser:!private!System Browser! !
-!JadeServer categoriesFor: #environment!private!System Browser! !
-!JadeServer categoriesFor: #environment:!private!System Browser! !
-!JadeServer categoriesFor: #historyOf:!private! !
-!JadeServer categoriesFor: #persistentSymbolList!private!System Browser! !
-!JadeServer categoriesFor: #runClassTests:!public!System Browser! !
-!JadeServer categoriesFor: #runMethodTests:!private!System Browser! !
-!JadeServer categoriesFor: #sbAddDictionary:!private! !
-!JadeServer categoriesFor: #sbAddMethodCategory:!private!System Browser! !
-!JadeServer categoriesFor: #sbAddMissingAccessors:!private!System Browser! !
-!JadeServer categoriesFor: #sbAddNameOf:!private!System Browser! !
-!JadeServer categoriesFor: #sbAddPackage:!private!System Browser! !
-!JadeServer categoriesFor: #sbAddRepository:!private!System Browser! !
-!JadeServer categoriesFor: #sbBreak:!private!System Browser! !
-!JadeServer categoriesFor: #sbBrowseClassReferences:!private!System Browser! !
-!JadeServer categoriesFor: #sbBrowseGlobalReferences:!private!System Browser! !
-!JadeServer categoriesFor: #sbBrowseImplementors:!private!System Browser! !
-!JadeServer categoriesFor: #sbBrowseMethodHistory:!private!System Browser! !
-!JadeServer categoriesFor: #sbBrowseMethodsContaining:!private!System Browser! !
-!JadeServer categoriesFor: #sbBrowseMethodsWithPragma:!private!System Browser! !
-!JadeServer categoriesFor: #sbBrowseSenders:!private!System Browser! !
-!JadeServer categoriesFor: #sbChangeClassName:!private!System Browser! !
-!JadeServer categoriesFor: #sbChangesInPackage:!private!System Browser! !
-!JadeServer categoriesFor: #sbCheckUniqueClassName:!private!System Browser! !
-!JadeServer categoriesFor: #sbClass:!private!System Browser! !
-!JadeServer categoriesFor: #sbClassCategory:!private!System Browser! !
-!JadeServer categoriesFor: #sbClassComment:!private!System Browser! !
-!JadeServer categoriesFor: #sbClassesToDictionary:!private!System Browser! !
-!JadeServer categoriesFor: #sbClassFrom:!private!System Browser! !
-!JadeServer categoriesFor: #sbClassTemplate!private!System Browser! !
-!JadeServer categoriesFor: #sbComparePackages:!private!System Browser! !
-!JadeServer categoriesFor: #sbCopyMethodsFor:!private!System Browser! !
-!JadeServer categoriesFor: #sbFileOutClass:!private!System Browser! !
-!JadeServer categoriesFor: #sbFileOutDictionary:!private!System Browser! !
-!JadeServer categoriesFor: #sbFileOutJadeServer:!private!System Browser! !
-!JadeServer categoriesFor: #sbFileOutMethod:!private!System Browser! !
-!JadeServer categoriesFor: #sbFindClass!private!System Browser! !
-!JadeServer categoriesFor: #sbFindClassPackageMap!private!System Browser! !
-!JadeServer categoriesFor: #sbFindSelectors:!private!System Browser! !
-!JadeServer categoriesFor: #sbInstVarsOldParent:newParent:oldChild:!private!System Browser! !
-!JadeServer categoriesFor: #sbListMethodPragmas!private!System Browser! !
-!JadeServer categoriesFor: #sbLoadLatestVersionOfConfiguration:!private!System Browser! !
-!JadeServer categoriesFor: #sbMethodCategory:!private!System Browser! !
-!JadeServer categoriesFor: #sbMethodClass:!private!System Browser! !
-!JadeServer categoriesFor: #sbMigrateAll:!private!System Browser! !
-!JadeServer categoriesFor: #sbNextParagraph!private!System Browser! !
-!JadeServer categoriesFor: #sbPostSaveClass:!private!System Browser! !
-!JadeServer categoriesFor: #sbReadMethodFilter!private!System Browser! !
-!JadeServer categoriesFor: #sbRecompileSubclassesOf:andCopyMethods:!private!System Browser! !
-!JadeServer categoriesFor: #sbRemoveClasses!private!System Browser! !
-!JadeServer categoriesFor: #sbRemoveDictionaries:!private!System Browser! !
-!JadeServer categoriesFor: #sbRemoveGlobals!private!System Browser! !
-!JadeServer categoriesFor: #sbRemoveHistory:!private!System Browser! !
-!JadeServer categoriesFor: #sbRemoveKey:fromDictionary:!private!System Browser! !
-!JadeServer categoriesFor: #sbRemoveMethodCategories:!private!System Browser! !
-!JadeServer categoriesFor: #sbRemoveMethods:!private!System Browser! !
-!JadeServer categoriesFor: #sbRemovePriorVersions!private!System Browser! !
-!JadeServer categoriesFor: #sbRemoveRepository:!private!System Browser! !
-!JadeServer categoriesFor: #sbRevertClass!private!System Browser! !
-!JadeServer categoriesFor: #sbSavePackage:!private!System Browser! !
-!JadeServer categoriesFor: #sbSetHomeDictionary:!private!System Browser! !
-!JadeServer categoriesFor: #sbUniqueVersionName:!private!System Browser! !
-!JadeServer categoriesFor: #sbUnloadPackage:!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdateClassCategories!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdateClasses!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdateClassHierarchy!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdateClassInfo!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdateClassList!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdateDictionaries!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdateMethod:!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdateMethodBreakPointsFor:!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdateMethodCategories!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdateMethodFilter!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdateMethodFilterSelections!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdateMethodInheritedImplementationsOf:!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdateMethodPragmas!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdateMethods!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdateMethodsByCategories!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdateMethodsByPragmas!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdateMethodsByVariables!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdateMethodSelectionsIn:!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdateMethodStepPointsFor:!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdateMethodVariables!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdatePackage:!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdatePackages!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdatePackagesOrDictionaries!private!System Browser! !
-!JadeServer categoriesFor: #sbUpdateSuperclass!private!System Browser! !
-!JadeServer categoriesFor: #systemBrowser:!public!System Browser! !
-!JadeServer categoriesFor: #systemBrowserA:!private!System Browser! !
-!JadeServer categoriesFor: #systemBrowserUpdate!private!System Browser! !
-!JadeServer categoriesFor: #writeList:!private!System Browser! !
+!JadeServer categoriesForMethods!
+_addMethodCategoryNamesToMethodFilters!private!System Browser! !
+_browseMethodHistoryOf:in:!private!System Browser! !
+_class:includesSelector:!Classes!private! !
+_compiledMethodAt:inClass:!private!System Browser! !
+_isPackagePolicyEnabled!private!System Browser! !
+_objectSecurityPolicyFor:!private!System Browser! !
+_packagePolicy:includesSelector:forClass:!private!System Browser! !
+_selectedClassOverridesSelector:!private!System Browser! !
+_systemBrowserCommand!private!System Browser! !
+class:includesSelector:!Classes!public! !
+dictionaryAndSymbolOf:!private!System Browser! !
+dictionaryAndSymbolOf:forUser:!private!System Browser! !
+environment!private!System Browser! !
+environment:!private!System Browser! !
+historyOf:!private! !
+persistentSymbolList!private!System Browser! !
+runClassTests:!public!System Browser! !
+runMethodTests:!private!System Browser! !
+sbAddDictionary:!private! !
+sbAddMethodCategory:!private!System Browser! !
+sbAddMissingAccessors:!private!System Browser! !
+sbAddNameOf:!private!System Browser! !
+sbAddPackage:!private!System Browser! !
+sbAddRepository:!private!System Browser! !
+sbBreak:!private!System Browser! !
+sbBrowseClassReferences:!private!System Browser! !
+sbBrowseGlobalReferences:!private!System Browser! !
+sbBrowseImplementors:!private!System Browser! !
+sbBrowseMethodHistory:!private!System Browser! !
+sbBrowseMethodsContaining:!private!System Browser! !
+sbBrowseMethodsWithPragma:!private!System Browser! !
+sbBrowseSenders:!private!System Browser! !
+sbChangeClassName:!private!System Browser! !
+sbChangesInPackage:!private!System Browser! !
+sbCheckUniqueClassName:!private!System Browser! !
+sbClass:!private!System Browser! !
+sbClassCategory:!private!System Browser! !
+sbClassComment:!private!System Browser! !
+sbClassesToDictionary:!private!System Browser! !
+sbClassFrom:!private!System Browser! !
+sbClassTemplate!private!System Browser! !
+sbComparePackages:!private!System Browser! !
+sbCopyMethodsFor:!private!System Browser! !
+sbFileOutClass:!private!System Browser! !
+sbFileOutDictionary:!private!System Browser! !
+sbFileOutJadeServer:!private!System Browser! !
+sbFileOutMethod:!private!System Browser! !
+sbFindClass!private!System Browser! !
+sbFindClassPackageMap!private!System Browser! !
+sbFindSelectors:!private!System Browser! !
+sbInstVarsOldParent:newParent:oldChild:!private!System Browser! !
+sbListMethodPragmas!private!System Browser! !
+sbLoadLatestVersionOfConfiguration:!private!System Browser! !
+sbMethodCategory:!private!System Browser! !
+sbMethodClass:!private!System Browser! !
+sbMigrateAll:!private!System Browser! !
+sbNextParagraph!private!System Browser! !
+sbPostSaveClass:!private!System Browser! !
+sbReadMethodFilter!private!System Browser! !
+sbRecompileSubclassesOf:andCopyMethods:!private!System Browser! !
+sbRemoveClasses!private!System Browser! !
+sbRemoveDictionaries:!private!System Browser! !
+sbRemoveGlobals!private!System Browser! !
+sbRemoveHistory:!private!System Browser! !
+sbRemoveKey:fromDictionary:!private!System Browser! !
+sbRemoveMethodCategories:!private!System Browser! !
+sbRemoveMethods:!private!System Browser! !
+sbRemovePriorVersions!private!System Browser! !
+sbRemoveRepository:!private!System Browser! !
+sbRevertClass!private!System Browser! !
+sbSavePackage:!private!System Browser! !
+sbSetHomeDictionary:!private!System Browser! !
+sbUniqueVersionName:!private!System Browser! !
+sbUnloadPackage:!private!System Browser! !
+sbUpdateClassCategories!private!System Browser! !
+sbUpdateClasses!private!System Browser! !
+sbUpdateClassHierarchy!private!System Browser! !
+sbUpdateClassInfo!private!System Browser! !
+sbUpdateClassList!private!System Browser! !
+sbUpdateDictionaries!private!System Browser! !
+sbUpdateMethod:!private!System Browser! !
+sbUpdateMethodBreakPointsFor:!private!System Browser! !
+sbUpdateMethodCategories!private!System Browser! !
+sbUpdateMethodFilter!private!System Browser! !
+sbUpdateMethodFilterSelections!private!System Browser! !
+sbUpdateMethodInheritedImplementationsOf:!private!System Browser! !
+sbUpdateMethodPragmas!private!System Browser! !
+sbUpdateMethods!private!System Browser! !
+sbUpdateMethodsByCategories!private!System Browser! !
+sbUpdateMethodsByPragmas!private!System Browser! !
+sbUpdateMethodsByVariables!private!System Browser! !
+sbUpdateMethodSelectionsIn:!private!System Browser! !
+sbUpdateMethodStepPointsFor:!private!System Browser! !
+sbUpdateMethodVariables!private!System Browser! !
+sbUpdatePackage:!private!System Browser! !
+sbUpdatePackages!private!System Browser! !
+sbUpdatePackagesOrDictionaries!private!System Browser! !
+sbUpdateSuperclass!private!System Browser! !
+systemBrowser:!public!System Browser! !
+systemBrowserA:!private!System Browser! !
+systemBrowserUpdate!private!System Browser! !
+writeList:!private!System Browser! !
+!
 
 !JadeServer32bit methodsFor!
 
@@ -1977,7 +1981,9 @@ systemBrowser: aString
 		].
 	^super systemBrowser: aString.
 ! !
-!JadeServer32bit categoriesFor: #systemBrowser:!public!System Browser! !
+!JadeServer32bit categoriesForMethods!
+systemBrowser:!public!System Browser! !
+!
 
 !JadeServer64bit methodsFor!
 
@@ -2002,8 +2008,10 @@ systemBrowser: aString
 		ex pass.
 	].
 ! !
-!JadeServer64bit categoriesFor: #sbRemoveKey:fromDictionary:!private!System Browser! !
-!JadeServer64bit categoriesFor: #systemBrowser:!public!System Browser! !
+!JadeServer64bit categoriesForMethods!
+sbRemoveKey:fromDictionary:!private!System Browser! !
+systemBrowser:!public!System Browser! !
+!
 
 !JadeServer64bit32 methodsFor!
 
@@ -2024,8 +2032,10 @@ dictionaryAndSymbolOf: aClass forUser: aUserProfile
 		ifTrue: [nil]
 		ifFalse: [array first].
 ! !
-!JadeServer64bit32 categoriesFor: #dictionaryAndSymbolOf:!private! !
-!JadeServer64bit32 categoriesFor: #dictionaryAndSymbolOf:forUser:!private! !
+!JadeServer64bit32 categoriesForMethods!
+dictionaryAndSymbolOf:!private! !
+dictionaryAndSymbolOf:forUser:!private! !
+!
 
 !JadeServer64bit34 methodsFor!
 
@@ -2044,7 +2054,9 @@ sbUpdateMethodsByCategories
 	].
 	^selectors.
 ! !
-!JadeServer64bit34 categoriesFor: #sbUpdateMethodsByCategories!private!System Browser! !
+!JadeServer64bit34 categoriesForMethods!
+sbUpdateMethodsByCategories!private!System Browser! !
+!
 
 !JadeServer64bit3x methodsFor!
 
@@ -2291,28 +2303,30 @@ sbUpdateMethodStepPointsFor: aMethod
 	^list.
 
 ! !
-!JadeServer64bit3x categoriesFor: #_addMethodCategoryNamesToMethodFilters!private!System Browser! !
-!JadeServer64bit3x categoriesFor: #_class:includesSelector:!Classes!private! !
-!JadeServer64bit3x categoriesFor: #_compiledMethodAt:inClass:!private!System Browser! !
-!JadeServer64bit3x categoriesFor: #class:includesSelector:!public!System Browser! !
-!JadeServer64bit3x categoriesFor: #environment!public!System Browser! !
-!JadeServer64bit3x categoriesFor: #environment:!public!System Browser! !
-!JadeServer64bit3x categoriesFor: #initialize!private! !
-!JadeServer64bit3x categoriesFor: #sbAddMethodCategory:!private!System Browser! !
-!JadeServer64bit3x categoriesFor: #sbBrowseMethodsWithPragma:!private!System Browser! !
-!JadeServer64bit3x categoriesFor: #sbClassComment:!private!System Browser! !
-!JadeServer64bit3x categoriesFor: #sbFileOutMethod:!private!System Browser! !
-!JadeServer64bit3x categoriesFor: #sbListMethodPragmas:!private!System Browser! !
-!JadeServer64bit3x categoriesFor: #sbMethod:!private!System Browser! !
-!JadeServer64bit3x categoriesFor: #sbRemoveMethodCategories:!private!System Browser! !
-!JadeServer64bit3x categoriesFor: #sbRemoveMethods:!private!System Browser! !
-!JadeServer64bit3x categoriesFor: #sbUpdateMethodBreakPointsFor:!private!System Browser! !
-!JadeServer64bit3x categoriesFor: #sbUpdateMethodInheritedImplementationsOf:!private!System Browser! !
-!JadeServer64bit3x categoriesFor: #sbUpdateMethodPragmas!private!System Browser! !
-!JadeServer64bit3x categoriesFor: #sbUpdateMethodsByCategories!private!System Browser! !
-!JadeServer64bit3x categoriesFor: #sbUpdateMethodsByPragmas!private!System Browser! !
-!JadeServer64bit3x categoriesFor: #sbUpdateMethodsByVariables!private!System Browser! !
-!JadeServer64bit3x categoriesFor: #sbUpdateMethodStepPointsFor:!private!System Browser! !
+!JadeServer64bit3x categoriesForMethods!
+_addMethodCategoryNamesToMethodFilters!private!System Browser! !
+_class:includesSelector:!Classes!private! !
+_compiledMethodAt:inClass:!private!System Browser! !
+class:includesSelector:!public!System Browser! !
+environment!public!System Browser! !
+environment:!public!System Browser! !
+initialize!private! !
+sbAddMethodCategory:!private!System Browser! !
+sbBrowseMethodsWithPragma:!private!System Browser! !
+sbClassComment:!private!System Browser! !
+sbFileOutMethod:!private!System Browser! !
+sbListMethodPragmas:!private!System Browser! !
+sbMethod:!private!System Browser! !
+sbRemoveMethodCategories:!private!System Browser! !
+sbRemoveMethods:!private!System Browser! !
+sbUpdateMethodBreakPointsFor:!private!System Browser! !
+sbUpdateMethodInheritedImplementationsOf:!private!System Browser! !
+sbUpdateMethodPragmas!private!System Browser! !
+sbUpdateMethodsByCategories!private!System Browser! !
+sbUpdateMethodsByPragmas!private!System Browser! !
+sbUpdateMethodsByVariables!private!System Browser! !
+sbUpdateMethodStepPointsFor:!private!System Browser! !
+!
 
 !JadeTextDocument methodsFor!
 
@@ -2325,7 +2339,9 @@ jadeBrowseClasses
 		warning: 'Server initialization failed at login.'
 		caption: 'Unable to Open Browser'.
 ! !
-!JadeTextDocument categoriesFor: #jadeBrowseClasses!Jade!private! !
+!JadeTextDocument categoriesForMethods!
+jadeBrowseClasses!Jade!private! !
+!
 
 !JadeToolsToolBarPresenter methodsFor!
 
@@ -2333,7 +2349,9 @@ browseClasses
 
 	JadeSystemBrowser showOnSession: gciSession.
 ! !
-!JadeToolsToolBarPresenter categoriesFor: #browseClasses!public! !
+!JadeToolsToolBarPresenter categoriesForMethods!
+browseClasses!public! !
+!
 
 !MCRepositoryBrowser methodsFor!
 
@@ -2363,7 +2381,9 @@ compareVersion
 			left := temp].
 	patch := repositoryListPresenter selection patchFrom: left to: right.
 	MCPatchDiffBrowser showOn: patch! !
-!MCRepositoryBrowser categoriesFor: #compareVersion!public!version actions! !
+!MCRepositoryBrowser categoriesForMethods!
+compareVersion!public!version actions! !
+!
 
 "End of package definition"!
 

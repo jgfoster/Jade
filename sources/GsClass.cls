@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GsObject subclass: #GsClass
 	instanceVariableNames: 'category dictionary parent children isVisible classHistory isTestCase'
@@ -121,19 +121,21 @@ updateParentInDictionary: aDictionary
 		parent addChild: self.
 	].
 ! !
-!GsClass categoriesFor: #addChild:!public! !
-!GsClass categoriesFor: #addToDictionary:!public! !
-!GsClass categoriesFor: #category!public! !
-!GsClass categoriesFor: #children!accessing!public! !
-!GsClass categoriesFor: #classHistory!accessing!public! !
-!GsClass categoriesFor: #dictionary!accessing!public! !
-!GsClass categoriesFor: #implementorsOf:!public! !
-!GsClass categoriesFor: #initialize:!public! !
-!GsClass categoriesFor: #isTestCase!public! !
-!GsClass categoriesFor: #isVisible!public! !
-!GsClass categoriesFor: #nameWithVersion!public! !
-!GsClass categoriesFor: #parent!accessing!public! !
-!GsClass categoriesFor: #superclassListForMeta:!public! !
-!GsClass categoriesFor: #updateFrom:!public! !
-!GsClass categoriesFor: #updateParentInDictionary:!public! !
+!GsClass categoriesForMethods!
+addChild:!public! !
+addToDictionary:!public! !
+category!public! !
+children!accessing!public! !
+classHistory!accessing!public! !
+dictionary!accessing!public! !
+implementorsOf:!public! !
+initialize:!public! !
+isTestCase!public! !
+isVisible!public! !
+nameWithVersion!public! !
+parent!accessing!public! !
+superclassListForMeta:!public! !
+updateFrom:!public! !
+updateParentInDictionary:!public! !
+!
 

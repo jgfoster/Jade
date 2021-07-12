@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Object subclass: #GsObject
 	instanceVariableNames: 'gciSession name oopType'
@@ -87,20 +87,22 @@ printOn: aStream
 	name isNil ifTrue: [^super printOn: aStream].
 	aStream nextPutAll: name.
 ! !
-!GsObject categoriesFor: #<=!public! !
-!GsObject categoriesFor: #=!public! !
-!GsObject categoriesFor: #finalize!public! !
-!GsObject categoriesFor: #gciSession!public! !
-!GsObject categoriesFor: #gciSession:!public! !
-!GsObject categoriesFor: #hash!public! !
-!GsObject categoriesFor: #initialize:!public! !
-!GsObject categoriesFor: #initialize:session:!public! !
-!GsObject categoriesFor: #initializeXML:!public! !
-!GsObject categoriesFor: #isGsNil!public! !
-!GsObject categoriesFor: #name!public! !
-!GsObject categoriesFor: #oopType!public! !
-!GsObject categoriesFor: #oopType:!public! !
-!GsObject categoriesFor: #printOn:!public! !
+!GsObject categoriesForMethods!
+<=!public! !
+=!public! !
+finalize!public! !
+gciSession!public! !
+gciSession:!public! !
+hash!public! !
+initialize:!public! !
+initialize:session:!public! !
+initializeXML:!public! !
+isGsNil!public! !
+name!public! !
+oopType!public! !
+oopType:!public! !
+printOn:!public! !
+!
 
 !GsObject class methodsFor!
 
@@ -158,11 +160,13 @@ xmlBaseName
 
 	^self subclassResponsibility.
 ! !
-!GsObject class categoriesFor: #fromStream:session:!public! !
-!GsObject class categoriesFor: #fromString:session:!public! !
-!GsObject class categoriesFor: #fromStringXML:session:!public! !
-!GsObject class categoriesFor: #fromXML:session:!public! !
-!GsObject class categoriesFor: #listFromString:session:!public! !
-!GsObject class categoriesFor: #new!public! !
-!GsObject class categoriesFor: #xmlBaseName!public! !
+!GsObject class categoriesForMethods!
+fromStream:session:!public! !
+fromString:session:!public! !
+fromStringXML:session:!public! !
+fromXML:session:!public! !
+listFromString:session:!public! !
+new!public! !
+xmlBaseName!public! !
+!
 

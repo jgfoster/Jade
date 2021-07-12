@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadeAbstractHistoryEntry subclass: #JadeMethodExplorerHistoryEntry
 	instanceVariableNames: 'treeSelection methodCategory gsMethod'
@@ -38,11 +38,13 @@ treeSelection
 
 treeSelection: anObject
 	treeSelection := anObject! !
-!JadeMethodExplorerHistoryEntry categoriesFor: #gsMethod!accessing!private! !
-!JadeMethodExplorerHistoryEntry categoriesFor: #gsMethod:!accessing!private! !
-!JadeMethodExplorerHistoryEntry categoriesFor: #methodCategory!accessing!private! !
-!JadeMethodExplorerHistoryEntry categoriesFor: #methodCategory:!accessing!private! !
-!JadeMethodExplorerHistoryEntry categoriesFor: #populateFrom:!public! !
-!JadeMethodExplorerHistoryEntry categoriesFor: #treeSelection!accessing!private! !
-!JadeMethodExplorerHistoryEntry categoriesFor: #treeSelection:!accessing!private! !
+!JadeMethodExplorerHistoryEntry categoriesForMethods!
+gsMethod!accessing!private! !
+gsMethod:!accessing!private! !
+methodCategory!accessing!private! !
+methodCategory:!accessing!private! !
+populateFrom:!public! !
+treeSelection!accessing!private! !
+treeSelection:!accessing!private! !
+!
 

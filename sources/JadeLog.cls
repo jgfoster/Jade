@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Object subclass: #JadeLog
 	instanceVariableNames: ''
@@ -30,7 +30,9 @@ log: aString
 
 	debugLog ifNotNil: [debugLog nextPutAll: Processor activeProcess id printString , ':' , Time millisecondClockValue printString , ':' , aString; cr; flush].
 ! !
-!JadeLog class categoriesFor: #debug:!public! !
-!JadeLog class categoriesFor: #debugFlag!public! !
-!JadeLog class categoriesFor: #log:!public! !
+!JadeLog class categoriesForMethods!
+debug:!public! !
+debugFlag!public! !
+log:!public! !
+!
 

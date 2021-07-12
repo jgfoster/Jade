@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Notification subclass: #TerminateProcess
 	instanceVariableNames: ''
@@ -15,5 +15,7 @@ defaultAction
 	Processor forkMainIfMain.
 	Processor terminateActive.
 ! !
-!TerminateProcess categoriesFor: #defaultAction!public! !
+!TerminateProcess categoriesForMethods!
+defaultAction!public! !
+!
 

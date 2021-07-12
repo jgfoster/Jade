@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Model subclass: #Contact
 	instanceVariableNames: 'oop name title phone version'
@@ -129,20 +129,22 @@ version
 version: anInteger
 	version := anInteger.
 ! !
-!Contact categoriesFor: #attemptLock:session:!public! !
-!Contact categoriesFor: #initialize!public! !
-!Contact categoriesFor: #initialize:!public! !
-!Contact categoriesFor: #name!accessing!public! !
-!Contact categoriesFor: #name:!accessing!public! !
-!Contact categoriesFor: #oop!accessing!public! !
-!Contact categoriesFor: #oop:!accessing!public! !
-!Contact categoriesFor: #phone!accessing!public! !
-!Contact categoriesFor: #phone:!accessing!public! !
-!Contact categoriesFor: #saveUsing:!public! !
-!Contact categoriesFor: #title!accessing!public! !
-!Contact categoriesFor: #title:!accessing!public! !
-!Contact categoriesFor: #version!accessing!public! !
-!Contact categoriesFor: #version:!accessing!public! !
+!Contact categoriesForMethods!
+attemptLock:session:!public! !
+initialize!public! !
+initialize:!public! !
+name!accessing!public! !
+name:!accessing!public! !
+oop!accessing!public! !
+oop:!accessing!public! !
+phone!accessing!public! !
+phone:!accessing!public! !
+saveUsing:!public! !
+title!accessing!public! !
+title:!accessing!public! !
+version!accessing!public! !
+version:!accessing!public! !
+!
 
 !Contact class methodsFor!
 
@@ -203,9 +205,11 @@ new
 		initialize;
 		yourself.
 ! !
-!Contact class categoriesFor: #fillListString!public! !
-!Contact class categoriesFor: #fromString:!public! !
-!Contact class categoriesFor: #listFromGciSession:!public! !
-!Contact class categoriesFor: #listFromString:!public! !
-!Contact class categoriesFor: #new!public! !
+!Contact class categoriesForMethods!
+fillListString!public! !
+fromString:!public! !
+listFromGciSession:!public! !
+listFromString:!public! !
+new!public! !
+!
 

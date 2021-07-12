@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 QWORDField subclass: #OopType64Field
 	instanceVariableNames: ''
@@ -13,5 +13,7 @@ OopType64Field comment: ''!
 fieldClass
 
 	^OopType64.! !
-!OopType64Field categoriesFor: #fieldClass!public! !
+!OopType64Field categoriesForMethods!
+fieldClass!public! !
+!
 

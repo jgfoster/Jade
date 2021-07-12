@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 GciSession subclass: #GciSession24
 	instanceVariableNames: ''
@@ -13,5 +13,7 @@ GciSession24 comment: ''!
 addRangeStopTo: stepPoints withSource: source
 
 	GsMethod add24RangeStopTo: stepPoints withSource: source.! !
-!GciSession24 categoriesFor: #addRangeStopTo:withSource:!accessing!public! !
+!GciSession24 categoriesForMethods!
+addRangeStopTo:withSource:!accessing!public! !
+!
 

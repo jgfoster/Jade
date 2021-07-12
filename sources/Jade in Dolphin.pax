@@ -58,7 +58,9 @@ pause
 
 	Keyboard default isShiftDown ifTrue: [self halt].
 ! !
-!DevelopmentSessionManager categoriesFor: #pause!public! !
+!DevelopmentSessionManager categoriesForMethods!
+pause!public! !
+!
 
 !JadeLoginShell class methodsFor!
 
@@ -88,10 +90,12 @@ toolsIcon
 
 	^Icon fromFile: 'icons\GS128.ico'.
 ! !
-!JadeLoginShell class categoriesFor: #addToDevelopmentTools!Development Image!public! !
-!JadeLoginShell class categoriesFor: #removeFromDevelopmentTools!Development Image!public! !
-!JadeLoginShell class categoriesFor: #toolsFolderIcon!Development Image!public! !
-!JadeLoginShell class categoriesFor: #toolsIcon!Development Image!public! !
+!JadeLoginShell class categoriesForMethods!
+addToDevelopmentTools!Development Image!public! !
+removeFromDevelopmentTools!Development Image!public! !
+toolsFolderIcon!Development Image!public! !
+toolsIcon!Development Image!public! !
+!
 
 "End of package definition"!
 

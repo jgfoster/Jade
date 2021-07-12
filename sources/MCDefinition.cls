@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Object subclass: #MCDefinition
 	instanceVariableNames: ''
@@ -14,7 +14,9 @@ selector
 
 	^''.
 ! !
-!MCDefinition categoriesFor: #selector!public! !
+!MCDefinition categoriesForMethods!
+selector!public! !
+!
 
 !MCDefinition class methodsFor!
 
@@ -32,5 +34,7 @@ fromStream: aStream
 		initialize: aStream;
 		yourself.
 ! !
-!MCDefinition class categoriesFor: #fromStream:!public! !
+!MCDefinition class categoriesForMethods!
+fromStream:!public! !
+!
 

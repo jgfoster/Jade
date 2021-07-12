@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 JadeMethodListPresenter subclass: #JadeTreeMethodListPresenter
 	instanceVariableNames: 'treeMethodsPresenter treeMethodsMap historyEntries entriesIndex historyList historyIndex'
@@ -377,53 +377,55 @@ treeMethodsPresenter
 
 treeMethodsPresenter: anObject
 	treeMethodsPresenter := anObject! !
-!JadeTreeMethodListPresenter categoriesFor: #addList!public! !
-!JadeTreeMethodListPresenter categoriesFor: #addNode!public! !
-!JadeTreeMethodListPresenter categoriesFor: #addTreeListRoot:type:!public! !
-!JadeTreeMethodListPresenter categoriesFor: #browse:method:!public! !
-!JadeTreeMethodListPresenter categoriesFor: #browseImplementorsOf:!public! !
-!JadeTreeMethodListPresenter categoriesFor: #browseMethodsFromString:!public! !
-!JadeTreeMethodListPresenter categoriesFor: #browseMethodsFromString:methodName:!public! !
-!JadeTreeMethodListPresenter categoriesFor: #browseMethodsFromString:methodName:type:!public! !
-!JadeTreeMethodListPresenter categoriesFor: #browseSendersOf:!public! !
-!JadeTreeMethodListPresenter categoriesFor: #buildHistoryBackMenu!public! !
-!JadeTreeMethodListPresenter categoriesFor: #buildHistoryForwardMenu!public! !
-!JadeTreeMethodListPresenter categoriesFor: #buildHistoryMenuWith:command:!public! !
-!JadeTreeMethodListPresenter categoriesFor: #createComponents!public! !
-!JadeTreeMethodListPresenter categoriesFor: #createSchematicWiring!public! !
-!JadeTreeMethodListPresenter categoriesFor: #deleteHistory!public! !
-!JadeTreeMethodListPresenter categoriesFor: #dropGsMethod:!public! !
-!JadeTreeMethodListPresenter categoriesFor: #dropNode:!public! !
-!JadeTreeMethodListPresenter categoriesFor: #entriesIndex!accessing!private! !
-!JadeTreeMethodListPresenter categoriesFor: #entriesIndex:!accessing!private! !
-!JadeTreeMethodListPresenter categoriesFor: #getLabelForMethod:type:!public! !
-!JadeTreeMethodListPresenter categoriesFor: #gsBrowse:methodSelector:!public! !
-!JadeTreeMethodListPresenter categoriesFor: #hasTreeListSelection!public! !
-!JadeTreeMethodListPresenter categoriesFor: #historyBack!public! !
-!JadeTreeMethodListPresenter categoriesFor: #historyBack:!public! !
-!JadeTreeMethodListPresenter categoriesFor: #historyEntries!accessing!private! !
-!JadeTreeMethodListPresenter categoriesFor: #historyEntries:!accessing!private! !
-!JadeTreeMethodListPresenter categoriesFor: #historyForward!public! !
-!JadeTreeMethodListPresenter categoriesFor: #historyForward:!public! !
-!JadeTreeMethodListPresenter categoriesFor: #initialize!public! !
-!JadeTreeMethodListPresenter categoriesFor: #onDragMethodsTree:!public! !
-!JadeTreeMethodListPresenter categoriesFor: #onDragOverMethodsTree:!public! !
-!JadeTreeMethodListPresenter categoriesFor: #onDropMethodsTree:!public! !
-!JadeTreeMethodListPresenter categoriesFor: #onHistoryDropDown:!public! !
-!JadeTreeMethodListPresenter categoriesFor: #onMethodSelectionChanged!public! !
-!JadeTreeMethodListPresenter categoriesFor: #onTreeListChanged!public! !
-!JadeTreeMethodListPresenter categoriesFor: #onViewOpened!public! !
-!JadeTreeMethodListPresenter categoriesFor: #removeNode!public! !
-!JadeTreeMethodListPresenter categoriesFor: #removeQueryElement!public! !
-!JadeTreeMethodListPresenter categoriesFor: #restoreFrom:!public! !
-!JadeTreeMethodListPresenter categoriesFor: #selectedExplorerNode!public! !
-!JadeTreeMethodListPresenter categoriesFor: #selectedMethod!public! !
-!JadeTreeMethodListPresenter categoriesFor: #selectFirstMethod!public! !
-!JadeTreeMethodListPresenter categoriesFor: #treeListHasSelection!public! !
-!JadeTreeMethodListPresenter categoriesFor: #treeMethodsMap!accessing!private! !
-!JadeTreeMethodListPresenter categoriesFor: #treeMethodsMap:!accessing!private! !
-!JadeTreeMethodListPresenter categoriesFor: #treeMethodsPresenter!accessing!private! !
-!JadeTreeMethodListPresenter categoriesFor: #treeMethodsPresenter:!accessing!private! !
+!JadeTreeMethodListPresenter categoriesForMethods!
+addList!public! !
+addNode!public! !
+addTreeListRoot:type:!public! !
+browse:method:!public! !
+browseImplementorsOf:!public! !
+browseMethodsFromString:!public! !
+browseMethodsFromString:methodName:!public! !
+browseMethodsFromString:methodName:type:!public! !
+browseSendersOf:!public! !
+buildHistoryBackMenu!public! !
+buildHistoryForwardMenu!public! !
+buildHistoryMenuWith:command:!public! !
+createComponents!public! !
+createSchematicWiring!public! !
+deleteHistory!public! !
+dropGsMethod:!public! !
+dropNode:!public! !
+entriesIndex!accessing!private! !
+entriesIndex:!accessing!private! !
+getLabelForMethod:type:!public! !
+gsBrowse:methodSelector:!public! !
+hasTreeListSelection!public! !
+historyBack!public! !
+historyBack:!public! !
+historyEntries!accessing!private! !
+historyEntries:!accessing!private! !
+historyForward!public! !
+historyForward:!public! !
+initialize!public! !
+onDragMethodsTree:!public! !
+onDragOverMethodsTree:!public! !
+onDropMethodsTree:!public! !
+onHistoryDropDown:!public! !
+onMethodSelectionChanged!public! !
+onTreeListChanged!public! !
+onViewOpened!public! !
+removeNode!public! !
+removeQueryElement!public! !
+restoreFrom:!public! !
+selectedExplorerNode!public! !
+selectedMethod!public! !
+selectFirstMethod!public! !
+treeListHasSelection!public! !
+treeMethodsMap!accessing!private! !
+treeMethodsMap:!accessing!private! !
+treeMethodsPresenter!accessing!private! !
+treeMethodsPresenter:!accessing!private! !
+!
 
 !JadeTreeMethodListPresenter class methodsFor!
 
@@ -446,6 +448,8 @@ resource_List_view
 	"
 
 	^#(#'!!STL' 3 788558 10 ##(Smalltalk.STBViewProxy)  8 ##(Smalltalk.ContainerView)  98 15 0 0 98 2 8 1409286144 131073 416 0 0 0 5 0 0 0 416 1180166 ##(Smalltalk.ProportionalLayout)  234 240 98 4 410 8 ##(Smalltalk.ReferenceView)  98 14 0 416 98 2 8 1140850688 131073 560 0 524550 ##(Smalltalk.ColorRef)  8 4278190080 0 5 0 0 0 560 1180166 ##(Smalltalk.ResourceIdentifier)  8 ##(Smalltalk.MethodListPresenter)  8 #resource_MultiClass_view 0 983302 ##(Smalltalk.MessageSequence)  202 208 98 1 721670 ##(Smalltalk.MessageSend)  8 #createAt:extent: 98 2 328198 ##(Smalltalk.Point)  1 1 882 1201 351 560 983302 ##(Smalltalk.WINDOWPLACEMENT)  8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 88 2 0 0 175 0 0 0] 98 0 882 193 193 0 27 9 410 576 98 14 0 416 98 2 8 1140850688 131073 1008 0 642 672 0 5 0 0 0 1008 690 8 ##(Smalltalk.MethodSourcePresenter)  8 #resource_Default_view 0 754 202 208 98 1 818 848 98 2 882 1 361 882 1201 441 1008 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 180 0 0 0 88 2 0 0 144 1 0 0] 976 992 0 27 11 16 234 256 98 4 560 8 'methodList' 1008 8 'methodSource' 0 754 202 208 98 1 818 848 98 2 882 2799 21 882 1201 801 416 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 119 5 0 0 10 0 0 0 207 7 0 0 154 1 0 0] 98 3 560 410 8 ##(Smalltalk.Splitter)  98 12 0 416 98 2 8 1140850688 1 1504 0 642 8 4278190080 0 517 0 0 0 1504 754 202 208 98 1 818 848 98 2 882 1 351 882 1201 11 1504 930 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 175 0 0 0 88 2 0 0 180 0 0 0] 98 0 992 0 27 1008 992 0 27 )! !
-!JadeTreeMethodListPresenter class categoriesFor: #resource_Default_view!public! !
-!JadeTreeMethodListPresenter class categoriesFor: #resource_List_view!public! !
+!JadeTreeMethodListPresenter class categoriesForMethods!
+resource_Default_view!public! !
+resource_List_view!public! !
+!
 

@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smalltalk 7"!
+﻿"Filed out from Dolphin Smallalk"!
 
 Object subclass: #JadeGsClassShape
 	instanceVariableNames: 'name gsInstVariables gsClassVariables gsInstClassVariables gsPoolDictionaries gsMethods gsClassMethods gsClassHierarchy'
@@ -142,33 +142,35 @@ updateClassData
 	gsClassMethods isEmpty ifTrue: [gsClassMethods := previousShape gsClassMethods].
 
 	^self registry register: self! !
-!JadeGsClassShape categoriesFor: #configuration!public! !
-!JadeGsClassShape categoriesFor: #existInRegistry!public! !
-!JadeGsClassShape categoriesFor: #getAllClassMethods!auto methods!public! !
-!JadeGsClassShape categoriesFor: #getAllInstVarNames!public! !
-!JadeGsClassShape categoriesFor: #getAllMethods!auto methods!public! !
-!JadeGsClassShape categoriesFor: #getAllVarNames!public! !
-!JadeGsClassShape categoriesFor: #getClassInstanceVariableLike:!public! !
-!JadeGsClassShape categoriesFor: #getClassVariableAndPoolDictionaryLike:!public! !
-!JadeGsClassShape categoriesFor: #getInstanceVariableLike:!public! !
-!JadeGsClassShape categoriesFor: #getNamesAfterAssigment!public! !
-!JadeGsClassShape categoriesFor: #gsClassHierarchy!accessing!private! !
-!JadeGsClassShape categoriesFor: #gsClassHierarchy:!accessing!private! !
-!JadeGsClassShape categoriesFor: #gsClassMethods!accessing!private! !
-!JadeGsClassShape categoriesFor: #gsClassMethods:!accessing!private! !
-!JadeGsClassShape categoriesFor: #gsClassVariables!accessing!private! !
-!JadeGsClassShape categoriesFor: #gsClassVariables:!accessing!private! !
-!JadeGsClassShape categoriesFor: #gsInstClassVariables!accessing!private! !
-!JadeGsClassShape categoriesFor: #gsInstClassVariables:!accessing!private! !
-!JadeGsClassShape categoriesFor: #gsInstVariables!accessing!private! !
-!JadeGsClassShape categoriesFor: #gsInstVariables:!accessing!private! !
-!JadeGsClassShape categoriesFor: #gsMethods!accessing!private! !
-!JadeGsClassShape categoriesFor: #gsMethods:!accessing!private! !
-!JadeGsClassShape categoriesFor: #gsPoolDictionaries!accessing!private! !
-!JadeGsClassShape categoriesFor: #gsPoolDictionaries:!accessing!private! !
-!JadeGsClassShape categoriesFor: #initialize!public! !
-!JadeGsClassShape categoriesFor: #name!accessing!private! !
-!JadeGsClassShape categoriesFor: #name:!accessing!private! !
-!JadeGsClassShape categoriesFor: #registry!public! !
-!JadeGsClassShape categoriesFor: #updateClassData!public! !
+!JadeGsClassShape categoriesForMethods!
+configuration!public! !
+existInRegistry!public! !
+getAllClassMethods!auto methods!public! !
+getAllInstVarNames!public! !
+getAllMethods!auto methods!public! !
+getAllVarNames!public! !
+getClassInstanceVariableLike:!public! !
+getClassVariableAndPoolDictionaryLike:!public! !
+getInstanceVariableLike:!public! !
+getNamesAfterAssigment!public! !
+gsClassHierarchy!accessing!private! !
+gsClassHierarchy:!accessing!private! !
+gsClassMethods!accessing!private! !
+gsClassMethods:!accessing!private! !
+gsClassVariables!accessing!private! !
+gsClassVariables:!accessing!private! !
+gsInstClassVariables!accessing!private! !
+gsInstClassVariables:!accessing!private! !
+gsInstVariables!accessing!private! !
+gsInstVariables:!accessing!private! !
+gsMethods!accessing!private! !
+gsMethods:!accessing!private! !
+gsPoolDictionaries!accessing!private! !
+gsPoolDictionaries:!accessing!private! !
+initialize!public! !
+name!accessing!private! !
+name:!accessing!private! !
+registry!public! !
+updateClassData!public! !
+!
 
