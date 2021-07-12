@@ -134,8 +134,28 @@ setDocumentPresenterLabel
 		self view caption: model class name , ' (' , model size printString , ' bytes)'.
 		^self.
 	].
-	(#(Boolean Character Date DateAndTime Integer Float Fraction UndefinedObject) includes: model class name) ifTrue: [
+	(model isKindOf: Float) ifTrue: [
+		self view caption: 'SmallDouble'.
+		documentPresenter value: model printString.
+		^self.
+	].
+	(model isKindOf: Date) ifTrue: [
+		self view caption: 'SmallDate'.
+		documentPresenter value: model printString.
+		^self.
+	].
+	(model isKindOf: DateAndTime) ifTrue: [
+		self view caption: 'SmallDateAndTime'.
+		documentPresenter value: model printString.
+		^self.
+	].
+	(#(Boolean Character Integer Fraction SmallInteger UndefinedObject) includes: model class name) ifTrue: [
 		self view caption: model class name.
+		documentPresenter value: model printString.
+		^self.
+	].
+	(model isKindOf: Boolean) ifTrue: [
+		self view caption: 'Boolean'.
 		documentPresenter value: model printString.
 		^self.
 	].
