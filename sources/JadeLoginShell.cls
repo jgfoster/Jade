@@ -335,7 +335,6 @@ login
 		^self
 	].
 	[
-		cardContainerView lastCard.
 		SessionManager inputState pumpMessages.
 		session := self model login.
 	] on: Error do: [:ex | 
@@ -346,10 +345,6 @@ login
 		^self.
 	]. 
 	self postLogin: session.
-	session
-		when: #logout
-		send: #firstCard
-		to: cardContainerView.
 	activeLibraryPresenter value: GciLibrary activeLibrary class name asString.
 !
 
