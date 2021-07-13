@@ -350,10 +350,10 @@ browseSendersOf
 
 browseSendersOf: aString
 
-	| string |
+	| string response |
 	string := 'browseSenders' , Character tab asString , aString , Character lf asString.
 	JadeLog log: 'JadeSystemBrowserPresenter>>browseSendersOf: ' , aString printString.
-	(self updateCommand: string) = 'browseSenders' ifFalse: [self error: 'unexpected response'].
+	(response := self updateCommand: string) = 'browseSenders' ifFalse: [self error: 'unexpected response: ' , response printString].
 	self browseMethodsAndSelect: aString type: #references.
 !
 

@@ -81,6 +81,11 @@ model: anObject
 	codePane model: anObject.
 !
 
+onCloseRequested: boolValueHolder
+
+	boolValueHolder value: true.	"Okay to close!!"
+!
+
 onViewOpened
 
 	super onViewOpened.
@@ -173,6 +178,7 @@ inspectInstVar!accessing!private! !
 isJadeInspector!private! !
 isModified!private! !
 model:!private! !
+onCloseRequested:!public! !
 onViewOpened!accessing!private! !
 openNavigationInspector!accessing!private! !
 selectedInstVar!accessing!private! !
@@ -228,7 +234,7 @@ showOn: anObject session: aGciSession
 	(anObject isKindOf: ExternalInteger) ifTrue: [	"OopType"
 		class := self defaultInspectorClass.
 		view := self defaultView.
-	] ifFalse: [	"Special object (Boolean, SmallInteger, Character, etc."
+	] ifFalse: [	"Special object (Boolean, SmallInteger, Character, etc.)"
 		class := JadeInspector.
 		view := 'Special view'.
 	].

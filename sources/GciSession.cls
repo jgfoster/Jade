@@ -351,6 +351,7 @@ heartbeat: receiver arguments: arguments
 		].
 	].
 	(result isKindOf: Error) ifTrue: [^self].	"We are just going to ignore any errors!!"
+	(result isKindOf: OopType64) ifTrue: [^self].
 	0 < result ifTrue: [self idleWarning].
 
 !
