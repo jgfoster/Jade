@@ -30,6 +30,7 @@ _nameOfFirstDictionaryReferencing: aGlobal
 	| list |
 	list := self persistentSymbolList dictionariesAndSymbolsOf: aGlobal.
 	list isNil ifTrue: [^''].
+	list isEmpty ifTrue: [^''].
 	^list first first name!
 
 _objectSecurityPolicyFor: anObject
