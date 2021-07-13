@@ -475,6 +475,7 @@ nbResult
 			self signalIfError.
 			^self valueOfOop: result.
 		].
+		Keyboard default isCancelPressed ifTrue: [self gciSoftBreak].
 		Processor sleep: delay.
 		delay := delay + 1 min: 100.
 	].
