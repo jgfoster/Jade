@@ -25,6 +25,7 @@ class JadeServer {
 
   void _onData(dynamic data) async {
     var obj = jsonDecode(data);
+    print(obj);
     _buffer.add(obj);
   }
 
@@ -54,7 +55,7 @@ class JadeServer {
       await Future.delayed(Duration(milliseconds: 10));
     }
     var data = _buffer.removeAt(0);
-    return data['gciVersion'];
+    return data['version'];
   }
 
   Future<void> waitForInitialization() async {

@@ -12,7 +12,6 @@ void main() {
   final server = JadeServer('localhost', 8888);
 
   test('getGciVersion', () async {
-    print('start connect test');
     var version = await server.getGciVersion();
     expect(version, startsWith('3.6.1'));
   });

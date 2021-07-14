@@ -89,22 +89,6 @@ hardBreak_gs: args
 %
 category: 'REST API'
 method: GciLibraryApp
-library
-
-	^SessionTemps current
-		at: #'library'
-		ifAbsentPut: [
-			GciLibrary new
-				GciInit;
-				GciSetNetEx_: System stoneName
-					_: nil
-					_: nil
-					_: '!tcp@localhost#netldi:gs64ldi#task!gemnetobject'
-					_: 0;
-				yourself]
-%
-category: 'REST API'
-method: GciLibraryApp
 login_gs: args
 
 	| result |
@@ -179,18 +163,50 @@ version_gs: args
 set compile_env: 0
 category: 'WebSockets'
 method: GciLibraryApp
-handleRequest: aString
+getGciVersion: aDict
 
-	| command dictIn dictOut time |
+	| buffer index product version |
+	buffer := CByteArray gcMalloc: 128.
+	product := self library GciTsVersion_: buffer _: buffer size.
+	version := buffer stringFrom: 0 to: 127.
+	index := version indexOf: (Character codePoint: 0).
+	version := version copyFrom: 1 to: index - 1.
+	^Dictionary new
+		at: 'product' put: product;
+		at: 'version' put: version;
+		yourself
+%
+category: 'WebSockets'
+method: GciLibraryApp
+handleRequest: aDict
+
+	| command |
+	command := aDict at: 'request'.
+	command = 'getGciVersion' ifTrue: [^self getGciVersion: aDict].
+	self error: 'Unrecognized command: ' , command printString.
+%
+category: 'WebSockets'
+method: GciLibraryApp
+handleRequestString: aString
+
+	| dictIn dictOut time |
 	Log instance log: #'debug' string: 'GciApp>>handleRequest: - ' , aString printString.
 	time := Time millisecondsElapsedTime: [
 		dictIn := JsonParser parse: aString.
-		dictOut := Dictionary new.
-		command := dictIn at: 'request'.
-		command = 'getGciVersion' ifTrue: [dictOut at: 'gciVersion' put: self library GciVersion].
+		dictOut := self handleRequest: dictIn.
 	].
 	dictOut at: 'time' put: time.
 	WebSocketDataFrame sendText: dictOut asJson onSocket: socket.
+%
+category: 'WebSockets'
+method: GciLibraryApp
+library
+"
+SessionTemps current removeKey: #'library'.
+"
+	^SessionTemps current
+		at: #'library'
+		ifAbsentPut: [(GciApp at: #'GciTsLibrary') new]
 %
 category: 'WebSockets'
 method: GciLibraryApp
@@ -201,6 +217,6 @@ webSocket_gs
 	self 
 		wsWithBinaryDo: [:aByteArray | ]
 		withTextDo: [:unicode | 
-			self handleRequest: unicode.
+			self handleRequestString: unicode.
 		].
 %
