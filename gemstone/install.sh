@@ -16,6 +16,14 @@ input ./GciApp.gs
 output pop
 errorCount
 commit
+logout
+set user SystemUser pass swordfish
+login
+send CharacterCollection enableUnicodeComparisonMode
+commit
+logout
+set user DataCurator pass swordfish
+login
 iferr 1 stk
 iferr 2 exit
 send GciLibraryApp run

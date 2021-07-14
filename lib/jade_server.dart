@@ -1,44 +1,60 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:web_socket_channel/web_socket_channel.dart';
 import 'package:web_socket_channel/status.dart' as status;
 
 class JadeServer {
+  final _buffer = <Map<String, dynamic>>[];
   var _isInitialized = false;
   late final _channel;
 
   JadeServer(var host, var port) {
-    initialize(host, port);
+    _initialize(host, port);
   }
 
-  Future<Map<String, dynamic>> _read() async {
-    var stream = _channel.stream;
-    var version = stream.take(1).first;
-    print(version);
-    return {};
+  Future<void> _initialize(var host, var port) async {
+    var uri = Uri.parse('ws://localhost:8888/webSocket.gs');
+    _channel = WebSocketChannel.connect(uri);
+    _channel.stream.listen(
+      _onData,
+      onDone: _onDone,
+      onError: _onError,
+    );
+    _isInitialized = true;
+  }
+
+  void _onData(dynamic data) async {
+    var obj = jsonDecode(data);
+    _buffer.add(obj);
+  }
+
+  void _onDone() {
+    print('_onDone()');
+    _channel.sink.close();
+  }
+
+  void _onError(var error) {
+    print(error);
+    _channel.sink.close();
   }
 
   Future<void> _write(var map) async {
     await waitForInitialization();
-    var data = jsonEncode(map);
-    var byteList = Uint8List(5);
-    var byteData = ByteData.view(byteList.buffer);
-    byteData.setUint8(0, 1);
-    byteData.setUint32(1, data.length);
-    await _channel.sink.add(byteList);
-    await _channel.sink.add(data);
+    _channel.sink.add(jsonEncode(map));
   }
 
-  Future<void> initialize(var host, var port) async {
-    var uri = Uri(scheme: 'wss', host: host, port: port);
-    _channel = WebSocketChannel.connect(uri);
-    _isInitialized = true;
+  void close() {
+    print('JadeServer().close();');
+    _channel.sink.close();
   }
 
-  getGciVersion() async {
-    await _write({'request': 'getGciVersion'});
-    await _read();
+  Future<String> getGciVersion() async {
+    _write({'request': 'getGciVersion'});
+    while (_buffer.isEmpty) {
+      await Future.delayed(Duration(milliseconds: 10));
+    }
+    var data = _buffer.removeAt(0);
+    return data['gciVersion'];
   }
 
   Future<void> waitForInitialization() async {

@@ -5,16 +5,15 @@ removeAllClassMethods GciLibraryApp
 set compile_env: 0
 category: 'required'
 classmethod: GciLibraryApp
-workerCount
-	"Do everything in one Gem"
-	^0
-%
-set compile_env: 0
-category: 'startup'
-classmethod: GciLibraryApp
-httpServerClass
-
-	^HttpsServer
+run
+"
+	GciLibraryApp run.
+"
+	HttpListener new
+		listenBacklog: 100;
+		port: 8888;
+		webApp: self;
+		run.
 %
 ! ------------------- Instance methods for GciLibraryApp
 set compile_env: 0
@@ -176,4 +175,32 @@ version_gs: args
 	^Dictionary new
 		at: 'result' put: self library GciVersion;
 		yourself.
+%
+set compile_env: 0
+category: 'WebSockets'
+method: GciLibraryApp
+handleRequest: aString
+
+	| command dictIn dictOut time |
+	Log instance log: #'debug' string: 'GciApp>>handleRequest: - ' , aString printString.
+	time := Time millisecondsElapsedTime: [
+		dictIn := JsonParser parse: aString.
+		dictOut := Dictionary new.
+		command := dictIn at: 'request'.
+		command = 'getGciVersion' ifTrue: [dictOut at: 'gciVersion' put: self library GciVersion].
+	].
+	dictOut at: 'time' put: time.
+	WebSocketDataFrame sendText: dictOut asJson onSocket: socket.
+%
+category: 'WebSockets'
+method: GciLibraryApp
+webSocket_gs
+
+	request isWebSocketUpgrade ifFalse: [self error: 'Expected a WebSocket protocol!'].
+	Log instance log: #'debug' string: 'GciApp>>webSocket_gs'.
+	self 
+		wsWithBinaryDo: [:aByteArray | ]
+		withTextDo: [:unicode | 
+			self handleRequest: unicode.
+		].
 %

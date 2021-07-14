@@ -19,6 +19,12 @@ on: aCByteArray
 set compile_env: 0
 category: 'Accessing'
 method: GciObjRepHdrSType
+_idxSizeBits
+
+	^self uint64At: 32.
+%
+category: 'Accessing'
+method: GciObjRepHdrSType
 firstOffset
 
 	^self int64At: 24.
@@ -53,12 +59,6 @@ valueBuffSize
 
 	^self int32At: 0.
 %
-category: 'Accessing'
-method: GciObjRepHdrSType
-_idxSizeBits
-
-	^self uint64At: 32.
-%
 set compile_env: 0
 category: 'Conversion'
 method: GciObjRepHdrSType
@@ -85,6 +85,14 @@ initialize: aCByteArray
 	].
 %
 set compile_env: 0
+category: 'Updating'
+method: GciObjRepHdrSType
+_idxSizeBits: anObject
+
+	self 
+		uint64At: 32
+		put: anObject.
+%
 category: 'Updating'
 method: GciObjRepHdrSType
 firstOffset: anObject
@@ -131,13 +139,5 @@ valueBuffSize: anObject
 
 	self 
 		int32At: 0
-		put: anObject.
-%
-category: 'Updating'
-method: GciObjRepHdrSType
-_idxSizeBits: anObject
-
-	self 
-		uint64At: 32
 		put: anObject.
 %

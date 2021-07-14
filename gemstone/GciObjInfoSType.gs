@@ -19,6 +19,12 @@ on: aCByteArray
 set compile_env: 0
 category: 'Accessing'
 method: GciObjInfoSType
+_bits
+
+	^self uint16At: 30.
+%
+category: 'Accessing'
+method: GciObjInfoSType
 namedSize
 
 	^self int32At: 24.
@@ -47,12 +53,6 @@ objSize
 
 	^self int64At: 16.
 %
-category: 'Accessing'
-method: GciObjInfoSType
-_bits
-
-	^self uint16At: 30.
-%
 set compile_env: 0
 category: 'Conversion'
 method: GciObjInfoSType
@@ -79,6 +79,14 @@ initialize: aCByteArray
 	].
 %
 set compile_env: 0
+category: 'Updating'
+method: GciObjInfoSType
+_bits: anObject
+
+	self 
+		uint16At: 30
+		put: anObject.
+%
 category: 'Updating'
 method: GciObjInfoSType
 namedSize: anObject
@@ -117,13 +125,5 @@ objSize: anObject
 
 	self 
 		int64At: 16
-		put: anObject.
-%
-category: 'Updating'
-method: GciObjInfoSType
-_bits: anObject
-
-	self 
-		uint16At: 30
 		put: anObject.
 %
