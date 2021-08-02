@@ -5,7 +5,7 @@ class GciError extends StateError {
   late final error;
   GciError(Map<String, dynamic> gciError)
       : error = gciError,
-        super(gciError['message']);
+        super(gciError['description']);
 }
 
 class GciSession {

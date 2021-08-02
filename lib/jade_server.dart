@@ -56,6 +56,16 @@ class JadeServer {
     _channel.sink.close();
   }
 
+  // 'break' is a reserved word!
+  Future<bool> doBreak(int session, bool isHard) async {
+    _write({'request': 'break', 'session': session, 'isHard': isHard});
+    while (_buffer.isEmpty) {
+      await Future.delayed(Duration(milliseconds: 10));
+    }
+    var data = _buffer.removeAt(0);
+    return data['result'] == 1;
+  }
+
   Future<String> getGciVersion() async {
     _write({'request': 'getGciVersion'});
     while (_buffer.isEmpty) {
@@ -65,22 +75,20 @@ class JadeServer {
     return data['version'];
   }
 
-  Future<void> login(String username, String password) async {
-    print('login($username, $password)');
+  Future<int> login(String username, String password) async {
     _write({
       'request': 'login',
       'username': username,
       'password': password,
     });
     while (_buffer.isEmpty) {
-      print('wait');
-      await Future.delayed(Duration(milliseconds: 200));
+      await Future.delayed(Duration(milliseconds: 10));
     }
     var data = _buffer.removeAt(0);
     if (data['error'] == 4051) {
       throw GciError(data);
     }
-    print('login() - $data');
+    return data['result'];
   }
 
   Future<void> waitForInitialization() async {

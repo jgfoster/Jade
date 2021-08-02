@@ -81,11 +81,67 @@ getSessionId_gs: args
 %
 category: 'REST API'
 method: GciLibraryApp
-hardBreak_gs: args
+logout_gs: args
 
+	GsFile stdoutServer nextPutAll: 'logout - ' , args printString; cr.
 	self setSessionFromArgs: args.
-	self library GciHardBreak.
+	self library GciLogout.
 	^Dictionary new
+%
+category: 'REST API'
+method: GciLibraryApp
+nbEnd_gs: args
+
+	| progress result |
+	result := CByteArray gcMalloc: 8.
+	self setSessionFromArgs: args.
+	progress := self library GciNbEnd__: result.
+	^Dictionary new
+		at: 'progress' put: progress;
+		at: 'result' put: (result int64At: 0);
+		yourself
+%
+category: 'REST API'
+method: GciLibraryApp
+nbExecuteStr_gs: args
+
+	self library
+		GciNbExecuteStr_: (args at: 'source' ifAbsent: [''])
+		_: 16r14. 	"OOP_NIL"
+	^Dictionary new
+%
+category: 'REST API'
+method: GciLibraryApp
+setSessionFromArgs: args
+
+	(args at: 'session' ifAbsent: [nil]) ifNotNil: [:session |
+		self library GciSetSessionId_: session.
+	].
+%
+
+! -- WebSocket
+category: 'WebSockets'
+method: GciLibraryApp
+break: args
+
+	| error hardBreakFlag result session |
+	error := GciErrSType new.
+	hardBreakFlag := (args at: 'isHard') ifTrue: [1] ifFalse: [0].
+	session := (CByteArray gcMalloc: 8)
+		int64At: 0 put: (args at: 'session');
+		yourself.
+	session := session pointerAt: 0 resultClass: CPointer.
+	result := self library GciTsBreak_: session _: hardBreakFlag _: error.
+
+	error number ~~ 0 ifTrue: [
+		^Dictionary new
+			at: 'error' put: error number;
+			at: 'message' put: error message;
+			yourself
+	].
+	^Dictionary new
+		at: 'result' put: result;
+		yourself
 %
 category: 'WebSockets'
 method: GciLibraryApp
@@ -125,53 +181,6 @@ login: args
 		at: 'result' put: result memoryAddress;
 		yourself
 %
-category: 'REST API'
-method: GciLibraryApp
-logout_gs: args
-
-	GsFile stdoutServer nextPutAll: 'logout - ' , args printString; cr.
-	self setSessionFromArgs: args.
-	self library GciLogout.
-	^Dictionary new
-%
-category: 'REST API'
-method: GciLibraryApp
-nbEnd_gs: args
-
-	| progress result |
-	result := CByteArray gcMalloc: 8.
-	self setSessionFromArgs: args.
-	progress := self library GciNbEnd__: result.
-	^Dictionary new
-		at: 'progress' put: progress;
-		at: 'result' put: (result int64At: 0);
-		yourself
-%
-category: 'REST API'
-method: GciLibraryApp
-nbExecuteStr_gs: args
-
-	self library
-		GciNbExecuteStr_: (args at: 'source' ifAbsent: [''])
-		_: 16r14. 	"OOP_NIL"
-	^Dictionary new
-%
-category: 'REST API'
-method: GciLibraryApp
-setSessionFromArgs: args
-
-	(args at: 'session' ifAbsent: [nil]) ifNotNil: [:session |
-		self library GciSetSessionId_: session.
-	].
-%
-category: 'REST API'
-method: GciLibraryApp
-softBreak_gs: args
-
-	self setSessionFromArgs: args.
-	self library GciSoftBreak.
-	^Dictionary new
-%
 set compile_env: 0
 category: 'WebSockets'
 method: GciLibraryApp
@@ -194,6 +203,7 @@ handleRequest: aDict
 
 	| command |
 	command := aDict at: 'request'.
+	command = 'break' ifTrue: [^self break: aDict].
 	command = 'getGciVersion' ifTrue: [^self getGciVersion: aDict].
 	command = 'login' ifTrue: [^self login: aDict].
 	self error: 'Unrecognized command: ' , command printString.
@@ -211,7 +221,7 @@ handleRequestString: aString
 		] on: Error do: [:ex |
 			dictOut := Dictionary new
 				at: 'error' put: ex number;
-				at: 'message' put: ex message;
+				at: 'message' put: ex description;
 				yourself.
 		].
 	].
@@ -221,9 +231,9 @@ handleRequestString: aString
 category: 'WebSockets'
 method: GciLibraryApp
 library
-"
-SessionTemps current removeKey: #'library'.
-"
+	"
+	SessionTemps current removeKey: #'library'.
+	"
 	^SessionTemps current
 		at: #'library'
 		ifAbsentPut: [(GciApp at: #'GciTsLibraryFull') new]

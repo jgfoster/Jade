@@ -32,7 +32,7 @@ void main() {
     try {
       await gci.login('DataCurator', 'swordfish');
     } on StateError catch (e) {
-      expect(e.message, equals('Session already logged in!'));
+      expect(e.description, equals('Session already logged in!'));
       flag = true;
     }
     expect(flag, isTrue);
