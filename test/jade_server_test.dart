@@ -15,4 +15,15 @@ void main() {
     var version = await server.getGciVersion();
     expect(version, startsWith('3.6.1'));
   });
+
+  test('login with invalid password', () async {
+    var flag = false;
+    try {
+      await server.login('DataCurator', 'spearfish');
+    } on GciError catch (e) {
+      expect(e.error['error'], equals(4051));
+      flag = true;
+    }
+    expect(flag, isTrue);
+  });
 }

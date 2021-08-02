@@ -1,10 +1,10 @@
-! ------------------- Remove existing behavior from GciTsLibrary
-removeAllMethods GciTsLibrary
-removeAllClassMethods GciTsLibrary
-! ------------------- Class methods for GciTsLibrary
+! ------------------- Remove existing behavior from GciTsLibraryFull
+removeAllMethods GciTsLibraryFull
+removeAllClassMethods GciTsLibraryFull
+! ------------------- Class methods for GciTsLibraryFull
 set compile_env: 0
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciFree_inLibrary: cLibrary
 
 	FunctionGciFree := CCallout
@@ -15,7 +15,7 @@ initializeFunction_GciFree_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciHostCallDebuggerMsg_inLibrary: cLibrary
 
 	FunctionGciHostCallDebuggerMsg := CCallout
@@ -26,7 +26,7 @@ initializeFunction_GciHostCallDebuggerMsg_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciHostFtime_inLibrary: cLibrary
 
 	FunctionGciHostFtime := CCallout
@@ -37,7 +37,7 @@ initializeFunction_GciHostFtime_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciHostMilliSleep_inLibrary: cLibrary
 
 	FunctionGciHostMilliSleep := CCallout
@@ -48,7 +48,7 @@ initializeFunction_GciHostMilliSleep_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciI32ToOop_inLibrary: cLibrary
 
 	FunctionGciI32ToOop := CCallout
@@ -59,7 +59,7 @@ initializeFunction_GciI32ToOop_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciMalloc_inLibrary: cLibrary
 
 	FunctionGciMalloc := CCallout
@@ -70,7 +70,7 @@ initializeFunction_GciMalloc_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciNextUtf8Character_inLibrary: cLibrary
 
 	FunctionGciNextUtf8Character := CCallout
@@ -81,7 +81,7 @@ initializeFunction_GciNextUtf8Character_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciRtlIsLoaded_inLibrary: cLibrary
 
 	FunctionGciRtlIsLoaded := CCallout
@@ -92,7 +92,7 @@ initializeFunction_GciRtlIsLoaded_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciRtlLoad_inLibrary: cLibrary
 
 	FunctionGciRtlLoad := CCallout
@@ -103,7 +103,7 @@ initializeFunction_GciRtlLoad_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciRtlLoadA_inLibrary: cLibrary
 
 	FunctionGciRtlLoadA := CCallout
@@ -114,7 +114,7 @@ initializeFunction_GciRtlLoadA_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciRtlUnload_inLibrary: cLibrary
 
 	FunctionGciRtlUnload := CCallout
@@ -125,7 +125,7 @@ initializeFunction_GciRtlUnload_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciShutdown_inLibrary: cLibrary
 
 	FunctionGciShutdown := CCallout
@@ -136,7 +136,7 @@ initializeFunction_GciShutdown_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTimeStampMsStr_inLibrary: cLibrary
 
 	FunctionGciTimeStampMsStr := CCallout
@@ -147,7 +147,7 @@ initializeFunction_GciTimeStampMsStr_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsAbort_inLibrary: cLibrary
 
 	FunctionGciTsAbort := CCallout
@@ -158,7 +158,7 @@ initializeFunction_GciTsAbort_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsBegin_inLibrary: cLibrary
 
 	FunctionGciTsBegin := CCallout
@@ -169,7 +169,7 @@ initializeFunction_GciTsBegin_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsBreak_inLibrary: cLibrary
 
 	FunctionGciTsBreak := CCallout
@@ -180,7 +180,7 @@ initializeFunction_GciTsBreak_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsCallInProgress_inLibrary: cLibrary
 
 	FunctionGciTsCallInProgress := CCallout
@@ -191,7 +191,7 @@ initializeFunction_GciTsCallInProgress_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsCancelWaitForEvent_inLibrary: cLibrary
 
 	FunctionGciTsCancelWaitForEvent := CCallout
@@ -202,7 +202,7 @@ initializeFunction_GciTsCancelWaitForEvent_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsCharToOop_inLibrary: cLibrary
 
 	FunctionGciTsCharToOop := CCallout
@@ -213,7 +213,7 @@ initializeFunction_GciTsCharToOop_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsClassRemoveAllMethods_inLibrary: cLibrary
 
 	FunctionGciTsClassRemoveAllMethods := CCallout
@@ -224,7 +224,7 @@ initializeFunction_GciTsClassRemoveAllMethods_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsClearStack_inLibrary: cLibrary
 
 	FunctionGciTsClearStack := CCallout
@@ -235,7 +235,7 @@ initializeFunction_GciTsClearStack_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsCommit_inLibrary: cLibrary
 
 	FunctionGciTsCommit := CCallout
@@ -246,7 +246,7 @@ initializeFunction_GciTsCommit_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsCompileMethod_inLibrary: cLibrary
 
 	FunctionGciTsCompileMethod := CCallout
@@ -257,7 +257,7 @@ initializeFunction_GciTsCompileMethod_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsContinueWith_inLibrary: cLibrary
 
 	FunctionGciTsContinueWith := CCallout
@@ -268,7 +268,7 @@ initializeFunction_GciTsContinueWith_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsDirtyObjsInit_inLibrary: cLibrary
 
 	FunctionGciTsDirtyObjsInit := CCallout
@@ -279,7 +279,7 @@ initializeFunction_GciTsDirtyObjsInit_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsDoubleToOop_inLibrary: cLibrary
 
 	FunctionGciTsDoubleToOop := CCallout
@@ -290,7 +290,7 @@ initializeFunction_GciTsDoubleToOop_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsDoubleToSmallDouble_inLibrary: cLibrary
 
 	FunctionGciTsDoubleToSmallDouble := CCallout
@@ -301,7 +301,7 @@ initializeFunction_GciTsDoubleToSmallDouble_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsEncrypt_inLibrary: cLibrary
 
 	FunctionGciTsEncrypt := CCallout
@@ -312,7 +312,7 @@ initializeFunction_GciTsEncrypt_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsExecute__inLibrary: cLibrary
 
 	FunctionGciTsExecute_ := CCallout
@@ -323,7 +323,7 @@ initializeFunction_GciTsExecute__inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsExecute_inLibrary: cLibrary
 
 	FunctionGciTsExecute := CCallout
@@ -334,7 +334,7 @@ initializeFunction_GciTsExecute_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsExecuteFetchBytes_inLibrary: cLibrary
 
 	FunctionGciTsExecuteFetchBytes := CCallout
@@ -345,7 +345,7 @@ initializeFunction_GciTsExecuteFetchBytes_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsFetchBytes_inLibrary: cLibrary
 
 	FunctionGciTsFetchBytes := CCallout
@@ -356,7 +356,7 @@ initializeFunction_GciTsFetchBytes_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsFetchChars_inLibrary: cLibrary
 
 	FunctionGciTsFetchChars := CCallout
@@ -367,7 +367,7 @@ initializeFunction_GciTsFetchChars_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsFetchClass_inLibrary: cLibrary
 
 	FunctionGciTsFetchClass := CCallout
@@ -378,7 +378,7 @@ initializeFunction_GciTsFetchClass_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsFetchObjInfo_inLibrary: cLibrary
 
 	FunctionGciTsFetchObjInfo := CCallout
@@ -389,7 +389,7 @@ initializeFunction_GciTsFetchObjInfo_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsFetchOops_inLibrary: cLibrary
 
 	FunctionGciTsFetchOops := CCallout
@@ -400,7 +400,7 @@ initializeFunction_GciTsFetchOops_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsFetchSize_inLibrary: cLibrary
 
 	FunctionGciTsFetchSize := CCallout
@@ -411,7 +411,7 @@ initializeFunction_GciTsFetchSize_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsFetchSpecialClass_inLibrary: cLibrary
 
 	FunctionGciTsFetchSpecialClass := CCallout
@@ -422,7 +422,7 @@ initializeFunction_GciTsFetchSpecialClass_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsFetchTraversal_inLibrary: cLibrary
 
 	FunctionGciTsFetchTraversal := CCallout
@@ -433,7 +433,7 @@ initializeFunction_GciTsFetchTraversal_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsFetchUnicode_inLibrary: cLibrary
 
 	FunctionGciTsFetchUnicode := CCallout
@@ -444,7 +444,7 @@ initializeFunction_GciTsFetchUnicode_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsFetchUtf8_inLibrary: cLibrary
 
 	FunctionGciTsFetchUtf8 := CCallout
@@ -455,7 +455,7 @@ initializeFunction_GciTsFetchUtf8_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsFetchUtf8Bytes_inLibrary: cLibrary
 
 	FunctionGciTsFetchUtf8Bytes := CCallout
@@ -466,7 +466,7 @@ initializeFunction_GciTsFetchUtf8Bytes_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsFetchVaryingSize_inLibrary: cLibrary
 
 	FunctionGciTsFetchVaryingSize := CCallout
@@ -477,7 +477,7 @@ initializeFunction_GciTsFetchVaryingSize_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsGemTrace_inLibrary: cLibrary
 
 	FunctionGciTsGemTrace := CCallout
@@ -488,7 +488,7 @@ initializeFunction_GciTsGemTrace_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsGetFreeOops_inLibrary: cLibrary
 
 	FunctionGciTsGetFreeOops := CCallout
@@ -499,7 +499,7 @@ initializeFunction_GciTsGetFreeOops_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsI32ToOop_inLibrary: cLibrary
 
 	FunctionGciTsI32ToOop := CCallout
@@ -510,7 +510,7 @@ initializeFunction_GciTsI32ToOop_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsI64ToOop_inLibrary: cLibrary
 
 	FunctionGciTsI64ToOop := CCallout
@@ -521,7 +521,7 @@ initializeFunction_GciTsI64ToOop_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsIsKindOf_inLibrary: cLibrary
 
 	FunctionGciTsIsKindOf := CCallout
@@ -532,7 +532,7 @@ initializeFunction_GciTsIsKindOf_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsIsKindOfClass_inLibrary: cLibrary
 
 	FunctionGciTsIsKindOfClass := CCallout
@@ -543,7 +543,7 @@ initializeFunction_GciTsIsKindOfClass_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsIsSubclassOf_inLibrary: cLibrary
 
 	FunctionGciTsIsSubclassOf := CCallout
@@ -554,7 +554,7 @@ initializeFunction_GciTsIsSubclassOf_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsIsSubclassOfClass_inLibrary: cLibrary
 
 	FunctionGciTsIsSubclassOfClass := CCallout
@@ -565,7 +565,7 @@ initializeFunction_GciTsIsSubclassOfClass_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsLoad_inLibrary: cLibrary
 
 	FunctionGciTsLoad := CCallout
@@ -576,7 +576,7 @@ initializeFunction_GciTsLoad_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsLogin_inLibrary: cLibrary
 
 	FunctionGciTsLogin := CCallout
@@ -587,7 +587,7 @@ initializeFunction_GciTsLogin_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsLogout_inLibrary: cLibrary
 
 	FunctionGciTsLogout := CCallout
@@ -598,7 +598,7 @@ initializeFunction_GciTsLogout_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsMoreTraversal_inLibrary: cLibrary
 
 	FunctionGciTsMoreTraversal := CCallout
@@ -609,7 +609,7 @@ initializeFunction_GciTsMoreTraversal_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsNbExecute_inLibrary: cLibrary
 
 	FunctionGciTsNbExecute := CCallout
@@ -620,7 +620,7 @@ initializeFunction_GciTsNbExecute_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsNbLogin_inLibrary: cLibrary
 
 	FunctionGciTsNbLogin := CCallout
@@ -631,7 +631,7 @@ initializeFunction_GciTsNbLogin_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsNbLoginFinished_inLibrary: cLibrary
 
 	FunctionGciTsNbLoginFinished := CCallout
@@ -642,7 +642,7 @@ initializeFunction_GciTsNbLoginFinished_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsNbLogout_inLibrary: cLibrary
 
 	FunctionGciTsNbLogout := CCallout
@@ -653,7 +653,7 @@ initializeFunction_GciTsNbLogout_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsNbPerform_inLibrary: cLibrary
 
 	FunctionGciTsNbPerform := CCallout
@@ -664,7 +664,7 @@ initializeFunction_GciTsNbPerform_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsNbResult_inLibrary: cLibrary
 
 	FunctionGciTsNbResult := CCallout
@@ -675,7 +675,7 @@ initializeFunction_GciTsNbResult_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsNewByteArray_inLibrary: cLibrary
 
 	FunctionGciTsNewByteArray := CCallout
@@ -686,7 +686,7 @@ initializeFunction_GciTsNewByteArray_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsNewObj_inLibrary: cLibrary
 
 	FunctionGciTsNewObj := CCallout
@@ -697,7 +697,7 @@ initializeFunction_GciTsNewObj_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsNewString__inLibrary: cLibrary
 
 	FunctionGciTsNewString_ := CCallout
@@ -708,7 +708,7 @@ initializeFunction_GciTsNewString__inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsNewString_inLibrary: cLibrary
 
 	FunctionGciTsNewString := CCallout
@@ -719,7 +719,7 @@ initializeFunction_GciTsNewString_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsNewSymbol_inLibrary: cLibrary
 
 	FunctionGciTsNewSymbol := CCallout
@@ -730,7 +730,7 @@ initializeFunction_GciTsNewSymbol_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsNewUnicodeString__inLibrary: cLibrary
 
 	FunctionGciTsNewUnicodeString_ := CCallout
@@ -741,7 +741,7 @@ initializeFunction_GciTsNewUnicodeString__inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsNewUnicodeString_inLibrary: cLibrary
 
 	FunctionGciTsNewUnicodeString := CCallout
@@ -752,7 +752,7 @@ initializeFunction_GciTsNewUnicodeString_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsNewUtf8String__inLibrary: cLibrary
 
 	FunctionGciTsNewUtf8String_ := CCallout
@@ -763,7 +763,7 @@ initializeFunction_GciTsNewUtf8String__inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsNewUtf8String_inLibrary: cLibrary
 
 	FunctionGciTsNewUtf8String := CCallout
@@ -774,7 +774,7 @@ initializeFunction_GciTsNewUtf8String_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsObjExists_inLibrary: cLibrary
 
 	FunctionGciTsObjExists := CCallout
@@ -785,7 +785,7 @@ initializeFunction_GciTsObjExists_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsOopIsSpecial_inLibrary: cLibrary
 
 	FunctionGciTsOopIsSpecial := CCallout
@@ -796,7 +796,7 @@ initializeFunction_GciTsOopIsSpecial_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsOopToChar_inLibrary: cLibrary
 
 	FunctionGciTsOopToChar := CCallout
@@ -807,7 +807,7 @@ initializeFunction_GciTsOopToChar_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsOopToDouble_inLibrary: cLibrary
 
 	FunctionGciTsOopToDouble := CCallout
@@ -818,7 +818,7 @@ initializeFunction_GciTsOopToDouble_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsOopToI64_inLibrary: cLibrary
 
 	FunctionGciTsOopToI64 := CCallout
@@ -829,7 +829,7 @@ initializeFunction_GciTsOopToI64_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsPerform_inLibrary: cLibrary
 
 	FunctionGciTsPerform := CCallout
@@ -840,7 +840,7 @@ initializeFunction_GciTsPerform_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsPerformFetchBytes_inLibrary: cLibrary
 
 	FunctionGciTsPerformFetchBytes := CCallout
@@ -851,7 +851,7 @@ initializeFunction_GciTsPerformFetchBytes_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsProtectMethods_inLibrary: cLibrary
 
 	FunctionGciTsProtectMethods := CCallout
@@ -862,7 +862,7 @@ initializeFunction_GciTsProtectMethods_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsReleaseAllObjs_inLibrary: cLibrary
 
 	FunctionGciTsReleaseAllObjs := CCallout
@@ -873,7 +873,7 @@ initializeFunction_GciTsReleaseAllObjs_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsReleaseObjs_inLibrary: cLibrary
 
 	FunctionGciTsReleaseObjs := CCallout
@@ -884,7 +884,7 @@ initializeFunction_GciTsReleaseObjs_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsRemoveOopsFromNsc_inLibrary: cLibrary
 
 	FunctionGciTsRemoveOopsFromNsc := CCallout
@@ -895,7 +895,7 @@ initializeFunction_GciTsRemoveOopsFromNsc_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsResolveSymbol_inLibrary: cLibrary
 
 	FunctionGciTsResolveSymbol := CCallout
@@ -906,7 +906,7 @@ initializeFunction_GciTsResolveSymbol_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsResolveSymbolObj_inLibrary: cLibrary
 
 	FunctionGciTsResolveSymbolObj := CCallout
@@ -917,7 +917,7 @@ initializeFunction_GciTsResolveSymbolObj_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsSaveObjs_inLibrary: cLibrary
 
 	FunctionGciTsSaveObjs := CCallout
@@ -928,7 +928,7 @@ initializeFunction_GciTsSaveObjs_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsSessionIsRemote_inLibrary: cLibrary
 
 	FunctionGciTsSessionIsRemote := CCallout
@@ -939,7 +939,7 @@ initializeFunction_GciTsSessionIsRemote_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsSocket_inLibrary: cLibrary
 
 	FunctionGciTsSocket := CCallout
@@ -950,7 +950,7 @@ initializeFunction_GciTsSocket_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsStoreBytes_inLibrary: cLibrary
 
 	FunctionGciTsStoreBytes := CCallout
@@ -961,7 +961,7 @@ initializeFunction_GciTsStoreBytes_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsStoreOops_inLibrary: cLibrary
 
 	FunctionGciTsStoreOops := CCallout
@@ -972,7 +972,7 @@ initializeFunction_GciTsStoreOops_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsStoreTrav_inLibrary: cLibrary
 
 	FunctionGciTsStoreTrav := CCallout
@@ -983,7 +983,7 @@ initializeFunction_GciTsStoreTrav_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsStoreTravDoTravRefs_inLibrary: cLibrary
 
 	FunctionGciTsStoreTravDoTravRefs := CCallout
@@ -994,7 +994,7 @@ initializeFunction_GciTsStoreTravDoTravRefs_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsVersion_inLibrary: cLibrary
 
 	FunctionGciTsVersion := CCallout
@@ -1005,7 +1005,7 @@ initializeFunction_GciTsVersion_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsWaitForEvent_inLibrary: cLibrary
 
 	FunctionGciTsWaitForEvent := CCallout
@@ -1016,7 +1016,7 @@ initializeFunction_GciTsWaitForEvent_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciTsX509Login_inLibrary: cLibrary
 
 	FunctionGciTsX509Login := CCallout
@@ -1027,7 +1027,7 @@ initializeFunction_GciTsX509Login_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciUnload_inLibrary: cLibrary
 
 	FunctionGciUnload := CCallout
@@ -1038,7 +1038,7 @@ initializeFunction_GciUnload_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunction_GciUtf8To8bit_inLibrary: cLibrary
 
 	FunctionGciUtf8To8bit := CCallout
@@ -1049,7 +1049,7 @@ initializeFunction_GciUtf8To8bit_inLibrary: cLibrary
 		varArgsAfter: -1.
 %
 category: 'Initializing - private'
-classmethod: GciTsLibrary
+classmethod: GciTsLibraryFull
 initializeFunctions
 
 	| library |
@@ -1152,11 +1152,11 @@ initializeFunctions
 		initializeFunction_GciUtf8To8bit_inLibrary: library;
 		yourself.
 %
-! ------------------- Instance methods for GciTsLibrary
+! ------------------- Instance methods for GciTsLibraryFull
 set compile_env: 0
 category: 'Functions'
-method: GciTsLibrary
-GciFree_: ptr 
+method: GciTsLibraryFull
+GciFree_: ptr
 	"$GEMSTONE/include/gcits.hf line 1391
 void GciFree(void* ptr) ;"
 
@@ -1165,8 +1165,8 @@ void GciFree(void* ptr) ;"
 	^FunctionGciFree callWith: { ptr }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciHostCallDebuggerMsg_: msg 
+method: GciTsLibraryFull
+GciHostCallDebuggerMsg_: msg
 	"$GEMSTONE/include/gcits.hf line 1384
 int GciHostCallDebuggerMsg(const char* msg) ;"
 
@@ -1175,8 +1175,8 @@ int GciHostCallDebuggerMsg(const char* msg) ;"
 	^FunctionGciHostCallDebuggerMsg callWith: { msg }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciHostFtime_: sec _: millitm 
+method: GciTsLibraryFull
+GciHostFtime_: sec _: millitm
 	"$GEMSTONE/include/gcits.hf line 1398
 void GciHostFtime(time_t *sec, unsigned short *millitm) ;"
 
@@ -1185,8 +1185,8 @@ void GciHostFtime(time_t *sec, unsigned short *millitm) ;"
 	^FunctionGciHostFtime callWith: { sec. millitm }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciHostMilliSleep_: milliSeconds 
+method: GciTsLibraryFull
+GciHostMilliSleep_: milliSeconds
 	"$GEMSTONE/include/gcits.hf line 1401
 void GciHostMilliSleep(unsigned int milliSeconds) ;"
 
@@ -1195,8 +1195,8 @@ void GciHostMilliSleep(unsigned int milliSeconds) ;"
 	^FunctionGciHostMilliSleep callWith: { milliSeconds }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciI32ToOop_: arg 
+method: GciTsLibraryFull
+GciI32ToOop_: arg
 	"$GEMSTONE/include/gcits.hf line 1205
 OopType GciI32ToOop(int arg) ;"
 
@@ -1205,8 +1205,8 @@ OopType GciI32ToOop(int arg) ;"
 	^FunctionGciI32ToOop callWith: { arg }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciMalloc_: length _: lineNum 
+method: GciTsLibraryFull
+GciMalloc_: length _: lineNum
 	"$GEMSTONE/include/gcits.hf line 1381
 void*GciMalloc(size_t length, int lineNum) ;"
 
@@ -1215,8 +1215,8 @@ void*GciMalloc(size_t length, int lineNum) ;"
 	^FunctionGciMalloc callWith: { length. lineNum }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciNextUtf8Character_: src _: len _: chOut 
+method: GciTsLibraryFull
+GciNextUtf8Character_: src _: len _: chOut
 	"$GEMSTONE/include/gcits.hf line 1341
 ssize_t GciNextUtf8Character(const char* src,       size_t len,       uint *chOut) ;"
 
@@ -1225,7 +1225,7 @@ ssize_t GciNextUtf8Character(const char* src,       size_t len,       uint *chOu
 	^FunctionGciNextUtf8Character callWith: { src. len. chOut }
 %
 category: 'Functions'
-method: GciTsLibrary
+method: GciTsLibraryFull
 GciRtlIsLoaded
 	"$GEMSTONE/include/gcirtl.hf line 94
 BoolType GciRtlIsLoaded(void);"
@@ -1235,8 +1235,8 @@ BoolType GciRtlIsLoaded(void);"
 	^FunctionGciRtlIsLoaded callWith: {  }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciRtlLoad_: useRpc _: path _: errBuf _: errBufSize 
+method: GciTsLibraryFull
+GciRtlLoad_: useRpc _: path _: errBuf _: errBufSize
 	"$GEMSTONE/include/gcirtl.hf line 65
 BoolType GciRtlLoad(BoolType useRpc, const char *path,    char errBuf[], size_t errBufSize);"
 
@@ -1245,8 +1245,8 @@ BoolType GciRtlLoad(BoolType useRpc, const char *path,    char errBuf[], size_t 
 	^FunctionGciRtlLoad callWith: { useRpc. path. errBuf. errBufSize }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciRtlLoadA_: useRpc _: path _: errBuf _: errBufSize _: vmLibPath 
+method: GciTsLibraryFull
+GciRtlLoadA_: useRpc _: path _: errBuf _: errBufSize _: vmLibPath
 	"$GEMSTONE/include/gcirtl.hf line 68
 BoolType GciRtlLoadA(BoolType useRpc, const char *path,    char errBuf[], size_t errBufSize, GciRtlFnameBuf *vmLibPath );"
 
@@ -1255,7 +1255,7 @@ BoolType GciRtlLoadA(BoolType useRpc, const char *path,    char errBuf[], size_t
 	^FunctionGciRtlLoadA callWith: { useRpc. path. errBuf. errBufSize. vmLibPath }
 %
 category: 'Functions'
-method: GciTsLibrary
+method: GciTsLibraryFull
 GciRtlUnload
 	"$GEMSTONE/include/gcirtl.hf line 90
 void GciRtlUnload(void);"
@@ -1265,7 +1265,7 @@ void GciRtlUnload(void);"
 	^FunctionGciRtlUnload callWith: {  }
 %
 category: 'Functions'
-method: GciTsLibrary
+method: GciTsLibraryFull
 GciShutdown
 	"$GEMSTONE/include/gcits.hf line 1374
 void GciShutdown() ;"
@@ -1275,8 +1275,8 @@ void GciShutdown() ;"
 	^FunctionGciShutdown callWith: {  }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTimeStampMsStr_: seconds _: milliSeconds _: result _: resultSize 
+method: GciTsLibraryFull
+GciTimeStampMsStr_: seconds _: milliSeconds _: result _: resultSize
 	"$GEMSTONE/include/gcits.hf line 1394
 void GciTimeStampMsStr(time_t seconds, unsigned short milliSeconds,                char *result, size_t resultSize) ;"
 
@@ -1285,8 +1285,8 @@ void GciTimeStampMsStr(time_t seconds, unsigned short milliSeconds,             
 	^FunctionGciTimeStampMsStr callWith: { seconds. milliSeconds. result. resultSize }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsAbort_: sess _: err 
+method: GciTsLibraryFull
+GciTsAbort_: sess _: err
 	"$GEMSTONE/include/gcits.hf line 962
 BoolType GciTsAbort(GciSession sess,        GciErrSType *err) ;"
 
@@ -1295,8 +1295,8 @@ BoolType GciTsAbort(GciSession sess,        GciErrSType *err) ;"
 	^FunctionGciTsAbort callWith: { sess. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsBegin_: sess _: err 
+method: GciTsLibraryFull
+GciTsBegin_: sess _: err
 	"$GEMSTONE/include/gcits.hf line 970
 BoolType GciTsBegin(GciSession sess,        GciErrSType *err) ;"
 
@@ -1305,8 +1305,8 @@ BoolType GciTsBegin(GciSession sess,        GciErrSType *err) ;"
 	^FunctionGciTsBegin callWith: { sess. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsBreak_: sess _: hard _: err 
+method: GciTsLibraryFull
+GciTsBreak_: sess _: hard _: err
 	"$GEMSTONE/include/gcits.hf line 1248
 BoolType GciTsBreak(GciSession sess,        BoolType hard,        GciErrSType *err) ;"
 
@@ -1315,8 +1315,8 @@ BoolType GciTsBreak(GciSession sess,        BoolType hard,        GciErrSType *e
 	^FunctionGciTsBreak callWith: { sess. hard. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsCallInProgress_: sess _: err 
+method: GciTsLibraryFull
+GciTsCallInProgress_: sess _: err
 	"$GEMSTONE/include/gcits.hf line 954
 int GciTsCallInProgress(GciSession sess,     GciErrSType *err) ;"
 
@@ -1325,8 +1325,8 @@ int GciTsCallInProgress(GciSession sess,     GciErrSType *err) ;"
 	^FunctionGciTsCallInProgress callWith: { sess. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsCancelWaitForEvent_: sess _: err 
+method: GciTsLibraryFull
+GciTsCancelWaitForEvent_: sess _: err
 	"$GEMSTONE/include/gcits.hf line 1293
 BoolType GciTsCancelWaitForEvent(GciSession sess,       GciErrSType *err) ;"
 
@@ -1335,8 +1335,8 @@ BoolType GciTsCancelWaitForEvent(GciSession sess,       GciErrSType *err) ;"
 	^FunctionGciTsCancelWaitForEvent callWith: { sess. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsCharToOop_: ch 
+method: GciTsLibraryFull
+GciTsCharToOop_: ch
 	"$GEMSTONE/include/gcits.hf line 1147
 OopType GciTsCharToOop(uint ch) ;"
 
@@ -1345,8 +1345,8 @@ OopType GciTsCharToOop(uint ch) ;"
 	^FunctionGciTsCharToOop callWith: { ch }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsClassRemoveAllMethods_: sess _: aClass _: environmentId _: err 
+method: GciTsLibraryFull
+GciTsClassRemoveAllMethods_: sess _: aClass _: environmentId _: err
 	"$GEMSTONE/include/gcits.hf line 872
 BoolType GciTsClassRemoveAllMethods(GciSession sess,          OopType aClass,          ushort environmentId,          GciErrSType *err) ;"
 
@@ -1355,8 +1355,8 @@ BoolType GciTsClassRemoveAllMethods(GciSession sess,          OopType aClass,   
 	^FunctionGciTsClassRemoveAllMethods callWith: { sess. aClass. environmentId. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsClearStack_: sess _: gsProcess _: err 
+method: GciTsLibraryFull
+GciTsClearStack_: sess _: gsProcess _: err
 	"$GEMSTONE/include/gcits.hf line 724
 BoolType GciTsClearStack(GciSession sess,      OopType gsProcess,      GciErrSType *err) ;"
 
@@ -1365,8 +1365,8 @@ BoolType GciTsClearStack(GciSession sess,      OopType gsProcess,      GciErrSTy
 	^FunctionGciTsClearStack callWith: { sess. gsProcess. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsCommit_: sess _: err 
+method: GciTsLibraryFull
+GciTsCommit_: sess _: err
 	"$GEMSTONE/include/gcits.hf line 978
 BoolType GciTsCommit(GciSession sess,         GciErrSType *err) ;"
 
@@ -1375,8 +1375,8 @@ BoolType GciTsCommit(GciSession sess,         GciErrSType *err) ;"
 	^FunctionGciTsCommit callWith: { sess. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsCompileMethod_: sess _: source _: aClass _: category _: symbolList _: overrideSelector _: compileFlags _: environmentId _: err 
+method: GciTsLibraryFull
+GciTsCompileMethod_: sess _: source _: aClass _: category _: symbolList _: overrideSelector _: compileFlags _: environmentId _: err
 	"$GEMSTONE/include/gcits.hf line 911
 OopType GciTsCompileMethod(GciSession sess,        OopType source,        OopType aClass,        OopType category,        OopType symbolList,        OopType overrideSelector,        int compileFlags,        ushort environmentId,        GciErrSType *err) ;"
 
@@ -1385,8 +1385,8 @@ OopType GciTsCompileMethod(GciSession sess,        OopType source,        OopTyp
 	^FunctionGciTsCompileMethod callWith: { sess. source. aClass. category. symbolList. overrideSelector. compileFlags. environmentId. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsContinueWith_: sess _: gsProcess _: replaceTopOfStack _: continueWithError _: flags _: err 
+method: GciTsLibraryFull
+GciTsContinueWith_: sess _: gsProcess _: replaceTopOfStack _: continueWithError _: flags _: err
 	"$GEMSTONE/include/gcits.hf line 939
 OopType GciTsContinueWith(GciSession sess,       OopType gsProcess,       OopType replaceTopOfStack,       GciErrSType *continueWithError,       int flags,       GciErrSType *err) ;"
 
@@ -1395,8 +1395,8 @@ OopType GciTsContinueWith(GciSession sess,       OopType gsProcess,       OopTyp
 	^FunctionGciTsContinueWith callWith: { sess. gsProcess. replaceTopOfStack. continueWithError. flags. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsDirtyObjsInit_: sess _: err 
+method: GciTsLibraryFull
+GciTsDirtyObjsInit_: sess _: err
 	"$GEMSTONE/include/gcits.hf line 1162
 BoolType GciTsDirtyObjsInit(GciSession sess, GciErrSType *err) ;"
 
@@ -1405,8 +1405,8 @@ BoolType GciTsDirtyObjsInit(GciSession sess, GciErrSType *err) ;"
 	^FunctionGciTsDirtyObjsInit callWith: { sess. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsDoubleToOop_: sess _: aDouble _: err 
+method: GciTsLibraryFull
+GciTsDoubleToOop_: sess _: aDouble _: err
 	"$GEMSTONE/include/gcits.hf line 1182
 OopType GciTsDoubleToOop(GciSession sess,        double aDouble,        GciErrSType *err) ;"
 
@@ -1415,8 +1415,8 @@ OopType GciTsDoubleToOop(GciSession sess,        double aDouble,        GciErrST
 	^FunctionGciTsDoubleToOop callWith: { sess. aDouble. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsDoubleToSmallDouble_: aFloat 
+method: GciTsLibraryFull
+GciTsDoubleToSmallDouble_: aFloat
 	"$GEMSTONE/include/gcits.hf line 1171
 OopType GciTsDoubleToSmallDouble(double aFloat) ;"
 
@@ -1425,8 +1425,8 @@ OopType GciTsDoubleToSmallDouble(double aFloat) ;"
 	^FunctionGciTsDoubleToSmallDouble callWith: { aFloat }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsEncrypt_: password _: outBuf _: outBuffSize 
+method: GciTsLibraryFull
+GciTsEncrypt_: password _: outBuf _: outBuffSize
 	"$GEMSTONE/include/gcits.hf line 39
 char* GciTsEncrypt(const char* password,       char *outBuf,       size_t outBuffSize) ;"
 
@@ -1435,8 +1435,8 @@ char* GciTsEncrypt(const char* password,       char *outBuf,       size_t outBuf
 	^FunctionGciTsEncrypt callWith: { password. outBuf. outBuffSize }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsExecute__: sess _: sourceStr _: sourceSize _: sourceOop _: contextObject _: symbolList _: flags _: environmentId _: err 
+method: GciTsLibraryFull
+GciTsExecute__: sess _: sourceStr _: sourceSize _: sourceOop _: contextObject _: symbolList _: flags _: environmentId _: err
 	"$GEMSTONE/include/gcits.hf line 836
 OopType GciTsExecute_(GciSession sess,          const char* sourceStr,          ssize_t sourceSize,          OopType sourceOop,          OopType contextObject,          OopType symbolList,          int flags ,          ushort environmentId ,          GciErrSType *err) ;"
 
@@ -1445,8 +1445,8 @@ OopType GciTsExecute_(GciSession sess,          const char* sourceStr,          
 	^FunctionGciTsExecute_ callWith: { sess. sourceStr. sourceSize. sourceOop. contextObject. symbolList. flags. environmentId. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsExecute_: sess _: sourceStr _: sourceOop _: contextObject _: symbolList _: flags _: environmentId _: err 
+method: GciTsLibraryFull
+GciTsExecute_: sess _: sourceStr _: sourceOop _: contextObject _: symbolList _: flags _: environmentId _: err
 	"$GEMSTONE/include/gcits.hf line 805
 OopType GciTsExecute(GciSession sess,           const char* sourceStr,           OopType sourceOop,           OopType contextObject,           OopType symbolList,         int flags ,         ushort environmentId ,         GciErrSType *err) ;"
 
@@ -1455,8 +1455,8 @@ OopType GciTsExecute(GciSession sess,           const char* sourceStr,          
 	^FunctionGciTsExecute callWith: { sess. sourceStr. sourceOop. contextObject. symbolList. flags. environmentId. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsExecuteFetchBytes_: sess _: sourceStr _: sourceSize _: sourceOop _: contextObject _: symbolList _: result _: maxResultSize _: err 
+method: GciTsLibraryFull
+GciTsExecuteFetchBytes_: sess _: sourceStr _: sourceSize _: sourceOop _: contextObject _: symbolList _: result _: maxResultSize _: err
 	"$GEMSTONE/include/gcits.hf line 858
 ssize_t GciTsExecuteFetchBytes(GciSession sess,            const char* sourceStr,            ssize_t sourceSize,            OopType sourceOop,            OopType contextObject,            OopType symbolList,            ByteType *result,            ssize_t maxResultSize,            GciErrSType *err) ;"
 
@@ -1465,8 +1465,8 @@ ssize_t GciTsExecuteFetchBytes(GciSession sess,            const char* sourceStr
 	^FunctionGciTsExecuteFetchBytes callWith: { sess. sourceStr. sourceSize. sourceOop. contextObject. symbolList. result. maxResultSize. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsFetchBytes_: sess _: theObject _: startIndex _: dest _: numBytes _: err 
+method: GciTsLibraryFull
+GciTsFetchBytes_: sess _: theObject _: startIndex _: dest _: numBytes _: err
 	"$GEMSTONE/include/gcits.hf line 252
 int64 GciTsFetchBytes(GciSession sess,          OopType theObject,          int64 startIndex,          ByteType *dest,          int64 numBytes,          GciErrSType *err) ;"
 
@@ -1475,8 +1475,8 @@ int64 GciTsFetchBytes(GciSession sess,          OopType theObject,          int6
 	^FunctionGciTsFetchBytes callWith: { sess. theObject. startIndex. dest. numBytes. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsFetchChars_: sess _: theObject _: startIndex _: cString _: maxSize _: err 
+method: GciTsLibraryFull
+GciTsFetchChars_: sess _: theObject _: startIndex _: cString _: maxSize _: err
 	"$GEMSTONE/include/gcits.hf line 273
 int64 GciTsFetchChars(GciSession sess,          OopType theObject,          int64 startIndex,          char *cString,          int64 maxSize,          GciErrSType *err) ;"
 
@@ -1485,8 +1485,8 @@ int64 GciTsFetchChars(GciSession sess,          OopType theObject,          int6
 	^FunctionGciTsFetchChars callWith: { sess. theObject. startIndex. cString. maxSize. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsFetchClass_: sess _: obj _: err 
+method: GciTsLibraryFull
+GciTsFetchClass_: sess _: obj _: err
 	"$GEMSTONE/include/gcits.hf line 495
 OopType GciTsFetchClass(GciSession sess,     OopType obj,     GciErrSType *err) ;"
 
@@ -1495,8 +1495,8 @@ OopType GciTsFetchClass(GciSession sess,     OopType obj,     GciErrSType *err) 
 	^FunctionGciTsFetchClass callWith: { sess. obj. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsFetchObjInfo_: sess _: objId _: addToExportSet _: result _: buffer _: bufSize _: err 
+method: GciTsLibraryFull
+GciTsFetchObjInfo_: sess _: objId _: addToExportSet _: result _: buffer _: bufSize _: err
 	"$GEMSTONE/include/gcits.hf line 461
 int64 GciTsFetchObjInfo(GciSession sess,     OopType objId,     BoolType addToExportSet,     GciTsObjInfo *result,     ByteType *buffer,     size_t bufSize,     GciErrSType *err) ;"
 
@@ -1505,8 +1505,8 @@ int64 GciTsFetchObjInfo(GciSession sess,     OopType objId,     BoolType addToEx
 	^FunctionGciTsFetchObjInfo callWith: { sess. objId. addToExportSet. result. buffer. bufSize. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsFetchOops_: sess _: theObject _: startIndex _: theOops _: numOops _: err 
+method: GciTsLibraryFull
+GciTsFetchOops_: sess _: theObject _: startIndex _: theOops _: numOops _: err
 	"$GEMSTONE/include/gcits.hf line 355
 int GciTsFetchOops(GciSession sess,       OopType theObject,       int64 startIndex,       OopType *theOops,       int numOops,       GciErrSType *err) ;"
 
@@ -1515,8 +1515,8 @@ int GciTsFetchOops(GciSession sess,       OopType theObject,       int64 startIn
 	^FunctionGciTsFetchOops callWith: { sess. theObject. startIndex. theOops. numOops. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsFetchSize_: sess _: obj _: err 
+method: GciTsLibraryFull
+GciTsFetchSize_: sess _: obj _: err
 	"$GEMSTONE/include/gcits.hf line 475
 int64 GciTsFetchSize(GciSession sess,         OopType obj,         GciErrSType *err) ;"
 
@@ -1525,8 +1525,8 @@ int64 GciTsFetchSize(GciSession sess,         OopType obj,         GciErrSType *
 	^FunctionGciTsFetchSize callWith: { sess. obj. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsFetchSpecialClass_: oop 
+method: GciTsLibraryFull
+GciTsFetchSpecialClass_: oop
 	"$GEMSTONE/include/gcits.hf line 1130
 OopType GciTsFetchSpecialClass(OopType oop) ;"
 
@@ -1535,8 +1535,8 @@ OopType GciTsFetchSpecialClass(OopType oop) ;"
 	^FunctionGciTsFetchSpecialClass callWith: { oop }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsFetchTraversal_: sess _: theOops _: numOops _: ctArgs _: err 
+method: GciTsLibraryFull
+GciTsFetchTraversal_: sess _: theOops _: numOops _: ctArgs _: err
 	"$GEMSTONE/include/gcits.hf line 1084
 int GciTsFetchTraversal(GciSession sess,     const OopType *theOops,     int numOops,     GciClampedTravArgsSType *ctArgs,     GciErrSType *err) ;"
 
@@ -1545,8 +1545,8 @@ int GciTsFetchTraversal(GciSession sess,     const OopType *theOops,     int num
 	^FunctionGciTsFetchTraversal callWith: { sess. theOops. numOops. ctArgs. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsFetchUnicode_: sess _: obj _: dest _: destSize _: requiredSize _: err 
+method: GciTsLibraryFull
+GciTsFetchUnicode_: sess _: obj _: dest _: destSize _: requiredSize _: err
 	"$GEMSTONE/include/gcits.hf line 685
 int64 GciTsFetchUnicode(GciSession sess,     OopType obj,     ushort *dest,     int64 destSize,     int64 *requiredSize,     GciErrSType *err) ;"
 
@@ -1555,8 +1555,8 @@ int64 GciTsFetchUnicode(GciSession sess,     OopType obj,     ushort *dest,     
 	^FunctionGciTsFetchUnicode callWith: { sess. obj. dest. destSize. requiredSize. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsFetchUtf8_: sess _: anObject _: dest _: destSize _: requiredSize _: err 
+method: GciTsLibraryFull
+GciTsFetchUtf8_: sess _: anObject _: dest _: destSize _: requiredSize _: err
 	"$GEMSTONE/include/gcits.hf line 712
 int64 GciTsFetchUtf8(GciSession sess,         OopType anObject,         ByteType *dest,         int64 destSize,         int64 *requiredSize,         GciErrSType *err) ;"
 
@@ -1565,8 +1565,8 @@ int64 GciTsFetchUtf8(GciSession sess,         OopType anObject,         ByteType
 	^FunctionGciTsFetchUtf8 callWith: { sess. anObject. dest. destSize. requiredSize. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsFetchUtf8Bytes_: sess _: aString _: startIndex _: dest _: bufSize _: utf8String _: err _: flags 
+method: GciTsLibraryFull
+GciTsFetchUtf8Bytes_: sess _: aString _: startIndex _: dest _: bufSize _: utf8String _: err _: flags
 	"$GEMSTONE/include/gcits.hf line 317
 int64 GciTsFetchUtf8Bytes(GciSession sess,       OopType aString,       int64 startIndex,       ByteType *dest,       int64 bufSize,       OopType *utf8String,       GciErrSType *err ,       int flags = 0) ;"
 
@@ -1575,8 +1575,8 @@ int64 GciTsFetchUtf8Bytes(GciSession sess,       OopType aString,       int64 st
 	^FunctionGciTsFetchUtf8Bytes callWith: { sess. aString. startIndex. dest. bufSize. utf8String. err. flags }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsFetchVaryingSize_: sess _: obj _: err 
+method: GciTsLibraryFull
+GciTsFetchVaryingSize_: sess _: obj _: err
 	"$GEMSTONE/include/gcits.hf line 485
 int64 GciTsFetchVaryingSize(GciSession sess,         OopType obj,         GciErrSType *err) ;"
 
@@ -1585,8 +1585,8 @@ int64 GciTsFetchVaryingSize(GciSession sess,         OopType obj,         GciErr
 	^FunctionGciTsFetchVaryingSize callWith: { sess. obj. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsGemTrace_: sess _: enable _: err 
+method: GciTsLibraryFull
+GciTsGemTrace_: sess _: enable _: err
 	"$GEMSTONE/include/gcits.hf line 179
 int GciTsGemTrace(GciSession sess,      int enable,      GciErrSType *err) ;"
 
@@ -1595,8 +1595,8 @@ int GciTsGemTrace(GciSession sess,      int enable,      GciErrSType *err) ;"
 	^FunctionGciTsGemTrace callWith: { sess. enable. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsGetFreeOops_: sess _: buf _: numOopsRequested _: err 
+method: GciTsLibraryFull
+GciTsGetFreeOops_: sess _: buf _: numOopsRequested _: err
 	"$GEMSTONE/include/gcits.hf line 208
 int GciTsGetFreeOops(GciSession sess,         OopType *buf,         int numOopsRequested,         GciErrSType *err) ;"
 
@@ -1605,8 +1605,8 @@ int GciTsGetFreeOops(GciSession sess,         OopType *buf,         int numOopsR
 	^FunctionGciTsGetFreeOops callWith: { sess. buf. numOopsRequested. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsI32ToOop_: arg 
+method: GciTsLibraryFull
+GciTsI32ToOop_: arg
 	"$GEMSTONE/include/gcits.hf line 1212
 OopType GciTsI32ToOop(int arg) ;"
 
@@ -1615,8 +1615,8 @@ OopType GciTsI32ToOop(int arg) ;"
 	^FunctionGciTsI32ToOop callWith: { arg }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsI64ToOop_: sess _: arg _: err 
+method: GciTsLibraryFull
+GciTsI64ToOop_: sess _: arg _: err
 	"$GEMSTONE/include/gcits.hf line 1221
 OopType GciTsI64ToOop(GciSession sess,     int64 arg,     GciErrSType *err) ;"
 
@@ -1625,8 +1625,8 @@ OopType GciTsI64ToOop(GciSession sess,     int64 arg,     GciErrSType *err) ;"
 	^FunctionGciTsI64ToOop callWith: { sess. arg. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsIsKindOf_: sess _: obj _: aClass _: err 
+method: GciTsLibraryFull
+GciTsIsKindOf_: sess _: obj _: aClass _: err
 	"$GEMSTONE/include/gcits.hf line 514
 int GciTsIsKindOf(GciSession sess,      OopType obj,      OopType aClass,      GciErrSType *err) ;"
 
@@ -1635,8 +1635,8 @@ int GciTsIsKindOf(GciSession sess,      OopType obj,      OopType aClass,      G
 	^FunctionGciTsIsKindOf callWith: { sess. obj. aClass. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsIsKindOfClass_: sess _: obj _: aClass _: err 
+method: GciTsLibraryFull
+GciTsIsKindOfClass_: sess _: obj _: aClass _: err
 	"$GEMSTONE/include/gcits.hf line 538
 int GciTsIsKindOfClass(GciSession sess,           OopType obj,           OopType aClass,           GciErrSType *err) ;"
 
@@ -1645,8 +1645,8 @@ int GciTsIsKindOfClass(GciSession sess,           OopType obj,           OopType
 	^FunctionGciTsIsKindOfClass callWith: { sess. obj. aClass. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsIsSubclassOf_: sess _: cls _: aClass _: err 
+method: GciTsLibraryFull
+GciTsIsSubclassOf_: sess _: cls _: aClass _: err
 	"$GEMSTONE/include/gcits.hf line 526
 int GciTsIsSubclassOf(GciSession sess,          OopType cls,          OopType aClass,          GciErrSType *err) ;"
 
@@ -1655,8 +1655,8 @@ int GciTsIsSubclassOf(GciSession sess,          OopType cls,          OopType aC
 	^FunctionGciTsIsSubclassOf callWith: { sess. cls. aClass. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsIsSubclassOfClass_: sess _: cls _: aClass _: err 
+method: GciTsLibraryFull
+GciTsIsSubclassOfClass_: sess _: cls _: aClass _: err
 	"$GEMSTONE/include/gcits.hf line 550
 int GciTsIsSubclassOfClass(GciSession sess,        OopType cls,        OopType aClass,        GciErrSType *err) ;"
 
@@ -1665,8 +1665,8 @@ int GciTsIsSubclassOfClass(GciSession sess,        OopType cls,        OopType a
 	^FunctionGciTsIsSubclassOfClass callWith: { sess. cls. aClass. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsLoad_: path _: errBuf _: errBufSize 
+method: GciTsLibraryFull
+GciTsLoad_: path _: errBuf _: errBufSize
 	"$GEMSTONE/include/gcirtl.hf line 84
 BoolType GciTsLoad(const char *path, char *errBuf, size_t errBufSize);"
 
@@ -1675,8 +1675,8 @@ BoolType GciTsLoad(const char *path, char *errBuf, size_t errBufSize);"
 	^FunctionGciTsLoad callWith: { path. errBuf. errBufSize }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsLogin_: StoneNameNrs _: HostUserId _: HostPassword _: hostPwIsEncrypted _: GemServiceNrs _: gemstoneUsername _: gemstonePassword _: loginFlags _: haltOnErrNum _: executedSessionInit _: err 
+method: GciTsLibraryFull
+GciTsLogin_: StoneNameNrs _: HostUserId _: HostPassword _: hostPwIsEncrypted _: GemServiceNrs _: gemstoneUsername _: gemstonePassword _: loginFlags _: haltOnErrNum _: executedSessionInit _: err
 	"$GEMSTONE/include/gcits.hf line 72
 GciSession GciTsLogin(  const char *StoneNameNrs,  const char *HostUserId,  const char *HostPassword,  BoolType hostPwIsEncrypted,  const char *GemServiceNrs,  const char *gemstoneUsername,  const char *gemstonePassword,  unsigned int loginFlags ,  int haltOnErrNum,  BoolType *executedSessionInit,  GciErrSType *err) ;"
 
@@ -1685,8 +1685,8 @@ GciSession GciTsLogin(  const char *StoneNameNrs,  const char *HostUserId,  cons
 	^FunctionGciTsLogin callWith: { StoneNameNrs. HostUserId. HostPassword. hostPwIsEncrypted. GemServiceNrs. gemstoneUsername. gemstonePassword. loginFlags. haltOnErrNum. executedSessionInit. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsLogout_: sess _: err 
+method: GciTsLibraryFull
+GciTsLogout_: sess _: err
 	"$GEMSTONE/include/gcits.hf line 141
 BoolType GciTsLogout(GciSession sess,         GciErrSType *err) ;"
 
@@ -1695,8 +1695,8 @@ BoolType GciTsLogout(GciSession sess,         GciErrSType *err) ;"
 	^FunctionGciTsLogout callWith: { sess. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsMoreTraversal_: sess _: travBuff _: err 
+method: GciTsLibraryFull
+GciTsMoreTraversal_: sess _: travBuff _: err
 	"$GEMSTONE/include/gcits.hf line 1107
 int GciTsMoreTraversal(GciSession sess,           GciTravBufType *travBuff,           GciErrSType *err) ;"
 
@@ -1705,8 +1705,8 @@ int GciTsMoreTraversal(GciSession sess,           GciTravBufType *travBuff,     
 	^FunctionGciTsMoreTraversal callWith: { sess. travBuff. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsNbExecute_: sess _: sourceStr _: sourceOop _: contextObject _: symbolList _: flags _: environmentId _: err 
+method: GciTsLibraryFull
+GciTsNbExecute_: sess _: sourceStr _: sourceOop _: contextObject _: symbolList _: flags _: environmentId _: err
 	"$GEMSTONE/include/gcits.hf line 820
 BoolType GciTsNbExecute(GciSession sess,           const char* sourceStr,           OopType sourceOop,           OopType contextObject,           OopType symbolList,         int flags ,         ushort environmentId ,         GciErrSType *err) ;"
 
@@ -1715,8 +1715,8 @@ BoolType GciTsNbExecute(GciSession sess,           const char* sourceStr,       
 	^FunctionGciTsNbExecute callWith: { sess. sourceStr. sourceOop. contextObject. symbolList. flags. environmentId. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsNbLogin_: StoneNameNrs _: HostUserId _: HostPassword _: hostPwIsEncrypted _: GemServiceNrs _: gemstoneUsername _: gemstonePassword _: loginFlags _: haltOnErrNum _: loginPollSocket 
+method: GciTsLibraryFull
+GciTsNbLogin_: StoneNameNrs _: HostUserId _: HostPassword _: hostPwIsEncrypted _: GemServiceNrs _: gemstoneUsername _: gemstonePassword _: loginFlags _: haltOnErrNum _: loginPollSocket
 	"$GEMSTONE/include/gcits.hf line 96
 GciSession GciTsNbLogin(  const char *StoneNameNrs,  const char *HostUserId,  const char *HostPassword,  BoolType hostPwIsEncrypted,  const char *GemServiceNrs,  const char *gemstoneUsername,  const char *gemstonePassword,  unsigned int loginFlags ,  int haltOnErrNum,  int *loginPollSocket  ) ;"
 
@@ -1725,8 +1725,8 @@ GciSession GciTsNbLogin(  const char *StoneNameNrs,  const char *HostUserId,  co
 	^FunctionGciTsNbLogin callWith: { StoneNameNrs. HostUserId. HostPassword. hostPwIsEncrypted. GemServiceNrs. gemstoneUsername. gemstonePassword. loginFlags. haltOnErrNum. loginPollSocket }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsNbLoginFinished_: sess _: executedSessionInit _: err 
+method: GciTsLibraryFull
+GciTsNbLoginFinished_: sess _: executedSessionInit _: err
 	"$GEMSTONE/include/gcits.hf line 122
 int  GciTsNbLoginFinished(GciSession sess,                     BoolType *executedSessionInit,                     GciErrSType *err) ;"
 
@@ -1735,8 +1735,8 @@ int  GciTsNbLoginFinished(GciSession sess,                     BoolType *execute
 	^FunctionGciTsNbLoginFinished callWith: { sess. executedSessionInit. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsNbLogout_: sess _: err 
+method: GciTsLibraryFull
+GciTsNbLogout_: sess _: err
 	"$GEMSTONE/include/gcits.hf line 149
 BoolType GciTsNbLogout(GciSession sess, GciErrSType *err);"
 
@@ -1745,8 +1745,8 @@ BoolType GciTsNbLogout(GciSession sess, GciErrSType *err);"
 	^FunctionGciTsNbLogout callWith: { sess. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsNbPerform_: sess _: receiver _: aSymbol _: selectorStr _: args _: numArgs _: flags _: environmentId _: err 
+method: GciTsLibraryFull
+GciTsNbPerform_: sess _: receiver _: aSymbol _: selectorStr _: args _: numArgs _: flags _: environmentId _: err
 	"$GEMSTONE/include/gcits.hf line 750
 BoolType GciTsNbPerform(GciSession sess,         OopType receiver,         OopType aSymbol,         const char* selectorStr,         const OopType *args,         int numArgs,         int flags ,         ushort environmentId ,         GciErrSType *err) ;"
 
@@ -1755,8 +1755,8 @@ BoolType GciTsNbPerform(GciSession sess,         OopType receiver,         OopTy
 	^FunctionGciTsNbPerform callWith: { sess. receiver. aSymbol. selectorStr. args. numArgs. flags. environmentId. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsNbResult_: sess _: err 
+method: GciTsLibraryFull
+GciTsNbResult_: sess _: err
 	"$GEMSTONE/include/gcits.hf line 768
 OopType GciTsNbResult(GciSession sess,                                      GciErrSType *err) ;"
 
@@ -1765,8 +1765,8 @@ OopType GciTsNbResult(GciSession sess,                                      GciE
 	^FunctionGciTsNbResult callWith: { sess. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsNewByteArray_: sess _: body _: numBytes _: err 
+method: GciTsLibraryFull
+GciTsNewByteArray_: sess _: body _: numBytes _: err
 	"$GEMSTONE/include/gcits.hf line 571
 OopType GciTsNewByteArray(GciSession sess,       ByteType *body,       size_t numBytes,       GciErrSType *err) ;"
 
@@ -1775,8 +1775,8 @@ OopType GciTsNewByteArray(GciSession sess,       ByteType *body,       size_t nu
 	^FunctionGciTsNewByteArray callWith: { sess. body. numBytes. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsNewObj_: sess _: aClass _: err 
+method: GciTsLibraryFull
+GciTsNewObj_: sess _: aClass _: err
 	"$GEMSTONE/include/gcits.hf line 561
 OopType GciTsNewObj(GciSession sess,        OopType aClass,        GciErrSType *err) ;"
 
@@ -1785,8 +1785,8 @@ OopType GciTsNewObj(GciSession sess,        OopType aClass,        GciErrSType *
 	^FunctionGciTsNewObj callWith: { sess. aClass. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsNewString__: sess _: cString _: nBytes _: err 
+method: GciTsLibraryFull
+GciTsNewString__: sess _: cString _: nBytes _: err
 	"$GEMSTONE/include/gcits.hf line 582
 OopType GciTsNewString_(GciSession sess,     const char *cString,     size_t nBytes,     GciErrSType *err) ;"
 
@@ -1795,8 +1795,8 @@ OopType GciTsNewString_(GciSession sess,     const char *cString,     size_t nBy
 	^FunctionGciTsNewString_ callWith: { sess. cString. nBytes. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsNewString_: sess _: cString _: err 
+method: GciTsLibraryFull
+GciTsNewString_: sess _: cString _: err
 	"$GEMSTONE/include/gcits.hf line 593
 OopType GciTsNewString(GciSession sess,           const char *cString,           GciErrSType *err) ;"
 
@@ -1805,8 +1805,8 @@ OopType GciTsNewString(GciSession sess,           const char *cString,          
 	^FunctionGciTsNewString callWith: { sess. cString. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsNewSymbol_: sess _: cString _: err 
+method: GciTsLibraryFull
+GciTsNewSymbol_: sess _: cString _: err
 	"$GEMSTONE/include/gcits.hf line 603
 OopType GciTsNewSymbol(GciSession sess,           const char *cString,           GciErrSType *err) ;"
 
@@ -1815,8 +1815,8 @@ OopType GciTsNewSymbol(GciSession sess,           const char *cString,          
 	^FunctionGciTsNewSymbol callWith: { sess. cString. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsNewUnicodeString__: s _: str _: numShorts _: err 
+method: GciTsLibraryFull
+GciTsNewUnicodeString__: s _: str _: numShorts _: err
 	"$GEMSTONE/include/gcits.hf line 614
 OopType GciTsNewUnicodeString_(GciSession s,            const ushort* str,            size_t numShorts,            GciErrSType *err) ;"
 
@@ -1825,8 +1825,8 @@ OopType GciTsNewUnicodeString_(GciSession s,            const ushort* str,      
 	^FunctionGciTsNewUnicodeString_ callWith: { s. str. numShorts. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsNewUnicodeString_: sess _: str _: err 
+method: GciTsLibraryFull
+GciTsNewUnicodeString_: sess _: str _: err
 	"$GEMSTONE/include/gcits.hf line 627
 OopType GciTsNewUnicodeString(GciSession sess,           const ushort* str,           GciErrSType *err) ;"
 
@@ -1835,8 +1835,8 @@ OopType GciTsNewUnicodeString(GciSession sess,           const ushort* str,     
 	^FunctionGciTsNewUnicodeString callWith: { sess. str. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsNewUtf8String__: sess _: utf8data _: nBytes _: convertToUnicode _: err 
+method: GciTsLibraryFull
+GciTsNewUtf8String__: sess _: utf8data _: nBytes _: convertToUnicode _: err
 	"$GEMSTONE/include/gcits.hf line 660
 OopType GciTsNewUtf8String_(GciSession sess,         const char* utf8data,         size_t nBytes,         BoolType convertToUnicode,         GciErrSType *err) ;"
 
@@ -1845,8 +1845,8 @@ OopType GciTsNewUtf8String_(GciSession sess,         const char* utf8data,      
 	^FunctionGciTsNewUtf8String_ callWith: { sess. utf8data. nBytes. convertToUnicode. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsNewUtf8String_: sess _: utf8data _: convertToUnicode _: err 
+method: GciTsLibraryFull
+GciTsNewUtf8String_: sess _: utf8data _: convertToUnicode _: err
 	"$GEMSTONE/include/gcits.hf line 643
 OopType GciTsNewUtf8String(GciSession sess,        const char* utf8data,        BoolType convertToUnicode,        GciErrSType *err) ;"
 
@@ -1855,8 +1855,8 @@ OopType GciTsNewUtf8String(GciSession sess,        const char* utf8data,        
 	^FunctionGciTsNewUtf8String callWith: { sess. utf8data. convertToUnicode. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsObjExists_: sess _: obj 
+method: GciTsLibraryFull
+GciTsObjExists_: sess _: obj
 	"$GEMSTONE/include/gcits.hf line 504
 BoolType GciTsObjExists(GciSession sess, OopType obj) ;"
 
@@ -1865,8 +1865,8 @@ BoolType GciTsObjExists(GciSession sess, OopType obj) ;"
 	^FunctionGciTsObjExists callWith: { sess. obj }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsOopIsSpecial_: oop 
+method: GciTsLibraryFull
+GciTsOopIsSpecial_: oop
 	"$GEMSTONE/include/gcits.hf line 1115
 BoolType GciTsOopIsSpecial(OopType oop) ;"
 
@@ -1875,8 +1875,8 @@ BoolType GciTsOopIsSpecial(OopType oop) ;"
 	^FunctionGciTsOopIsSpecial callWith: { oop }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsOopToChar_: oop 
+method: GciTsLibraryFull
+GciTsOopToChar_: oop
 	"$GEMSTONE/include/gcits.hf line 1139
 int GciTsOopToChar(OopType oop) ;"
 
@@ -1885,8 +1885,8 @@ int GciTsOopToChar(OopType oop) ;"
 	^FunctionGciTsOopToChar callWith: { oop }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsOopToDouble_: sess _: oop _: result _: err 
+method: GciTsLibraryFull
+GciTsOopToDouble_: sess _: oop _: result _: err
 	"$GEMSTONE/include/gcits.hf line 1195
 BoolType GciTsOopToDouble(GciSession sess,       OopType oop,       double *result,       GciErrSType *err) ;"
 
@@ -1895,8 +1895,8 @@ BoolType GciTsOopToDouble(GciSession sess,       OopType oop,       double *resu
 	^FunctionGciTsOopToDouble callWith: { sess. oop. result. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsOopToI64_: sess _: oop _: result _: err 
+method: GciTsLibraryFull
+GciTsOopToI64_: sess _: oop _: result _: err
 	"$GEMSTONE/include/gcits.hf line 1234
 BoolType GciTsOopToI64(GciSession sess,           OopType oop,           int64 *result,           GciErrSType *err) ;"
 
@@ -1905,8 +1905,8 @@ BoolType GciTsOopToI64(GciSession sess,           OopType oop,           int64 *
 	^FunctionGciTsOopToI64 callWith: { sess. oop. result. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsPerform_: sess _: receiver _: aSymbol _: selectorStr _: args _: numArgs _: flags _: environmentId _: err 
+method: GciTsLibraryFull
+GciTsPerform_: sess _: receiver _: aSymbol _: selectorStr _: args _: numArgs _: flags _: environmentId _: err
 	"$GEMSTONE/include/gcits.hf line 735
 OopType GciTsPerform(GciSession sess,         OopType receiver,         OopType aSymbol,         const char* selectorStr,         const OopType *args,         int numArgs,         int flags ,         ushort environmentId ,         GciErrSType *err) ;"
 
@@ -1915,8 +1915,8 @@ OopType GciTsPerform(GciSession sess,         OopType receiver,         OopType 
 	^FunctionGciTsPerform callWith: { sess. receiver. aSymbol. selectorStr. args. numArgs. flags. environmentId. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsPerformFetchBytes_: sess _: receiver _: selectorStr _: args _: numArgs _: result _: maxResultSize _: err 
+method: GciTsLibraryFull
+GciTsPerformFetchBytes_: sess _: receiver _: selectorStr _: args _: numArgs _: result _: maxResultSize _: err
 	"$GEMSTONE/include/gcits.hf line 782
 ssize_t GciTsPerformFetchBytes(GciSession sess,            OopType receiver,            const char* selectorStr,            const OopType *args,            int numArgs,            ByteType *result,            ssize_t maxResultSize,            GciErrSType *err) ;"
 
@@ -1925,8 +1925,8 @@ ssize_t GciTsPerformFetchBytes(GciSession sess,            OopType receiver,    
 	^FunctionGciTsPerformFetchBytes callWith: { sess. receiver. selectorStr. args. numArgs. result. maxResultSize. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsProtectMethods_: sess _: mode _: err 
+method: GciTsLibraryFull
+GciTsProtectMethods_: sess _: mode _: err
 	"$GEMSTONE/include/gcits.hf line 886
 BoolType GciTsProtectMethods(GciSession sess,          BoolType mode,          GciErrSType *err) ;"
 
@@ -1935,8 +1935,8 @@ BoolType GciTsProtectMethods(GciSession sess,          BoolType mode,          G
 	^FunctionGciTsProtectMethods callWith: { sess. mode. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsReleaseAllObjs_: sess _: err 
+method: GciTsLibraryFull
+GciTsReleaseAllObjs_: sess _: err
 	"$GEMSTONE/include/gcits.hf line 240
 BoolType GciTsReleaseAllObjs(GciSession sess,          GciErrSType *err) ;"
 
@@ -1945,8 +1945,8 @@ BoolType GciTsReleaseAllObjs(GciSession sess,          GciErrSType *err) ;"
 	^FunctionGciTsReleaseAllObjs callWith: { sess. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsReleaseObjs_: sess _: buf _: count _: err 
+method: GciTsLibraryFull
+GciTsReleaseObjs_: sess _: buf _: count _: err
 	"$GEMSTONE/include/gcits.hf line 231
 BoolType GciTsReleaseObjs(GciSession sess,       OopType *buf,       int count,       GciErrSType *err) ;"
 
@@ -1955,8 +1955,8 @@ BoolType GciTsReleaseObjs(GciSession sess,       OopType *buf,       int count, 
 	^FunctionGciTsReleaseObjs callWith: { sess. buf. count. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsRemoveOopsFromNsc_: sess _: theNsc _: theOops _: numOops _: err 
+method: GciTsLibraryFull
+GciTsRemoveOopsFromNsc_: sess _: theNsc _: theOops _: numOops _: err
 	"$GEMSTONE/include/gcits.hf line 382
 int GciTsRemoveOopsFromNsc(GciSession sess,        OopType theNsc,        const OopType *theOops,        int numOops,        GciErrSType *err) ;"
 
@@ -1965,8 +1965,8 @@ int GciTsRemoveOopsFromNsc(GciSession sess,        OopType theNsc,        const 
 	^FunctionGciTsRemoveOopsFromNsc callWith: { sess. theNsc. theOops. numOops. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsResolveSymbol_: sess _: str _: symbolList _: err 
+method: GciTsLibraryFull
+GciTsResolveSymbol_: sess _: str _: symbolList _: err
 	"$GEMSTONE/include/gcits.hf line 188
 OopType GciTsResolveSymbol(GciSession sess,        const char* str,        OopType symbolList,        GciErrSType *err) ;"
 
@@ -1975,8 +1975,8 @@ OopType GciTsResolveSymbol(GciSession sess,        const char* str,        OopTy
 	^FunctionGciTsResolveSymbol callWith: { sess. str. symbolList. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsResolveSymbolObj_: sess _: str _: symbolList _: err 
+method: GciTsLibraryFull
+GciTsResolveSymbolObj_: sess _: str _: symbolList _: err
 	"$GEMSTONE/include/gcits.hf line 198
 OopType GciTsResolveSymbolObj(GciSession sess,           OopType str,           OopType symbolList,           GciErrSType *err) ;"
 
@@ -1985,8 +1985,8 @@ OopType GciTsResolveSymbolObj(GciSession sess,           OopType str,           
 	^FunctionGciTsResolveSymbolObj callWith: { sess. str. symbolList. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsSaveObjs_: sess _: buf _: count _: err 
+method: GciTsLibraryFull
+GciTsSaveObjs_: sess _: buf _: count _: err
 	"$GEMSTONE/include/gcits.hf line 220
 BoolType GciTsSaveObjs(GciSession sess,           OopType *buf,           int count,           GciErrSType *err) ;"
 
@@ -1995,8 +1995,8 @@ BoolType GciTsSaveObjs(GciSession sess,           OopType *buf,           int co
 	^FunctionGciTsSaveObjs callWith: { sess. buf. count. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsSessionIsRemote_: sess 
+method: GciTsLibraryFull
+GciTsSessionIsRemote_: sess
 	"$GEMSTONE/include/gcits.hf line 167
 int GciTsSessionIsRemote(GciSession sess) ;"
 
@@ -2005,8 +2005,8 @@ int GciTsSessionIsRemote(GciSession sess) ;"
 	^FunctionGciTsSessionIsRemote callWith: { sess }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsSocket_: sess _: err 
+method: GciTsLibraryFull
+GciTsSocket_: sess _: err
 	"$GEMSTONE/include/gcits.hf line 159
 int GciTsSocket(GciSession sess, GciErrSType *err) ;"
 
@@ -2015,8 +2015,8 @@ int GciTsSocket(GciSession sess, GciErrSType *err) ;"
 	^FunctionGciTsSocket callWith: { sess. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsStoreBytes_: sess _: theObject _: startIndex _: theBytes _: numBytes _: ofClass _: err 
+method: GciTsLibraryFull
+GciTsStoreBytes_: sess _: theObject _: startIndex _: theBytes _: numBytes _: ofClass _: err
 	"$GEMSTONE/include/gcits.hf line 338
 BoolType GciTsStoreBytes(GciSession sess,      OopType theObject,      int64 startIndex,      ByteType *theBytes,      int64 numBytes,      OopType ofClass,      GciErrSType *err) ;"
 
@@ -2025,8 +2025,8 @@ BoolType GciTsStoreBytes(GciSession sess,      OopType theObject,      int64 sta
 	^FunctionGciTsStoreBytes callWith: { sess. theObject. startIndex. theBytes. numBytes. ofClass. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsStoreOops_: sess _: theObject _: startIndex _: theOops _: numOops _: err _: overlay 
+method: GciTsLibraryFull
+GciTsStoreOops_: sess _: theObject _: startIndex _: theOops _: numOops _: err _: overlay
 	"$GEMSTONE/include/gcits.hf line 367
 BoolType GciTsStoreOops(GciSession sess,     OopType theObject,     int64 startIndex,     const OopType *theOops,     int numOops,     GciErrSType *err,     BoolType overlay = 0) ;"
 
@@ -2035,8 +2035,8 @@ BoolType GciTsStoreOops(GciSession sess,     OopType theObject,     int64 startI
 	^FunctionGciTsStoreOops callWith: { sess. theObject. startIndex. theOops. numOops. err. overlay }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsStoreTrav_: sess _: travBuff _: flag _: err 
+method: GciTsLibraryFull
+GciTsStoreTrav_: sess _: travBuff _: flag _: err
 	"$GEMSTONE/include/gcits.hf line 1095
 BoolType GciTsStoreTrav(GciSession sess,     GciTravBufType *travBuff,     int flag,     GciErrSType *err) ;"
 
@@ -2045,8 +2045,8 @@ BoolType GciTsStoreTrav(GciSession sess,     GciTravBufType *travBuff,     int f
 	^FunctionGciTsStoreTrav callWith: { sess. travBuff. flag. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsStoreTravDoTravRefs_: sess _: oopsNoLongerReplicated _: numNotReplicated _: oopsGcedOnClient _: numGced _: stdArgs _: ctArgs _: err 
+method: GciTsLibraryFull
+GciTsStoreTravDoTravRefs_: sess _: oopsNoLongerReplicated _: numNotReplicated _: oopsGcedOnClient _: numGced _: stdArgs _: ctArgs _: err
 	"$GEMSTONE/include/gcits.hf line 1064
 int GciTsStoreTravDoTravRefs(GciSession sess,          const OopType *oopsNoLongerReplicated,          int numNotReplicated,          const OopType *oopsGcedOnClient,          int numGced,          GciStoreTravDoArgsSType *stdArgs,          GciClampedTravArgsSType *ctArgs,          GciErrSType *err) ;"
 
@@ -2055,8 +2055,8 @@ int GciTsStoreTravDoTravRefs(GciSession sess,          const OopType *oopsNoLong
 	^FunctionGciTsStoreTravDoTravRefs callWith: { sess. oopsNoLongerReplicated. numNotReplicated. oopsGcedOnClient. numGced. stdArgs. ctArgs. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsVersion_: buf _: bufSize 
+method: GciTsLibraryFull
+GciTsVersion_: buf _: bufSize
 	"$GEMSTONE/include/gcits.hf line 1317
 uint GciTsVersion(char *buf,      size_t bufSize) ;"
 
@@ -2065,8 +2065,8 @@ uint GciTsVersion(char *buf,      size_t bufSize) ;"
 	^FunctionGciTsVersion callWith: { buf. bufSize }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsWaitForEvent_: sess _: latencyMs _: evout _: err 
+method: GciTsLibraryFull
+GciTsWaitForEvent_: sess _: latencyMs _: evout _: err
 	"$GEMSTONE/include/gcits.hf line 1279
 int GciTsWaitForEvent(GciSession sess,          int latencyMs,          GciEventType *evout,          GciErrSType *err) ;"
 
@@ -2075,8 +2075,8 @@ int GciTsWaitForEvent(GciSession sess,          int latencyMs,          GciEvent
 	^FunctionGciTsWaitForEvent callWith: { sess. latencyMs. evout. err }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciTsX509Login_: args _: executedSessionInit _: err 
+method: GciTsLibraryFull
+GciTsX509Login_: args _: executedSessionInit _: err
 	"$GEMSTONE/include/gcits.hf line 131
 GciSession GciTsX509Login(GciX509LoginArg *args,               BoolType *executedSessionInit,               GciErrSType *err) ;"
 
@@ -2085,7 +2085,7 @@ GciSession GciTsX509Login(GciX509LoginArg *args,               BoolType *execute
 	^FunctionGciTsX509Login callWith: { args. executedSessionInit. err }
 %
 category: 'Functions'
-method: GciTsLibrary
+method: GciTsLibraryFull
 GciUnload
 	"$GEMSTONE/include/gcits.hf line 1367
 void GciUnload(void) ;"
@@ -2095,8 +2095,8 @@ void GciUnload(void) ;"
 	^FunctionGciUnload callWith: {  }
 %
 category: 'Functions'
-method: GciTsLibrary
-GciUtf8To8bit_: src _: dest _: destSize 
+method: GciTsLibraryFull
+GciUtf8To8bit_: src _: dest _: destSize
 	"$GEMSTONE/include/gcits.hf line 1329
 BoolType GciUtf8To8bit(const char* src,           char *dest,           ssize_t destSize) ;"
 

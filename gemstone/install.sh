@@ -13,6 +13,7 @@ output push GciApp.out only
 errorCount
 fileformat utf8
 input ./GciApp.gs
+send GciTsLibraryFull initializeFunctions
 output pop
 errorCount
 commit

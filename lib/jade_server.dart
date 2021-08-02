@@ -1,7 +1,14 @@
 import 'dart:convert';
 
 import 'package:web_socket_channel/web_socket_channel.dart';
-import 'package:web_socket_channel/status.dart' as status;
+// import 'package:web_socket_channel/status.dart' as status;
+
+class GciError extends StateError {
+  late final error;
+  GciError(Map<String, dynamic> gciError)
+      : error = gciError,
+        super(gciError['message']);
+}
 
 class JadeServer {
   final _buffer = <Map<String, dynamic>>[];
@@ -25,7 +32,7 @@ class JadeServer {
 
   void _onData(dynamic data) async {
     var obj = jsonDecode(data);
-    print(obj);
+    print('_onData() - $obj');
     _buffer.add(obj);
   }
 
@@ -35,7 +42,7 @@ class JadeServer {
   }
 
   void _onError(var error) {
-    print(error);
+    print('_onError() - $error');
     _channel.sink.close();
   }
 
@@ -56,6 +63,24 @@ class JadeServer {
     }
     var data = _buffer.removeAt(0);
     return data['version'];
+  }
+
+  Future<void> login(String username, String password) async {
+    print('login($username, $password)');
+    _write({
+      'request': 'login',
+      'username': username,
+      'password': password,
+    });
+    while (_buffer.isEmpty) {
+      print('wait');
+      await Future.delayed(Duration(milliseconds: 200));
+    }
+    var data = _buffer.removeAt(0);
+    if (data['error'] == 4051) {
+      throw GciError(data);
+    }
+    print('login() - $data');
   }
 
   Future<void> waitForInitialization() async {

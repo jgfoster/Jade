@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:jade/gci_session.dart';
 
 void main() {
-  final gci = GciSession('https://localhost:8888/');
+  final gci = GciSession('http://localhost:8888/');
 
   test('getVersion', () async {
     expect(
