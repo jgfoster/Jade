@@ -16,23 +16,6 @@ run
 		run.
 %
 ! ------------------- Instance methods for GciLibraryApp
-set compile_env: 0
-category: 'REST API'
-method: GciLibraryApp
-abort_gs: args
-
-	self setSessionFromArgs: args.
-	self library GciAbort.
-	^Dictionary new
-%
-category: 'REST API'
-method: GciLibraryApp
-begin_gs: args
-
-	self setSessionFromArgs: args.
-	self library GciBegin.
-	^Dictionary new
-%
 category: 'REST API'
 method: GciLibraryApp
 callInProgress_gs: args
@@ -40,15 +23,6 @@ callInProgress_gs: args
 	self setSessionFromArgs: args.
 	^Dictionary new
 		at: 'result' put: self library GciCallInProgress == 1;
-		yourself
-%
-category: 'REST API'
-method: GciLibraryApp
-commit_gs: args
-
-	self setSessionFromArgs: args.
-	^Dictionary new
-		at: 'result' put: self library GciCommit == 1;
 		yourself
 %
 category: 'REST API'
@@ -119,19 +93,20 @@ setSessionFromArgs: args
 	].
 %
 
-! -- WebSocket
+! -- Utilities
 category: 'WebSockets'
 method: GciLibraryApp
-break: args
-
-	| error hardBreakFlag result session |
-	error := GciErrSType new.
-	hardBreakFlag := (args at: 'isHard') ifTrue: [1] ifFalse: [0].
-	session := (CByteArray gcMalloc: 8)
-		int64At: 0 put: (args at: 'session');
-		yourself.
-	session := session pointerAt: 0 resultClass: CPointer.
-	result := self library GciTsBreak_: session _: hardBreakFlag _: error.
+library
+	"
+	SessionTemps current removeKey: #'library'.
+	"
+	^SessionTemps current
+		at: #'library'
+		ifAbsentPut: [(GciApp at: #'GciTsLibraryFull') new]
+%
+category: 'Utilities'
+method: GciLibraryApp
+resultFrom: result error: error
 
 	error number ~~ 0 ifTrue: [
 		^Dictionary new
@@ -143,7 +118,60 @@ break: args
 		at: 'result' put: result;
 		yourself
 %
-category: 'WebSockets'
+category: 'Utilities'
+method: GciLibraryApp
+sessionFrom: args
+
+	| bytes |
+	bytes := (CByteArray gcMalloc: 8)
+		int64At: 0 put: (args at: 'session');
+		yourself.
+	^bytes pointerAt: 0 resultClass: CPointer.
+%
+
+! -- GciTs API
+category: 'GciTs API'
+method: GciLibraryApp
+abort: args
+
+	| error result session |
+	error := GciErrSType new.
+	session := self sessionFrom: args.
+	result := self library GciTsAbort_: session _: error.
+	^self resultFrom: result error: error
+%
+category: 'GciTs API'
+method: GciLibraryApp
+begin: args
+
+	| error result session |
+	error := GciErrSType new.
+	session := self sessionFrom: args.
+	result := self library GciTsBegin_: session _: error.
+	^self resultFrom: result error: error
+%
+category: 'GciTs API'
+method: GciLibraryApp
+break: args
+
+	| error hardBreakFlag result session |
+	error := GciErrSType new.
+	hardBreakFlag := (args at: 'isHard') ifTrue: [1] ifFalse: [0].
+	session := self sessionFrom: args.
+	result := self library GciTsBreak_: session _: hardBreakFlag _: error.
+	^self resultFrom: result error: error
+%
+category: 'GciTs API'
+method: GciLibraryApp
+commit: args
+
+	| error result session |
+	error := GciErrSType new.
+	session := self sessionFrom: args.
+	result := self library GciTsCommit_: session _: error.
+	^self resultFrom: result error: error
+%
+category: 'GciTs API'
 method: GciLibraryApp
 login: args
 	"GciTsLogin_: StoneNameNrs _: HostUserId _: HostPassword _: hostPwIsEncrypted _: GemServiceNrs
@@ -170,19 +198,11 @@ login: args
 		_: 0	"haltOnErrNum"
 		_: initFlag
 		_: error.
-
-	error number ~~ 0 ifTrue: [
-		^Dictionary new
-			at: 'error' put: error number;
-			at: 'message' put: error message;
-			yourself
-	].
-	^Dictionary new
-		at: 'result' put: result memoryAddress;
-		yourself
+	result := result ifNil: [nil] ifNotNil: [result memoryAddress].
+	^self resultFrom: result error: error
 %
 set compile_env: 0
-category: 'WebSockets'
+category: 'GciTs API'
 method: GciLibraryApp
 getGciVersion: aDict
 
@@ -197,13 +217,18 @@ getGciVersion: aDict
 		at: 'version' put: version;
 		yourself
 %
+
+! -- WebSocket
 category: 'WebSockets'
 method: GciLibraryApp
 handleRequest: aDict
 
 	| command |
 	command := aDict at: 'request'.
+	command = 'abort' ifTrue: [^self abort: aDict].
+	command = 'begin' ifTrue: [^self begin: aDict].
 	command = 'break' ifTrue: [^self break: aDict].
+	command = 'commit' ifTrue: [^self commit: aDict].
 	command = 'getGciVersion' ifTrue: [^self getGciVersion: aDict].
 	command = 'login' ifTrue: [^self login: aDict].
 	self error: 'Unrecognized command: ' , command printString.
@@ -227,16 +252,6 @@ handleRequestString: aString
 	].
 	dictOut at: 'time' put: time.
 	WebSocketDataFrame sendText: dictOut asJson onSocket: socket.
-%
-category: 'WebSockets'
-method: GciLibraryApp
-library
-	"
-	SessionTemps current removeKey: #'library'.
-	"
-	^SessionTemps current
-		at: #'library'
-		ifAbsentPut: [(GciApp at: #'GciTsLibraryFull') new]
 %
 category: 'WebSockets'
 method: GciLibraryApp

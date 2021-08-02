@@ -46,9 +46,28 @@ class JadeServer {
     _channel.sink.close();
   }
 
+  Future<Map<String, dynamic>> _read() async {
+    while (_buffer.isEmpty) {
+      await Future.delayed(Duration(milliseconds: 10));
+    }
+    return _buffer.removeAt(0);
+  }
+
   Future<void> _write(var map) async {
     await waitForInitialization();
     _channel.sink.add(jsonEncode(map));
+  }
+
+  Future<bool> abort(int session) async {
+    _write({'request': 'abort', 'session': session});
+    var data = await _read();
+    return data['result'] == 1;
+  }
+
+  Future<bool> begin(int session) async {
+    _write({'request': 'begin', 'session': session});
+    var data = await _read();
+    return data['result'] == 1;
   }
 
   void close() {
@@ -56,22 +75,22 @@ class JadeServer {
     _channel.sink.close();
   }
 
+  Future<bool> commit(int session) async {
+    _write({'request': 'commit', 'session': session});
+    var data = await _read();
+    return data['result'] == 1;
+  }
+
   // 'break' is a reserved word!
   Future<bool> doBreak(int session, bool isHard) async {
     _write({'request': 'break', 'session': session, 'isHard': isHard});
-    while (_buffer.isEmpty) {
-      await Future.delayed(Duration(milliseconds: 10));
-    }
-    var data = _buffer.removeAt(0);
+    var data = await _read();
     return data['result'] == 1;
   }
 
   Future<String> getGciVersion() async {
     _write({'request': 'getGciVersion'});
-    while (_buffer.isEmpty) {
-      await Future.delayed(Duration(milliseconds: 10));
-    }
-    var data = _buffer.removeAt(0);
+    var data = await _read();
     return data['version'];
   }
 
@@ -81,11 +100,8 @@ class JadeServer {
       'username': username,
       'password': password,
     });
-    while (_buffer.isEmpty) {
-      await Future.delayed(Duration(milliseconds: 10));
-    }
-    var data = _buffer.removeAt(0);
-    if (data['error'] == 4051) {
+    var data = await _read();
+    if ((data['error'] ?? 0) > 0) {
       throw GciError(data);
     }
     return data['result'];

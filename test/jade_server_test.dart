@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:jade/jade_server.dart';
@@ -11,8 +10,8 @@ GciLibraryApp run.
 
 void main() {
   final server = JadeServer('localhost', 8888);
-  late int session1;
-  late int session2;
+  int session1 = 0;
+  int session2 = 0;
 
   test('getGciVersion', () async {
     var version = await server.getGciVersion();
@@ -42,12 +41,22 @@ void main() {
   });
 
   test('hardBreak', () async {
-    var result = await server.doBreak(session1, true);
-    print(result);
+    expect(await server.doBreak(session1, true), isTrue);
   });
 
   test('softBreak', () async {
-    var result = await server.doBreak(session1, false);
-    print(result);
+    expect(await server.doBreak(session1, false), isTrue);
+  });
+
+  test('abort', () async {
+    expect(await server.abort(session1), isTrue);
+  });
+
+  test('begin', () async {
+    expect(await server.begin(session1), isTrue);
+  });
+
+  test('commit', () async {
+    expect(await server.commit(session1), isTrue);
   });
 }
