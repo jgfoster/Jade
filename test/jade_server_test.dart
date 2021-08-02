@@ -18,6 +18,11 @@ void main() {
     expect(version, startsWith('3.6.1'));
   });
 
+  test('encrypt', () async {
+    var encrypted = await server.encrypt('swordfish');
+    expect(encrypted, equals('GT543NBVJJUQK7ICC7CZTWAHPE'));
+  });
+
   test('login with invalid password', () async {
     var flag = false;
     try {
@@ -60,6 +65,10 @@ void main() {
     expect(await server.commit(session1), isTrue);
   });
 
+  test('sessionIsRemote', () async {
+    expect(await server.sessionIsRemote(session1), isTrue);
+  });
+
   test('logout session 1', () async {
     expect(await server.logout(session1), isTrue);
   });
@@ -78,5 +87,9 @@ void main() {
 
   test('softBreak after logout', () async {
     expect(await server.doBreak(session1, false), isFalse);
+  });
+
+  test('sessionIsRemote after logout', () async {
+    expect(await server.sessionIsRemote(session1), isFalse);
   });
 }

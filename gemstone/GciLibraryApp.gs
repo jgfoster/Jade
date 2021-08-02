@@ -171,6 +171,26 @@ commit: args
 	result := self library GciTsCommit_: session _: error.
 	^self resultFrom: result error: error
 %
+category: 'GciTs API'
+method: GciLibraryApp
+encrypt: args
+
+	| buffer index result |
+	buffer := CByteArray gcMalloc: 64.
+	result := self library GciTsEncrypt_: (args at: 'password') _: buffer _: buffer size.
+	result ifNil: [
+		^Dictionary new
+			error: 1;
+			message: 'Unable to encrypt password (too long?)';
+			yourself.
+	].
+	result := buffer stringFrom: 0 to: buffer size - 1.
+	index := result indexOf: (Character codePoint: 0).
+	result := result copyFrom: 1 to: index - 1.
+	^Dictionary new
+		at: 'result' put: result;
+		yourself
+%
 set compile_env: 0
 category: 'GciTs API'
 method: GciLibraryApp
@@ -179,7 +199,7 @@ getGciVersion: aDict
 	| buffer index product version |
 	buffer := CByteArray gcMalloc: 128.
 	product := self library GciTsVersion_: buffer _: buffer size.
-	version := buffer stringFrom: 0 to: 127.
+	version := buffer stringFrom: 0 to: buffer size - 1.
 	index := version indexOf: (Character codePoint: 0).
 	version := version copyFrom: 1 to: index - 1.
 	^Dictionary new
@@ -227,6 +247,15 @@ logout: args
 	result := self library GciTsLogout_: session _: error.
 	^self resultFrom: result error: error
 %
+category: 'GciTs API'
+method: GciLibraryApp
+sessionIsRemote: args
+
+	| result session |
+	session := self sessionFrom: args.
+	result := self library GciTsSessionIsRemote_: session.
+	^self resultFrom: result error: GciErrSType new
+%
 
 ! -- WebSocket
 category: 'WebSockets'
@@ -239,9 +268,11 @@ handleRequest: aDict
 	command = 'begin' ifTrue: [^self begin: aDict].
 	command = 'break' ifTrue: [^self break: aDict].
 	command = 'commit' ifTrue: [^self commit: aDict].
+	command = 'encrypt' ifTrue: [^self encrypt: aDict].
 	command = 'getGciVersion' ifTrue: [^self getGciVersion: aDict].
 	command = 'login' ifTrue: [^self login: aDict].
 	command = 'logout' ifTrue: [^self logout: aDict].
+	command = 'sessionIsRemote' ifTrue: [^self sessionIsRemote: aDict].
 	self error: 'Unrecognized command: ' , command printString.
 %
 category: 'WebSockets'

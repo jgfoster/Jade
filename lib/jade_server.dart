@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:web_socket_channel/web_socket_channel.dart';
-// import 'package:web_socket_channel/status.dart' as status;
 
 class GciError extends StateError {
   late final error;
@@ -32,7 +31,7 @@ class JadeServer {
 
   void _onData(dynamic data) async {
     var obj = jsonDecode(data);
-    print('_onData() - $obj');
+    // print('_onData() - $obj');
     _buffer.add(obj);
   }
 
@@ -88,6 +87,12 @@ class JadeServer {
     return data['result'] == 1;
   }
 
+  Future<String> encrypt(String password) async {
+    _write({'request': 'encrypt', 'password': password});
+    var data = await _read();
+    return data['result'];
+  }
+
   Future<String> getGciVersion() async {
     _write({'request': 'getGciVersion'});
     var data = await _read();
@@ -109,6 +114,12 @@ class JadeServer {
 
   Future<bool> logout(int session) async {
     _write({'request': 'logout', 'session': session});
+    var data = await _read();
+    return data['result'] == 1;
+  }
+
+  Future<bool> sessionIsRemote(int session) async {
+    _write({'request': 'sessionIsRemote', 'session': session});
     var data = await _read();
     return data['result'] == 1;
   }
