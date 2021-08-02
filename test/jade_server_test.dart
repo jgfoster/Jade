@@ -59,4 +59,24 @@ void main() {
   test('commit', () async {
     expect(await server.commit(session1), isTrue);
   });
+
+  test('logout session 1', () async {
+    expect(await server.logout(session1), isTrue);
+  });
+
+  test('logout session 2', () async {
+    expect(await server.logout(session2), isTrue);
+  });
+
+  test('logout second time should fail', () async {
+    expect(await server.logout(session2), isFalse);
+  });
+
+  test('hardBreak after logout', () async {
+    expect(await server.doBreak(session1, true), isFalse);
+  });
+
+  test('softBreak after logout', () async {
+    expect(await server.doBreak(session1, false), isFalse);
+  });
 }

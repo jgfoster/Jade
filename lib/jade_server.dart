@@ -107,6 +107,12 @@ class JadeServer {
     return data['result'];
   }
 
+  Future<bool> logout(int session) async {
+    _write({'request': 'logout', 'session': session});
+    var data = await _read();
+    return data['result'] == 1;
+  }
+
   Future<void> waitForInitialization() async {
     while (!_isInitialized) {
       await new Future.delayed(new Duration(milliseconds: 50));

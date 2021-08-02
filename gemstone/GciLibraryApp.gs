@@ -171,6 +171,22 @@ commit: args
 	result := self library GciTsCommit_: session _: error.
 	^self resultFrom: result error: error
 %
+set compile_env: 0
+category: 'GciTs API'
+method: GciLibraryApp
+getGciVersion: aDict
+
+	| buffer index product version |
+	buffer := CByteArray gcMalloc: 128.
+	product := self library GciTsVersion_: buffer _: buffer size.
+	version := buffer stringFrom: 0 to: 127.
+	index := version indexOf: (Character codePoint: 0).
+	version := version copyFrom: 1 to: index - 1.
+	^Dictionary new
+		at: 'product' put: product;
+		at: 'version' put: version;
+		yourself
+%
 category: 'GciTs API'
 method: GciLibraryApp
 login: args
@@ -201,21 +217,15 @@ login: args
 	result := result ifNil: [nil] ifNotNil: [result memoryAddress].
 	^self resultFrom: result error: error
 %
-set compile_env: 0
 category: 'GciTs API'
 method: GciLibraryApp
-getGciVersion: aDict
+logout: args
 
-	| buffer index product version |
-	buffer := CByteArray gcMalloc: 128.
-	product := self library GciTsVersion_: buffer _: buffer size.
-	version := buffer stringFrom: 0 to: 127.
-	index := version indexOf: (Character codePoint: 0).
-	version := version copyFrom: 1 to: index - 1.
-	^Dictionary new
-		at: 'product' put: product;
-		at: 'version' put: version;
-		yourself
+	| error result session |
+	error := GciErrSType new.
+	session := self sessionFrom: args.
+	result := self library GciTsLogout_: session _: error.
+	^self resultFrom: result error: error
 %
 
 ! -- WebSocket
@@ -231,6 +241,7 @@ handleRequest: aDict
 	command = 'commit' ifTrue: [^self commit: aDict].
 	command = 'getGciVersion' ifTrue: [^self getGciVersion: aDict].
 	command = 'login' ifTrue: [^self login: aDict].
+	command = 'logout' ifTrue: [^self logout: aDict].
 	self error: 'Unrecognized command: ' , command printString.
 %
 category: 'WebSockets'
