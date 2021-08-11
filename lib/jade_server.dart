@@ -57,16 +57,22 @@ class JadeServer {
     _channel.sink.add(jsonEncode(map));
   }
 
-  Future<bool> abort(int session) async {
+  Future<bool> abort(num session) async {
     _write({'request': 'abort', 'session': session});
     var data = await _read();
     return data['result'] == 1;
   }
 
-  Future<bool> begin(int session) async {
+  Future<bool> begin(num session) async {
     _write({'request': 'begin', 'session': session});
     var data = await _read();
     return data['result'] == 1;
+  }
+
+  Future<num> charToOop(int anOop) async {
+    _write({'request': 'charToOop', 'char': anOop});
+    var data = await _read();
+    return data['result'];
   }
 
   void close() {
@@ -74,21 +80,33 @@ class JadeServer {
     _channel.sink.close();
   }
 
-  Future<bool> commit(int session) async {
+  Future<bool> commit(num session) async {
     _write({'request': 'commit', 'session': session});
     var data = await _read();
     return data['result'] == 1;
   }
 
   // 'break' is a reserved word!
-  Future<bool> doBreak(int session, bool isHard) async {
+  Future<bool> doBreak(num session, bool isHard) async {
     _write({'request': 'break', 'session': session, 'isHard': isHard});
     var data = await _read();
     return data['result'] == 1;
   }
 
+  Future<num> doubleToSmallDouble(double value) async {
+    _write({'request': 'doubleToSmallDouble', 'double': value});
+    var data = await _read();
+    return data['result'];
+  }
+
   Future<String> encrypt(String password) async {
     _write({'request': 'encrypt', 'password': password});
+    var data = await _read();
+    return data['result'];
+  }
+
+  Future<num> fetchSpecialClass(int anOop) async {
+    _write({'request': 'fetchSpecialClass', 'oop': anOop});
     var data = await _read();
     return data['result'];
   }
@@ -99,7 +117,13 @@ class JadeServer {
     return data['version'];
   }
 
-  Future<int> login(String username, String password) async {
+  Future<num> i32ToOop(int value) async {
+    _write({'request': 'i32ToOop', 'int': value});
+    var data = await _read();
+    return data['result'];
+  }
+
+  Future<num> login(String username, String password) async {
     _write({
       'request': 'login',
       'username': username,
@@ -112,13 +136,25 @@ class JadeServer {
     return data['result'];
   }
 
-  Future<bool> logout(int session) async {
+  Future<bool> logout(num session) async {
     _write({'request': 'logout', 'session': session});
     var data = await _read();
     return data['result'] == 1;
   }
 
-  Future<bool> sessionIsRemote(int session) async {
+  Future<bool> oopIsSpecial(int anOop) async {
+    _write({'request': 'oopIsSpecial', 'oop': anOop});
+    var data = await _read();
+    return data['result'];
+  }
+
+  Future<int> oopToChar(int anOop) async {
+    _write({'request': 'oopToChar', 'oop': anOop});
+    var data = await _read();
+    return data['result'];
+  }
+
+  Future<bool> sessionIsRemote(num session) async {
     _write({'request': 'sessionIsRemote', 'session': session});
     var data = await _read();
     return data['result'] == 1;

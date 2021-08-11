@@ -87,6 +87,14 @@ break: args
 %
 category: 'GciTs API'
 method: GciLibraryApp
+charToOop: args
+
+	| result |
+	result := self library GciTsCharToOop_: (args at: 'char').
+	^self resultFrom: result error: GciErrSType new
+%
+category: 'GciTs API'
+method: GciLibraryApp
 commit: args
 
 	| error result session |
@@ -94,6 +102,14 @@ commit: args
 	session := self sessionFrom: args.
 	result := self library GciTsCommit_: session _: error.
 	^self resultFrom: result error: error
+%
+category: 'GciTs API'
+method: GciLibraryApp
+doubleToSmallDouble: args
+
+	| result |
+	result := self library GciTsDoubleToSmallDouble_: (args at: 'double').
+	^self resultFrom: result error: GciErrSType new
 %
 category: 'GciTs API'
 method: GciLibraryApp
@@ -115,6 +131,14 @@ encrypt: args
 		at: 'result' put: result;
 		yourself
 %
+category: 'GciTs API'
+method: GciLibraryApp
+fetchSpecialClass: args
+
+	| result |
+	result := self library GciTsFetchSpecialClass_: (args at: 'oop').
+	^self resultFrom: result error: GciErrSType new
+%
 set compile_env: 0
 category: 'GciTs API'
 method: GciLibraryApp
@@ -130,6 +154,14 @@ getGciVersion: aDict
 		at: 'product' put: product;
 		at: 'version' put: version;
 		yourself
+%
+category: 'GciTs API'
+method: GciLibraryApp
+i32ToOop: args
+
+	| result |
+	result := self library GciI32ToOop_: (args at: 'int').
+	^self resultFrom: result error: GciErrSType new
 %
 category: 'GciTs API'
 method: GciLibraryApp
@@ -173,6 +205,22 @@ logout: args
 %
 category: 'GciTs API'
 method: GciLibraryApp
+oopIsSpecial: args
+
+	| result |
+	result := self library GciTsOopIsSpecial_: (args at: 'oop').
+	^self resultFrom: result == 1 error: GciErrSType new
+%
+category: 'GciTs API'
+method: GciLibraryApp
+oopToChar: args
+
+	| result |
+	result := self library GciTsOopToChar_: (args at: 'oop').
+	^self resultFrom: result error: GciErrSType new
+%
+category: 'GciTs API'
+method: GciLibraryApp
 sessionIsRemote: args
 
 	| result session |
@@ -191,11 +239,17 @@ handleRequest: aDict
 	command = 'abort' ifTrue: [^self abort: aDict].
 	command = 'begin' ifTrue: [^self begin: aDict].
 	command = 'break' ifTrue: [^self break: aDict].
+	command = 'charToOop' ifTrue: [^self charToOop: aDict].
 	command = 'commit' ifTrue: [^self commit: aDict].
+	command = 'doubleToSmallDouble' ifTrue: [^self doubleToSmallDouble: aDict].
 	command = 'encrypt' ifTrue: [^self encrypt: aDict].
+	command = 'fetchSpecialClass' ifTrue: [^self fetchSpecialClass: aDict].
 	command = 'getGciVersion' ifTrue: [^self getGciVersion: aDict].
+	command = 'i32ToOop' ifTrue: [^self i32ToOop: aDict].
 	command = 'login' ifTrue: [^self login: aDict].
 	command = 'logout' ifTrue: [^self logout: aDict].
+	command = 'oopIsSpecial' ifTrue: [^self oopIsSpecial: aDict].
+	command = 'oopToChar' ifTrue: [^self oopToChar: aDict].
 	command = 'sessionIsRemote' ifTrue: [^self sessionIsRemote: aDict].
 	self error: 'Unrecognized command: ' , command printString.
 %
