@@ -53,8 +53,7 @@ The following provides a list of all the functions defined in `gcits.hf` grouped
 ### Table 7.5 Functions for Accessing Symbol Dictionaries
 
 ```C
-    OopType    GciTsResolveSymbol(GciSession sess, ...);
-    OopType    GciTsResolveSymbolObj(GciSession sess, ...);
+✓   OopType    GciTsResolveSymbol(GciSession sess, ...);
 ```
 
 ### Table 7.6 Functions for creating and Initializing Objects
@@ -127,6 +126,7 @@ The following provides a list of all the functions defined in `gcits.hf` grouped
 ### Fork
 
 GciTs offers a variety of `Fork` functions that take a callback.
+This should be adequately handled by equivalent non-blocking (NB) calls.
 
 ```C
     BoolType   GciTsForkLogin(...);
@@ -146,7 +146,7 @@ The following are deprecated in favor of the underscore version.
     OopType    GciTsNewUtf8String(GciSession sess, ...);
 ```
 
-The following provide UTF-8 conversion.
+The following provide UTF-8 conversion that we hope can be done on the client!
 
 ```C
     BoolType   GciUtf8To8bit(const char* src, char *dest, ssize_t destSize);
@@ -161,4 +161,5 @@ The following did not seem to work when originally tested.
     BoolType   GciTsClassRemoveAllMethods(GciSession sess, ...);
     int64      GciTsFetchUtf8(GciSession sess, ...);
     BoolType   GciTsOopToI64(GciSession sess, OopType oop, int64 *result, GciErrSType *err);
+    OopType    GciTsResolveSymbolObj(GciSession sess, ...);
 ```

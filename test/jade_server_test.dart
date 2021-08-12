@@ -144,6 +144,27 @@ void main() {
   //   expect(x, equals(BigInt.from(0xFFFFFFFFFFFFFFF)));
   // });
 
+  test('resolveSymbol', () async {
+    var x;
+    x = await server.resolveSymbol(session1, 'Array');
+    expect(x, '10501');
+    x = await server.resolveSymbol(session1, 'size');
+    expect(x, '1');
+  });
+
+  // Email to Allen asking why this doesn't work.
+  // test('resolveSymbolObj', () async {
+  //   var x;
+  //   // look for #'Array' in current SymbolList
+  //   x = await server.resolveSymbol(session1, '1C6401');
+  //   expect(x, '10501');
+  //   // look for #'Array' in DataCurator's SymbolList
+  //   x = await server.resolveSymbol(session1, '1C6401', '28C001');
+  //   expect(x, '10501');
+  //   x = await server.resolveSymbol(session1, '2A9701'); // #'size'
+  //   expect(x, '1');
+  // });
+
 // logout
   test('logout session 1', () async {
     expect(await server.logout(session1), isTrue);

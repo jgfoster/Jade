@@ -30,6 +30,12 @@ library
 %
 category: 'Utilities'
 method: GciLibraryApp
+oopResultFrom: result error: error
+
+	^self resultFrom: (result printStringRadix: 16 showRadix: false) error: error
+%
+category: 'Utilities'
+method: GciLibraryApp
 resultFrom: result error: error
 
 	error number ~~ 0 ifTrue: [
@@ -284,7 +290,35 @@ oopToI64: args
 	result == 1 ifTrue: [
 		result := buffer int64At: 0.
 	].
-	^self resultFrom: (result printStringRadix: 16 showRadix: false) error: error
+	^self oopResultFrom: result error: error
+%
+category: 'GciTs API'
+method: GciLibraryApp
+resolveSymbol: args
+
+	| error result session |
+	error := GciErrSType new.
+	session := self sessionFrom: args.
+	result := self library
+		GciTsResolveSymbol_: session
+		_: (args at: 'symbol')
+		_: (Integer fromHexString: (args at: 'symbolList' ifAbsent: '14'))
+		_: error.
+	^self oopResultFrom: result error: error
+%
+category: 'GciTs API'
+method: GciLibraryApp
+resolveSymbolObj: args
+
+	| error result session |
+	error := GciErrSType new.
+	session := self sessionFrom: args.
+	result := self library
+		GciTsResolveSymbolObj_: session
+		_: 117394689 "(Integer fromHexString: (args at: 'oop'))"
+		_: (Integer fromHexString: (args at: 'symbolList' ifAbsent: '14'))
+		_: error.
+	^self oopResultFrom: result error: error
 %
 category: 'GciTs API'
 method: GciLibraryApp
@@ -321,6 +355,8 @@ handleRequest: aDict
 	command = 'oopToChar' ifTrue: [^self oopToChar: aDict].
 	command = 'oopToDouble' ifTrue: [^self oopToDouble: aDict].
 	command = 'oopToI64' ifTrue: [^self oopToI64: aDict].
+	command = 'resolveSymbol' ifTrue: [^self resolveSymbol: aDict].
+	command = 'resolveSymbolObj' ifTrue: [^self resolveSymbolObj: aDict].
 	command = 'sessionIsRemote' ifTrue: [^self sessionIsRemote: aDict].
 	self error: 'Unrecognized command: ' , command printString.
 %

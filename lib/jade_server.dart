@@ -193,10 +193,35 @@ class JadeServer {
   }
 
   // https://kermit.gemtalksystems.com/bug?bug=49654
-  Future<BigInt> oopToI64(String session, String anOop) async {
+  Future<BigInt> oopToI64(String session, String anOop,
+      [String symbolList = '14']) async {
     _write({'request': 'oopToI64', 'oop': anOop, 'session': session});
     var data = await _read();
     return BigInt.parse(data['result'], radix: 16);
+  }
+
+  Future<String> resolveSymbol(String session, String symbol,
+      [String symbolList = '14']) async {
+    _write({
+      'request': 'resolveSymbol',
+      'symbol': symbol,
+      'symbolList': symbolList,
+      'session': session,
+    });
+    var data = await _read();
+    return data['result'];
+  }
+
+  Future<String> resolveSymbolObj(String session, String anOop,
+      [String symbolList = '14']) async {
+    _write({
+      'request': 'resolveSymbol',
+      'oop': anOop,
+      'symbolList': symbolList,
+      'session': session,
+    });
+    var data = await _read();
+    return data['result'];
   }
 
   Future<bool> sessionIsRemote(String session) async {
