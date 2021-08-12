@@ -79,10 +79,9 @@ The following provides a list of all the functions defined in `gcits.hf` grouped
 ✓   OopType    GciTsCharToOop(uint ch);
 ✓   OopType    GciTsDoubleToSmallDouble(double aFloat);
 ✓   OopType    GciI32ToOop(int arg);
-    OopType    GciTsDoubleToOop(GciSession sess, double aDouble, GciErrSType *err);
-    BoolType   GciTsOopToDouble(GciSession sess, OopType oop, ...);
-    OopType    GciTsI64ToOop(GciSession sess, int64 arg, GciErrSType *err);
-    BoolType   GciTsOopToI64(GciSession sess, OopType oop, int64 *result, GciErrSType *err);
+✓   OopType    GciTsDoubleToOop(GciSession sess, double aDouble, GciErrSType *err);
+✓   BoolType   GciTsOopToDouble(GciSession sess, OopType oop, ...);
+✓   OopType    GciTsI64ToOop(GciSession sess, int64 arg, GciErrSType *err);
 ```
 
 ### Table 7.8 Object Traversal and Path Functions
@@ -161,4 +160,5 @@ The following did not seem to work when originally tested.
 ```C
     BoolType   GciTsClassRemoveAllMethods(GciSession sess, ...);
     int64      GciTsFetchUtf8(GciSession sess, ...);
+    BoolType   GciTsOopToI64(GciSession sess, OopType oop, int64 *result, GciErrSType *err);
 ```

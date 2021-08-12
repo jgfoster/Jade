@@ -8,6 +8,14 @@ class GciError extends StateError {
       : error = gciError,
         super(gciError['message']);
 }
+/*
+  Because of the difficulty of representing a true 64-bit integer
+  in Dart/JavaScript, we treat a Session ID and an OOP as a
+  string representing the hex digits of the actual integer.
+  This should be fine since all client code should treat these
+  as opaque objects. (We could cut this down to a maximum of eleven
+  characters by using Base64 encoding, but that seems needless.)
+ */
 
 class JadeServer {
   final _buffer = <Map<String, dynamic>>[];
@@ -53,26 +61,8 @@ class JadeServer {
   }
 
   Future<void> _write(var map) async {
-    await waitForInitialization();
+    await _waitForInitialization();
     _channel.sink.add(jsonEncode(map));
-  }
-
-  Future<bool> abort(num session) async {
-    _write({'request': 'abort', 'session': session});
-    var data = await _read();
-    return data['result'] == 1;
-  }
-
-  Future<bool> begin(num session) async {
-    _write({'request': 'begin', 'session': session});
-    var data = await _read();
-    return data['result'] == 1;
-  }
-
-  Future<num> charToOop(int anOop) async {
-    _write({'request': 'charToOop', 'char': anOop});
-    var data = await _read();
-    return data['result'];
   }
 
   void close() {
@@ -80,20 +70,52 @@ class JadeServer {
     _channel.sink.close();
   }
 
-  Future<bool> commit(num session) async {
-    _write({'request': 'commit', 'session': session});
+  Future<void> _waitForInitialization() async {
+    while (!_isInitialized) {
+      await new Future.delayed(new Duration(milliseconds: 50));
+    }
+  }
+
+// Public API
+
+  Future<bool> abort(String session) async {
+    _write({'request': 'abort', 'session': session});
     var data = await _read();
     return data['result'] == 1;
   }
 
-  // 'break' is a reserved word!
-  Future<bool> doBreak(num session, bool isHard) async {
+  Future<bool> begin(String session) async {
+    _write({'request': 'begin', 'session': session});
+    var data = await _read();
+    return data['result'] == 1;
+  }
+
+// 'break' is a reserved word!
+  Future<bool> doBreak(String session, bool isHard) async {
     _write({'request': 'break', 'session': session, 'isHard': isHard});
     var data = await _read();
     return data['result'] == 1;
   }
 
-  Future<num> doubleToSmallDouble(double value) async {
+  Future<String> charToOop(int anOop) async {
+    _write({'request': 'charToOop', 'char': anOop});
+    var data = await _read();
+    return data['result'];
+  }
+
+  Future<bool> commit(String session) async {
+    _write({'request': 'commit', 'session': session});
+    var data = await _read();
+    return data['result'] == 1;
+  }
+
+  Future<String> doubleToOop(String session, double value) async {
+    _write({'request': 'doubleToOop', 'double': value, 'session': session});
+    var data = await _read();
+    return data['result'];
+  }
+
+  Future<String> doubleToSmallDouble(double value) async {
     _write({'request': 'doubleToSmallDouble', 'double': value});
     var data = await _read();
     return data['result'];
@@ -105,7 +127,7 @@ class JadeServer {
     return data['result'];
   }
 
-  Future<num> fetchSpecialClass(int anOop) async {
+  Future<String> fetchSpecialClass(String anOop) async {
     _write({'request': 'fetchSpecialClass', 'oop': anOop});
     var data = await _read();
     return data['result'];
@@ -117,13 +139,23 @@ class JadeServer {
     return data['version'];
   }
 
-  Future<num> i32ToOop(int value) async {
+  Future<String> i32ToOop(int value) async {
     _write({'request': 'i32ToOop', 'int': value});
     var data = await _read();
     return data['result'];
   }
 
-  Future<num> login(String username, String password) async {
+  Future<String> i64ToOop(String session, BigInt value) async {
+    _write({
+      'request': 'i64ToOop',
+      'i64': value.toRadixString(16),
+      'session': session
+    });
+    var data = await _read();
+    return data['result'];
+  }
+
+  Future<String> login(String username, String password) async {
     _write({
       'request': 'login',
       'username': username,
@@ -136,33 +168,40 @@ class JadeServer {
     return data['result'];
   }
 
-  Future<bool> logout(num session) async {
+  Future<bool> logout(String session) async {
     _write({'request': 'logout', 'session': session});
     var data = await _read();
     return data['result'] == 1;
   }
 
-  Future<bool> oopIsSpecial(int anOop) async {
+  Future<bool> oopIsSpecial(String anOop) async {
     _write({'request': 'oopIsSpecial', 'oop': anOop});
     var data = await _read();
     return data['result'];
   }
 
-  Future<int> oopToChar(int anOop) async {
+  Future<int> oopToChar(String anOop) async {
     _write({'request': 'oopToChar', 'oop': anOop});
     var data = await _read();
     return data['result'];
   }
 
-  Future<bool> sessionIsRemote(num session) async {
+  Future<num> oopToDouble(String session, String anOop) async {
+    _write({'request': 'oopToDouble', 'oop': anOop, 'session': session});
+    var data = await _read();
+    return data['result'];
+  }
+
+  // https://kermit.gemtalksystems.com/bug?bug=49654
+  Future<BigInt> oopToI64(String session, String anOop) async {
+    _write({'request': 'oopToI64', 'oop': anOop, 'session': session});
+    var data = await _read();
+    return BigInt.parse(data['result'], radix: 16);
+  }
+
+  Future<bool> sessionIsRemote(String session) async {
     _write({'request': 'sessionIsRemote', 'session': session});
     var data = await _read();
     return data['result'] == 1;
-  }
-
-  Future<void> waitForInitialization() async {
-    while (!_isInitialized) {
-      await new Future.delayed(new Duration(milliseconds: 50));
-    }
   }
 }

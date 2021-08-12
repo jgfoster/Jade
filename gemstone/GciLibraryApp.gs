@@ -48,7 +48,7 @@ sessionFrom: args
 
 	| bytes |
 	bytes := (CByteArray gcMalloc: 8)
-		int64At: 0 put: (args at: 'session');
+		int64At: 0 put: (Integer fromHexString: (args at: 'session'));
 		yourself.
 	^bytes pointerAt: 0 resultClass: CPointer.
 %
@@ -91,6 +91,7 @@ charToOop: args
 
 	| result |
 	result := self library GciTsCharToOop_: (args at: 'char').
+	result := result printStringRadix: 16 showRadix: false.
 	^self resultFrom: result error: GciErrSType new
 %
 category: 'GciTs API'
@@ -105,10 +106,22 @@ commit: args
 %
 category: 'GciTs API'
 method: GciLibraryApp
+doubleToOop: args
+
+	| error result session |
+	error := GciErrSType new.
+	session := self sessionFrom: args.
+	result := self library GciTsDoubleToOop_: session _: (args at: 'double') _: error.
+	result := result printStringRadix: 16 showRadix: false.
+	^self resultFrom: result error: error
+%
+category: 'GciTs API'
+method: GciLibraryApp
 doubleToSmallDouble: args
 
 	| result |
 	result := self library GciTsDoubleToSmallDouble_: (args at: 'double').
+	result := result printStringRadix: 16 showRadix: false.
 	^self resultFrom: result error: GciErrSType new
 %
 category: 'GciTs API'
@@ -136,7 +149,8 @@ method: GciLibraryApp
 fetchSpecialClass: args
 
 	| result |
-	result := self library GciTsFetchSpecialClass_: (args at: 'oop').
+	result := self library GciTsFetchSpecialClass_: (Integer fromHexString: (args at: 'oop')).
+	result := result printStringRadix: 16 showRadix: false.
 	^self resultFrom: result error: GciErrSType new
 %
 set compile_env: 0
@@ -161,7 +175,22 @@ i32ToOop: args
 
 	| result |
 	result := self library GciI32ToOop_: (args at: 'int').
+	result := result printStringRadix: 16 showRadix: false.
 	^self resultFrom: result error: GciErrSType new
+%
+category: 'GciTs API'
+method: GciLibraryApp
+i64ToOop: args
+
+	| error result session |
+	error := GciErrSType new.
+	session := self sessionFrom: args.
+	result := self library
+		GciTsI64ToOop_: session
+		_: (Integer fromHexString: (args at: 'i64'))
+		_: error.
+	result := result printStringRadix: 16 showRadix: false.
+	^self resultFrom: result error: error
 %
 category: 'GciTs API'
 method: GciLibraryApp
@@ -191,6 +220,7 @@ login: args
 		_: initFlag
 		_: error.
 	result := result ifNil: [nil] ifNotNil: [result memoryAddress].
+	result := result printStringRadix: 16 showRadix: false.
 	^self resultFrom: result error: error
 %
 category: 'GciTs API'
@@ -208,7 +238,7 @@ method: GciLibraryApp
 oopIsSpecial: args
 
 	| result |
-	result := self library GciTsOopIsSpecial_: (args at: 'oop').
+	result := self library GciTsOopIsSpecial_: (Integer fromHexString: (args at: 'oop')).
 	^self resultFrom: result == 1 error: GciErrSType new
 %
 category: 'GciTs API'
@@ -216,8 +246,45 @@ method: GciLibraryApp
 oopToChar: args
 
 	| result |
-	result := self library GciTsOopToChar_: (args at: 'oop').
+	result := self library GciTsOopToChar_: (Integer fromHexString: (args at: 'oop')).
 	^self resultFrom: result error: GciErrSType new
+%
+category: 'GciTs API'
+method: GciLibraryApp
+oopToDouble: args
+
+	| buffer error result session |
+	buffer := CByteArray gcMalloc: 8.
+	error := GciErrSType new.
+	session := self sessionFrom: args.
+	result := self library
+		GciTsOopToDouble_: session
+		_: (Integer fromHexString: (args at: 'oop'))
+		_: buffer
+		_: error.
+	result == 1 ifTrue: [
+		result := buffer doubleAt: 0.
+	].
+	^self resultFrom: result error: error
+%
+category: 'GciTs API'
+method: GciLibraryApp
+oopToI64: args
+	"https://kermit.gemtalksystems.com/bug?bug=49654"
+
+	| buffer error result session |
+	buffer := CByteArray gcMalloc: 8.
+	error := GciErrSType new.
+	session := self sessionFrom: args.
+	result := self library
+		GciTsOopToDouble_: session
+		_: (Integer fromHexString: (args at: 'oop'))
+		_: buffer
+		_: error.
+	result == 1 ifTrue: [
+		result := buffer int64At: 0.
+	].
+	^self resultFrom: (result printStringRadix: 16 showRadix: false) error: error
 %
 category: 'GciTs API'
 method: GciLibraryApp
@@ -241,15 +308,19 @@ handleRequest: aDict
 	command = 'break' ifTrue: [^self break: aDict].
 	command = 'charToOop' ifTrue: [^self charToOop: aDict].
 	command = 'commit' ifTrue: [^self commit: aDict].
+	command = 'doubleToOop' ifTrue: [^self doubleToOop: aDict].
 	command = 'doubleToSmallDouble' ifTrue: [^self doubleToSmallDouble: aDict].
 	command = 'encrypt' ifTrue: [^self encrypt: aDict].
 	command = 'fetchSpecialClass' ifTrue: [^self fetchSpecialClass: aDict].
 	command = 'getGciVersion' ifTrue: [^self getGciVersion: aDict].
 	command = 'i32ToOop' ifTrue: [^self i32ToOop: aDict].
+	command = 'i64ToOop' ifTrue: [^self i64ToOop: aDict].
 	command = 'login' ifTrue: [^self login: aDict].
 	command = 'logout' ifTrue: [^self logout: aDict].
 	command = 'oopIsSpecial' ifTrue: [^self oopIsSpecial: aDict].
 	command = 'oopToChar' ifTrue: [^self oopToChar: aDict].
+	command = 'oopToDouble' ifTrue: [^self oopToDouble: aDict].
+	command = 'oopToI64' ifTrue: [^self oopToI64: aDict].
 	command = 'sessionIsRemote' ifTrue: [^self sessionIsRemote: aDict].
 	self error: 'Unrecognized command: ' , command printString.
 %
