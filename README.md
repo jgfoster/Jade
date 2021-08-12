@@ -123,6 +123,17 @@ The following provides a list of all the functions defined in `gcits.hf` grouped
 
 ## Other Functions
 
+### Non-Blocking
+
+```C
+    GciSession GciTsNbLogin(...);
+    int        GciTsNbLoginFinished(...);
+    BoolType   GciTsNbLogout(GciSession sess, GciErrSType *err);
+    BoolType   GciTsNbPerform(...);
+    OopType    GciTsNbResult(...);
+    BoolType   GciTsNbExecute(...);
+```
+
 ### Fork
 
 GciTs offers a variety of `Fork` functions that take a callback.
