@@ -208,7 +208,6 @@ class JadeServer {
     return data['result'];
   }
 
-  // https://kermit.gemtalksystems.com/bug?bug=49654
   Future<BigInt> oopToI64(String session, String anOop,
       [String symbolList = '14']) async {
     _write({'request': 'oopToI64', 'oop': anOop, 'session': session});
@@ -231,7 +230,7 @@ class JadeServer {
   Future<String> resolveSymbolObj(String session, String anOop,
       [String symbolList = '14']) async {
     _write({
-      'request': 'resolveSymbol',
+      'request': 'resolveSymbolObj',
       'oop': anOop,
       'symbolList': symbolList,
       'session': session,

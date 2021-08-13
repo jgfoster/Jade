@@ -255,11 +255,9 @@ nbResult: args
 	requestSocket := GsSocket fromFileHandle: (args at: 'socket').
 	timeout := args at: 'timeout' ifAbsent: [0].
 	flag := requestSocket readWillNotBlockWithin: timeout.
-	GsFile stdout lf; nextPutAll: 'readWillNotBlock = ' , flag printString; lf.
 	flag ifTrue: [
 		result := self library GciTsNbResult_: session _: error.
 	].
-	GsFile stdout nextPutAll: 'result = ' , result printString; lf.
 	^self resultFrom: result error: GciErrSType new
 %
 category: 'GciTs API'
@@ -299,14 +297,13 @@ oopToDouble: args
 category: 'GciTs API'
 method: GciLibraryApp
 oopToI64: args
-	"https://kermit.gemtalksystems.com/bug?bug=49654"
 
 	| buffer error result session |
 	buffer := CByteArray gcMalloc: 8.
 	error := GciErrSType new.
 	session := self sessionFrom: args.
 	result := self library
-		GciTsOopToDouble_: session
+		GciTsOopToI64_: session
 		_: (Integer fromHexString: (args at: 'oop'))
 		_: buffer
 		_: error.
@@ -338,7 +335,7 @@ resolveSymbolObj: args
 	session := self sessionFrom: args.
 	result := self library
 		GciTsResolveSymbolObj_: session
-		_: 117394689 "(Integer fromHexString: (args at: 'oop'))"
+		_: (Integer fromHexString: (args at: 'oop'))
 		_: (Integer fromHexString: (args at: 'symbolList' ifAbsent: '14'))
 		_: error.
 	^self oopResultFrom: result error: error
