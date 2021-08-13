@@ -57,7 +57,11 @@ class JadeServer {
     while (_buffer.isEmpty) {
       await Future.delayed(Duration(milliseconds: 10));
     }
-    return _buffer.removeAt(0);
+    var result = _buffer.removeAt(0);
+    if (result['error'] != null) {
+      print(result);
+    }
+    return result;
   }
 
   Future<void> _write(var map) async {
@@ -174,6 +178,18 @@ class JadeServer {
     return data['result'] == 1;
   }
 
+  Future<String?> nbResult(String session, int socket,
+      [int timeout = 0]) async {
+    _write({
+      'request': 'nbResult',
+      'session': session,
+      'socket': socket,
+      'timeout': timeout,
+    });
+    var data = await _read();
+    return data['result'];
+  }
+
   Future<bool> oopIsSpecial(String anOop) async {
     _write({'request': 'oopIsSpecial', 'oop': anOop});
     var data = await _read();
@@ -228,5 +244,11 @@ class JadeServer {
     _write({'request': 'sessionIsRemote', 'session': session});
     var data = await _read();
     return data['result'] == 1;
+  }
+
+  Future<int> socket(String session) async {
+    _write({'request': 'socket', 'session': session});
+    var data = await _read();
+    return data['result'];
   }
 }

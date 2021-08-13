@@ -12,6 +12,7 @@ void main() {
   final server = JadeServer('localhost', 8888);
   String session1 = '0';
   String session2 = '0';
+  int socket = 0;
 
 // pre-login
   test('getGciVersion', () async {
@@ -90,6 +91,11 @@ void main() {
   });
 
 // while logged in
+  test('socket', () async {
+    socket = await server.socket(session1);
+    expect(socket, isA<int>());
+  });
+
   test('hardBreak', () async {
     expect(await server.doBreak(session1, true), isTrue);
   });
@@ -164,6 +170,11 @@ void main() {
   //   x = await server.resolveSymbol(session1, '2A9701'); // #'size'
   //   expect(x, '1');
   // });
+
+  test('nbResult with nothing', () async {
+    var x = await server.nbResult(session1, socket, 0);
+    expect(x, isNull);
+  });
 
 // logout
   test('logout session 1', () async {

@@ -30,6 +30,12 @@ library
 %
 category: 'Utilities'
 method: GciLibraryApp
+oopIn: args at: aString
+
+	^Integer fromHexString: (args at: aString).
+%
+category: 'Utilities'
+method: GciLibraryApp
 oopResultFrom: result error: error
 
 	^self resultFrom: (result printStringRadix: 16 showRadix: false) error: error
@@ -241,6 +247,23 @@ logout: args
 %
 category: 'GciTs API'
 method: GciLibraryApp
+nbResult: args
+
+	| error flag requestSocket result session timeout |
+	error := GciErrSType new.
+	session := self sessionFrom: args.
+	requestSocket := GsSocket fromFileHandle: (args at: 'socket').
+	timeout := args at: 'timeout' ifAbsent: [0].
+	flag := requestSocket readWillNotBlockWithin: timeout.
+	GsFile stdout lf; nextPutAll: 'readWillNotBlock = ' , flag printString; lf.
+	flag ifTrue: [
+		result := self library GciTsNbResult_: session _: error.
+	].
+	GsFile stdout nextPutAll: 'result = ' , result printString; lf.
+	^self resultFrom: result error: GciErrSType new
+%
+category: 'GciTs API'
+method: GciLibraryApp
 oopIsSpecial: args
 
 	| result |
@@ -329,6 +352,16 @@ sessionIsRemote: args
 	result := self library GciTsSessionIsRemote_: session.
 	^self resultFrom: result error: GciErrSType new
 %
+category: 'GciTs API'
+method: GciLibraryApp
+socket: args
+
+	| error result session |
+	error := GciErrSType new.
+	session := self sessionFrom: args.
+	result := self library GciTsSocket_: session _: error.
+	^self resultFrom: result error: GciErrSType new
+%
 
 ! -- WebSocket
 category: 'WebSockets'
@@ -351,6 +384,7 @@ handleRequest: aDict
 	command = 'i64ToOop' ifTrue: [^self i64ToOop: aDict].
 	command = 'login' ifTrue: [^self login: aDict].
 	command = 'logout' ifTrue: [^self logout: aDict].
+	command = 'nbResult' ifTrue: [^self nbResult: aDict].
 	command = 'oopIsSpecial' ifTrue: [^self oopIsSpecial: aDict].
 	command = 'oopToChar' ifTrue: [^self oopToChar: aDict].
 	command = 'oopToDouble' ifTrue: [^self oopToDouble: aDict].
@@ -358,6 +392,7 @@ handleRequest: aDict
 	command = 'resolveSymbol' ifTrue: [^self resolveSymbol: aDict].
 	command = 'resolveSymbolObj' ifTrue: [^self resolveSymbolObj: aDict].
 	command = 'sessionIsRemote' ifTrue: [^self sessionIsRemote: aDict].
+	command = 'socket' ifTrue: [^self socket: aDict].
 	self error: 'Unrecognized command: ' , command printString.
 %
 category: 'WebSockets'
