@@ -141,6 +141,29 @@ fetchSpecialClass
 	^self returnOop: (self library
 		GciTsFetchSpecialClass_: (self oopAt: 'oop'))
 %
+category: 'GciTs API'
+method: GciLibraryApp
+getFreeOops
+
+	| array buffer count |
+	count := requestDict at: 'count' ifAbsent: 0.
+	buffer := CByteArray gcMalloc: count * 8.
+	result := self library
+		GciTsGetFreeOops_: session
+		_: buffer
+		_: count
+		_: error.
+	result == -1 ifTrue: [
+		^self return: nil
+	].
+	array := Array new: result.
+	1 to: result do: [:i |
+		| oop |
+		oop := buffer uint64At: i - 1 * 8.
+		array at: i put: (oop printStringRadix: 16 showRadix: false).
+	].
+	^self return: array
+%
 set compile_env: 0
 category: 'GciTs API'
 method: GciLibraryApp
@@ -217,6 +240,74 @@ nbResult
 		^self return: (self library GciTsNbResult_: session _: error)
 	].
 	^self return: nil
+%
+category: 'GciTs API'
+method: GciLibraryApp
+newByteArray
+
+	| bytes |
+	bytes := requestDict at: 'bytes' ifAbsent: [''].
+	bytes := ByteArray fromBase64String: bytes.
+	bytes := CByteArray withAll: bytes.
+	bytes := self library
+		GciTsNewByteArray_: session
+		_: bytes
+		_: bytes size
+		_: error.
+	^self returnOop: bytes.
+%
+category: 'GciTs API'
+method: GciLibraryApp
+newObj
+
+	^self returnOop: (self library
+		GciTsNewObj_: session
+		_: (self oopAt: 'class')
+		_: error)
+%
+category: 'GciTs API'
+method: GciLibraryApp
+newString
+
+	^self returnOop: (self library
+		GciTsNewString_: session
+		_: (requestDict at: 'string' ifAbsent: [''])
+		_: error)
+%
+category: 'GciTs API'
+method: GciLibraryApp
+newSymbol
+
+	^self returnOop: (self library
+		GciTsNewSymbol_: session
+		_: (requestDict at: 'string' ifAbsent: [''])
+		_: error)
+%
+category: 'GciTs API'
+method: GciLibraryApp
+newUnicodeString
+
+	| bytes |
+	bytes := requestDict at: 'bytes' ifAbsent: [''].
+	^self returnOop: (self library
+		GciTsNewUtf8String__: session
+		_: (Utf8 fromBase64String: bytes)
+		_: bytes size
+		_: 1 "convertToUnicode is true"
+		_: error)
+%
+category: 'GciTs API'
+method: GciLibraryApp
+newUtf8String
+
+	| bytes |
+	bytes := requestDict at: 'bytes' ifAbsent: [''].
+	^self returnOop: (self library
+		GciTsNewUtf8String__: session
+		_: (Utf8 fromBase64String: bytes)
+		_: bytes size
+		_: 0 "convertToUnicode is false"
+		_: error)
 %
 category: 'GciTs API'
 method: GciLibraryApp
@@ -315,12 +406,20 @@ handleRequest: aDict
 	command = 'doubleToSmallDouble' ifTrue: [^self doubleToSmallDouble].
 	command = 'encrypt' ifTrue: [^self encrypt].
 	command = 'fetchSpecialClass' ifTrue: [^self fetchSpecialClass].
+	command = 'getFreeOops' ifTrue: [^self getFreeOops].
+	command = 'fetchUnicode' ifTrue: [^self fetchUnicode].
 	command = 'getGciVersion' ifTrue: [^self getGciVersion].
 	command = 'i32ToOop' ifTrue: [^self i32ToOop].
 	command = 'i64ToOop' ifTrue: [^self i64ToOop].
 	command = 'login' ifTrue: [^self login].
 	command = 'logout' ifTrue: [^self logout].
 	command = 'nbResult' ifTrue: [^self nbResult].
+	command = 'newByteArray' ifTrue: [^self newByteArray].
+	command = 'newObj' ifTrue: [^self newObj].
+	command = 'newString' ifTrue: [^self newString].
+	command = 'newSymbol' ifTrue: [^self newSymbol].
+	command = 'newUnicodeString' ifTrue: [^self newUnicodeString].
+	command = 'newUtf8String' ifTrue: [^self newUtf8String].
 	command = 'oopIsSpecial' ifTrue: [^self oopIsSpecial].
 	command = 'oopToChar' ifTrue: [^self oopToChar].
 	command = 'oopToDouble' ifTrue: [^self oopToDouble].

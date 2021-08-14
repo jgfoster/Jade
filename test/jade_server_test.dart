@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'dart:convert';
 
 import 'package:jade/jade_server.dart';
 
@@ -172,6 +173,50 @@ void main() {
   test('nbResult with nothing', () async {
     var x = await server.nbResult(session1, socket, 0);
     expect(x, isNull);
+  });
+
+  test('getFreeOops', () async {
+    List<String> x = await server.getFreeOops(session1, 2);
+    expect(x.length, equals(2));
+  });
+
+  test('newObj', () async {
+    String x = await server.newObj(session1, '10501');
+    expect(x, isA<String>());
+  });
+
+  test('newByteArray', () async {
+    String x = await server.newByteArray(
+      session1,
+      [0, 1, 2, 3, 243, 244, 245],
+    );
+    expect(x, isA<String>());
+  });
+
+  test('newString', () async {
+    String x = await server.newString(session1, 'abc');
+    expect(x, isA<String>());
+  });
+
+  test('newSymbol', () async {
+    String x = await server.newString(session1, 'foo');
+    expect(x, isA<String>());
+  });
+
+  test('newUnicodeString', () async {
+    String x = await server.newUnicodeString(session1, utf8.encode('foo'));
+    expect(x, isA<String>());
+  });
+
+  test('newUtf8String', () async {
+    String x = await server.newUtf8String(session1, utf8.encode('foo'));
+    expect(x, isA<String>());
+  });
+
+  test('fetchUnicode', () async {
+    var dbfHistory = await server.resolveSymbol(session1, 'DbfHistory');
+    String x = await server.fetchUnicode(session1, dbfHistory);
+    expect(x, isA<String>());
   });
 
 // logout

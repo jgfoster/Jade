@@ -60,13 +60,13 @@ The following provides a list of all the functions defined in `gcits.hf` grouped
 ### Table 7.6 Functions for creating and Initializing Objects
 
 ```C
-    int        GciTsGetFreeOops(GciSession sess, OopType *buf, int numOopsRequested, GciErrSType *err);
-    OopType    GciTsNewObj(GciSession sess, OopType aClass, GciErrSType *err);
-    OopType    GciTsNewByteArray(GciSession sess, ...);
-    OopType    GciTsNewString_(GciSession sess, ...);
-    OopType    GciTsNewSymbol(GciSession sess, ...);
-    OopType    GciTsNewUnicodeString_(GciSession sess, ...);
-    OopType    GciTsNewUtf8String_(GciSession sess, ...);
+✓   int        GciTsGetFreeOops(GciSession sess, OopType *buf, int numOopsRequested, GciErrSType *err);
+✓   OopType    GciTsNewObj(GciSession sess, OopType aClass, GciErrSType *err);
+✓   OopType    GciTsNewByteArray(GciSession sess, ...);
+✓   OopType    GciTsNewString_(GciSession sess, ...);
+✓   OopType    GciTsNewSymbol(GciSession sess, ...);
+✓   OopType    GciTsNewUnicodeString_(GciSession sess, ...);
+✓   OopType    GciTsNewUtf8String_(GciSession sess, ...);
     int64      GciTsFetchUnicode(GciSession sess, ...);
 ```
 

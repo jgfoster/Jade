@@ -132,6 +132,20 @@ class JadeServer {
     return (await _read())['result'];
   }
 
+  Future<String> fetchUnicode(String session, String anOop) async {
+    _write({'request': 'fetchUnicode', 'session': session, 'oop': anOop});
+    return (await _read())['result'];
+  }
+
+  Future<List<String>> getFreeOops(String session, int count) async {
+    _write({'request': 'getFreeOops', 'count': count, 'session': session});
+    List<String> result = [];
+    ((await _read())['result']).forEach((each) {
+      result.add(each as String);
+    });
+    return result;
+  }
+
   Future<String> getGciVersion() async {
     _write({'request': 'getGciVersion'});
     var data = await _read();
@@ -178,6 +192,48 @@ class JadeServer {
       'session': session,
       'socket': socket,
       'timeout': timeout,
+    });
+    return (await _read())['result'];
+  }
+
+  Future<String> newByteArray(String session, List<int> bytes) async {
+    _write({
+      'request': 'newByteArray',
+      'bytes': base64.encode(bytes),
+      'session': session
+    });
+    return (await _read())['result'];
+  }
+
+  Future<String> newObj(String session, String classOop) async {
+    _write({'request': 'newObj', 'class': classOop, 'session': session});
+    return (await _read())['result'];
+  }
+
+  Future<String> newString(String session, String string) async {
+    _write({'request': 'newString', 'string': string, 'session': session});
+    return (await _read())['result'];
+  }
+
+  Future<String> newSymbol(String session, String string) async {
+    _write({'request': 'newSymbol', 'string': string, 'session': session});
+    return (await _read())['result'];
+  }
+
+  Future<String> newUnicodeString(String session, var bytes) async {
+    _write({
+      'request': 'newUnicodeString',
+      'bytes': base64.encode(bytes),
+      'session': session
+    });
+    return (await _read())['result'];
+  }
+
+  Future<String> newUtf8String(String session, var bytes) async {
+    _write({
+      'request': 'newUtf8String',
+      'bytes': base64.encode(bytes),
+      'session': session
     });
     return (await _read())['result'];
   }
