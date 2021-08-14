@@ -30,19 +30,13 @@ library
 %
 category: 'Utilities'
 method: GciLibraryApp
-oopIn: args at: aString
+oopAt: aString
 
-	^Integer fromHexString: (args at: aString).
+	^Integer fromHexString: (requestDict at: aString ifAbsent: [^nil]).
 %
 category: 'Utilities'
 method: GciLibraryApp
-oopResultFrom: result error: error
-
-	^self resultFrom: (result printStringRadix: 16 showRadix: false) error: error
-%
-category: 'Utilities'
-method: GciLibraryApp
-resultFrom: result error: error
+return: anObject
 
 	error number ~~ 0 ifTrue: [
 		^Dictionary new
@@ -51,16 +45,23 @@ resultFrom: result error: error
 			yourself
 	].
 	^Dictionary new
-		at: 'result' put: result;
+		at: 'result' put: anObject;
 		yourself
 %
 category: 'Utilities'
 method: GciLibraryApp
-sessionFrom: args
+returnOop: anInteger
 
-	| bytes |
+	^self return: (anInteger printStringRadix: 16 showRadix: false)
+%
+category: 'Utilities'
+method: GciLibraryApp
+session
+
+	| bytes integer |
+	(integer := self oopAt: 'session') ifNil: [^nil].
 	bytes := (CByteArray gcMalloc: 8)
-		int64At: 0 put: (Integer fromHexString: (args at: 'session'));
+		int64At: 0 put: integer;
 		yourself.
 	^bytes pointerAt: 0 resultClass: CPointer.
 %
@@ -68,81 +69,58 @@ sessionFrom: args
 ! -- GciTs API
 category: 'GciTs API'
 method: GciLibraryApp
-abort: args
+abort
 
-	| error result session |
-	error := GciErrSType new.
-	session := self sessionFrom: args.
-	result := self library GciTsAbort_: session _: error.
-	^self resultFrom: result error: error
+	^self return: (self library GciTsAbort_: session _: error)
 %
 category: 'GciTs API'
 method: GciLibraryApp
-begin: args
+begin
 
-	| error result session |
-	error := GciErrSType new.
-	session := self sessionFrom: args.
-	result := self library GciTsBegin_: session _: error.
-	^self resultFrom: result error: error
+	^self return: (self library GciTsBegin_: session _: error)
 %
 category: 'GciTs API'
 method: GciLibraryApp
-break: args
+break
 
-	| error hardBreakFlag result session |
-	error := GciErrSType new.
-	hardBreakFlag := (args at: 'isHard') ifTrue: [1] ifFalse: [0].
-	session := self sessionFrom: args.
-	result := self library GciTsBreak_: session _: hardBreakFlag _: error.
-	^self resultFrom: result error: error
+	| hardBreakFlag |
+	hardBreakFlag := (requestDict at: 'isHard') ifTrue: [1] ifFalse: [0].
+	^self return: (self library GciTsBreak_: session _: hardBreakFlag _: error)
 %
 category: 'GciTs API'
 method: GciLibraryApp
-charToOop: args
+charToOop
 
-	| result |
-	result := self library GciTsCharToOop_: (args at: 'char').
-	result := result printStringRadix: 16 showRadix: false.
-	^self resultFrom: result error: GciErrSType new
+	^self returnOop: (self library GciTsCharToOop_: (requestDict at: 'char'))
 %
 category: 'GciTs API'
 method: GciLibraryApp
-commit: args
+commit
 
-	| error result session |
-	error := GciErrSType new.
-	session := self sessionFrom: args.
-	result := self library GciTsCommit_: session _: error.
-	^self resultFrom: result error: error
+	^self return: (self library GciTsCommit_: session _: error)
 %
 category: 'GciTs API'
 method: GciLibraryApp
-doubleToOop: args
+doubleToOop
 
-	| error result session |
-	error := GciErrSType new.
-	session := self sessionFrom: args.
-	result := self library GciTsDoubleToOop_: session _: (args at: 'double') _: error.
-	result := result printStringRadix: 16 showRadix: false.
-	^self resultFrom: result error: error
+	^self returnOop: (self library
+		GciTsDoubleToOop_: session
+		_: (requestDict at: 'double') _: error)
 %
 category: 'GciTs API'
 method: GciLibraryApp
-doubleToSmallDouble: args
+doubleToSmallDouble
 
-	| result |
-	result := self library GciTsDoubleToSmallDouble_: (args at: 'double').
-	result := result printStringRadix: 16 showRadix: false.
-	^self resultFrom: result error: GciErrSType new
+	^self returnOop: (self library
+		GciTsDoubleToSmallDouble_: (requestDict at: 'double'))
 %
 category: 'GciTs API'
 method: GciLibraryApp
-encrypt: args
+encrypt
 
-	| buffer index result |
+	| buffer index |
 	buffer := CByteArray gcMalloc: 64.
-	result := self library GciTsEncrypt_: (args at: 'password') _: buffer _: buffer size.
+	result := self library GciTsEncrypt_: (requestDict at: 'password') _: buffer _: buffer size.
 	result ifNil: [
 		^Dictionary new
 			error: 1;
@@ -158,17 +136,15 @@ encrypt: args
 %
 category: 'GciTs API'
 method: GciLibraryApp
-fetchSpecialClass: args
+fetchSpecialClass
 
-	| result |
-	result := self library GciTsFetchSpecialClass_: (Integer fromHexString: (args at: 'oop')).
-	result := result printStringRadix: 16 showRadix: false.
-	^self resultFrom: result error: GciErrSType new
+	^self returnOop: (self library
+		GciTsFetchSpecialClass_: (self oopAt: 'oop'))
 %
 set compile_env: 0
 category: 'GciTs API'
 method: GciLibraryApp
-getGciVersion: aDict
+getGciVersion
 
 	| buffer index product version |
 	buffer := CByteArray gcMalloc: 128.
@@ -183,30 +159,22 @@ getGciVersion: aDict
 %
 category: 'GciTs API'
 method: GciLibraryApp
-i32ToOop: args
+i32ToOop
 
-	| result |
-	result := self library GciI32ToOop_: (args at: 'int').
-	result := result printStringRadix: 16 showRadix: false.
-	^self resultFrom: result error: GciErrSType new
+	^self returnOop: (self library GciI32ToOop_: (requestDict at: 'int'))
 %
 category: 'GciTs API'
 method: GciLibraryApp
-i64ToOop: args
+i64ToOop
 
-	| error result session |
-	error := GciErrSType new.
-	session := self sessionFrom: args.
-	result := self library
+	^self returnOop: (self library
 		GciTsI64ToOop_: session
-		_: (Integer fromHexString: (args at: 'i64'))
-		_: error.
-	result := result printStringRadix: 16 showRadix: false.
-	^self resultFrom: result error: error
+		_: (self oopAt: 'i64')
+		_: error)
 %
 category: 'GciTs API'
 method: GciLibraryApp
-login: args
+login
 	"GciTsLogin_: StoneNameNrs _: HostUserId _: HostPassword _: hostPwIsEncrypted _: GemServiceNrs
 		_: gemstoneUsername _: gemstonePassword _: loginFlags _: haltOnErrNum _: executedSessionInit _: err
 	$GEMSTONE/include/gcits.hf line 72
@@ -216,8 +184,7 @@ login: args
 			GciErrSType *err) ;
 
 	Interpreted as #ptr from #( #'const char*' #'const char*' #'const char*' #'int32' #'const char*' #'const char*' #'const char*' #'uint32' #'int32' #'ptr' #'ptr' )	"
-	| error initFlag result |
-	error := GciErrSType new.
+	| initFlag |
 	initFlag := CByteArray gcMalloc: 8.
 	result := self library
 		GciTsLogin_: GsNetworkResourceString defaultStoneNRSFromCurrent printString
@@ -225,139 +192,107 @@ login: args
 		_: nil "HostPassword"
 		_: 0 "hostPwIsEncrypted"
 		_: GsNetworkResourceString defaultGemNRSFromCurrent printString
-		_: (args at: 'username' ifAbsent: ['username'])
-		_: (args at: 'password' ifAbsent: ['password'])
+		_: (requestDict at: 'username' ifAbsent: ['username'])
+		_: (requestDict at: 'password' ifAbsent: ['password'])
 		_: 0	"flags"
 		_: 0	"haltOnErrNum"
 		_: initFlag
 		_: error.
-	result := result ifNil: [nil] ifNotNil: [result memoryAddress].
-	result := result printStringRadix: 16 showRadix: false.
-	^self resultFrom: result error: error
+	^self returnOop: (result ifNil: [nil] ifNotNil: [result memoryAddress])
 %
 category: 'GciTs API'
 method: GciLibraryApp
-logout: args
+logout
 
-	| error result session |
-	error := GciErrSType new.
-	session := self sessionFrom: args.
-	result := self library GciTsLogout_: session _: error.
-	^self resultFrom: result error: error
+	^self return: (self library GciTsLogout_: session _: error)
 %
 category: 'GciTs API'
 method: GciLibraryApp
-nbResult: args
+nbResult
 
-	| error flag requestSocket result session timeout |
-	error := GciErrSType new.
-	session := self sessionFrom: args.
-	requestSocket := GsSocket fromFileHandle: (args at: 'socket').
-	timeout := args at: 'timeout' ifAbsent: [0].
-	flag := requestSocket readWillNotBlockWithin: timeout.
-	flag ifTrue: [
-		result := self library GciTsNbResult_: session _: error.
+	| flag requestSocket timeout |
+	requestSocket := GsSocket fromFileHandle: (requestDict at: 'socket').
+	timeout := requestDict at: 'timeout' ifAbsent: [0].
+	(requestSocket readWillNotBlockWithin: timeout) ifTrue: [
+		^self return: (self library GciTsNbResult_: session _: error)
 	].
-	^self resultFrom: result error: GciErrSType new
+	^self return: nil
 %
 category: 'GciTs API'
 method: GciLibraryApp
-oopIsSpecial: args
+oopIsSpecial
 
-	| result |
-	result := self library GciTsOopIsSpecial_: (Integer fromHexString: (args at: 'oop')).
-	^self resultFrom: result == 1 error: GciErrSType new
+	^self return: (self library GciTsOopIsSpecial_: (self oopAt: 'oop')) == 1
 %
 category: 'GciTs API'
 method: GciLibraryApp
-oopToChar: args
+oopToChar
 
-	| result |
-	result := self library GciTsOopToChar_: (Integer fromHexString: (args at: 'oop')).
-	^self resultFrom: result error: GciErrSType new
+	^self return: (self library GciTsOopToChar_: (self oopAt: 'oop'))
 %
 category: 'GciTs API'
 method: GciLibraryApp
-oopToDouble: args
+oopToDouble
 
-	| buffer error result session |
+	| buffer |
 	buffer := CByteArray gcMalloc: 8.
-	error := GciErrSType new.
-	session := self sessionFrom: args.
 	result := self library
 		GciTsOopToDouble_: session
-		_: (Integer fromHexString: (args at: 'oop'))
+		_: (self oopAt: 'oop')
 		_: buffer
 		_: error.
 	result == 1 ifTrue: [
-		result := buffer doubleAt: 0.
+		^self return: (buffer doubleAt: 0)
 	].
-	^self resultFrom: result error: error
+	^self return: nil
 %
 category: 'GciTs API'
 method: GciLibraryApp
-oopToI64: args
+oopToI64
 
-	| buffer error result session |
+	| buffer |
 	buffer := CByteArray gcMalloc: 8.
-	error := GciErrSType new.
-	session := self sessionFrom: args.
 	result := self library
 		GciTsOopToI64_: session
-		_: (Integer fromHexString: (args at: 'oop'))
+		_: (self oopAt: 'oop')
 		_: buffer
 		_: error.
 	result == 1 ifTrue: [
-		result := buffer int64At: 0.
+		^self returnOop: (buffer int64At: 0)
 	].
-	^self oopResultFrom: result error: error
+	^self return: nil
 %
 category: 'GciTs API'
 method: GciLibraryApp
-resolveSymbol: args
+resolveSymbol
 
-	| error result session |
-	error := GciErrSType new.
-	session := self sessionFrom: args.
-	result := self library
+	^self returnOop: (self library
 		GciTsResolveSymbol_: session
-		_: (args at: 'symbol')
-		_: (Integer fromHexString: (args at: 'symbolList' ifAbsent: '14'))
-		_: error.
-	^self oopResultFrom: result error: error
+		_: (requestDict at: 'symbol')
+		_: (self oopAt: 'symbolList')
+		_: error)
 %
 category: 'GciTs API'
 method: GciLibraryApp
-resolveSymbolObj: args
+resolveSymbolObj
 
-	| error result session |
-	error := GciErrSType new.
-	session := self sessionFrom: args.
-	result := self library
+	^self returnOop: (self library
 		GciTsResolveSymbolObj_: session
-		_: (Integer fromHexString: (args at: 'oop'))
-		_: (Integer fromHexString: (args at: 'symbolList' ifAbsent: '14'))
-		_: error.
-	^self oopResultFrom: result error: error
+		_: (self oopAt: 'oop')
+		_: (self oopAt: 'symbolList')
+		_: error)
 %
 category: 'GciTs API'
 method: GciLibraryApp
-sessionIsRemote: args
+sessionIsRemote
 
-	| result session |
-	session := self sessionFrom: args.
-	result := self library GciTsSessionIsRemote_: session.
-	^self resultFrom: result error: GciErrSType new
+	^self return: (self library GciTsSessionIsRemote_: session)
 %
 category: 'GciTs API'
 method: GciLibraryApp
-socket: args
+socket
 
-	| error result session |
-	error := GciErrSType new.
-	session := self sessionFrom: args.
-	result := self library GciTsSocket_: session _: error.
-	^self resultFrom: result error: GciErrSType new
+	^self return: (self library GciTsSocket_: session _: error)
 %
 
 ! -- WebSocket
@@ -366,30 +301,34 @@ method: GciLibraryApp
 handleRequest: aDict
 
 	| command |
-	command := aDict at: 'request'.
-	command = 'abort' ifTrue: [^self abort: aDict].
-	command = 'begin' ifTrue: [^self begin: aDict].
-	command = 'break' ifTrue: [^self break: aDict].
-	command = 'charToOop' ifTrue: [^self charToOop: aDict].
-	command = 'commit' ifTrue: [^self commit: aDict].
-	command = 'doubleToOop' ifTrue: [^self doubleToOop: aDict].
-	command = 'doubleToSmallDouble' ifTrue: [^self doubleToSmallDouble: aDict].
-	command = 'encrypt' ifTrue: [^self encrypt: aDict].
-	command = 'fetchSpecialClass' ifTrue: [^self fetchSpecialClass: aDict].
-	command = 'getGciVersion' ifTrue: [^self getGciVersion: aDict].
-	command = 'i32ToOop' ifTrue: [^self i32ToOop: aDict].
-	command = 'i64ToOop' ifTrue: [^self i64ToOop: aDict].
-	command = 'login' ifTrue: [^self login: aDict].
-	command = 'logout' ifTrue: [^self logout: aDict].
-	command = 'nbResult' ifTrue: [^self nbResult: aDict].
-	command = 'oopIsSpecial' ifTrue: [^self oopIsSpecial: aDict].
-	command = 'oopToChar' ifTrue: [^self oopToChar: aDict].
-	command = 'oopToDouble' ifTrue: [^self oopToDouble: aDict].
-	command = 'oopToI64' ifTrue: [^self oopToI64: aDict].
-	command = 'resolveSymbol' ifTrue: [^self resolveSymbol: aDict].
-	command = 'resolveSymbolObj' ifTrue: [^self resolveSymbolObj: aDict].
-	command = 'sessionIsRemote' ifTrue: [^self sessionIsRemote: aDict].
-	command = 'socket' ifTrue: [^self socket: aDict].
+	error := GciErrSType new.
+	requestDict := aDict.
+	result := nil.
+	session := self session.
+	command := requestDict at: 'request'.
+	command = 'abort' ifTrue: [^self abort].
+	command = 'begin' ifTrue: [^self begin].
+	command = 'break' ifTrue: [^self break].
+	command = 'charToOop' ifTrue: [^self charToOop].
+	command = 'commit' ifTrue: [^self commit].
+	command = 'doubleToOop' ifTrue: [^self doubleToOop].
+	command = 'doubleToSmallDouble' ifTrue: [^self doubleToSmallDouble].
+	command = 'encrypt' ifTrue: [^self encrypt].
+	command = 'fetchSpecialClass' ifTrue: [^self fetchSpecialClass].
+	command = 'getGciVersion' ifTrue: [^self getGciVersion].
+	command = 'i32ToOop' ifTrue: [^self i32ToOop].
+	command = 'i64ToOop' ifTrue: [^self i64ToOop].
+	command = 'login' ifTrue: [^self login].
+	command = 'logout' ifTrue: [^self logout].
+	command = 'nbResult' ifTrue: [^self nbResult].
+	command = 'oopIsSpecial' ifTrue: [^self oopIsSpecial].
+	command = 'oopToChar' ifTrue: [^self oopToChar].
+	command = 'oopToDouble' ifTrue: [^self oopToDouble].
+	command = 'oopToI64' ifTrue: [^self oopToI64].
+	command = 'resolveSymbol' ifTrue: [^self resolveSymbol].
+	command = 'resolveSymbolObj' ifTrue: [^self resolveSymbolObj].
+	command = 'sessionIsRemote' ifTrue: [^self sessionIsRemote].
+	command = 'socket' ifTrue: [^self socket].
 	self error: 'Unrecognized command: ' , command printString.
 %
 category: 'WebSockets'

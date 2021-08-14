@@ -103,8 +103,7 @@ class JadeServer {
 
   Future<String> charToOop(int anOop) async {
     _write({'request': 'charToOop', 'char': anOop});
-    var data = await _read();
-    return data['result'];
+    return (await _read())['result'];
   }
 
   Future<bool> commit(String session) async {
@@ -115,26 +114,22 @@ class JadeServer {
 
   Future<String> doubleToOop(String session, double value) async {
     _write({'request': 'doubleToOop', 'double': value, 'session': session});
-    var data = await _read();
-    return data['result'];
+    return (await _read())['result'];
   }
 
   Future<String> doubleToSmallDouble(double value) async {
     _write({'request': 'doubleToSmallDouble', 'double': value});
-    var data = await _read();
-    return data['result'];
+    return (await _read())['result'];
   }
 
   Future<String> encrypt(String password) async {
     _write({'request': 'encrypt', 'password': password});
-    var data = await _read();
-    return data['result'];
+    return (await _read())['result'];
   }
 
   Future<String> fetchSpecialClass(String anOop) async {
     _write({'request': 'fetchSpecialClass', 'oop': anOop});
-    var data = await _read();
-    return data['result'];
+    return (await _read())['result'];
   }
 
   Future<String> getGciVersion() async {
@@ -145,8 +140,7 @@ class JadeServer {
 
   Future<String> i32ToOop(int value) async {
     _write({'request': 'i32ToOop', 'int': value});
-    var data = await _read();
-    return data['result'];
+    return (await _read())['result'];
   }
 
   Future<String> i64ToOop(String session, BigInt value) async {
@@ -155,8 +149,7 @@ class JadeServer {
       'i64': value.toRadixString(16),
       'session': session
     });
-    var data = await _read();
-    return data['result'];
+    return (await _read())['result'];
   }
 
   Future<String> login(String username, String password) async {
@@ -186,26 +179,22 @@ class JadeServer {
       'socket': socket,
       'timeout': timeout,
     });
-    var data = await _read();
-    return data['result'];
+    return (await _read())['result'];
   }
 
   Future<bool> oopIsSpecial(String anOop) async {
     _write({'request': 'oopIsSpecial', 'oop': anOop});
-    var data = await _read();
-    return data['result'];
+    return (await _read())['result'];
   }
 
   Future<int> oopToChar(String anOop) async {
     _write({'request': 'oopToChar', 'oop': anOop});
-    var data = await _read();
-    return data['result'];
+    return (await _read())['result'];
   }
 
   Future<num> oopToDouble(String session, String anOop) async {
     _write({'request': 'oopToDouble', 'oop': anOop, 'session': session});
-    var data = await _read();
-    return data['result'];
+    return (await _read())['result'];
   }
 
   Future<BigInt> oopToI64(String session, String anOop,
@@ -223,8 +212,7 @@ class JadeServer {
       'symbolList': symbolList,
       'session': session,
     });
-    var data = await _read();
-    return data['result'];
+    return (await _read())['result'];
   }
 
   Future<String> resolveSymbolObj(String session, String anOop,
@@ -235,8 +223,7 @@ class JadeServer {
       'symbolList': symbolList,
       'session': session,
     });
-    var data = await _read();
-    return data['result'];
+    return (await _read())['result'];
   }
 
   Future<bool> sessionIsRemote(String session) async {
@@ -247,7 +234,6 @@ class JadeServer {
 
   Future<int> socket(String session) async {
     _write({'request': 'socket', 'session': session});
-    var data = await _read();
-    return data['result'];
+    return (await _read())['result'];
   }
 }
