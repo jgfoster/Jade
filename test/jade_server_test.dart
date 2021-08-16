@@ -214,6 +214,8 @@ void main() {
   });
 
   test('fetchUnicode', () async {
+    // Since Dart doesn't support UTF-16, we just get a
+    // base64 encoded string of the bytes
     var dbfHistory = await server.resolveSymbol(session1, 'DbfHistory');
     String x = await server.fetchUnicode(session1, dbfHistory);
     expect(x, isA<String>());

@@ -199,7 +199,7 @@ class JadeServer {
   Future<String> newByteArray(String session, List<int> bytes) async {
     _write({
       'request': 'newByteArray',
-      'bytes': base64.encode(bytes),
+      'bytes': base64Encode(bytes),
       'session': session
     });
     return (await _read())['result'];
@@ -221,9 +221,11 @@ class JadeServer {
   }
 
   Future<String> newUnicodeString(String session, var bytes) async {
+    // GciTs returns UTF-16 but Dart only supports UTF-8
+    // so we just give back the base64 encoded sequence
     _write({
       'request': 'newUnicodeString',
-      'bytes': base64.encode(bytes),
+      'bytes': base64Encode(bytes),
       'session': session
     });
     return (await _read())['result'];

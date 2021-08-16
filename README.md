@@ -67,7 +67,7 @@ The following provides a list of all the functions defined in `gcits.hf` grouped
 ✓   OopType    GciTsNewSymbol(GciSession sess, ...);
 ✓   OopType    GciTsNewUnicodeString_(GciSession sess, ...);
 ✓   OopType    GciTsNewUtf8String_(GciSession sess, ...);
-    int64      GciTsFetchUnicode(GciSession sess, ...);
+✓   int64      GciTsFetchUnicode(GciSession sess, ...);
 ```
 
 ### Table 7.7 Functions for Converting Objects and Values

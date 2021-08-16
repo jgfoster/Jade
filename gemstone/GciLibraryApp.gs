@@ -143,6 +143,31 @@ fetchSpecialClass
 %
 category: 'GciTs API'
 method: GciLibraryApp
+fetchUnicode
+
+	| buffer destSize requiredSize |
+	requiredSize := CByteArray gcMalloc: 8.
+	requiredSize int64At: 0 put: 1024.
+	destSize := 0.
+	[destSize < (requiredSize int64At: 0)] whileTrue: [
+		destSize := requiredSize int64At: 0.
+		buffer := CByteArray gcMalloc: destSize * 2.
+		result := self library
+			GciTsFetchUnicode_: session
+			_: (self oopAt: 'oop')
+			_: buffer
+			_: destSize
+			_: requiredSize
+			_: error.
+	].
+	result == -1 ifTrue: [
+		^self return: nil
+	].
+	buffer := buffer byteArrayFrom: 1 to: result * 2 - 1.
+	^self return: buffer asBase64String
+%
+category: 'GciTs API'
+method: GciLibraryApp
 getFreeOops
 
 	| array buffer count |
