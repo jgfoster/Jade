@@ -91,6 +91,7 @@ void main() {
     expect(session1, isNot(session2));
   });
 
+///////////////////////
 // while logged in
   test('socket', () async {
     socket = await server.socket(session1);
@@ -172,7 +173,7 @@ void main() {
 
   test('nbResult with nothing', () async {
     var x = await server.nbResult(session1, socket, 0);
-    expect(x, isNull);
+    expect(x, isNull); 
   });
 
   test('getFreeOops', () async {
@@ -221,6 +222,15 @@ void main() {
     expect(x, isA<String>());
   });
 
+  test('executeString', () async {
+    await server.execute(session1, "'foo' size");
+    String? oop = await server.nbResult(session1, socket, 200);
+    expect(oop, isNull); // nbExecute returns nil
+    oop = await server.nbResult(session1, socket, 200);
+    expect(oop!, equals('1A'));
+  });
+
+///////////////////////
 // logout
   test('logout session 1', () async {
     expect(await server.logout(session1), isTrue);

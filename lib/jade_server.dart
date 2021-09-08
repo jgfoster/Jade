@@ -40,6 +40,7 @@ class JadeServer {
   void _onData(dynamic data) async {
     var obj = jsonDecode(data);
     // print('_onData() - $obj');
+    // if (obj.includesKey('nb'))
     _buffer.add(obj);
   }
 
@@ -127,6 +128,10 @@ class JadeServer {
     return (await _read())['result'];
   }
 
+  Future<void> execute(String session, String code) async {
+    _write({'request': 'execute', 'string': code, 'session': session});
+  }
+
   Future<String> fetchSpecialClass(String anOop) async {
     _write({'request': 'fetchSpecialClass', 'oop': anOop});
     return (await _read())['result'];
@@ -181,19 +186,28 @@ class JadeServer {
 
   Future<bool> logout(String session) async {
     _write({'request': 'logout', 'session': session});
+    await Future.delayed(Duration(milliseconds: 100));
     var data = await _read();
-    return data['result'] == 1;
+    print(data['result'].runtimeType);
+    print(data['result']);
+    var flag = data['result'] == 1;
+    print(flag);
+    return flag;
   }
 
   Future<String?> nbResult(String session, int socket,
-      [int timeout = 0]) async {
+      [int timeoutMs = 0]) async {
     _write({
       'request': 'nbResult',
       'session': session,
       'socket': socket,
-      'timeout': timeout,
+      'timeout': timeoutMs,
     });
-    return (await _read())['result'];
+    var result = (await _read())['result'];
+    if (result == '1') {
+      return null;
+    }
+    return result;
   }
 
   Future<String> newByteArray(String session, List<int> bytes) async {

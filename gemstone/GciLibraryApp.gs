@@ -136,6 +136,25 @@ encrypt
 %
 category: 'GciTs API'
 method: GciLibraryApp
+execute
+
+	| string |
+	string := requestDict at: 'string'.
+	self library
+		GciTsNbExecute_: session 
+		_: string
+		_: string class asOop
+		_: 1 		"OOP_ILLEGAL (context)"
+		_: 20 	"OOP_NIL (SymbolList)"
+		_: 0 		"flags"
+		_: 0 		"environment"
+		_: error.
+	^Dictionary new
+		at: 'nb' put: true;
+		yourself
+%
+category: 'GciTs API'
+method: GciLibraryApp
 fetchSpecialClass
 
 	^self returnOop: (self library
@@ -258,13 +277,18 @@ category: 'GciTs API'
 method: GciLibraryApp
 nbResult
 
-	| flag requestSocket timeout |
+	| requestSocket timeoutMs |
 	requestSocket := GsSocket fromFileHandle: (requestDict at: 'socket').
-	timeout := requestDict at: 'timeout' ifAbsent: [0].
-	(requestSocket readWillNotBlockWithin: timeout) ifTrue: [
-		^self return: (self library GciTsNbResult_: session _: error)
+	timeoutMs := requestDict at: 'timeout' ifAbsent: [0].
+	(requestSocket readWillNotBlockWithin: timeoutMs) ifTrue: [
+		| result |
+		result := (self library GciTsNbResult_: session _: error).
+		result == 1 ifTrue: [
+			GsFile stdout nextPutAll: 'nbResult error message => ' , error message printString; lf.
+		].
+		^self returnOop: result
 	].
-	^self return: nil
+	^self returnOop: 1	"OOP_ILLEGAL"
 %
 category: 'GciTs API'
 method: GciLibraryApp
@@ -430,6 +454,7 @@ handleRequest: aDict
 	command = 'doubleToOop' ifTrue: [^self doubleToOop].
 	command = 'doubleToSmallDouble' ifTrue: [^self doubleToSmallDouble].
 	command = 'encrypt' ifTrue: [^self encrypt].
+	command = 'execute' ifTrue: [^self execute].
 	command = 'fetchSpecialClass' ifTrue: [^self fetchSpecialClass].
 	command = 'getFreeOops' ifTrue: [^self getFreeOops].
 	command = 'fetchUnicode' ifTrue: [^self fetchUnicode].
