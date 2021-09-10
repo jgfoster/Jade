@@ -42,10 +42,12 @@ return: anObject
 		^Dictionary new
 			at: 'error' put: error number;
 			at: 'message' put: error message;
+			at: 'type' put: 'error';
 			yourself
 	].
 	^Dictionary new
 		at: 'result' put: anObject;
+		at: 'type' put: anObject class name asString;
 		yourself
 %
 category: 'Utilities'
@@ -138,9 +140,9 @@ category: 'GciTs API'
 method: GciLibraryApp
 execute
 
-	| string |
+	| flag string |
 	string := requestDict at: 'string'.
-	self library
+	flag := self library
 		GciTsNbExecute_: session 
 		_: string
 		_: string class asOop
@@ -149,9 +151,7 @@ execute
 		_: 0 		"flags"
 		_: 0 		"environment"
 		_: error.
-	^Dictionary new
-		at: 'nb' put: true;
-		yourself
+	^self return: flag == 1
 %
 category: 'GciTs API'
 method: GciLibraryApp
@@ -271,7 +271,7 @@ category: 'GciTs API'
 method: GciLibraryApp
 logout
 
-	^self return: (self library GciTsLogout_: session _: error)
+	^self return: (self library GciTsLogout_: session _: error) == 1
 %
 category: 'GciTs API'
 method: GciLibraryApp
@@ -288,7 +288,9 @@ nbResult
 		].
 		^self returnOop: result
 	].
-	^self returnOop: 1	"OOP_ILLEGAL"
+	^Dictionary new
+		at: 'type' put: 'timeout';
+		yourself
 %
 category: 'GciTs API'
 method: GciLibraryApp
@@ -484,7 +486,7 @@ category: 'WebSockets'
 method: GciLibraryApp
 handleRequestString: aString
 
-	| dictIn dictOut time |
+	| dictIn dictOut time type |
 	Log instance log: #'debug' string: 'GciApp>>handleRequest: - ' , aString printString.
 	time := Time millisecondsElapsedTime: [
 		[
@@ -494,11 +496,17 @@ handleRequestString: aString
 			dictOut := Dictionary new
 				at: 'error' put: ex number;
 				at: 'message' put: ex description;
+				at: 'type' put: 'error';
 				yourself.
 		].
 	].
-	dictOut at: 'time' put: time.
-	WebSocketDataFrame sendText: dictOut asJson onSocket: socket.
+	dictOut 
+		at: 'time' put: time;
+		at: 'request' put: (dictIn at: 'request');
+		yourself.
+	WebSocketDataFrame 
+		sendText: dictOut asJson 
+		onSocket: socket.
 %
 category: 'WebSockets'
 method: GciLibraryApp

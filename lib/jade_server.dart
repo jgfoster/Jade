@@ -38,10 +38,7 @@ class JadeServer {
   }
 
   void _onData(dynamic data) async {
-    var obj = jsonDecode(data);
-    // print('_onData() - $obj');
-    // if (obj.includesKey('nb'))
-    _buffer.add(obj);
+    _buffer.add(jsonDecode(data));
   }
 
   void _onDone() {
@@ -59,7 +56,7 @@ class JadeServer {
       await Future.delayed(Duration(milliseconds: 10));
     }
     var result = _buffer.removeAt(0);
-    if (result['error'] != null) {
+    if (result['type'] == 'error') {
       print(result);
     }
     return result;
@@ -128,8 +125,9 @@ class JadeServer {
     return (await _read())['result'];
   }
 
-  Future<void> execute(String session, String code) async {
+  Future<bool> execute(String session, String code) async {
     _write({'request': 'execute', 'string': code, 'session': session});
+    return (await _read())['result'];
   }
 
   Future<String> fetchSpecialClass(String anOop) async {
@@ -186,16 +184,11 @@ class JadeServer {
 
   Future<bool> logout(String session) async {
     _write({'request': 'logout', 'session': session});
-    await Future.delayed(Duration(milliseconds: 100));
     var data = await _read();
-    print(data['result'].runtimeType);
-    print(data['result']);
-    var flag = data['result'] == 1;
-    print(flag);
-    return flag;
+    return data['result'] ?? false;
   }
 
-  Future<String?> nbResult(String session, int socket,
+  Future<Map<String, dynamic>> nbResult(String session, int socket,
       [int timeoutMs = 0]) async {
     _write({
       'request': 'nbResult',
@@ -203,11 +196,7 @@ class JadeServer {
       'socket': socket,
       'timeout': timeoutMs,
     });
-    var result = (await _read())['result'];
-    if (result == '1') {
-      return null;
-    }
-    return result;
+    return await _read();
   }
 
   Future<String> newByteArray(String session, List<int> bytes) async {

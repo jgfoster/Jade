@@ -74,6 +74,7 @@ void main() {
     try {
       session1 = await server.login('DataCurator', 'spearfish');
     } on GciError catch (e) {
+      expect(e.error['type'], equals('error'));
       expect(e.error['error'], equals(4051));
       flag = true;
     }
@@ -173,7 +174,7 @@ void main() {
 
   test('nbResult with nothing', () async {
     var x = await server.nbResult(session1, socket, 0);
-    expect(x, isNull); 
+    expect(x['type'], equals('timeout'));
   });
 
   test('getFreeOops', () async {
@@ -223,11 +224,10 @@ void main() {
   });
 
   test('executeString', () async {
-    await server.execute(session1, "'foo' size");
-    String? oop = await server.nbResult(session1, socket, 200);
-    expect(oop, isNull); // nbExecute returns nil
-    oop = await server.nbResult(session1, socket, 200);
-    expect(oop!, equals('1A'));
+    var flag = await server.execute(session1, "'foo' size");
+    expect(flag, isTrue);
+    var result = await server.nbResult(session1, socket, 200);
+    expect(result['result'], equals('1A'));
   });
 
 ///////////////////////
@@ -242,7 +242,8 @@ void main() {
 
 // after logout
   test('logout second time should fail', () async {
-    expect(await server.logout(session2), isFalse);
+    var result = await server.logout(session2);
+    expect(result, isFalse);
   });
 
   test('hardBreak after logout', () async {
