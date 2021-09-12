@@ -73,15 +73,59 @@ return: anObject
 %
 category: 'Utilities'
 method: GciLibraryApp
-returnOop: anInteger
+returnError
 
-	error number ~~ 0 ifTrue: [
-		^self return: nil
+	error number == 0 ifTrue: [
+		self error: 'No error to return!'.
 	].
 	^Dictionary new
-		at: 'oop' put: (anInteger printStringRadix: 16 showRadix: false);
-		at: 'type' put: 'oop';
+		at: 'error' put: error number;
+		at: 'message' put: error message;
+		at: 'type' put: 'error';
 		yourself
+%
+category: 'Utilities'
+method: GciLibraryApp
+returnOop: anInteger
+
+	| buffer dict objInfo |
+	error number ~~ 0 ifTrue: [
+		^self returnError
+	].
+	(session isNil or: [anInteger == 1]) ifTrue: [
+		^Dictionary new
+			at: 'oop' put: (anInteger printStringRadix: 16 showRadix: false);
+			at: 'type' put: 'oop';
+			yourself
+	].
+	[
+		objInfo := GciTsObjInfo new.
+		buffer := CByteArray gcMalloc: 200.
+		result := self library 
+			GciTsFetchObjInfo_: session
+			_: anInteger
+			_: 1
+			_: objInfo
+			_: buffer
+			_: buffer size
+			_: error.
+		dict := Dictionary new
+			at: 'oop' put: (anInteger printStringRadix: 16 showRadix: false);
+			at: 'type' put: 'oop';
+			at: 'classOop' put: (objInfo objClass printStringRadix: 16 showRadix: false);
+			at: 'className' put: ((Object objectForOop: objInfo objClass) ifNotNil: [:class | class name] ifNil: ['?']);
+			at: 'size' put: objInfo objSize;
+			at: 'namedSize' put: objInfo namedSize;
+			at: 'access' put: (#('none' 'read' 'write') at: objInfo access + 1);
+			at: 'isInvariant' put: (objInfo _bits bitAnd: 16r08) == 16r08;
+			at: 'isIndexable' put: (objInfo _bits bitAnd: 16r04) == 16r04;
+			at: 'implementation' put: (
+				#('oop' 'byte' 'nsc' 'special') at: (objInfo _bits bitAnd: 16r03) + 1);
+			yourself.
+		^dict
+	] on: Error do: [:ex | 
+		GsFile stdout nextPutAll: ex message; lf.
+	].
 %
 
 ! -- GciTs API
@@ -196,7 +240,7 @@ fetchUnicode
 			_: error.
 	].
 	result == -1 ifTrue: [
-		^self return: nil
+		^self returnError
 	].
 	buffer := buffer byteArrayFrom: 1 to: result * 2 - 1.
 	^self return: buffer asBase64String
@@ -214,7 +258,7 @@ getFreeOops
 		_: count
 		_: error.
 	result == -1 ifTrue: [
-		^self return: nil
+		^self returnError
 	].
 	array := Array new: result.
 	1 to: result do: [:i |
@@ -281,7 +325,7 @@ login
 		_: 0	"haltOnErrNum"
 		_: initFlag
 		_: error.
-	session memoryAddress == 0 ifTrue: [^self return: nil].
+	session memoryAddress == 0 ifTrue: [^self returnError].
 	socketFileHandle := self library GciTsSocket_: session _: error.
 	session := session memoryAddress printStringRadix: 16 showRadix: false.
 	^Dictionary new
@@ -306,11 +350,13 @@ nbResult
 		oop := self library GciTsNbResult_: session _: error.
 		oop == 1 ifTrue: [
 			GsFile stdout nextPutAll: 'nbResult error message => ' , error message printString; lf.
-			^self return: nil
+			^self returnError
 		].
-		^(self library GciTsOopIsSpecial_: oop) == 1
-			ifTrue: [self return: (Object objectForOop: oop)]
-			ifFalse: [self returnOop: result]
+		(self library GciTsOopIsSpecial_: oop) == 1 ifTrue: [
+			^self return: (Object objectForOop: oop)
+		].
+
+		^self returnOop: oop
 	].
 	^Dictionary new
 		at: 'type' put: 'timeout';
@@ -410,7 +456,7 @@ oopToDouble
 	result == 1 ifTrue: [
 		^self return: (buffer doubleAt: 0)
 	].
-	^self return: nil
+	^self returnError
 %
 category: 'GciTs API'
 method: GciLibraryApp
@@ -426,7 +472,7 @@ oopToI64
 	result == 1 ifTrue: [
 		^self return: (buffer int64At: 0) printString
 	].
-	^self return: nil
+	^self returnError
 %
 category: 'GciTs API'
 method: GciLibraryApp

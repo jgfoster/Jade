@@ -43,7 +43,7 @@ The following provides a list of all the functions defined in `gcits.hf` grouped
 ```C
     OopType    GciTsCompileMethod(GciSession sess, ...);
     BoolType   GciTsProtectMethods(GciSession sess, BoolType mode, GciErrSType *err);
-    OopType    GciTsExecute(GciSession sess, ...);
+✓   OopType    GciTsExecute(GciSession sess, ...);
     OopType    GciTsExecute_(GciSession sess, ...);
     ssize_t    GciTsExecuteFetchBytes(GciSession sess, ...);
     OopType    GciTsPerform(GciSession sess, ...);
