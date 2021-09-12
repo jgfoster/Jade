@@ -123,9 +123,9 @@ returnOop: anInteger
 			at: 'isIndexable' put: (objInfo _bits bitAnd: 16r04) == 16r04;
 			at: 'implementation' put: impl;
 			yourself.
-		buffer := buffer byteArrayFrom: 0 to: (objInfo objSize min: buffer size).
+		buffer := buffer byteArrayFrom: 0 to: (objInfo objSize min: buffer size) - 1.
 		(class notNil and: [class == String or: [class inheritsFrom: String]]) ifTrue: [
-			dict at: 'string' put: (buffer bytesIntoString copyFrom: 1 to: buffer size - 1).
+			dict at: 'string' put: buffer bytesIntoString.
 		] ifFalse: [impl = 'byte' ifTrue: [
 			dict at: 'bytes' put: buffer asBase64String.
 		]].

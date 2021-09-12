@@ -257,8 +257,14 @@ void main() {
     var flag = await server.execute(session1, '1.25 printString');
     expect(flag, isTrue);
     var result = await server.nbResult(session1, 200);
-    print(result);
     expect(result['string'], equals('1.25'));
+  });
+
+  test('executeString returning ByteArray', () async {
+    var flag = await server.execute(session1, '#[0 1 2 3]');
+    expect(flag, isTrue);
+    var result = await server.nbResult(session1, 200);
+    expect(result['bytes'], equals('AAECAw=='));
   });
 
 ///////////////////////
