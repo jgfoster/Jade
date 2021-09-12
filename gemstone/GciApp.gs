@@ -272,7 +272,7 @@ set compile_env: 0
 expectvalue /Class
 doit
 WebApp subclass: 'GciLibraryApp'
-  instVarNames: #(error requestDict result session)
+  instVarNames: #(error requestDict result session socketFileHandle)
   classVars: #()
   classInstVars: #()
   poolDictionaries: #()

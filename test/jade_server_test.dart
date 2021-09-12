@@ -13,7 +13,6 @@ void main() {
   final server = JadeServer('localhost', 8888);
   String session1 = '0';
   String session2 = '0';
-  int socket = 0;
 
 // pre-login
   test('getGciVersion', () async {
@@ -73,6 +72,7 @@ void main() {
     var flag = false;
     try {
       session1 = await server.login('DataCurator', 'spearfish');
+      print(session1);
     } on GciError catch (e) {
       expect(e.error['type'], equals('error'));
       expect(e.error['error'], equals(4051));
@@ -94,11 +94,6 @@ void main() {
 
 ///////////////////////
 // while logged in
-  test('socket', () async {
-    socket = await server.socket(session1);
-    expect(socket, isA<int>());
-  });
-
   test('hardBreak', () async {
     expect(await server.doBreak(session1, true), isTrue);
   });
@@ -173,7 +168,7 @@ void main() {
   });
 
   test('nbResult with nothing', () async {
-    var x = await server.nbResult(session1, socket, 0);
+    var x = await server.nbResult(session1, 0);
     expect(x['type'], equals('timeout'));
   });
 
@@ -223,12 +218,48 @@ void main() {
     expect(x, isA<String>());
   });
 
-  test('executeString', () async {
+  test('executeString returning nil', () async {
+    var flag = await server.execute(session1, 'nil');
+    expect(flag, isTrue);
+    var result = await server.nbResult(session1, 200);
+    expect(result['result'], isNull);
+  });
+
+  test('executeString returning Boolean', () async {
+    var flag = await server.execute(session1, 'true');
+    expect(flag, isTrue);
+    var result = await server.nbResult(session1, 200);
+    expect(result['result'], isTrue);
+  });
+
+  test('executeString returning Character', () async {
+    var flag = await server.execute(session1, '\$a');
+    expect(flag, isTrue);
+    var result = await server.nbResult(session1, 200);
+    expect(result['result'], equals('a'));
+  });
+
+  test('executeString returning SmallInteger', () async {
     var flag = await server.execute(session1, "'foo' size");
     expect(flag, isTrue);
-    var result = await server.nbResult(session1, socket, 200);
-    expect(result['result'], equals('1A'));
+    var result = await server.nbResult(session1, 200);
+    expect(result['result'], equals(3));
   });
+
+  test('executeString returning SmallDouble', () async {
+    var flag = await server.execute(session1, '1.25');
+    expect(flag, isTrue);
+    var result = await server.nbResult(session1, 200);
+    expect(result['result'], equals(1.25));
+  });
+
+  // test('executeString returning String', () async {
+  //   var flag = await server.execute(session1, '1.25 printString');
+  //   expect(flag, isTrue);
+  //   var result = await server.nbResult(session1, 200);
+  //   print(result);
+  //   expect(result['result'], equals('1.25'));
+  // });
 
 ///////////////////////
 // logout
@@ -244,14 +275,6 @@ void main() {
   test('logout second time should fail', () async {
     var result = await server.logout(session2);
     expect(result, isFalse);
-  });
-
-  test('hardBreak after logout', () async {
-    expect(await server.doBreak(session1, true), isFalse);
-  });
-
-  test('softBreak after logout', () async {
-    expect(await server.doBreak(session1, false), isFalse);
   });
 
   test('sessionIsRemote after logout', () async {
