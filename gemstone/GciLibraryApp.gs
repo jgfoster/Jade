@@ -88,7 +88,7 @@ category: 'Utilities'
 method: GciLibraryApp
 returnOop: anInteger
 
-	| buffer dict objInfo |
+	| buffer class dict impl objInfo |
 	error number ~~ 0 ifTrue: [
 		^self returnError
 	].
@@ -100,7 +100,7 @@ returnOop: anInteger
 	].
 	[
 		objInfo := GciTsObjInfo new.
-		buffer := CByteArray gcMalloc: 200.
+		buffer := CByteArray gcMalloc: 1024.
 		result := self library 
 			GciTsFetchObjInfo_: session
 			_: anInteger
@@ -109,22 +109,29 @@ returnOop: anInteger
 			_: buffer
 			_: buffer size
 			_: error.
+		impl := #('oop' 'byte' 'nsc' 'special') at: (objInfo _bits bitAnd: 16r03) + 1.
+		class := Object objectForOop: objInfo objClass.
 		dict := Dictionary new
 			at: 'oop' put: (anInteger printStringRadix: 16 showRadix: false);
 			at: 'type' put: 'oop';
 			at: 'classOop' put: (objInfo objClass printStringRadix: 16 showRadix: false);
-			at: 'className' put: ((Object objectForOop: objInfo objClass) ifNotNil: [:class | class name] ifNil: ['?']);
+			at: 'className' put: (class ifNotNil: [class name] ifNil: ['?']);
 			at: 'size' put: objInfo objSize;
 			at: 'namedSize' put: objInfo namedSize;
 			at: 'access' put: (#('none' 'read' 'write') at: objInfo access + 1);
 			at: 'isInvariant' put: (objInfo _bits bitAnd: 16r08) == 16r08;
 			at: 'isIndexable' put: (objInfo _bits bitAnd: 16r04) == 16r04;
-			at: 'implementation' put: (
-				#('oop' 'byte' 'nsc' 'special') at: (objInfo _bits bitAnd: 16r03) + 1);
+			at: 'implementation' put: impl;
 			yourself.
+		buffer := buffer byteArrayFrom: 0 to: (objInfo objSize min: buffer size).
+		(class notNil and: [class == String or: [class inheritsFrom: String]]) ifTrue: [
+			dict at: 'string' put: (buffer bytesIntoString copyFrom: 1 to: buffer size - 1).
+		] ifFalse: [impl = 'byte' ifTrue: [
+			dict at: 'bytes' put: buffer asBase64String.
+		]].
 		^dict
 	] on: Error do: [:ex | 
-		GsFile stdout nextPutAll: ex message; lf.
+		GsFile stdout nextPutAll: 'returnOop: - error ' , ex number printString , ' - ' , ex message; lf.
 	].
 %
 
@@ -562,6 +569,10 @@ handleRequestString: aString
 				at: 'type' put: 'error';
 				yourself.
 		].
+	].
+	(dictOut isKindOf: Dictionary) ifFalse: [
+		GsFile stdout nextPutAll: 'handleRequestString: ' , aString; lf.
+		dictOut := Dictionary new.
 	].
 	dictOut 
 		at: 'time' put: time;

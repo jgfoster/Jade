@@ -1,6 +1,7 @@
 echo "This will reload your GciLibrary WebApp code."
 echo "Make sure you have saved all your edits!"
 read -n 1 -s -r -p "Press any key to continue"
+echo ""
 topaz -lq << EOF
 iferr 1 stk
 iferr 2 output pop

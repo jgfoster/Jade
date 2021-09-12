@@ -253,13 +253,13 @@ void main() {
     expect(result['result'], equals(1.25));
   });
 
-  // test('executeString returning String', () async {
-  //   var flag = await server.execute(session1, '1.25 printString');
-  //   expect(flag, isTrue);
-  //   var result = await server.nbResult(session1, 200);
-  //   print(result);
-  //   expect(result['result'], equals('1.25'));
-  // });
+  test('executeString returning String', () async {
+    var flag = await server.execute(session1, '1.25 printString');
+    expect(flag, isTrue);
+    var result = await server.nbResult(session1, 200);
+    print(result);
+    expect(result['string'], equals('1.25'));
+  });
 
 ///////////////////////
 // logout
