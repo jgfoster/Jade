@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class GciError extends StateError {
-  late final error;
+  late final Map<String, dynamic> error;
   GciError(Map<String, dynamic> gciError)
       : error = gciError,
         super(gciError['message']);
@@ -20,7 +20,7 @@ class GciError extends StateError {
 class JadeServer {
   final _buffer = <Map<String, dynamic>>[];
   var _isInitialized = false;
-  late final _channel;
+  late final WebSocketChannel _channel;
 
   JadeServer(var host, var port) {
     _initialize(host, port);
@@ -42,18 +42,18 @@ class JadeServer {
   }
 
   void _onDone() {
-    print('_onDone()');
+    // print('_onDone()');
     _channel.sink.close();
   }
 
   void _onError(var error) {
-    print('_onError() - $error');
+    // print('_onError() - $error');
     _channel.sink.close();
   }
 
   Future<Map<String, dynamic>> _read() async {
     while (_buffer.isEmpty) {
-      await Future.delayed(Duration(milliseconds: 10));
+      await Future.delayed(const Duration(milliseconds: 10));
     }
     return _buffer.removeAt(0);
   }
@@ -64,13 +64,13 @@ class JadeServer {
   }
 
   void close() {
-    print('JadeServer().close();');
+    // print('JadeServer().close();');
     _channel.sink.close();
   }
 
   Future<void> _waitForInitialization() async {
     while (!_isInitialized) {
-      await new Future.delayed(new Duration(milliseconds: 50));
+      await Future.delayed(const Duration(milliseconds: 50));
     }
   }
 

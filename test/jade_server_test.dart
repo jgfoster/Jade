@@ -72,7 +72,7 @@ void main() {
     var flag = false;
     try {
       session1 = await server.login('DataCurator', 'spearfish');
-      print(session1);
+      // print(session1);
     } on GciError catch (e) {
       expect(e.error['type'], equals('error'));
       expect(e.error['error'], equals(4051));
@@ -138,7 +138,7 @@ void main() {
   });
 
   test('oopToI64', () async {
-    var x;
+    BigInt x;
     x = await server.oopToI64(session1, '2A');
     expect(x, equals(BigInt.from(5)));
     x = await server.oopToI64(session1, '07FFFFFFFFFFFFFA');
@@ -148,7 +148,7 @@ void main() {
   });
 
   test('resolveSymbol', () async {
-    var x;
+    String x;
     x = await server.resolveSymbol(session1, 'Array');
     expect(x, '10501');
     x = await server.resolveSymbol(session1, 'size');
@@ -156,7 +156,7 @@ void main() {
   });
 
   test('resolveSymbolObj', () async {
-    var x;
+    String x;
     // look for #'Array' in current SymbolList
     x = await server.resolveSymbolObj(session1, '1C6401');
     expect(x, '10501');
