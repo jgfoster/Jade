@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'login.dart';
+import 'navigation.dart';
+
 class Jade with ChangeNotifier {}
 
 void main() {
@@ -40,80 +43,6 @@ class JadeHomePage extends StatefulWidget {
 class _JadeHomePageState extends State<JadeHomePage> {
   bool _isShowingNavigation = true;
 
-  Widget _navigation() {
-    if (!_isShowingNavigation) {
-      return Container();
-    }
-    final theme = Theme.of(context);
-    final textTheme = theme.textTheme;
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Row(
-              children: [
-                Text(
-                  'Logins',
-                  style: textTheme.headline6,
-                ),
-                Expanded(
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: IconButton(
-                      icon: const Icon(Icons.add),
-                      tooltip: 'New login...',
-                      onPressed: () {},
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const Divider(
-            height: 1,
-            thickness: 1,
-          ),
-          ListTile(
-            leading: const Icon(Icons.favorite),
-            title: const Text('Item 1'),
-            selected: true,
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const Icon(Icons.delete),
-            title: const Text('Item 2'),
-            selected: false,
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const Icon(Icons.label),
-            title: const Text('Item 3'),
-            selected: false,
-            onTap: () {},
-          ),
-          const Divider(
-            height: 1,
-            thickness: 1,
-          ),
-          const Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Text(
-              'Label',
-            ),
-          ),
-          ListTile(
-            leading: const Icon(Icons.bookmark),
-            title: const Text('Item A'),
-            selected: false,
-            onTap: () {},
-          ),
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -140,12 +69,12 @@ class _JadeHomePageState extends State<JadeHomePage> {
       ),
       body: Row(
         children: [
-          _navigation(),
+          _isShowingNavigation ? const Navigation() : Container(),
           const VerticalDivider(
             width: 1,
             thickness: 1,
           ),
-          Expanded(child: Container()),
+          const Expanded(child: LoginForm()),
         ],
       ),
     );
