@@ -16,7 +16,9 @@ class LoginFormState extends State<LoginForm> {
   var _password = '';
   var _isInLogin = false;
 
-  void _doSave() {}
+  void _doCopy() {}
+
+  void _doDelete() {}
 
   void _doLogin() {
     if (_isInLogin | !_formKey.currentState!.validate()) {
@@ -35,6 +37,8 @@ class LoginFormState extends State<LoginForm> {
       });
     });
   }
+
+  void _doSave() {}
 
   Widget _addressWidget() {
     return TextFormField(
@@ -106,6 +110,50 @@ class LoginFormState extends State<LoginForm> {
     );
   }
 
+  Widget _deleteButton() {
+    return Flexible(
+      child: Padding(
+        padding: const EdgeInsets.only(right: 8.0),
+        child: ElevatedButton(
+          onPressed: _isInLogin ? null : () => _doDelete(),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              Icon(Icons.delete),
+              Padding(
+                padding: EdgeInsets.only(left: 8.0),
+                child: Text('Delete'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _copyButton() {
+    return Flexible(
+      child: Padding(
+        padding: const EdgeInsets.only(right: 8.0),
+        child: ElevatedButton(
+          onPressed: _isInLogin ? null : () => _doCopy(),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              Icon(Icons.file_copy),
+              Padding(
+                padding: EdgeInsets.only(left: 8.0),
+                child: Text('Copy'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _saveButton() {
     return Flexible(
       child: Padding(
@@ -130,21 +178,18 @@ class LoginFormState extends State<LoginForm> {
 
   Widget _loginButton() {
     return Flexible(
-      child: Padding(
-        padding: const EdgeInsets.only(left: 8.0),
-        child: ElevatedButton(
-          onPressed: _isInLogin ? null : () => _doLogin(),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              Icon(Icons.login),
-              Padding(
-                padding: EdgeInsets.only(left: 8.0),
-                child: Text('Login'),
-              ),
-            ],
-          ),
+      child: ElevatedButton(
+        onPressed: _isInLogin ? null : () => _doLogin(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: const [
+            Icon(Icons.login),
+            Padding(
+              padding: EdgeInsets.only(left: 8.0),
+              child: Text('Login'),
+            ),
+          ],
         ),
       ),
     );
@@ -155,6 +200,8 @@ class LoginFormState extends State<LoginForm> {
       padding: const EdgeInsets.only(top: 8.0),
       child: Row(
         children: [
+          _deleteButton(),
+          _copyButton(),
           _saveButton(),
           _loginButton(),
         ],
