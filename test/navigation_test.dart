@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:jade/main.dart';
@@ -8,6 +7,6 @@ void main() {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const JadeApp());
 
-    expect(find.widgetWithText(Text, 'Logins'), findsOneWidget);
+    expect(find.text('Logins'), findsOneWidget);
   });
 }

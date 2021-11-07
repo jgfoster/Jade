@@ -111,73 +111,74 @@ class LoginFormState extends State<LoginForm> {
   }
 
   Widget _deleteButton() {
-    return Flexible(
-      child: Padding(
-        padding: const EdgeInsets.only(right: 8.0),
-        child: ElevatedButton(
-          onPressed: _isInLogin ? null : () => _doDelete(),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              Icon(Icons.delete),
-              Padding(
+    return Padding(
+      padding: const EdgeInsets.only(right: 8.0),
+      child: ElevatedButton(
+        onPressed: _isInLogin ? null : () => _doDelete(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: const [
+            Icon(Icons.delete),
+            Expanded(
+              child: Padding(
                 padding: EdgeInsets.only(left: 8.0),
                 child: Text('Delete'),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
   }
 
   Widget _copyButton() {
-    return Flexible(
-      child: Padding(
-        padding: const EdgeInsets.only(right: 8.0),
-        child: ElevatedButton(
-          onPressed: _isInLogin ? null : () => _doCopy(),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              Icon(Icons.file_copy),
-              Padding(
+    return Padding(
+      padding: const EdgeInsets.only(right: 8.0),
+      child: ElevatedButton(
+        onPressed: _isInLogin ? null : () => _doCopy(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: const [
+            Icon(Icons.file_copy),
+            Expanded(
+              child: Padding(
                 padding: EdgeInsets.only(left: 8.0),
                 child: Text('Copy'),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
   }
 
   Widget _saveButton() {
-    return Flexible(
-      child: Padding(
-        padding: const EdgeInsets.only(right: 8.0),
-        child: ElevatedButton(
-          onPressed: _isInLogin ? null : () => _doSave(),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
-              Icon(Icons.save),
-              Padding(
+    return Padding(
+      padding: const EdgeInsets.only(right: 8.0),
+      child: ElevatedButton(
+        onPressed: _isInLogin ? null : () => _doSave(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: const [
+            Icon(Icons.save),
+            Expanded(
+              child: Padding(
                 padding: EdgeInsets.only(left: 8.0),
                 child: Text('Save'),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
   }
 
   Widget _loginButton() {
-    return Flexible(
+    return Padding(
+      padding: const EdgeInsets.only(right: 8.0),
       child: ElevatedButton(
         onPressed: _isInLogin ? null : () => _doLogin(),
         child: Row(
@@ -185,9 +186,11 @@ class LoginFormState extends State<LoginForm> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: const [
             Icon(Icons.login),
-            Padding(
-              padding: EdgeInsets.only(left: 8.0),
-              child: Text('Login'),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.only(left: 8.0),
+                child: Text('Login'),
+              ),
             ),
           ],
         ),
@@ -196,9 +199,13 @@ class LoginFormState extends State<LoginForm> {
   }
 
   Widget _buttonRow() {
-    return Padding(
+    return Container(
+      // width: 500,
+      height: 45,
       padding: const EdgeInsets.only(top: 8.0),
-      child: Row(
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        itemExtent: 120.0,
         children: [
           _deleteButton(),
           _copyButton(),
@@ -213,9 +220,10 @@ class LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
-      child: Padding(
+      child: Container(
+        width: 490,
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: Column(
+        child: ListView(
           children: <Widget>[
             _addressWidget(),
             _usernameWidget(),

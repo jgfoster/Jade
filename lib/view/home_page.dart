@@ -38,14 +38,15 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: Row(
+      body: ListView(
+        scrollDirection: Axis.horizontal,
         children: [
           _isShowingNavigation ? const Navigation() : Container(),
           const VerticalDivider(
             width: 1,
             thickness: 1,
           ),
-          const Expanded(child: LoginForm()),
+          const LoginForm(),
         ],
       ),
     );
