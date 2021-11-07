@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'login.dart';
+import 'login_form.dart';
 import 'navigation.dart';
 
 class Jade with ChangeNotifier {}
@@ -58,7 +58,7 @@ class _JadeHomePageState extends State<JadeHomePage> {
             });
           },
         ),
-        title: const Text('Jade IDE for GemStone/S'),
+        title: const Text('Jade — an IDE for GemStone/S'),
         actions: [
           IconButton(
             icon: const Icon(Icons.add),
