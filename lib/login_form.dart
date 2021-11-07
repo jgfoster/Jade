@@ -16,6 +16,8 @@ class LoginFormState extends State<LoginForm> {
   var _password = '';
   var _isInLogin = false;
 
+  void _doSave() {}
+
   void _doLogin() {
     if (_isInLogin | !_formKey.currentState!.validate()) {
       return;
@@ -104,22 +106,58 @@ class LoginFormState extends State<LoginForm> {
     );
   }
 
-  Widget _loginButton() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ElevatedButton(
-        onPressed: _isInLogin ? null : () => _doLogin(),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            Icon(Icons.login),
-            Padding(
-              padding: EdgeInsets.only(left: 8.0),
-              child: Text('Login'),
-            ),
-          ],
+  Widget _saveButton() {
+    return Flexible(
+      child: Padding(
+        padding: const EdgeInsets.only(right: 8.0),
+        child: ElevatedButton(
+          onPressed: _isInLogin ? null : () => _doSave(),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              Icon(Icons.save),
+              Padding(
+                padding: EdgeInsets.only(left: 8.0),
+                child: Text('Save'),
+              ),
+            ],
+          ),
         ),
+      ),
+    );
+  }
+
+  Widget _loginButton() {
+    return Flexible(
+      child: Padding(
+        padding: const EdgeInsets.only(left: 8.0),
+        child: ElevatedButton(
+          onPressed: _isInLogin ? null : () => _doLogin(),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              Icon(Icons.login),
+              Padding(
+                padding: EdgeInsets.only(left: 8.0),
+                child: Text('Login'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buttonRow() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0),
+      child: Row(
+        children: [
+          _saveButton(),
+          _loginButton(),
+        ],
       ),
     );
   }
@@ -135,7 +173,7 @@ class LoginFormState extends State<LoginForm> {
             _addressWidget(),
             _usernameWidget(),
             _passwordWidget(),
-            _loginButton(),
+            _buttonRow(),
           ],
         ),
       ),

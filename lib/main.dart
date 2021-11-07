@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'jade.dart';
 import 'login_form.dart';
 import 'navigation.dart';
-
-class Jade with ChangeNotifier {}
 
 void main() {
   runApp(
