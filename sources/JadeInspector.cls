@@ -154,7 +154,7 @@ setDocumentPresenterLabel
 		documentPresenter value: model printString.
 		^self.
 	].
-	(#(Boolean Character Integer Fraction SmallInteger UndefinedObject) includes: model class name) ifTrue: [
+	(#(Boolean Character Integer Fraction SmallInteger #LargeInteger UndefinedObject) includes: model class name) ifTrue: [
 		self view caption: model class name.
 		documentPresenter value: model printString.
 		^self.
