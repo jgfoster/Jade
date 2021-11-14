@@ -39,13 +39,13 @@ addGitHubRepository
 
 addHttpRepository
 
-	| info string delimiter |
+	| info |
 	(info := MCHttpRepositoryInfoDialog showModalOn: MCHttpRepositoryInfo new) isNil ifTrue: [^nil].
-	delimiter := (Character codePoint: 255) asString.
-	string := info location , delimiter , info user , delimiter , info password.
 	^gciSession
-		serverPerform: #'mcAddHttpRepository:' 
-		with: (gciSession encode: string)!
+		serverPerform: #'mcAddHttpRepository:user:password:' 
+		with: (gciSession encode: info location)
+		with: (gciSession encode: info user)
+		with: (gciSession encode: info password)!
 
 addRepository
 

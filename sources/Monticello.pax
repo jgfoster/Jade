@@ -51,7 +51,7 @@ package methodNames
 	add: #JadeServer -> #_mcRepositoryFrom:;
 	add: #JadeServer -> #_mcTopazFrom:on:;
 	add: #JadeServer -> #authorInitials:;
-	add: #JadeServer -> #mcAddHttpRepository:;
+	add: #JadeServer -> #mcAddHttpRepository:user:password:;
 	add: #JadeServer -> #mcAddRepository:toPackage:;
 	add: #JadeServer -> #mcAllFileNamesIn:;
 	add: #JadeServer -> #mcAllVersionNamesInDict:;
@@ -522,15 +522,14 @@ authorInitials: aString
 	packagePolicy authorInitials: (self _decodeString: aString).
 !
 
-mcAddHttpRepository: aString
+mcAddHttpRepository: locationString user: userString password: passwordString
 
-	| list repositoryClass repository group |
-	list := (self _decodeString: aString) subStrings: (Character codePoint: 255).
+	| repositoryClass repository group |
 	(repositoryClass := self _mcHttpRepositoryClass) isNil ifTrue: [self error: 'MCHttpRepository not found!!'].
 	repository := repositoryClass
-		location: (list at: 1)
-		user: (list at: 2)
-		password: (list at: 3).
+		location: locationString decodeToUnicode 
+		user: userString decodeToUnicode 
+		password: passwordString decodeToUnicode.
 	(group := self mcRepositoryGroup) isNil ifTrue: [self error: 'MCRepositoryGroup not found!!'].
 	group addRepository: repository.
 	^repository!
@@ -895,7 +894,7 @@ _mcLoadedVersionNames!Monticello!private! !
 _mcRepositoryFrom:!Monticello!private! !
 _mcTopazFrom:on:!Monticello!private! !
 authorInitials:!Monticello!public! !
-mcAddHttpRepository:!Monticello!public! !
+mcAddHttpRepository:user:password:!Monticello!public! !
 mcAddRepository:toPackage:!Monticello!public! !
 mcAllFileNamesIn:!Monticello!public! !
 mcAllVersionNamesInDict:!Monticello!public! !
