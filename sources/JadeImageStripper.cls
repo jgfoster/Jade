@@ -20,6 +20,9 @@ copyRuntimeFiles
 
 	| basePath |
 	basePath := SessionManager current imageBase.
+	(File exists: basePath , 'runtime') ifFalse: [
+		File createDirectory: basePath , 'runtime'.
+	].
 	#('bin' 'icons') do: [:eachDir |
 		(File exists: basePath , 'runtime\' , eachDir) ifTrue: [
 			(File isDirectory: basePath , 'runtime\' , eachDir) ifFalse: [eachDir error: 'not a directory'].
