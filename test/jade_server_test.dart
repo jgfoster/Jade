@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'dart:convert';
 
 import 'package:jade/model/jade_server.dart';
+import 'package:jade/model/jade_server_abstract.dart';
 
 /*
 Log instance logTypes: #(#'startup' #'debug' #'request' #'warning' #'error').
@@ -10,7 +11,7 @@ GciLibraryApp run.
 */
 
 void main() {
-  final server = JadeServer('localhost', 50378);
+  final server = JadeServer(host: 'localhost', port: 50378);
   String session1 = '0';
   String session2 = '0';
 

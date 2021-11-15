@@ -2,27 +2,14 @@ import 'dart:convert';
 
 import 'package:web_socket_channel/web_socket_channel.dart';
 
-class GciError extends StateError {
-  late final Map<String, dynamic> error;
-  GciError(Map<String, dynamic> gciError)
-      : error = gciError,
-        super(gciError['message']);
-}
-/*
-  Because of the difficulty of representing a true 64-bit integer
-  in Dart/JavaScript, we treat a Session ID and an OOP as a
-  string representing the hex digits of the actual integer.
-  This should be fine since all client code should treat these
-  as opaque objects. (We could cut this down to a maximum of eleven
-  characters by using Base64 encoding, but that seems unnecessary.)
- */
+import 'package:jade/model/jade_server_abstract.dart';
 
-class JadeServer {
+class JadeServer extends JadeServerAbstract {
   final _buffer = <Map<String, dynamic>>[];
   var _isInitialized = false;
   late final WebSocketChannel _channel;
 
-  JadeServer(var host, var port) {
+  JadeServer({var host = 'localhost', var port = 50377}) {
     _initialize(host, port);
   }
 
@@ -63,6 +50,7 @@ class JadeServer {
     _channel.sink.add(jsonEncode(map));
   }
 
+  @override
   void close() {
     // print('JadeServer().close();');
     _channel.sink.close();
@@ -76,66 +64,77 @@ class JadeServer {
 
 // Public API
 
+  @override
   Future<bool> abort(String session) async {
     _write({'request': 'abort', 'session': session});
     var data = await _read();
     return data['result'];
   }
 
+  @override
   Future<bool> begin(String session) async {
     _write({'request': 'begin', 'session': session});
     var data = await _read();
     return data['result'];
   }
 
-// 'break' is a reserved word!
+  @override
   Future<bool> doBreak(String session, bool isHard) async {
     _write({'request': 'break', 'session': session, 'isHard': isHard});
     var data = await _read();
     return data['result'];
   }
 
+  @override
   Future<String> charToOop(int anOop) async {
     _write({'request': 'charToOop', 'char': anOop});
     return (await _read())['oop'];
   }
 
+  @override
   Future<bool> commit(String session) async {
     _write({'request': 'commit', 'session': session});
     var data = await _read();
     return data['result'];
   }
 
+  @override
   Future<String> doubleToOop(String session, double value) async {
     _write({'request': 'doubleToOop', 'session': session, 'double': value});
     return (await _read())['oop'];
   }
 
+  @override
   Future<String> doubleToSmallDouble(double value) async {
     _write({'request': 'doubleToSmallDouble', 'double': value});
     return (await _read())['oop'];
   }
 
+  @override
   Future<String> encrypt(String password) async {
     _write({'request': 'encrypt', 'password': password});
     return (await _read())['result'];
   }
 
+  @override
   Future<bool> execute(String session, String code) async {
     _write({'request': 'execute', 'session': session, 'string': code});
     return (await _read())['result'];
   }
 
+  @override
   Future<String> fetchSpecialClass(String anOop) async {
     _write({'request': 'fetchSpecialClass', 'oop': anOop});
     return (await _read())['oop'];
   }
 
+  @override
   Future<String> fetchUnicode(String session, String anOop) async {
     _write({'request': 'fetchUnicode', 'session': session, 'oop': anOop});
     return (await _read())['result'];
   }
 
+  @override
   Future<List<String>> getFreeOops(String session, int count) async {
     _write({'request': 'getFreeOops', 'session': session, 'count': count});
     List<String> result = [];
@@ -145,17 +144,20 @@ class JadeServer {
     return result;
   }
 
+  @override
   Future<String> getGciVersion() async {
     _write({'request': 'getGciVersion'});
     var data = await _read();
     return data['version'];
   }
 
+  @override
   Future<String> i32ToOop(int value) async {
     _write({'request': 'i32ToOop', 'int': value});
     return (await _read())['oop'];
   }
 
+  @override
   Future<String> i64ToOop(String session, BigInt value) async {
     _write({
       'request': 'i64ToOop',
@@ -165,6 +167,7 @@ class JadeServer {
     return (await _read())['oop'];
   }
 
+  @override
   Future<String> login(String username, String password) async {
     _write({
       'request': 'login',
@@ -178,12 +181,14 @@ class JadeServer {
     return data['result'];
   }
 
+  @override
   Future<bool> logout(String session) async {
     _write({'request': 'logout', 'session': session});
     var data = await _read();
     return data['result'] ?? false;
   }
 
+  @override
   Future<Map<String, dynamic>> nbResult(String session,
       [int timeoutMs = 0]) async {
     _write({
@@ -194,6 +199,7 @@ class JadeServer {
     return await _read();
   }
 
+  @override
   Future<String> newByteArray(String session, List<int> bytes) async {
     _write({
       'request': 'newByteArray',
@@ -203,21 +209,25 @@ class JadeServer {
     return (await _read())['oop'];
   }
 
+  @override
   Future<String> newObj(String session, String classOop) async {
     _write({'request': 'newObj', 'session': session, 'class': classOop});
     return (await _read())['oop'];
   }
 
+  @override
   Future<String> newString(String session, String string) async {
     _write({'request': 'newString', 'session': session, 'string': string});
     return (await _read())['oop'];
   }
 
+  @override
   Future<String> newSymbol(String session, String string) async {
     _write({'request': 'newSymbol', 'session': session, 'string': string});
     return (await _read())['oop'];
   }
 
+  @override
   Future<String> newUnicodeString(String session, var bytes) async {
     // GciTs returns UTF-16 but Dart only supports UTF-8
     // so we just give back the base64 encoded sequence
@@ -229,6 +239,7 @@ class JadeServer {
     return (await _read())['oop'];
   }
 
+  @override
   Future<String> newUtf8String(String session, var bytes) async {
     _write({
       'request': 'newUtf8String',
@@ -238,21 +249,25 @@ class JadeServer {
     return (await _read())['oop'];
   }
 
+  @override
   Future<bool> oopIsSpecial(String anOop) async {
     _write({'request': 'oopIsSpecial', 'oop': anOop});
     return (await _read())['result'];
   }
 
+  @override
   Future<int> oopToChar(String anOop) async {
     _write({'request': 'oopToChar', 'oop': anOop});
     return (await _read())['result'];
   }
 
+  @override
   Future<num> oopToDouble(String session, String anOop) async {
     _write({'request': 'oopToDouble', 'session': session, 'oop': anOop});
     return (await _read())['result'];
   }
 
+  @override
   Future<BigInt> oopToI64(String session, String anOop,
       [String symbolList = '14']) async {
     _write({'request': 'oopToI64', 'session': session, 'oop': anOop});
@@ -260,6 +275,7 @@ class JadeServer {
     return BigInt.parse(data['result']);
   }
 
+  @override
   Future<String> resolveSymbol(String session, String symbol,
       [String symbolList = '14']) async {
     _write({
@@ -271,6 +287,7 @@ class JadeServer {
     return (await _read())['oop'];
   }
 
+  @override
   Future<String> resolveSymbolObj(String session, String anOop,
       [String symbolList = '14']) async {
     _write({
@@ -282,6 +299,7 @@ class JadeServer {
     return (await _read())['oop'];
   }
 
+  @override
   Future<bool> sessionIsRemote(String session) async {
     _write({'request': 'sessionIsRemote', 'session': session});
     var data = await _read();
