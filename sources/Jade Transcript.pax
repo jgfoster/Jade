@@ -8,8 +8,10 @@ package basicPackageVersion: '0.057'.
 
 package classNames
 	add: #AllSessionsPresenter;
+	add: #FileInPharo;
 	add: #JadeTranscript;
 	add: #MySessionPresenter;
+	add: #PharoClass;
 	add: #StoneInfoPresenter;
 	add: #TranscriptPresenter;
 	yourself.
@@ -70,6 +72,16 @@ package!
 
 "Class Definitions"!
 
+Object subclass: #FileInPharo
+	instanceVariableNames: 'gciSession fileStream classes'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+Object subclass: #PharoClass
+	instanceVariableNames: 'superclassName name instVarNames classVarNames classInstVarNames packageName category comment classMethods instanceMethods parent children'
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
 JadePresenterA subclass: #AllSessionsPresenter
 	instanceVariableNames: 'autoUpdatePresenter autoUpdateProcess sessionListPresenter sessionListErrorPresenter'
 	classVariableNames: ''
