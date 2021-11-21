@@ -70,25 +70,9 @@ commentStamp: className
 
 initialize: aString
 
-	| roots |
 	classes := Dictionary new.
 	fileStream := FileStream read: aString.
-	[
-		[fileStream atEnd not] whileTrue: [self chunk: (fileStream upTo: $!!)].
-	] ensure: [
-		fileStream close.
-	].
-	classes do: [:each | 
-		| parent |
-		parent := classes at: each superclassName ifAbsent: [nil].
-		parent ifNotNil: [
-			each parent: parent.
-			parent addChild: each.
-		].
-	].
-	roots := classes select: [:each | each parent isNil].
-	roots halt.
-
+	self read; write.
 !
 
 methodsForClass: className category: categoryName
@@ -110,7 +94,74 @@ methodsForClass: className category: categoryName
 		(classes at: className) instanceMethod: source category: categoryName.
 	].
 
-! !
+!
+
+read
+
+	[
+		[fileStream atEnd not] whileTrue: [self chunk: (fileStream upTo: $!!)].
+	] ensure: [
+		fileStream close.
+	].
+	classes do: [:each | 
+		| parent |
+each name = 'Py_int' ifTrue: [self halt].
+		parent := classes at: each superclassName ifAbsent: [nil].
+		parent ifNotNil: [
+			each parent: parent.
+			parent addChild: each.
+		].
+	].
+!
+
+write
+
+	| path roots |
+	path := FileSaveDialog new
+		caption: 'Save as Topaz Script';
+		fileTypes: (Array with: #('Topaz Script (*.tpz)' '*.tpz' ) with: #('All Files (*.*)' '*.*' ));
+		defaultExtension: 'tpz';
+		overwritePrompt;
+		showModal.
+	path isNil ifTrue: [^self].
+	fileStream := FileStream write: path.
+	self writeSymbolDictionaries.
+	[
+		roots := classes select: [:each | each parent isNil].
+self halt.
+		roots do: [:each | each writeClassTo: fileStream].
+		roots do: [:each | each writeMethodsTo: fileStream].
+	] ensure: [
+		fileStream close.
+	].
+!
+
+writeSymbolDictionaries
+
+	fileStream nextPutAll: 'set compile_env: 0'; lf.
+	(classes collect: [:each | (each packageName subStrings: $-) first]) asSet asSortedCollection do: [:each |
+		fileStream
+			nextPutAll: '!! ------- Create dictionary if it is not present
+run
+| aSymbol names userProfile |
+aSymbol := #' , each printString , '.
+userProfile := System myUserProfile.
+names := userProfile symbolList names.
+(names includes: aSymbol) ifFalse: [
+	| symbolDictionary |
+	symbolDictionary := SymbolDictionary new name: aSymbol; yourself.
+	userProfile insertDictionary: symbolDictionary at: 1.
+].
+%
+'.
+	].
+!
+
+writeToPath: aString
+
+	| roots |
+	roots := classes select: [:each | each parent isNil].
+	roots halt.! !
 !FileInPharo categoriesForMethods!
 chunk:!public! !
 class:instVarNames:!public! !
@@ -118,6 +169,10 @@ class:subclass:instVarNames:classVarNames:package:!public! !
 commentStamp:!public! !
 initialize:!public! !
 methodsForClass:category:!public! !
+read!public! !
+write!public! !
+writeSymbolDictionaries!public! !
+writeToPath:!public! !
 !
 
 !FileInPharo class methodsFor!

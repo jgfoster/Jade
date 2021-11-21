@@ -1,7 +1,7 @@
 ﻿"Filed out from Dolphin Smallalk"!
 
 Object subclass: #PharoClass
-	instanceVariableNames: 'superclassName name instVarNames classVarNames classInstVarNames package comment classMethods instanceMethods parent children'
+	instanceVariableNames: 'superclassName name instVarNames classVarNames classInstVarNames packageName category comment classMethods instanceMethods parent children'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
@@ -12,7 +12,6 @@ PharoClass comment: ''!
 
 addChild: aPharoClass
 
-	children ifNil: [children := OrderedCollection new].
 	children add: aPharoClass.
 !
 
@@ -38,6 +37,14 @@ instanceMethod: sourceString category: categoryString
 	(instanceMethods at: categoryString ifAbsentPut: [OrderedCollection new]) add: sourceString.
 !
 
+name
+	^name!
+
+packageName
+
+	^packageName
+!
+
 parent
 
 	^parent
@@ -53,15 +60,66 @@ superclassName
 	^superclassName
 !
 
-superclassName: newSuperclassName subclass: subclassName instVarNames: newInstVarNames classVarNames: newClassVarNames package: packageName
+superclassName: newSuperclassName subclass: subclassName instVarNames: newInstVarNames classVarNames: newClassVarNames package: aPackageName
 
 	classMethods := Dictionary new.
 	instanceMethods := Dictionary new.
 	superclassName := newSuperclassName.
 	name := subclassName.
-	instVarNames := newInstVarNames.
-	classVarNames := newClassVarNames.
-	package := packageName.
+	instVarNames := (newInstVarNames copyFrom: 2 to: newInstVarNames size - 1) subStrings.
+	classVarNames := (newClassVarNames copyFrom: 2 to: newClassVarNames size - 1) subStrings.
+	classInstVarNames := #().
+	category := aPackageName copyFrom: 2 to: aPackageName size - 1.
+	packageName := (category subStrings: $-) first.
+	children := OrderedCollection new.
+!
+
+writeClassTo: aStream
+
+	aStream nextPutAll: '!! ------------------- Class definition for ' , name , '
+expectvalue /Class
+doit
+' , superclassName , ' subclass: ' , name printString , '
+  instVarNames: ' , instVarNames printString , '
+  classVars: ' , classVarNames printString , '
+  classInstVars: ' , classInstVarNames printString , '
+  poolDictionaries: #()
+  inDictionary: ' , packageName , '
+  options: #()
+%
+expectvalue /Class
+doit
+' , name , ' comment: ' , (comment ifNil: ['']) printString , '
+%
+expectvalue /Class
+doit
+' , name , ' category: ' , category printString , '
+%
+'.
+	children do: [:each | each writeClassTo: aStream].
+!
+
+writeMethodsTo: aStream
+
+	classMethods keysAndValuesDo: [:eachKey :eachValue |  
+		aStream nextPutAll: 'category: ' , eachKey; lf.
+		eachValue do: [:each | 
+			aStream 
+				nextPutAll: 'classMethod: ' , name; lf; 
+				nextPutAll: each trimBlanks; lf;
+				nextPut: $%; lf.
+		].
+	].
+	instanceMethods keysAndValuesDo: [:eachKey :eachValue |  
+		aStream nextPutAll: 'category: ' , eachKey; lf.
+		eachValue do: [:each | 
+			aStream 
+				nextPutAll: 'method: ' , name; lf; 
+				nextPutAll: each trimBlanks; lf;
+				nextPut: $%; lf.
+		].
+	].
+	children do: [:each | each writeMethodsTo: aStream].
 ! !
 !PharoClass categoriesForMethods!
 addChild:!public! !
@@ -69,10 +127,14 @@ classInstVarNames:!public! !
 classMethod:category:!public! !
 comment:!public! !
 instanceMethod:category:!public! !
+name!public! !
+packageName!public! !
 parent!public! !
 parent:!public! !
 superclassName!public! !
 superclassName:subclass:instVarNames:classVarNames:package:!public! !
+writeClassTo:!public! !
+writeMethodsTo:!public! !
 !
 
 !PharoClass class methodsFor!

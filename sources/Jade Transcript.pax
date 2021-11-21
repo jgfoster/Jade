@@ -78,7 +78,7 @@ Object subclass: #FileInPharo
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
 Object subclass: #PharoClass
-	instanceVariableNames: 'superclassName name instVarNames classVarNames classInstVarNames package comment classMethods instanceMethods parent children'
+	instanceVariableNames: 'superclassName name instVarNames classVarNames classInstVarNames packageName category comment classMethods instanceMethods parent children'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
