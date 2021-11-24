@@ -215,16 +215,6 @@ onCloseRequested: boolValueHolder
 	].
 !
 
-onIdleEntered
-
-	GciLibrary activeLibrary ifNil: [^self].
-	GciLibrary activeLibrary gciCallInProgress ifFalse: [
-		Cursor current ifNotNil: [
-			[Cursor current: nil] forkAt: Processor userBackgroundPriority.
-		].
-	].
-	^super onIdleEntered!
-
 onViewOpened
 
 	super onViewOpened.
@@ -280,7 +270,6 @@ inspectOop!event handling!public! !
 methodsChanged24!event handling!public! !
 methodsChangedDays!event handling!public! !
 onCloseRequested:!event handling!public! !
-onIdleEntered!event handling!public! !
 onViewOpened!public!updating! !
 queryCommand:!event handling!public! !
 resetCursor!event handling!public! !
