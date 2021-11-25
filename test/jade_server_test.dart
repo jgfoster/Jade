@@ -11,7 +11,7 @@ GciLibraryApp run.
 */
 
 void main() {
-  final server = JadeServer(host: 'localhost', port: 50378);
+  final server = JadeServer('localhost:50378');
   String session1 = '0';
   String session2 = '0';
 

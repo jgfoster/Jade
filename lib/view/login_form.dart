@@ -21,29 +21,28 @@ class LoginFormState extends State<LoginForm> {
   void _doDelete() {}
 
   void _doLogin() {
-    if (_isInLogin | !_formKey.currentState!.validate()) {
+    if (_isInLogin | !_formKey.currentState!.validate() | _password.isEmpty) {
       return;
     }
     setState(() {
       _isInLogin = true;
       _formKey.currentState!.save();
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('$_address - $_username - $_password')),
+        SnackBar(content: Text('Login to $_address as $_username')),
       );
     });
-    Future.delayed(const Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 3), () {
       setState(() {
         _isInLogin = false;
       });
     });
   }
 
-  void _doSave() {}
-
   Widget _addressWidget() {
     return TextFormField(
+      enabled: !_isInLogin,
       decoration: const InputDecoration(
-        icon: Icon(Icons.computer),
+        icon: Icon(Icons.storage),
         hintText: 'localhost:50378',
         labelText: 'Host:port *',
       ),
@@ -74,6 +73,7 @@ class LoginFormState extends State<LoginForm> {
 
   Widget _usernameWidget() {
     return TextFormField(
+      enabled: !_isInLogin,
       decoration: const InputDecoration(
         icon: Icon(Icons.account_circle),
         hintText: 'DataCurator',
@@ -93,6 +93,7 @@ class LoginFormState extends State<LoginForm> {
 
   Widget _passwordWidget() {
     return TextFormField(
+      enabled: !_isInLogin,
       decoration: const InputDecoration(
         icon: Icon(Icons.password),
         labelText: 'Password *',
@@ -154,28 +155,6 @@ class LoginFormState extends State<LoginForm> {
     );
   }
 
-  Widget _saveButton() {
-    return Padding(
-      padding: const EdgeInsets.only(right: 8.0),
-      child: ElevatedButton(
-        onPressed: _isInLogin ? null : () => _doSave(),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            Icon(Icons.save),
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.only(left: 8.0),
-                child: Text('Save'),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
   Widget _loginButton() {
     return Padding(
       padding: const EdgeInsets.only(right: 8.0),
@@ -209,7 +188,6 @@ class LoginFormState extends State<LoginForm> {
         children: [
           _deleteButton(),
           _copyButton(),
-          _saveButton(),
           _loginButton(),
         ],
       ),

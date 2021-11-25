@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:jade/model/login.dart';
 
 class Jade with ChangeNotifier {
@@ -9,7 +8,7 @@ class Jade with ChangeNotifier {
   factory Jade() => _jade;
 
   Jade._internal() {
-    logins.add(newLogin());
+    newLogin();
   }
 
   Login newLogin() {
@@ -17,6 +16,9 @@ class Jade with ChangeNotifier {
     while (logins.any((each) => each.id == id)) {
       ++id;
     }
-    return Login(id);
+    var login = Login(id);
+    logins.add(login);
+    notifyListeners();
+    return login;
   }
 }

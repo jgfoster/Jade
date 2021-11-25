@@ -9,12 +9,12 @@ class JadeServer extends JadeServerAbstract {
   var _isInitialized = false;
   late final WebSocketChannel _channel;
 
-  JadeServer({var host = 'localhost', var port = 50378}) {
-    _initialize(host, port);
+  JadeServer([var address = 'localhost:50377']) {
+    _initialize(address);
   }
 
-  Future<void> _initialize(var host, var port) async {
-    var uriString = 'ws://' + host + ':' + port.toString() + '/webSocket.gs';
+  Future<void> _initialize(var address) async {
+    var uriString = 'ws://' + address + '/webSocket.gs';
     var uri = Uri.parse(uriString);
     _channel = WebSocketChannel.connect(uri);
     _channel.stream.listen(

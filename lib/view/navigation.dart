@@ -1,76 +1,104 @@
 import 'package:flutter/material.dart';
+import 'package:jade/model/jade.dart';
+import 'package:provider/provider.dart';
 
-class Navigation extends StatelessWidget {
+class Navigation extends StatefulWidget {
   const Navigation({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  @override
+  State<Navigation> createState() => _NavigationState();
+}
+
+// Holds ephemeral state, including which expansion tiles are expanded
+class _NavigationState extends State<Navigation> {
+  bool _isSessionListExpanded = true;
+  bool _isLoginListExpanded = true;
+
+  Widget sessionListWidget() {
+    return ListView(
+      children: [
+        ExpansionPanelList(
+          expansionCallback: (int index, bool isExpanded) {
+            setState(() {
+              _isSessionListExpanded = !isExpanded;
+            });
+          },
+          children: [
+            ExpansionPanel(
+              canTapOnHeader: true,
+              isExpanded: _isSessionListExpanded,
+              headerBuilder: (BuildContext context, bool isExpanded) {
+                return const ListTile(
+                  title: Text('Session 1'),
+                );
+              },
+              body: Column(
+                children: [
+                  ListTile(
+                    dense: true,
+                    // autofocus: true,
+                    title: const Text('Transcript'),
+                    onTap: () {
+                      // print('Tapped on Transcript');
+                    },
+                  ),
+                  ListTile(
+                    dense: true,
+                    selected: true,
+                    title: const Text('Workspace 1'),
+                    onTap: () {
+                      // print('Tapped on Workspace 1');
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget loginListWidget() {
+    return ExpansionPanelList(
+      expansionCallback: (int index, bool isExpanded) {
+        setState(() {
+          _isLoginListExpanded = !isExpanded;
+        });
+      },
+      children: [
+        ExpansionPanel(
+          canTapOnHeader: true,
+          isExpanded: _isLoginListExpanded,
+          headerBuilder: (BuildContext context, bool isExpanded) {
+            return const ListTile(
+              title: Text('Logins'),
+            );
+          },
+          body: Column(
+            children: Provider.of<Jade>(context)
+                .logins
+                .map<ListTile>((each) => ListTile(
+                      dense: true,
+                      title: Text('${each.username} at ${each.address}'),
+                      onTap: () {
+                        // print('Tapped on login');
+                      },
+                    ))
+                .toList(),
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final textTheme = theme.textTheme;
     return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
+      child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 8.0),
-            child: Row(
-              children: [
-                Text(
-                  'Logins',
-                  style: textTheme.headline6,
-                ),
-                Expanded(
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: IconButton(
-                      icon: const Icon(Icons.add),
-                      tooltip: 'New login...',
-                      onPressed: () {},
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const Divider(
-            height: 1,
-            thickness: 1,
-          ),
-          ListTile(
-            leading: const Icon(Icons.favorite),
-            title: const Text('Item 1'),
-            selected: true,
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const Icon(Icons.delete),
-            title: const Text('Item 2'),
-            selected: false,
-            onTap: () {},
-          ),
-          ListTile(
-            leading: const Icon(Icons.label),
-            title: const Text('Item 3'),
-            selected: false,
-            onTap: () {},
-          ),
-          const Divider(
-            height: 1,
-            thickness: 1,
-          ),
-          const Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Text(
-              'Label',
-            ),
-          ),
-          ListTile(
-            leading: const Icon(Icons.bookmark),
-            title: const Text('Item A'),
-            selected: false,
-            onTap: () {},
-          ),
+          Expanded(child: sessionListWidget()),
+          loginListWidget(),
         ],
       ),
     );
