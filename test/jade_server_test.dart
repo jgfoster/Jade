@@ -18,7 +18,7 @@ void main() {
 // pre-login
   test('getGciVersion', () async {
     var version = await server.getGciVersion();
-    expect(version, startsWith('3.6.1'));
+    expect(version, startsWith('3.6.2'));
   });
 
   test('encrypt', () async {
@@ -120,15 +120,21 @@ void main() {
   });
 
   test('doubleToOop', () async {
-    expect(await server.doubleToOop(session1, 1.25), '7F40000000000006');
-    expect(await server.doubleToOop(session1, 0.00), '6');
-    expect(await server.doubleToOop(session1, -3.5), '80C000000000000E');
+    var x = await server.doubleToOop(session1, 1.25);
+    expect(x, equals('7F40000000000006'));
+    x = await server.doubleToOop(session1, 0.00);
+    expect(x, equals('6'));
+    x = await server.doubleToOop(session1, -3.5);
+    expect(x, equals('80C000000000000E'));
   });
 
   test('oopToDouble', () async {
-    expect(await server.oopToDouble(session1, '7F40000000000006'), 1.25);
-    expect(await server.oopToDouble(session1, '6'), 0.00);
-    expect(await server.oopToDouble(session1, '80C000000000000E'), -3.5);
+    var x = await server.oopToDouble(session1, '7F40000000000006');
+    expect(x, equals(1.25));
+    x = await server.oopToDouble(session1, '6');
+    expect(x, equals(0.00));
+    x = await server.oopToDouble(session1, '80C000000000000E');
+    expect(x, equals(-3.5));
   });
 
   test('i64ToOop', () async {
@@ -162,7 +168,9 @@ void main() {
     x = await server.resolveSymbolObj(session1, '1C6401');
     expect(x, '10501');
     // look for #'Array' in DataCurator's SymbolList
-    x = await server.resolveSymbolObj(session1, '1C6401', '28C001');
+    // (AllUsers userWithId: 'DataCurator' ifAbsent: [nil])
+    //     symbolList asOop printStringRadix: 16.
+    x = await server.resolveSymbolObj(session1, '1C6401', '28AC01');
     expect(x, '10501');
     x = await server.resolveSymbolObj(session1, '2A9701'); // #'size'
     expect(x, '1');

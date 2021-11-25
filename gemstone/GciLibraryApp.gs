@@ -11,7 +11,19 @@ run
 "
 	HttpListener new
 		listenBacklog: 100;
-		port: 8888;
+		port: 50378;
+		webApp: self;
+		run.
+%
+category: 'required'
+classmethod: GciLibraryApp
+run: anInteger
+"
+	GciLibraryApp run: 50378.
+"
+	HttpListener new
+		listenBacklog: 100;
+		port: anInteger;
 		webApp: self;
 		run.
 %
@@ -101,7 +113,7 @@ returnOop: anInteger
 	[
 		objInfo := GciTsObjInfo new.
 		buffer := CByteArray gcMalloc: 1024.
-		result := self library 
+		result := self library
 			GciTsFetchObjInfo_: session
 			_: anInteger
 			_: 1
@@ -118,20 +130,23 @@ returnOop: anInteger
 			at: 'className' put: (class ifNotNil: [class name] ifNil: ['?']);
 			at: 'size' put: objInfo objSize;
 			at: 'namedSize' put: objInfo namedSize;
-			at: 'access' put: (#('none' 'read' 'write') at: objInfo access + 1);
+			at: 'access' put: (#('none' 'read' 'write' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?') at: objInfo access + 1);
 			at: 'isInvariant' put: (objInfo _bits bitAnd: 16r08) == 16r08;
 			at: 'isIndexable' put: (objInfo _bits bitAnd: 16r04) == 16r04;
 			at: 'implementation' put: impl;
 			yourself.
-		buffer := buffer byteArrayFrom: 0 to: (objInfo objSize min: buffer size) - 1.
-		(class notNil and: [class == String or: [class inheritsFrom: String]]) ifTrue: [
-			dict at: 'string' put: buffer bytesIntoString.
-		] ifFalse: [impl = 'byte' ifTrue: [
-			dict at: 'bytes' put: buffer asBase64String.
-		]].
+		objInfo objSize > 0 ifTrue: [
+			buffer := buffer byteArrayFrom: 0 to: (objInfo objSize min: buffer size) - 1.
+			(class notNil and: [class == String or: [class inheritsFrom: String]]) ifTrue: [
+				dict at: 'string' put: buffer bytesIntoString.
+			] ifFalse: [impl = 'byte' ifTrue: [
+				dict at: 'bytes' put: buffer asBase64String.
+			]].
+		].
 		^dict
-	] on: Error do: [:ex | 
-		GsFile stdout nextPutAll: 'returnOop: - error ' , ex number printString , ' - ' , ex message; lf.
+	] on: Error do: [:ex |
+		GsFile stdoutServer nextPutAll: 'returnOop: - error ' , ex number printString , ' - ' , ex messageText; lf.
+		ex pass.
 	].
 %
 
@@ -210,7 +225,7 @@ execute
 	| flag string |
 	string := requestDict at: 'string'.
 	flag := self library
-		GciTsNbExecute_: session 
+		GciTsNbExecute_: session
 		_: string
 		_: string class asOop
 		_: 1 		"OOP_ILLEGAL (context)"
@@ -353,10 +368,10 @@ nbResult
 	| timeoutMs |
 	timeoutMs := requestDict at: 'timeout' ifAbsent: [0].
 	((GsSocket fromFileHandle: socketFileHandle) readWillNotBlockWithin: timeoutMs) ifTrue: [
-		| object oop |
+		| oop |
 		oop := self library GciTsNbResult_: session _: error.
 		oop == 1 ifTrue: [
-			GsFile stdout nextPutAll: 'nbResult error message => ' , error message printString; lf.
+			GsFile stdoutServer nextPutAll: 'nbResult error message => ' , error message printString; lf.
 			^self returnError
 		].
 		(self library GciTsOopIsSpecial_: oop) == 1 ifTrue: [
@@ -556,7 +571,7 @@ category: 'WebSockets'
 method: GciLibraryApp
 handleRequestString: aString
 
-	| dictIn dictOut time type |
+	| dictIn dictOut time |
 	Log instance log: #'debug' string: 'GciApp>>handleRequest: - ' , aString printString.
 	time := Time millisecondsElapsedTime: [
 		[
@@ -571,15 +586,15 @@ handleRequestString: aString
 		].
 	].
 	(dictOut isKindOf: Dictionary) ifFalse: [
-		GsFile stdout nextPutAll: 'handleRequestString: ' , aString; lf.
+		GsFile stdoutServer nextPutAll: 'handleRequestString: ' , aString; lf.
 		dictOut := Dictionary new.
 	].
-	dictOut 
+	dictOut
 		at: 'time' put: time;
 		at: 'request' put: (dictIn at: 'request');
 		yourself.
-	WebSocketDataFrame 
-		sendText: dictOut asJson 
+	WebSocketDataFrame
+		sendText: dictOut asJson
 		onSocket: socket.
 %
 category: 'WebSockets'

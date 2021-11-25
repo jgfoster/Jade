@@ -9,12 +9,13 @@ class JadeServer extends JadeServerAbstract {
   var _isInitialized = false;
   late final WebSocketChannel _channel;
 
-  JadeServer({var host = 'localhost', var port = 50377}) {
+  JadeServer({var host = 'localhost', var port = 50378}) {
     _initialize(host, port);
   }
 
   Future<void> _initialize(var host, var port) async {
-    var uri = Uri.parse('ws://localhost:8888/webSocket.gs');
+    var uriString = 'ws://' + host + ':' + port.toString() + '/webSocket.gs';
+    var uri = Uri.parse(uriString);
     _channel = WebSocketChannel.connect(uri);
     _channel.stream.listen(
       _onData,
@@ -25,7 +26,11 @@ class JadeServer extends JadeServerAbstract {
   }
 
   void _onData(dynamic data) async {
-    _buffer.add(jsonDecode(data));
+    var x = jsonDecode(data);
+    // if (x['type'] == 'error') {
+    //   print('_onData($x)');
+    // }
+    _buffer.add(x);
   }
 
   void _onDone() {
@@ -34,7 +39,7 @@ class JadeServer extends JadeServerAbstract {
   }
 
   void _onError(var error) {
-    // print('_onError() - $error');
+    // print('_onError($error)');
     _channel.sink.close();
   }
 
@@ -164,7 +169,8 @@ class JadeServer extends JadeServerAbstract {
       'i64': value.toRadixString(16),
       'session': session
     });
-    return (await _read())['oop'];
+    var x = await _read();
+    return (x)['oop'];
   }
 
   @override

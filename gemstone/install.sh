@@ -13,20 +13,31 @@ errorCount
 output push GciApp.out only
 errorCount
 fileformat utf8
+
+! set stone name
+set gems gs64stone
+
+! configure for Unicode
+set user SystemUser pass swordfish
+login
+send CharacterCollection enableUnicodeComparisonMode
+commit
+logout
+
+! install GciLibraryApp
+set user DataCurator pass swordfish
+login
+
 input ./GciApp.gs
 send GciTsLibraryFull initializeFunctions
 output pop
 errorCount
 commit
 logout
-set user SystemUser pass swordfish
-login
-send CharacterCollection enableUnicodeComparisonMode
-commit
-logout
-set user DataCurator pass swordfish
+
+! run application
 login
 iferr 1 stk
 iferr 2 exit
-send GciLibraryApp run
+send GciLibraryApp run: 50378
 EOF
