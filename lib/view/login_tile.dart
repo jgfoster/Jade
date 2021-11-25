@@ -7,16 +7,6 @@ class LoginTile extends ListTile {
   final Login _login;
   const LoginTile(this._login, {Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => _login,
-      child: Consumer<Login>(
-        builder: _loginTile,
-      ),
-    );
-  }
-
   Widget _loginTile(context, login, child) {
     return ListTile(
       dense: true,
@@ -34,6 +24,16 @@ class LoginTile extends ListTile {
         }
         login.isSelected = true;
       },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (_) => _login,
+      child: Consumer<Login>(
+        builder: _loginTile,
+      ),
     );
   }
 }
