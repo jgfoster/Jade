@@ -1,3 +1,6 @@
+// SessionListWidget has an ExpansionPanelList with
+// children for each window into that session
+
 import 'package:flutter/material.dart';
 
 class SessionListWidget extends StatefulWidget {
@@ -7,7 +10,7 @@ class SessionListWidget extends StatefulWidget {
   State<SessionListWidget> createState() => _SessionListWidget();
 }
 
-// Holds ephemeral state
+// Holds ephemeral state: is list expanded
 class _SessionListWidget extends State<SessionListWidget> {
   bool _isSessionListExpanded = true;
 

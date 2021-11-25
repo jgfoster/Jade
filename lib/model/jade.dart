@@ -4,7 +4,7 @@ import 'package:jade/model/change_notifier_list.dart';
 
 class Jade with ChangeNotifier {
   static final Jade _jade = Jade._internal();
-  final ChangeNotifierList<Login> loginList = ChangeNotifierList<Login>();
+  final LoginList loginList = LoginList();
 
   factory Jade() => _jade;
 

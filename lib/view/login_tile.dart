@@ -1,3 +1,6 @@
+// LoginTile shows the name of a login, its selected state,
+// and allows for selecting and removing of the Login
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:jade/model/jade.dart';
@@ -19,9 +22,9 @@ class LoginTile extends ListTile {
       ),
       title: Text('${_login.username} at ${login.address}'),
       onTap: () {
-        for (var each in Jade().loginList) {
+        Jade().loginList.forEach((each) {
           each.isSelected = false;
-        }
+        });
         login.isSelected = true;
       },
     );

@@ -49,3 +49,50 @@ class Login with ChangeNotifier {
     return false;
   }
 }
+
+class LoginList with ChangeNotifier {
+  final List<Login> _list = [];
+
+  void add(Login login) {
+    _list.add(login);
+    notifyListeners();
+  }
+
+  bool any(bool Function(Login) test) {
+    for (Login element in _list) {
+      if (test(element)) return true;
+    }
+    return false;
+  }
+
+  get first => _list.first;
+  get last => _list.last;
+  get length => _list.length;
+
+  void forEach(void Function(Login) predicate) {
+    for (Login each in _list) {
+      predicate(each);
+    }
+    notifyListeners();
+  }
+
+  Iterable<T> map<T>(T Function(Login) toElement) sync* {
+    for (var value in _list) {
+      yield toElement(value);
+    }
+  }
+
+  void remove(Login login) {
+    _list.remove(login);
+    notifyListeners();
+  }
+
+  Login operator [](int index) {
+    return _list[index];
+  }
+
+  void operator []=(int index, Login login) {
+    _list[index] = login;
+    notifyListeners();
+  }
+}

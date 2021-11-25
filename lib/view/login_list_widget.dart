@@ -1,6 +1,13 @@
+// LoginListWidget uses an ExpansionPanelList to show the
+// current logins. This has a ChangeNotificationProvider
+// to monitor adding and removing logins from the list.
+// The LoginTile monitors the state of the Login itself.
+
 import 'package:flutter/material.dart';
 import 'package:jade/model/jade.dart';
 import 'package:jade/model/login.dart';
+import 'package:jade/view/login_tile.dart';
+import 'package:provider/provider.dart';
 
 class LoginListWidget extends StatefulWidget {
   const LoginListWidget({Key? key}) : super(key: key);
@@ -9,46 +16,9 @@ class LoginListWidget extends StatefulWidget {
   State<LoginListWidget> createState() => _LoginListWidget();
 }
 
-// Holds ephemeral state
+// Holds ephemeral state expansion state
 class _LoginListWidget extends State<LoginListWidget> {
   bool _isLoginListExpanded = true;
-  var loginList = Jade().loginList;
-
-  _LoginListWidget() {
-    loginList.addListener(_changeListener);
-  }
-
-  @override
-  void deactivate() {
-    loginList.removeListener(_changeListener);
-    super.deactivate();
-  }
-
-  void _changeListener() {
-    setState(() {});
-  }
-
-  ListTile loginTile(Login each) {
-    return ListTile(
-      dense: true,
-      selected: each.isSelected,
-      leading: IconButton(
-        icon: const Icon(Icons.delete),
-        onPressed: () {
-          loginList.remove(each);
-        },
-      ),
-      title: Text('${each.username} at ${each.address}'),
-      onTap: () {
-        setState(() {
-          for (var login in loginList) {
-            login.isSelected = false;
-          }
-          each.isSelected = true;
-        });
-      },
-    );
-  }
 
   ListTile addLoginTile() {
     return ListTile(
@@ -61,7 +31,7 @@ class _LoginListWidget extends State<LoginListWidget> {
     );
   }
 
-  ExpansionPanel loginListExpansionPanel() {
+  ExpansionPanel loginListExpansionPanel(LoginList loginList) {
     return ExpansionPanel(
       canTapOnHeader: true,
       isExpanded: _isLoginListExpanded,
@@ -72,24 +42,29 @@ class _LoginListWidget extends State<LoginListWidget> {
       },
       body: Column(
         children: [
-          ...loginList.map<ListTile>((each) => loginTile(each)).toList(),
+          ...loginList.map<ListTile>((each) => LoginTile(each)).toList(),
           addLoginTile(),
         ],
       ),
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
+  Widget builder(var context, var loginList, var child) {
     return ExpansionPanelList(
       expansionCallback: (int index, bool isExpanded) {
         setState(() {
           _isLoginListExpanded = !isExpanded;
         });
       },
-      children: [
-        loginListExpansionPanel(),
-      ],
+      children: [loginListExpansionPanel(loginList)],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (_) => Jade().loginList,
+      child: Consumer<LoginList>(builder: builder),
     );
   }
 }

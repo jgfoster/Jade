@@ -1,3 +1,6 @@
+// Navigation shows a Drawer with the
+// SessionListWidget and the LoginsListWidget
+
 import 'package:flutter/material.dart';
 import 'package:jade/view/login_list_widget.dart';
 import 'package:jade/view/session_list_widget.dart';

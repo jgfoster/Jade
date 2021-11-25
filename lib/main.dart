@@ -1,3 +1,5 @@
+// main.dart creates the MaterialApp and shows HomePage()
+
 import 'package:flutter/material.dart';
 import 'package:jade/view/home_page.dart';
 
