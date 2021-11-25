@@ -16,19 +16,18 @@ class LoginFormState extends State<LoginForm> {
   var _password = '';
   var _isInLogin = false;
 
-  void _doCopy() {}
-
-  void _doDelete() {}
-
   void _doLogin() {
-    if (_isInLogin | !_formKey.currentState!.validate() | _password.isEmpty) {
+    if (_isInLogin | !_formKey.currentState!.validate()) {
       return;
     }
     setState(() {
       _isInLogin = true;
       _formKey.currentState!.save();
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Login to $_address as $_username')),
+        SnackBar(
+          content:
+              Text('Login to $_address as $_username with ${_password.length}'),
+        ),
       );
     });
     Future.delayed(const Duration(seconds: 3), () {
@@ -111,50 +110,6 @@ class LoginFormState extends State<LoginForm> {
     );
   }
 
-  Widget _deleteButton() {
-    return Padding(
-      padding: const EdgeInsets.only(right: 8.0),
-      child: ElevatedButton(
-        onPressed: _isInLogin ? null : () => _doDelete(),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            Icon(Icons.delete),
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.only(left: 8.0),
-                child: Text('Delete'),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _copyButton() {
-    return Padding(
-      padding: const EdgeInsets.only(right: 8.0),
-      child: ElevatedButton(
-        onPressed: _isInLogin ? null : () => _doCopy(),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            Icon(Icons.file_copy),
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.only(left: 8.0),
-                child: Text('Copy'),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
   Widget _loginButton() {
     return Padding(
       padding: const EdgeInsets.only(right: 8.0),
@@ -186,8 +141,6 @@ class LoginFormState extends State<LoginForm> {
         scrollDirection: Axis.horizontal,
         itemExtent: 120.0,
         children: [
-          _deleteButton(),
-          _copyButton(),
           _loginButton(),
         ],
       ),

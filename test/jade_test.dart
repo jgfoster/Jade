@@ -11,7 +11,7 @@ void main() {
 
   test('logins size', () {
     var jade = Jade();
-    var logins = jade.logins;
+    var logins = jade.loginList;
     expect(logins.length, 1);
   });
 }

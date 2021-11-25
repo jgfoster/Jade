@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jade/model/jade.dart';
-import 'package:provider/provider.dart';
+import 'package:jade/model/login.dart';
 
 class Navigation extends StatefulWidget {
   const Navigation({Key? key}) : super(key: key);
@@ -13,6 +13,13 @@ class Navigation extends StatefulWidget {
 class _NavigationState extends State<Navigation> {
   bool _isSessionListExpanded = true;
   bool _isLoginListExpanded = true;
+  var loginList = Jade().loginList;
+
+  _NavigationState() {
+    loginList.addListener(() {
+      setState(() {});
+    });
+  }
 
   Widget sessionListWidget() {
     return ListView(
@@ -59,6 +66,52 @@ class _NavigationState extends State<Navigation> {
     );
   }
 
+  ListTile loginTile(Login each) {
+    return ListTile(
+      dense: true,
+      selected: each.isSelected,
+      leading: IconButton(
+        icon: const Icon(Icons.delete),
+        onPressed: () {
+          loginList.remove(each);
+        },
+      ),
+      title: Text('${each.username} at ${each.address}'),
+      onTap: () {
+        // print('Tapped on login');
+      },
+    );
+  }
+
+  ListTile addLoginTile() {
+    return ListTile(
+      dense: true,
+      leading: const Icon(Icons.add),
+      title: const Text('Add'),
+      onTap: () {
+        Jade().newLogin();
+      },
+    );
+  }
+
+  ExpansionPanel loginListExpansionPanel() {
+    return ExpansionPanel(
+      canTapOnHeader: true,
+      isExpanded: _isLoginListExpanded,
+      headerBuilder: (BuildContext context, bool isExpanded) {
+        return const ListTile(
+          title: Text('Logins'),
+        );
+      },
+      body: Column(
+        children: [
+          ...loginList.map<ListTile>((each) => loginTile(each)).toList(),
+          addLoginTile(),
+        ],
+      ),
+    );
+  }
+
   Widget loginListWidget() {
     return ExpansionPanelList(
       expansionCallback: (int index, bool isExpanded) {
@@ -67,27 +120,7 @@ class _NavigationState extends State<Navigation> {
         });
       },
       children: [
-        ExpansionPanel(
-          canTapOnHeader: true,
-          isExpanded: _isLoginListExpanded,
-          headerBuilder: (BuildContext context, bool isExpanded) {
-            return const ListTile(
-              title: Text('Logins'),
-            );
-          },
-          body: Column(
-            children: Provider.of<Jade>(context)
-                .logins
-                .map<ListTile>((each) => ListTile(
-                      dense: true,
-                      title: Text('${each.username} at ${each.address}'),
-                      onTap: () {
-                        // print('Tapped on login');
-                      },
-                    ))
-                .toList(),
-          ),
-        ),
+        loginListExpansionPanel(),
       ],
     );
   }

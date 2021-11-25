@@ -1,8 +1,11 @@
-class Login {
+import 'package:flutter/material.dart';
+
+class Login with ChangeNotifier {
   late int id;
   String address = 'localhost:50378';
   String username = 'DataCurator';
   String password = 'swordfish';
+  bool isSelected = false;
 
   Login(this.id);
 

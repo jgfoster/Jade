@@ -1,16 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import 'package:jade/model/jade.dart';
 import 'package:jade/view/home_page.dart';
 
 void main() {
-  runApp(
-    ChangeNotifierProvider(
-      create: (_) => Jade(),
-      child: const JadeApp(),
-    ),
-  );
+  runApp(const JadeApp());
 }
 
 class JadeApp extends StatelessWidget {
