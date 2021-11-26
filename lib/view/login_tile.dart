@@ -22,15 +22,15 @@ class LoginTile extends ListTile {
       ),
       title: Text('${_login.username} at ${login.address}'),
       onTap: () {
-        login.isSelected = true;
+        login.beSelected();
       },
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => _login,
+    return ChangeNotifierProvider.value(
+      value: _login,
       child: Consumer<Login>(
         builder: _loginTile,
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jade/model/login.dart';
+import 'package:jade/model/login_list.dart';
 
 class Jade with ChangeNotifier {
   static final Jade _jade = Jade._internal();
@@ -9,7 +10,9 @@ class Jade with ChangeNotifier {
   factory Jade() => _jade;
 
   Jade._internal() {
-    newLogin();
+    // let the constructor finish so that _jade is assigned
+    // otherwise we end up in an endless loop!
+    Future.microtask(() => newLogin());
   }
 
   void newLogin() {
@@ -22,15 +25,18 @@ class Jade with ChangeNotifier {
   }
 
   Login? get selectedLogin => _selectedLogin;
+
   set selectedLogin(Login? login) {
     if (_selectedLogin != login) {
-      loginList.forEach((each) {
-        if (each != login) {
-          each.isSelected = false;
-        }
-      });
+      var priorSelection = _selectedLogin;
       _selectedLogin = login;
-      notifyListeners();
+      priorSelection?.selectionStatusChanged();
+      _selectedLogin?.selectionStatusChanged();
+      if (_selectedLogin == null && loginList.isNotEmpty) {
+        loginList.last.beSelected(); // this will come back to us!
+      } else {
+        notifyListeners();
+      }
     }
   }
 }

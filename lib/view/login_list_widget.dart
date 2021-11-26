@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:jade/model/jade.dart';
-import 'package:jade/model/login.dart';
+import 'package:jade/model/login_list.dart';
 import 'package:jade/view/login_tile.dart';
 import 'package:provider/provider.dart';
 
@@ -50,7 +50,6 @@ class _LoginListWidget extends State<LoginListWidget> {
   }
 
   Widget builder(var context, var loginList, var child) {
-    Jade().loginList[0].isSelected = true;
     return ExpansionPanelList(
       expansionCallback: (int index, bool isExpanded) {
         setState(() {
@@ -63,8 +62,8 @@ class _LoginListWidget extends State<LoginListWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => Jade().loginList,
+    return ChangeNotifierProvider.value(
+      value: Jade().loginList,
       child: Consumer<LoginList>(builder: builder),
     );
   }
