@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:jade/model/jade_model.dart';
 import 'package:jade/model/login.dart';
 import 'package:jade/model/login_list.dart';
 
 class Jade with ChangeNotifier {
   static final Jade _jade = Jade._internal();
   final LoginList loginList = LoginList();
-  Login? _selectedLogin;
+  JadeModel? _selectedModel;
 
   factory Jade() => _jade;
 
@@ -16,23 +17,18 @@ class Jade with ChangeNotifier {
   }
 
   void newLogin() {
-    var id = 1;
-    while (loginList.any((each) => each.id == id)) {
-      ++id;
-    }
-    var login = Login(id);
-    loginList.add(login);
+    loginList.add(Login());
   }
 
-  Login? get selectedLogin => _selectedLogin;
+  JadeModel? get selectedModel => _selectedModel;
 
-  set selectedLogin(Login? login) {
-    if (_selectedLogin != login) {
-      var priorSelection = _selectedLogin;
-      _selectedLogin = login;
+  set selectedModel(JadeModel? login) {
+    if (_selectedModel != login) {
+      var priorSelection = _selectedModel;
+      _selectedModel = login;
       priorSelection?.selectionStatusChanged();
-      _selectedLogin?.selectionStatusChanged();
-      if (_selectedLogin == null && loginList.isNotEmpty) {
+      _selectedModel?.selectionStatusChanged();
+      if (_selectedModel == null && loginList.isNotEmpty) {
         loginList.last.beSelected(); // this will come back to us!
       } else {
         notifyListeners();

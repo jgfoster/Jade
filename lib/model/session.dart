@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+import 'package:jade/model/jade_model.dart';
 import 'package:jade/model/jade_server.dart';
 import 'package:jade/model/login.dart';
 
-class Session with ChangeNotifier {
+class Session extends JadeModel {
   late String _session;
   late JadeServer _server;
 
@@ -23,15 +23,17 @@ class Session with ChangeNotifier {
 
   @override
   int get hashCode {
-    return session.hashCode;
+    return _session.hashCode;
+  }
+
+  @override
+  void selectionStatusChanged() {
+    notifyListeners();
   }
 
   @override
   bool operator ==(Object other) {
-    if (other.runtimeType == Session) {
-      var rhs = other as Session;
-      return session == rhs.session;
-    }
-    return false;
+    return other.runtimeType == Session &&
+        _session == (other as Session).session;
   }
 }
