@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:jade/model/jade_model.dart';
 import 'package:jade/model/login.dart';
 import 'package:jade/model/login_list.dart';
+import 'package:jade/model/session.dart';
+import 'package:jade/model/session_list.dart';
 
 class Jade with ChangeNotifier {
   static final Jade _jade = Jade._internal();
   final LoginList loginList = LoginList();
+  final SessionList sessionList = SessionList();
   JadeModel? _selectedModel;
 
   factory Jade() => _jade;
@@ -13,7 +16,15 @@ class Jade with ChangeNotifier {
   Jade._internal() {
     // let the constructor finish so that _jade is assigned
     // otherwise we end up in an endless loop!
-    Future.microtask(() => newLogin());
+    Future.microtask(() {
+      newLogin();
+    });
+  }
+
+  void doLogin(Login login) {
+    var session = Session(login);
+    sessionList.add(session);
+    session.beSelected();
   }
 
   void newLogin() {

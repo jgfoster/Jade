@@ -17,6 +17,8 @@ class SelectedModelWidget extends StatelessWidget {
     }
   }
 
+  // the Provider/Consumer structure allows us to be
+  // notified when the selectedModel changes
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider.value(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jade/model/jade.dart';
 import 'package:jade/model/login.dart';
 
 class LoginForm extends StatefulWidget {
@@ -6,12 +7,12 @@ class LoginForm extends StatefulWidget {
   const LoginForm(this._login, {Key? key}) : super(key: key);
 
   @override
-  LoginFormState createState() {
-    return LoginFormState();
+  _LoginForm createState() {
+    return _LoginForm();
   }
 }
 
-class LoginFormState extends State<LoginForm> {
+class _LoginForm extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
   late Login _login;
   var _isInLogin = false;
@@ -37,6 +38,7 @@ class LoginFormState extends State<LoginForm> {
       setState(() {
         _isInLogin = false;
       });
+      Jade().doLogin(_login);
     });
   }
 
