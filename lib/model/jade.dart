@@ -6,20 +6,22 @@ import 'package:jade/model/session.dart';
 import 'package:jade/model/session_list.dart';
 
 class Jade with ChangeNotifier {
-  static final Jade _jade = Jade._internal();
+  static Jade? _jade;
   final LoginList loginList = LoginList();
   final SessionList sessionList = SessionList();
   JadeModel? _selectedModel;
 
-  factory Jade() => _jade;
-
-  Jade._internal() {
-    // let the constructor finish so that _jade is assigned
-    // otherwise we end up in an endless loop!
-    Future.microtask(() {
-      newLogin();
-    });
+  factory Jade() {
+    if (_jade == null) {
+      // assign variable before proceeding so that
+      // subsequent calls find something
+      _jade ??= Jade._();
+      _jade!.newLogin();
+    }
+    return _jade!;
   }
+
+  Jade._();
 
   void doLogin(Login login) {
     var session = Session(login);

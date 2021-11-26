@@ -14,12 +14,12 @@ class SessionWidget extends StatefulWidget {
 }
 
 class _SessionWidget extends State<SessionWidget> {
-  final _formKey = GlobalKey<FormState>();
-  late Session _session;
+  // final _formKey = GlobalKey<FormState>();
+  // late Session _session;
 
   @override
   Widget build(BuildContext context) {
-    _session = widget._session;
+    var _session = widget._session;
     return const Text('hello');
   }
 

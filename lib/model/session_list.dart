@@ -28,9 +28,10 @@ class SessionList with ChangeNotifier {
     }
   }
 
-  Iterable<T> map<T>(T Function(Session) toElement) sync* {
+  Iterable<T> map<T>(T Function(Session, int) toElement) sync* {
+    int i = 0;
     for (var value in _list) {
-      yield toElement(value);
+      yield toElement(value, i++);
     }
   }
 

@@ -15,31 +15,17 @@ class LoginForm extends StatefulWidget {
 class _LoginForm extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
   late Login _login;
-  var _isInLogin = false;
   final _addressController = TextEditingController();
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
 
   void _doLogin() {
-    if (_isInLogin | !_formKey.currentState!.validate()) {
-      return;
-    }
-    setState(() {
-      _isInLogin = true;
-      _formKey.currentState!.save();
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-              'Login to ${_login.address} as ${_login.username} with ${_login.password.length}'),
-        ),
-      );
-    });
-    Future.delayed(const Duration(seconds: 4), () {
+    if (_formKey.currentState!.validate()) {
       setState(() {
-        _isInLogin = false;
+        _formKey.currentState!.save();
+        Jade().doLogin(_login);
       });
-      Jade().doLogin(_login);
-    });
+    }
   }
 
   Widget _addressWidget() {
@@ -48,7 +34,6 @@ class _LoginForm extends State<LoginForm> {
       _login.address = _addressController.text;
     });
     return TextFormField(
-      enabled: !_isInLogin,
       decoration: const InputDecoration(
         icon: Icon(Icons.storage),
         hintText: 'localhost:50378',
@@ -74,7 +59,7 @@ class _LoginForm extends State<LoginForm> {
         }
         return null;
       },
-      onFieldSubmitted: _isInLogin ? null : (_) => _doLogin(),
+      onFieldSubmitted: (_) => _doLogin(),
       onSaved: (value) => _login.address = value!,
     );
   }
@@ -85,7 +70,6 @@ class _LoginForm extends State<LoginForm> {
       _login.username = _usernameController.text;
     });
     return TextFormField(
-      enabled: !_isInLogin,
       decoration: const InputDecoration(
         icon: Icon(Icons.account_circle),
         hintText: 'DataCurator',
@@ -98,7 +82,7 @@ class _LoginForm extends State<LoginForm> {
         }
         return null;
       },
-      onFieldSubmitted: _isInLogin ? null : (_) => _doLogin(),
+      onFieldSubmitted: (_) => _doLogin(),
       onSaved: (value) => _login.username = value!,
     );
   }
@@ -109,7 +93,6 @@ class _LoginForm extends State<LoginForm> {
       _login.password = _passwordController.text;
     });
     return TextFormField(
-      enabled: !_isInLogin,
       decoration: const InputDecoration(
         icon: Icon(Icons.password),
         labelText: 'Password *',
@@ -122,7 +105,7 @@ class _LoginForm extends State<LoginForm> {
         }
         return null;
       },
-      onFieldSubmitted: _isInLogin ? null : (_) => _doLogin(),
+      onFieldSubmitted: (_) => _doLogin(),
       onSaved: (value) => _login.password = value!,
     );
   }
@@ -131,7 +114,7 @@ class _LoginForm extends State<LoginForm> {
     return Padding(
       padding: const EdgeInsets.only(right: 8.0),
       child: ElevatedButton(
-        onPressed: _isInLogin ? null : () => _doLogin(),
+        onPressed: () => _doLogin(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
