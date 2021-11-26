@@ -16,27 +16,38 @@ class SessionListWidget extends StatefulWidget {
 
 // Holds ephemeral state: is list expanded
 class _SessionListWidget extends State<SessionListWidget> {
-  List<bool> _isSessionExpanded = [];
+  final List<bool> _isSessionExpanded = [];
 
-  ExpansionPanel _expansionPanel(Session session, bool isExpanded) {
-    return ExpansionPanel(
-      isExpanded: isExpanded,
-      canTapOnHeader: true,
-      headerBuilder: (BuildContext context, bool isExpanded) {
-        return const ListTile(
-          title: Text('Sessions'),
-        );
-      },
-      body: const Text('Body of session panel'),
+  Widget _sessionDetailsBuilder(var context, var sessionList, var child) {
+    return Column(
+      children: const [Text('Session child')],
     );
   }
 
-  Widget _builder(var context, var sessionList, var child) {
-    _isSessionExpanded = List.filled(sessionList.length, true);
-    var expansionPanelList = sessionList
-        .map<ExpansionPanel>((session, index) =>
-            _expansionPanel(session, _isSessionExpanded[index]))
-        .toList();
+  ExpansionPanel _expansionPanel(Session session, bool isExpanded, int index) {
+    return ExpansionPanel(
+        isExpanded: isExpanded,
+        canTapOnHeader: true,
+        headerBuilder: (BuildContext context, bool isExpanded) {
+          return GestureDetector(
+            child: ListTile(
+              title: Text('Session ${index + 1}'),
+            ),
+            onTap: () {
+              // print('select session without expanding/contracting panel');
+            },
+          );
+        },
+        body: ChangeNotifierProvider.value(
+          value: session,
+          child: Consumer<Session>(builder: _sessionDetailsBuilder),
+        ));
+  }
+
+  Widget _sessionBuilder(var context, var sessionList, var child) {
+    while (_isSessionExpanded.length < sessionList.length) {
+      _isSessionExpanded.add(true);
+    }
     return ListView(children: [
       ExpansionPanelList(
         expansionCallback: (int index, bool isExpanded) {
@@ -44,7 +55,10 @@ class _SessionListWidget extends State<SessionListWidget> {
             _isSessionExpanded[index] = !isExpanded;
           });
         },
-        children: expansionPanelList,
+        children: sessionList
+            .map<ExpansionPanel>((session, index) =>
+                _expansionPanel(session, _isSessionExpanded[index], index))
+            .toList(),
       ),
     ]);
   }
@@ -53,7 +67,7 @@ class _SessionListWidget extends State<SessionListWidget> {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider.value(
       value: Jade().sessionList,
-      child: Consumer<SessionList>(builder: _builder),
+      child: Consumer<SessionList>(builder: _sessionBuilder),
     );
   }
 }

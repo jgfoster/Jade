@@ -29,6 +29,12 @@ class Jade with ChangeNotifier {
     session.beSelected();
   }
 
+  void doLogout(Session session) {
+    sessionList.remove(session);
+    session.beNotSelected();
+    session.logout();
+  }
+
   void newLogin() {
     loginList.add(Login());
   }

@@ -9,7 +9,7 @@ class JadeServer extends JadeServerAbstract {
   var _isInitialized = false;
   late final WebSocketChannel _channel;
 
-  JadeServer([var address = 'localhost:50377']) {
+  JadeServer([var address = 'localhost:50378']) {
     _initialize(address);
   }
 
