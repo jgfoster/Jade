@@ -1,5 +1,5 @@
 // LoginListWidget uses an ExpansionPanelList to show the
-// current logins. This has a ChangeNotificationProvider
+// current logins. This has a ChangeNotifierProvider
 // to monitor adding and removing logins from the list.
 // The LoginTile monitors the state of the Login itself.
 

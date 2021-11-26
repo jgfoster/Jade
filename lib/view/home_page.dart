@@ -2,8 +2,10 @@
 // Navigation (a Drawer) and a LoginForm
 
 import 'package:flutter/material.dart';
+import 'package:jade/model/jade.dart';
 import 'package:jade/view/login_form.dart';
 import 'package:jade/view/navigation.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,31 +20,42 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.menu),
-          tooltip: _isShowingNavigation
-              ? 'Close navigation drawer'
-              : 'Open navigation drawer',
-          onPressed: () {
-            setState(() {
-              _isShowingNavigation = !_isShowingNavigation;
-            });
-          },
-        ),
-        title: const Text('Jade — an IDE for GemStone/S 64 Bit'),
-      ),
-      body: ListView(
-        scrollDirection: Axis.horizontal,
-        children: [
-          _isShowingNavigation ? const Navigation() : Container(),
-          const VerticalDivider(
-            width: 1,
-            thickness: 1,
+    return ChangeNotifierProvider.value(
+      value: Jade(),
+      child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.menu),
+            tooltip: _isShowingNavigation
+                ? 'Close navigation drawer'
+                : 'Open navigation drawer',
+            onPressed: () {
+              setState(() {
+                _isShowingNavigation = !_isShowingNavigation;
+              });
+            },
           ),
-          const LoginForm(),
-        ],
+          title: const Text('Jade — an IDE for GemStone/S 64 Bit'),
+        ),
+        body: ListView(
+          scrollDirection: Axis.horizontal,
+          children: [
+            _isShowingNavigation ? const Navigation() : Container(),
+            const VerticalDivider(
+              width: 1,
+              thickness: 1,
+            ),
+            Consumer<Jade>(
+              builder: (context, jade, child) {
+                if (jade.selectedLogin == null) {
+                  return Container();
+                } else {
+                  return LoginForm(jade.selectedLogin!);
+                }
+              },
+            )
+          ],
+        ),
       ),
     );
   }

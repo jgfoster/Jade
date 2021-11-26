@@ -12,22 +12,28 @@ class Login with ChangeNotifier {
   get address => _address;
 
   set address(var aString) {
-    _address = aString;
-    notifyListeners();
+    if (_address != aString) {
+      _address = aString;
+      notifyListeners();
+    }
   }
 
   get username => _username;
 
   set username(var aString) {
-    _username = aString;
-    notifyListeners();
+    if (_username != aString) {
+      _username = aString;
+      notifyListeners();
+    }
   }
 
   get password => _password;
 
   set password(var aString) {
-    _password = aString;
-    notifyListeners();
+    if (_password != aString) {
+      _password = aString;
+      notifyListeners();
+    }
   }
 
   get isSelected => Jade().selectedLogin == this;

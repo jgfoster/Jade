@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:jade/model/login.dart';
 
 class LoginForm extends StatefulWidget {
-  const LoginForm({Key? key}) : super(key: key);
+  final Login _login;
+  const LoginForm(this._login, {Key? key}) : super(key: key);
 
   @override
   LoginFormState createState() {
@@ -11,10 +13,11 @@ class LoginForm extends StatefulWidget {
 
 class LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
-  var _address = '';
-  var _username = '';
-  var _password = '';
+  late Login _login;
   var _isInLogin = false;
+  final _addressController = TextEditingController();
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   void _doLogin() {
     if (_isInLogin | !_formKey.currentState!.validate()) {
@@ -25,8 +28,8 @@ class LoginFormState extends State<LoginForm> {
       _formKey.currentState!.save();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content:
-              Text('Login to $_address as $_username with ${_password.length}'),
+          content: Text(
+              'Login to ${_login.address} as ${_login.username} with ${_login.password.length}'),
         ),
       );
     });
@@ -38,6 +41,10 @@ class LoginFormState extends State<LoginForm> {
   }
 
   Widget _addressWidget() {
+    _addressController.text = _login.address;
+    _addressController.addListener(() {
+      _login.address = _addressController.text;
+    });
     return TextFormField(
       enabled: !_isInLogin,
       decoration: const InputDecoration(
@@ -45,7 +52,7 @@ class LoginFormState extends State<LoginForm> {
         hintText: 'localhost:50378',
         labelText: 'Host:port *',
       ),
-      controller: TextEditingController()..text = 'localhost:50378',
+      controller: _addressController,
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'Please enter some text';
@@ -66,11 +73,15 @@ class LoginFormState extends State<LoginForm> {
         return null;
       },
       onFieldSubmitted: _isInLogin ? null : (_) => _doLogin(),
-      onSaved: (value) => _address = value!,
+      onSaved: (value) => _login.address = value!,
     );
   }
 
   Widget _usernameWidget() {
+    _usernameController.text = _login.username;
+    _usernameController.addListener(() {
+      _login.username = _usernameController.text;
+    });
     return TextFormField(
       enabled: !_isInLogin,
       decoration: const InputDecoration(
@@ -78,7 +89,7 @@ class LoginFormState extends State<LoginForm> {
         hintText: 'DataCurator',
         labelText: 'Username *',
       ),
-      controller: TextEditingController()..text = 'DataCurator',
+      controller: _usernameController,
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'Please enter a GemStone user';
@@ -86,11 +97,15 @@ class LoginFormState extends State<LoginForm> {
         return null;
       },
       onFieldSubmitted: _isInLogin ? null : (_) => _doLogin(),
-      onSaved: (value) => _username = value!,
+      onSaved: (value) => _login.username = value!,
     );
   }
 
   Widget _passwordWidget() {
+    _passwordController.text = _login.password;
+    _passwordController.addListener(() {
+      _login.password = _passwordController.text;
+    });
     return TextFormField(
       enabled: !_isInLogin,
       decoration: const InputDecoration(
@@ -98,7 +113,7 @@ class LoginFormState extends State<LoginForm> {
         labelText: 'Password *',
       ),
       obscureText: true,
-      controller: TextEditingController()..text = 'swordfish',
+      controller: _passwordController,
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'Please enter a valid password';
@@ -106,7 +121,7 @@ class LoginFormState extends State<LoginForm> {
         return null;
       },
       onFieldSubmitted: _isInLogin ? null : (_) => _doLogin(),
-      onSaved: (value) => _password = value!,
+      onSaved: (value) => _login.password = value!,
     );
   }
 
@@ -149,6 +164,7 @@ class LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
+    _login = widget._login;
     return Form(
       key: _formKey,
       child: Container(
@@ -164,5 +180,15 @@ class LoginFormState extends State<LoginForm> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is removed from the
+    // widget tree.
+    _addressController.dispose();
+    _usernameController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 }
