@@ -50,6 +50,7 @@ class _LoginListWidget extends State<LoginListWidget> {
   }
 
   Widget builder(var context, var loginList, var child) {
+    Jade().loginList[0].isSelected = true;
     return ExpansionPanelList(
       expansionCallback: (int index, bool isExpanded) {
         setState(() {

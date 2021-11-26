@@ -22,9 +22,6 @@ class LoginTile extends ListTile {
       ),
       title: Text('${_login.username} at ${login.address}'),
       onTap: () {
-        Jade().loginList.forEach((each) {
-          each.isSelected = false;
-        });
         login.isSelected = true;
       },
     );

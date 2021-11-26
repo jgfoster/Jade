@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:jade/model/login.dart';
-import 'package:jade/model/change_notifier_list.dart';
 
 class Jade with ChangeNotifier {
   static final Jade _jade = Jade._internal();
   final LoginList loginList = LoginList();
+  Login? _selectedLogin;
 
   factory Jade() => _jade;
 
   Jade._internal() {
     newLogin();
-    loginList[0].isSelected = true;
   }
 
   void newLogin() {
@@ -20,5 +19,18 @@ class Jade with ChangeNotifier {
     }
     var login = Login(id);
     loginList.add(login);
+  }
+
+  Login? get selectedLogin => _selectedLogin;
+  set selectedLogin(Login? login) {
+    if (_selectedLogin != login) {
+      loginList.forEach((each) {
+        if (each != login) {
+          each.isSelected = false;
+        }
+      });
+      _selectedLogin = login;
+      notifyListeners();
+    }
   }
 }

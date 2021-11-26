@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jade/model/jade.dart';
 
 class Login with ChangeNotifier {
   late int id;
@@ -28,9 +29,14 @@ class Login with ChangeNotifier {
   }
 
   get isSelected => _isSelected;
-  set isSelected(var aString) {
-    _isSelected = aString;
-    notifyListeners();
+  set isSelected(var aBoolean) {
+    if (_isSelected != aBoolean) {
+      _isSelected = aBoolean;
+      if (aBoolean) {
+        Jade().selectedLogin = this;
+      }
+      notifyListeners();
+    }
   }
 
   @override
@@ -73,7 +79,6 @@ class LoginList with ChangeNotifier {
     for (Login each in _list) {
       predicate(each);
     }
-    notifyListeners();
   }
 
   Iterable<T> map<T>(T Function(Login) toElement) sync* {
