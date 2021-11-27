@@ -26,20 +26,16 @@ class Session extends JadeModel {
     _version = await _server.getGciVersion();
     notifyListeners();
     try {
-      print('about to try to login to ${login.address}');
       _session = await _server.login(login.username, login.password);
       _isLoggedIn = true;
-      print('successful login of $_session');
     } catch (ex) {
       _isLoggedIn = true;
-      print('exception on login: $ex');
     }
     notifyListeners();
   }
 
   void logout() async {
     await _server.logout(_session);
-    print('Returned from _server.logout()');
     notifyListeners();
   }
 

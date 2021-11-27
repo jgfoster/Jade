@@ -6,9 +6,6 @@ class LoginList with ChangeNotifier {
 
   void add(Login login) {
     _list.add(login);
-    if (_list.length == 1) {
-      login.beSelected();
-    }
     notifyListeners();
   }
 

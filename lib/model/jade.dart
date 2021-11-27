@@ -36,7 +36,9 @@ class Jade with ChangeNotifier {
   }
 
   void newLogin() {
-    loginList.add(Login());
+    var login = Login();
+    loginList.add(login);
+    login.beSelected();
   }
 
   JadeModel? get selectedModel => _selectedModel;
@@ -47,6 +49,7 @@ class Jade with ChangeNotifier {
       _selectedModel = login;
       priorSelection?.selectionStatusChanged();
       _selectedModel?.selectionStatusChanged();
+      // nothing is selected; what should we do?
       if (_selectedModel == null && loginList.isNotEmpty) {
         loginList.last.beSelected(); // this will come back to us!
       } else {

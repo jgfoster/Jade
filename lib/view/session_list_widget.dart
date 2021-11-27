@@ -1,5 +1,8 @@
 // SessionListWidget has an ExpansionPanelList with
 // children for each window into that session
+//
+// See https://github.com/flutter/flutter/issues/13780 for
+// _children[j] is MaterialGap is not true error.
 
 import 'package:flutter/material.dart';
 import 'package:jade/model/jade.dart';
@@ -34,7 +37,7 @@ class _SessionListWidget extends State<SessionListWidget> {
               title: Text('Session ${index + 1}'),
             ),
             onTap: () {
-              // print('select session without expanding/contracting panel');
+              session.beSelected();
             },
           );
         },

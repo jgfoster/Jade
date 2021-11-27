@@ -16,12 +16,12 @@ class SessionWidget extends StatefulWidget {
 }
 
 Widget _builder(var context, var session, var child) {
-  return Column(
+  return Row(
     children: [
       Text('${session.username} on ${session.address} '
           '(${session.version.split(' ')[0]})'),
       IconButton(
-        icon: const Icon(Icons.save),
+        icon: const Icon(Icons.photo_camera),
         tooltip: 'Commit transaction',
         onPressed: () {
           // print('pressed commit button');
