@@ -9,11 +9,13 @@ class Session extends JadeModel {
   var _username = '?';
   var _version = '?';
   var _isLoggedIn = false;
+  var _result = '??';
 
   get address => _address;
   get username => _username;
   get version => _version;
   get isLoggedIn => _isLoggedIn;
+  get result => _result;
 
   Session(Login login) {
     _initialize(login);
@@ -41,6 +43,13 @@ class Session extends JadeModel {
 
   @override
   void selectionStatusChanged() {
+    notifyListeners();
+  }
+
+  void execute(String string) async {
+    await _server.execute(_session, string);
+    var result = await _server.nbResult(_session);
+    _result = result.toString();
     notifyListeners();
   }
 }

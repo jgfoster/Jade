@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jade/model/jade.dart';
 import 'package:jade/model/login.dart';
+import 'dart:html' as html;
 
 class LoginForm extends StatefulWidget {
   final Login _login;
@@ -26,6 +27,12 @@ class _LoginForm extends State<LoginForm> {
         Jade().doLogin(_login);
       });
     }
+  }
+
+  void _doOpen() {
+    // var url = Uri.base.path;
+    var features = 'width=800,height=600';
+    html.window.open('https://www.google.com/', 'new browser', features);
   }
 
   Widget _addressWidget() {
@@ -132,6 +139,28 @@ class _LoginForm extends State<LoginForm> {
     );
   }
 
+  Widget _openButton() {
+    return Padding(
+      padding: const EdgeInsets.only(right: 8.0),
+      child: ElevatedButton(
+        onPressed: () => _doOpen(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: const [
+            Icon(Icons.open_in_new),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.only(left: 8.0),
+                child: Text('Open'),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _buttonRow() {
     return Container(
       // width: 500,
@@ -142,6 +171,7 @@ class _LoginForm extends State<LoginForm> {
         itemExtent: 120.0,
         children: [
           _loginButton(),
+          _openButton(),
         ],
       ),
     );
