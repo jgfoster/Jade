@@ -31,7 +31,7 @@ class _LoginListWidget extends State<LoginListWidget> {
     );
   }
 
-  ExpansionPanel loginListExpansionPanel(LoginList loginList) {
+  ExpansionPanel _expansionPanel(LoginList loginList) {
     return ExpansionPanel(
       canTapOnHeader: true,
       isExpanded: _isLoginListExpanded,
@@ -49,14 +49,14 @@ class _LoginListWidget extends State<LoginListWidget> {
     );
   }
 
-  Widget builder(var context, var loginList, var child) {
+  Widget _builder(var context, var loginList, var child) {
     return ExpansionPanelList(
       expansionCallback: (int index, bool isExpanded) {
         setState(() {
           _isLoginListExpanded = !isExpanded;
         });
       },
-      children: [loginListExpansionPanel(loginList)],
+      children: [_expansionPanel(loginList)],
     );
   }
 
@@ -64,7 +64,7 @@ class _LoginListWidget extends State<LoginListWidget> {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider.value(
       value: Jade().loginList,
-      child: Consumer<LoginList>(builder: builder),
+      child: Consumer<LoginList>(builder: _builder),
     );
   }
 }

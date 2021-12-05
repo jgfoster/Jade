@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:jade/model/current_sessions.dart';
 import 'package:jade/model/jade_model.dart';
 import 'package:jade/model/jade_server.dart';
 import 'package:jade/model/login.dart';
@@ -9,16 +11,18 @@ class Session extends JadeModel {
   var _username = '?';
   var _version = '?';
   var _isLoggedIn = false;
-  var _result = '??';
+  final _children = <JadeModel>[];
 
   get address => _address;
+  get isLoggedIn => _isLoggedIn;
+  get title => const Text('Actions, Transcript, and Workspace');
   get username => _username;
   get version => _version;
-  get isLoggedIn => _isLoggedIn;
-  get result => _result;
+  get children => _children;
 
   Session(Login login) {
     _initialize(login);
+    _children.add(this);
   }
 
   void _initialize(Login login) async {
@@ -46,10 +50,22 @@ class Session extends JadeModel {
     notifyListeners();
   }
 
-  void execute(String string) async {
+  Future<Map<String, dynamic>> execute(String string) async {
     await _server.execute(_session, string);
-    var result = await _server.nbResult(_session);
-    _result = result.toString();
+    return _server.nbResult(_session);
+  }
+
+  void showSessionList() {
+    int index =
+        _children.indexWhere((each) => each.runtimeType == CurrentSessions);
+    late JadeModel model;
+    if (index >= 0) {
+      model = _children[index];
+    } else {
+      model = CurrentSessions(this);
+      _children.add(model);
+    }
+    model.beSelected();
     notifyListeners();
   }
 }

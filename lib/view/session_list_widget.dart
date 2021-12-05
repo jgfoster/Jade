@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:jade/model/jade.dart';
 import 'package:jade/model/session.dart';
 import 'package:jade/model/session_list.dart';
+import 'package:jade/view/session_child_tile.dart';
 import 'package:provider/provider.dart';
 
 class SessionListWidget extends StatefulWidget {
@@ -21,33 +22,38 @@ class SessionListWidget extends StatefulWidget {
 class _SessionListWidget extends State<SessionListWidget> {
   final List<bool> _isSessionExpanded = [];
 
-  Widget _sessionDetailsBuilder(var context, var sessionList, var child) {
+  Widget _sessionDetailsBuilder(var context, var session, var child) {
+    final widgets = <Widget>[];
+    session.children.forEach((each) {
+      widgets.add(SessionChildTile(each));
+    });
     return Column(
-      children: const [Text('Session child')],
+      children: widgets,
     );
   }
 
   ExpansionPanel _expansionPanel(Session session, bool isExpanded, int index) {
     return ExpansionPanel(
-        isExpanded: isExpanded,
-        canTapOnHeader: true,
-        headerBuilder: (BuildContext context, bool isExpanded) {
-          return GestureDetector(
-            child: ListTile(
-              title: Text('Session ${index + 1}'),
-            ),
-            onTap: () {
-              session.beSelected();
-            },
-          );
-        },
-        body: ChangeNotifierProvider.value(
-          value: session,
-          child: Consumer<Session>(builder: _sessionDetailsBuilder),
-        ));
+      isExpanded: isExpanded,
+      canTapOnHeader: true,
+      headerBuilder: (BuildContext context, bool isExpanded) {
+        return GestureDetector(
+          child: ListTile(
+            title: Text('Session ${index + 1}'),
+          ),
+          onTap: () {
+            session.beSelected();
+          },
+        );
+      },
+      body: ChangeNotifierProvider.value(
+        value: session,
+        child: Consumer<Session>(builder: _sessionDetailsBuilder),
+      ),
+    );
   }
 
-  Widget _sessionBuilder(var context, var sessionList, var child) {
+  Widget _builder(var context, var sessionList, var child) {
     while (_isSessionExpanded.length < sessionList.length) {
       _isSessionExpanded.add(true);
     }
@@ -70,7 +76,7 @@ class _SessionListWidget extends State<SessionListWidget> {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider.value(
       value: Jade().sessionList,
-      child: Consumer<SessionList>(builder: _sessionBuilder),
+      child: Consumer<SessionList>(builder: _builder),
     );
   }
 }

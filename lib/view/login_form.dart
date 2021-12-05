@@ -1,7 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:jade/model/jade.dart';
 import 'package:jade/model/login.dart';
-import 'dart:html' as html;
+import 'package:jade/view/not_web.dart' if (dart.library.html) 'dart:html'
+    as html;
 
 class LoginForm extends StatefulWidget {
   final Login _login;
@@ -171,7 +173,7 @@ class _LoginForm extends State<LoginForm> {
         itemExtent: 120.0,
         children: [
           _loginButton(),
-          _openButton(),
+          if (kIsWeb) _openButton(),
         ],
       ),
     );
