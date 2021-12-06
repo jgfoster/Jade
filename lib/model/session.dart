@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jade/model/browser_model.dart';
 import 'package:jade/model/current_sessions.dart';
 import 'package:jade/model/jade_model.dart';
 import 'package:jade/model/jade_server.dart';
@@ -68,6 +69,13 @@ class Session extends JadeModel {
   Future<Map<String, dynamic>> execute(String string) async {
     await _server.execute(_session, string);
     return _server.nbResult(_session);
+  }
+
+  void openCodeBrowser() {
+    var model = BrowserModel(this);
+    _children.add(model);
+    model.beSelected();
+    notifyListeners();
   }
 
   void showSessionList() {

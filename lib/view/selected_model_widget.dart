@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:jade/model/browser_model.dart';
 import 'package:jade/model/current_sessions.dart';
 import 'package:jade/model/jade.dart';
 import 'package:jade/model/login.dart';
 import 'package:jade/model/session.dart';
+import 'package:jade/view/code_browser.dart';
 import 'package:jade/view/current_sessions_widget.dart';
 import 'package:jade/view/login_form.dart';
 import 'package:jade/view/transcript_widget.dart';
@@ -14,12 +16,14 @@ class SelectedModelWidget extends StatelessWidget {
   Widget _builder(context, jade, child) {
     var model = jade.selectedModel;
     switch (model.runtimeType) {
+      case BrowserModel:
+        return CodeBrowser(model! as BrowserModel);
+      case CurrentSessions:
+        return CurrentSessionsWidget(model! as CurrentSessions);
       case Login:
         return LoginForm(model! as Login);
       case Session:
         return TranscriptWidget(model! as Session);
-      case CurrentSessions:
-        return CurrentSessionsWidget(model! as CurrentSessions);
       default:
         return Container();
     }

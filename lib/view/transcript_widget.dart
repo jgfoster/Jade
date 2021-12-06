@@ -68,7 +68,7 @@ class _TranscriptWidget extends State<TranscriptWidget> {
           ),
           tooltip: 'Open code browser',
           onPressed: () {
-            // print('pressed commit button');
+            _session.openCodeBrowser();
           },
         ),
         IconButton(
