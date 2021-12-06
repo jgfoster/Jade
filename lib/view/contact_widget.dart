@@ -1,4 +1,4 @@
-// CurrentSessionsWidget displays a list of the current sessions
+// ContactWidget displays a Contact
 
 import 'package:flutter/material.dart';
 import 'package:jade/model/contact.dart';

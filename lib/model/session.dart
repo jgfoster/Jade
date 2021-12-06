@@ -73,9 +73,9 @@ class Session extends JadeModel {
   }
 
   void newContact() {
-    var contact = Contact(this);
-    _children.add(contact);
-    contact.beSelected();
+    var model = Contact(this);
+    _children.add(model);
+    model.beSelected();
     notifyListeners();
   }
 
