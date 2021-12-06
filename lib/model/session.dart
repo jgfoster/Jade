@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:jade/model/contact.dart';
+import 'package:jade/model/contact_list.dart';
 import 'package:jade/model/current_sessions.dart';
 import 'package:jade/model/jade_model.dart';
 import 'package:jade/model/jade_server.dart';
@@ -68,6 +70,26 @@ class Session extends JadeModel {
   Future<Map<String, dynamic>> execute(String string) async {
     await _server.execute(_session, string);
     return _server.nbResult(_session);
+  }
+
+  void newContact() {
+    var contact = Contact(this);
+    _children.add(contact);
+    contact.beSelected();
+    notifyListeners();
+  }
+
+  void showContactList() {
+    int index = _children.indexWhere((each) => each.runtimeType == ContactList);
+    late JadeModel model;
+    if (index >= 0) {
+      model = _children[index];
+    } else {
+      model = ContactList(this);
+      _children.add(model);
+    }
+    model.beSelected();
+    notifyListeners();
   }
 
   void showSessionList() {

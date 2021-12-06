@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:jade/model/contact.dart';
+import 'package:jade/model/contact_list.dart';
 import 'package:jade/model/current_sessions.dart';
 import 'package:jade/model/jade.dart';
 import 'package:jade/model/login.dart';
 import 'package:jade/model/session.dart';
+import 'package:jade/view/contact_list_widget.dart';
+import 'package:jade/view/contact_widget.dart';
 import 'package:jade/view/current_sessions_widget.dart';
 import 'package:jade/view/login_form.dart';
 import 'package:jade/view/transcript_widget.dart';
@@ -20,6 +24,10 @@ class SelectedModelWidget extends StatelessWidget {
         return TranscriptWidget(model! as Session);
       case CurrentSessions:
         return CurrentSessionsWidget(model! as CurrentSessions);
+      case Contact:
+        return ContactWidget(model! as Contact);
+      case ContactList:
+        return ContactListWidget(model! as ContactList);
       default:
         return Container();
     }

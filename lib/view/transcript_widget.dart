@@ -78,6 +78,13 @@ class _TranscriptWidget extends State<TranscriptWidget> {
             // print('pressed commit button');
           },
         ),
+        IconButton(
+          icon: const Icon(Icons.groups_outlined),
+          tooltip: 'Open contacts list',
+          onPressed: () {
+            _session.showContactList();
+          },
+        ),
         Expanded(
           child: Align(
             alignment: Alignment.centerRight,
