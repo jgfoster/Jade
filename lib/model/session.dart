@@ -50,6 +50,21 @@ class Session extends JadeModel {
     notifyListeners();
   }
 
+  Future<Map<String, dynamic>> abort() async {
+    return execute(
+        'System abortTransaction; commitRecordPageForSessionId: System session');
+  }
+
+  Future<Map<String, dynamic>> begin() async {
+    return execute(
+        'System beginTransaction; commitRecordPageForSessionId: System session');
+  }
+
+  Future<Map<String, dynamic>> commit() async {
+    return execute(
+        'System commit; commitRecordPageForSessionId: System session');
+  }
+
   Future<Map<String, dynamic>> execute(String string) async {
     await _server.execute(_session, string);
     return _server.nbResult(_session);

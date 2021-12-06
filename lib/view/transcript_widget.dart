@@ -25,7 +25,7 @@ class _TranscriptWidget extends State<TranscriptWidget> {
   final _formKey = GlobalKey<FormState>();
   final _queryController = TextEditingController();
   var _expression = 'System session.';
-  Map<String, dynamic> _result = {};
+  String _result = '';
 
   _TranscriptWidget(this._session);
 
@@ -46,8 +46,12 @@ class _TranscriptWidget extends State<TranscriptWidget> {
         IconButton(
           icon: const Icon(Icons.photo_camera_outlined),
           tooltip: 'Commit transaction',
-          onPressed: () {
-            // print('pressed commit button');
+          onPressed: () async {
+            var result = await _session.commit();
+            setState(() {
+              _result =
+                  'After commit current commit record = ${result['result'].toString()}';
+            });
           },
         ),
         IconButton(
@@ -80,8 +84,12 @@ class _TranscriptWidget extends State<TranscriptWidget> {
             child: IconButton(
               icon: const Icon(Icons.delete_outlined),
               tooltip: 'Abort transaction',
-              onPressed: () {
-                // print('pressed abort button');
+              onPressed: () async {
+                var result = await _session.abort();
+                setState(() {
+                  _result =
+                      'After abort current commit record = ${result['result'].toString()}';
+                });
               },
             ),
           ),
@@ -150,7 +158,7 @@ class _TranscriptWidget extends State<TranscriptWidget> {
       onFieldSubmitted: (_) async {
         var map = await _session.execute(_expression);
         setState(() {
-          _result = map;
+          _result = map.toString();
         });
       },
       onSaved: (value) => _expression = value!,
@@ -158,7 +166,7 @@ class _TranscriptWidget extends State<TranscriptWidget> {
   }
 
   Widget _resultWidget() {
-    return Text(_result.toString());
+    return Text(_result);
   }
 
   Widget _builder(var context, var session, var child) {

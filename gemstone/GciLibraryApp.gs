@@ -28,129 +28,7 @@ run: anInteger
 		run.
 %
 ! ------------------- Instance methods for GciLibraryApp
-
-! -- Utilities
-category: 'Utilities'
-method: GciLibraryApp
-getSessionAndSocket
-
-	| bytes integer pieces string |
-	string := requestDict at: 'session' ifAbsent: [^self].
-	pieces := string subStrings: $_.
-	integer := Integer fromHexString: pieces first.
-	bytes := (CByteArray gcMalloc: 8)
-		int64At: 0 put: integer;
-		yourself.
-	session := bytes pointerAt: 0 resultClass: CPointer.
-	pieces size > 1 ifTrue: [
-		socketFileHandle := (pieces at: 2) asNumber.
-	].
-%
-category: 'WebSockets'
-method: GciLibraryApp
-library
-	"
-	SessionTemps current removeKey: #'library'.
-	"
-	^SessionTemps current
-		at: #'library'
-		ifAbsentPut: [(GciApp at: #'GciTsLibraryFull') new]
-%
-category: 'Utilities'
-method: GciLibraryApp
-oopAt: aString
-
-	^Integer fromHexString: (requestDict at: aString ifAbsent: [^nil]).
-%
-category: 'Utilities'
-method: GciLibraryApp
-return: anObject
-	| object |
-
-	error number ~~ 0 ifTrue: [
-		^Dictionary new
-			at: 'error' put: error number;
-			at: 'message' put: error message;
-			at: 'type' put: 'error';
-			yourself
-	].
-	object := anObject.
-	(object isKindOf: Character) ifTrue: [
-		object := object asString.
-	].
-	^Dictionary new
-		at: 'result' put: object;
-		at: 'type' put: anObject class name asString;
-		yourself
-%
-category: 'Utilities'
-method: GciLibraryApp
-returnError
-
-	error number == 0 ifTrue: [
-		self error: 'No error to return!'.
-	].
-	^Dictionary new
-		at: 'error' put: error number;
-		at: 'message' put: error message;
-		at: 'type' put: 'error';
-		yourself
-%
-category: 'Utilities'
-method: GciLibraryApp
-returnOop: anInteger
-
-	| buffer class dict impl objInfo |
-	error number ~~ 0 ifTrue: [
-		^self returnError
-	].
-	(session isNil or: [anInteger == 1]) ifTrue: [
-		^Dictionary new
-			at: 'oop' put: (anInteger printStringRadix: 16 showRadix: false);
-			at: 'type' put: 'oop';
-			yourself
-	].
-	[
-		objInfo := GciTsObjInfo new.
-		buffer := CByteArray gcMalloc: 1024.
-		result := self library
-			GciTsFetchObjInfo_: session
-			_: anInteger
-			_: 1
-			_: objInfo
-			_: buffer
-			_: buffer size
-			_: error.
-		impl := #('oop' 'byte' 'nsc' 'special') at: (objInfo _bits bitAnd: 16r03) + 1.
-		class := Object objectForOop: objInfo objClass.
-		dict := Dictionary new
-			at: 'oop' put: (anInteger printStringRadix: 16 showRadix: false);
-			at: 'type' put: 'oop';
-			at: 'classOop' put: (objInfo objClass printStringRadix: 16 showRadix: false);
-			at: 'className' put: (class ifNotNil: [class name] ifNil: ['?']);
-			at: 'size' put: objInfo objSize;
-			at: 'namedSize' put: objInfo namedSize;
-			at: 'access' put: (#('none' 'read' 'write' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?') at: objInfo access + 1);
-			at: 'isInvariant' put: (objInfo _bits bitAnd: 16r08) == 16r08;
-			at: 'isIndexable' put: (objInfo _bits bitAnd: 16r04) == 16r04;
-			at: 'implementation' put: impl;
-			yourself.
-		objInfo objSize > 0 ifTrue: [
-			buffer := buffer byteArrayFrom: 0 to: (objInfo objSize min: buffer size) - 1.
-			(class notNil and: [class == String or: [class inheritsFrom: String]]) ifTrue: [
-				dict at: 'string' put: buffer bytesIntoString.
-			] ifFalse: [impl = 'byte' ifTrue: [
-				dict at: 'bytes' put: buffer asBase64String.
-			]].
-		].
-		^dict
-	] on: Error do: [:ex |
-		GsFile stdoutServer nextPutAll: 'returnOop: - error ' , ex number printString , ' - ' , ex messageText; lf.
-		ex pass.
-	].
-%
-
-! -- GciTs API
+set compile_env: 0
 category: 'GciTs API'
 method: GciLibraryApp
 abort
@@ -290,7 +168,6 @@ getFreeOops
 	].
 	^self return: array
 %
-set compile_env: 0
 category: 'GciTs API'
 method: GciLibraryApp
 getGciVersion
@@ -381,7 +258,7 @@ nbResult
 		^self returnOop: oop
 	].
 	^Dictionary new
-		at: 'type' put: 'timeout';
+		at: 'type' put: 'timeout after ' , timeoutMs printString , 'ms';
 		yourself
 %
 category: 'GciTs API'
@@ -522,8 +399,124 @@ sessionIsRemote
 
 	^self return: (self library GciTsSessionIsRemote_: session) == 1
 %
+set compile_env: 0
+category: 'Utilities'
+method: GciLibraryApp
+getSessionAndSocket
 
-! -- WebSocket
+	| bytes integer pieces string |
+	string := requestDict at: 'session' ifAbsent: [^self].
+	pieces := string subStrings: $_.
+	integer := Integer fromHexString: pieces first.
+	bytes := (CByteArray gcMalloc: 8)
+		int64At: 0 put: integer;
+		yourself.
+	session := bytes pointerAt: 0 resultClass: CPointer.
+	pieces size > 1 ifTrue: [
+		socketFileHandle := (pieces at: 2) asNumber.
+	].
+%
+category: 'Utilities'
+method: GciLibraryApp
+oopAt: aString
+
+	^Integer fromHexString: (requestDict at: aString ifAbsent: [^nil]).
+%
+category: 'Utilities'
+method: GciLibraryApp
+return: anObject
+	| object |
+
+	error number ~~ 0 ifTrue: [
+		^Dictionary new
+			at: 'error' put: error number;
+			at: 'message' put: error message;
+			at: 'type' put: 'error';
+			yourself
+	].
+	object := anObject.
+	(object isKindOf: Character) ifTrue: [
+		object := object asString.
+	].
+	^Dictionary new
+		at: 'result' put: object;
+		at: 'type' put: anObject class name asString;
+		yourself
+%
+category: 'Utilities'
+method: GciLibraryApp
+returnError
+
+	error number == 0 ifTrue: [
+		self error: 'No error to return!'.
+	].
+	^Dictionary new
+		at: 'error' put: error number;
+		at: 'message' put: error message;
+		at: 'type' put: 'error';
+		yourself
+%
+category: 'Utilities'
+method: GciLibraryApp
+returnOop: anInteger
+
+	| buffer class dict impl objInfo |
+	error number ~~ 0 ifTrue: [
+		^self returnError
+	].
+	(session isNil or: [anInteger == 1]) ifTrue: [
+		^Dictionary new
+			at: 'oop' put: (anInteger printStringRadix: 16 showRadix: false);
+			at: 'type' put: 'oop';
+			yourself
+	].
+	[
+		objInfo := GciTsObjInfo new.
+		buffer := CByteArray gcMalloc: 1024.
+		result := self library
+			GciTsFetchObjInfo_: session
+			_: anInteger
+			_: 1
+			_: objInfo
+			_: buffer
+			_: buffer size
+			_: error.
+		impl := #('oop' 'byte' 'nsc' 'special') at: (objInfo _bits bitAnd: 16r03) + 1.
+		class := Object objectForOop: objInfo objClass.
+		dict := Dictionary new
+			at: 'oop' put: (anInteger printStringRadix: 16 showRadix: false);
+			at: 'type' put: 'oop';
+			at: 'classOop' put: (objInfo objClass printStringRadix: 16 showRadix: false);
+			at: 'className' put: (class ifNotNil: [class name] ifNil: ['?']);
+			at: 'size' put: objInfo objSize;
+			at: 'namedSize' put: objInfo namedSize;
+			at: 'access' put: (#('none' 'read' 'write' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?' '?') at: objInfo access + 1);
+			at: 'isInvariant' put: (objInfo _bits bitAnd: 16r08) == 16r08;
+			at: 'isIndexable' put: (objInfo _bits bitAnd: 16r04) == 16r04;
+			at: 'implementation' put: impl;
+			yourself.
+		objInfo objSize > 0 ifTrue: [
+			buffer := buffer byteArrayFrom: 0 to: (objInfo objSize min: buffer size) - 1.
+			(class notNil and: [class == String or: [class inheritsFrom: String]]) ifTrue: [
+				dict at: 'string' put: buffer bytesIntoString.
+			] ifFalse: [impl = 'byte' ifTrue: [
+				dict at: 'bytes' put: buffer asBase64String.
+			]].
+		].
+		objInfo objSize == 0 ifTrue: [
+			(class notNil and: [class == String or: [class inheritsFrom: String]]) ifTrue: [
+				dict at: 'string' put: ''.
+			] ifFalse: [impl = 'byte' ifTrue: [
+				dict at: 'bytes' put: #[].
+			]].
+		].
+		^dict
+	] on: Error do: [:ex |
+		GsFile stdoutServer nextPutAll: 'returnOop: - error ' , ex number printString , ' - ' , ex messageText; lf.
+		ex pass.
+	].
+%
+set compile_env: 0
 category: 'WebSockets'
 method: GciLibraryApp
 handleRequest: aDict
@@ -596,6 +589,16 @@ handleRequestString: aString
 	WebSocketDataFrame
 		sendText: dictOut asJson
 		onSocket: socket.
+%
+category: 'WebSockets'
+method: GciLibraryApp
+library
+	"
+	SessionTemps current removeKey: #'library'.
+	"
+	^SessionTemps current
+		at: #'library'
+		ifAbsentPut: [(GciApp at: #'GciTsLibraryFull') new]
 %
 category: 'WebSockets'
 method: GciLibraryApp
