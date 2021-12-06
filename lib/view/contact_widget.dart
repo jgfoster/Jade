@@ -21,7 +21,7 @@ class _ContactWidget extends State<ContactWidget> {
   _ContactWidget(this._contact);
 
   Widget _builder(var context, var contact, var child) {
-    return Text('Contact');
+    return const Text('Contact');
   }
 
   @override
