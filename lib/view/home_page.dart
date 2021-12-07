@@ -41,11 +41,17 @@ class _HomePage extends State<HomePage> {
       body: ListView(
         scrollDirection: Axis.horizontal,
         children: [
-          _isShowingNavigation ? const Navigation() : Container(),
-          const VerticalDivider(
-            width: 1,
-            thickness: 1,
-          ),
+          _isShowingNavigation
+              ? Row(
+                  children: const [
+                    Navigation(),
+                    VerticalDivider(
+                      width: 1,
+                      thickness: 1,
+                    ),
+                  ],
+                )
+              : Container(),
           const SelectedModelWidget(),
         ],
       ),
