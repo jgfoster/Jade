@@ -2,8 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:jade/model/jade.dart';
 import 'package:jade/model/login.dart';
-import 'package:jade/view/not_web.dart' if (dart.library.html) 'dart:html'
-    as html;
+import 'unused.dart' if (dart.library.html) 'dart:html' as html;
 
 class LoginForm extends StatefulWidget {
   final Login _login;
