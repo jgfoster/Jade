@@ -9,6 +9,7 @@
 .history
 .svn/
 gemstone/*.out
+sources
 
 # IntelliJ related
 *.iml
