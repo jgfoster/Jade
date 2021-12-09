@@ -242,6 +242,27 @@ class GciTravBufType{ public:   uint allocatedBytes;   uint usedBytes;   ByteTyp
 '
 %
 set compile_env: 0
+! ------------------- Class definition for GciTsObjInfo
+expectvalue /Class
+doit
+CByteArray subclass: 'GciTsObjInfo'
+  instVarNames: #()
+  classVars: #()
+  classInstVars: #()
+  poolDictionaries: #()
+  inDictionary: GciApp
+  options: #()
+
+%
+expectvalue /Class
+doit
+GciTsObjInfo comment: 
+'
+	"$GEMSTONE/include/gcits.hf line 391
+class GciTsObjInfo { public:  OopType objId;  OopType objClass;  int64 objSize;  int namedSize;  uint access;  unsigned short objectSecurityPolicyId;  unsigned short _bits;  enum {     AUTH_NONE = 0, AUTH_READ = 1, AUTH_WRITE = 2  };  GciTsObjInfo() {    initialize();  }  void initialize() {    objId = ((OopType)0x14);    objClass = ((OopType)0x14);    objSize = 0;    namedSize = 0;    access = 0;    objectSecurityPolicyId = 0;    _bits = 0;  }  enum {      implem_mask = GC_IMPLEMENTATION_MASK,      indexable_mask = GC_INDEXABLE_MASK,      invariant_mask = GC_INVARIANT_MASK,      partial_mask = 0x10,      overlay_mask = 0x20,      is_placeholder = 0x40 ,      swiz_kind_mask = 0x300,           swiz_kind_shift = 8  };  inline unsigned char isInvariant() { return _bits & invariant_mask; }  inline unsigned char isIndexable() { return _bits & indexable_mask; }  inline unsigned char isPartial() { return _bits & partial_mask; }  inline unsigned char isOverlayed() { return _bits & overlay_mask; }  inline GciByteSwizEType byteSwizKind() const {     return (GciByteSwizEType)((_bits & swiz_kind_mask) >> swiz_kind_shift) ;  }  inline unsigned char objImpl() {    return _bits & GC_IMPLEMENTATION_MASK;  }};"
+'
+%
+set compile_env: 0
 ! ------------------- Class definition for GciTsLibraryFull
 expectvalue /Class
 doit
@@ -299,3 +320,4 @@ input GciStoreTravDoArgsSType_executestr.gs
 input GciStoreTravDoArgsSType_perform.gs
 input GciTravBufType.gs
 input GciTsLibraryFull.gs
+input GciTsObjInfo.gs
