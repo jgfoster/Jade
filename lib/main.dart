@@ -1,6 +1,5 @@
 // main.dart creates the MaterialApp and shows HomePage()
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:jade/view/home_page.dart';
 // import 'dart:io' if (dart.library.html) 'dart:html';
