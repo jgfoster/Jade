@@ -1,0 +1,3 @@
+[submodule "WebGS"]
+	path = WebGS
+	url = https://github.com/jgfoster/WebGS.git
