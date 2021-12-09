@@ -33,6 +33,7 @@ abstract class JadeServerAbstract {
   Future<String> getGciVersion();
   Future<String> i32ToOop(int value);
   Future<String> i64ToOop(String session, BigInt value);
+  Future<bool> isCallInProgress(String session);
   Future<String> login(String username, String password);
   Future<bool> logout(String session);
   Future<Map<String, dynamic>> nbResult(String session, [int timeoutMs = 0]);

@@ -174,6 +174,19 @@ class JadeServer extends JadeServerAbstract {
   }
 
   @override
+  Future<bool> isCallInProgress(String session) async {
+    _write({
+      'request': 'isCallInProgress',
+      'session': session,
+    });
+    var data = await _read();
+    if ((data['error'] ?? 0) > 0) {
+      throw GciError(data);
+    }
+    return data['result'];
+  }
+
+  @override
   Future<String> login(String username, String password) async {
     _write({
       'request': 'login',

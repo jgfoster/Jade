@@ -7,7 +7,7 @@ import 'package:jade/model/jade_server.dart';
 import 'package:jade/model/login.dart';
 
 class Session extends JadeModel {
-  late String _session;
+  late String _sessionID;
   late JadeServer _server;
   var _address = '?';
   var _username = '?';
@@ -34,16 +34,17 @@ class Session extends JadeModel {
     _version = await _server.getGciVersion();
     notifyListeners();
     try {
-      _session = await _server.login(login.username, login.password);
+      _sessionID = await _server.login(login.username, login.password);
       _isLoggedIn = true;
     } catch (ex) {
-      _isLoggedIn = true;
+      // print(ex);
     }
     notifyListeners();
   }
 
   void logout() async {
-    await _server.logout(_session);
+    waitTillReady();
+    await _server.logout(_sessionID);
     notifyListeners();
   }
 
@@ -68,8 +69,9 @@ class Session extends JadeModel {
   }
 
   Future<Map<String, dynamic>> execute(String string) async {
-    await _server.execute(_session, string);
-    return _server.nbResult(_session);
+    waitTillReady();
+    await _server.execute(_sessionID, string);
+    return _server.nbResult(_sessionID);
   }
 
   void newContact() {
@@ -104,5 +106,14 @@ class Session extends JadeModel {
     }
     model.beSelected();
     notifyListeners();
+  }
+
+  void waitTillReady() async {
+    while (!_isLoggedIn) {
+      await Future.delayed(const Duration(milliseconds: 10));
+    }
+    while (await _server.isCallInProgress(_sessionID)) {
+      await Future.delayed(const Duration(milliseconds: 10));
+    }
   }
 }

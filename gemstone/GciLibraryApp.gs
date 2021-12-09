@@ -200,6 +200,12 @@ i64ToOop
 %
 category: 'GciTs API'
 method: GciLibraryApp
+isCallInProgress
+
+	^self return: (self library GciTsCallInProgress_: session _: error) == 1
+%
+category: 'GciTs API'
+method: GciLibraryApp
 login
 	"GciTsLogin_: StoneNameNrs _: HostUserId _: HostPassword _: hostPwIsEncrypted _: GemServiceNrs
 		_: gemstoneUsername _: gemstonePassword _: loginFlags _: haltOnErrNum _: executedSessionInit _: err
@@ -542,6 +548,7 @@ handleRequest: aDict
 	command = 'getGciVersion' ifTrue: [^self getGciVersion].
 	command = 'i32ToOop' ifTrue: [^self i32ToOop].
 	command = 'i64ToOop' ifTrue: [^self i64ToOop].
+	command = 'isCallInProgress' ifTrue: [^self isCallInProgress].
 	command = 'login' ifTrue: [^self login].
 	command = 'logout' ifTrue: [^self logout].
 	command = 'nbResult' ifTrue: [^self nbResult].

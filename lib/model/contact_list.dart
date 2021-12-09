@@ -6,35 +6,34 @@ class ContactList extends JadeModel {
   final Session _session;
   Map<String, dynamic> _result = {'string': ''};
 
-/*
-  String get _doSetup {
+  String get _setupCode {
     return '''
-| segment dict newUser list |
+| securityPolicy dict newUser list |
 (AllUsers anySatisfy: [:each | each userId = 'Staff']) ifTrue: [
 	System transactionMode: #manualBegin.
 	^self
 ].
-segment := Segment newInRepository: SystemRepository.
-segment group: 'Publishers' authorization: #'write'.
-segment group: 'Subscribers' authorization: #'read'.
+securityPolicy := GsObjectSecurityPolicy newInRepository: SystemRepository.
+securityPolicy group: 'Publishers' authorization: #'write'.
+securityPolicy group: 'Subscribers' authorization: #'read'.
 UserGlobals
 	at: #'ContactsSecurityPolicy'
-	put: segment.
+	put: securityPolicy.
 System commitTransaction ifFalse: [nil error: 'commit failed'].
 
 list := IdentityBag new.
-list assignToSegment: segment.
+list assignToSegment: securityPolicy.
 list
-		add: (Array with: 'James Foster' 	with: 'GemTalk VP' 		    with: '+1 503-766-4714');
-		add: (Array with: 'Timothy Cook'	with: 'Apple CEO' 			  with: '+1 408-996-1010');
-		add: (Array with: 'Bill Gates' 		with: 'Microsoft Founder'	with: '+1 800-Microsoft');
-		add: (Array with: 'Larry Ellison'	with: 'Oracle CEO'			  with: '+1 650-506-7000');
+		add: (Array with: 'James Foster' 	with: 'GemTalk VP' 		with: '+1 503-766-4714');
+		add: (Array with: 'Timothy Cook'	with: 'Apple CEO' 			with: '+1 408-996-1010');
+		add: (Array with: 'Bill Gates' 		with: 'Microsoft Founder' 	with: '+1 800-Microsoft');
+		add: (Array with: 'Larry Ellison'	with: 'Oracle CEO'			with: '+1 650-506-7000');
 		yourself.
 (dict := SymbolDictionary new)
 	at: #'ContactsGlobals' put: dict;
-	at: #'ContactsSecurityPolicy' put: segment;
+	at: #'ContactsSecurityPolicy' put: securityPolicy;
 	at: #ContactList put: list;
-	assignToSegment: segment;
+	assignToSegment: securityPolicy;
 	yourself.
 (AllUsers userWithId: 'DataCurator') insertDictionary: dict at: 1.
 System commitTransaction ifFalse: [nil error: 'commit failed'].
@@ -52,7 +51,6 @@ System transactionMode: #manualBegin.
 true
     ''';
   }
-*/
 
   String get _readContactList {
     return '''
@@ -87,7 +85,7 @@ stream contents.
   get title => const Text('Contact List');
 
   ContactList(this._session) {
-    // _session.execute(_doSetup);
+    _session.execute(_setupCode);
   }
 
   @override
