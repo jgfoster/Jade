@@ -20,31 +20,31 @@ class LoginListWidget extends StatefulWidget {
 class _LoginListWidget extends State<LoginListWidget> {
   bool _isLoginListExpanded = true;
 
-  ListTile addLoginTile() {
-    return ListTile(
-      dense: true,
-      leading: const Icon(Icons.add),
-      title: const Text('Add'),
-      onTap: () {
-        Jade().newLogin();
-      },
-    );
-  }
-
   ExpansionPanel _expansionPanel(LoginList loginList) {
     return ExpansionPanel(
       canTapOnHeader: true,
       isExpanded: _isLoginListExpanded,
       headerBuilder: (BuildContext context, bool isExpanded) {
-        return const ListTile(
-          title: Text('Logins'),
+        return ListTile(
+          leading: isExpanded
+              ? IconButton(
+                  icon: const Icon(Icons.add),
+                  tooltip: 'Add login',
+                  onPressed: () {
+                    Jade().newLogin();
+                    if (!isExpanded) {
+                      setState(() {
+                        _isLoginListExpanded = true;
+                      });
+                    }
+                  },
+                )
+              : Container(width: 1.0),
+          title: const Text('Logins'),
         );
       },
       body: Column(
-        children: [
-          ...loginList.map<ListTile>((each) => LoginTile(each)).toList(),
-          addLoginTile(),
-        ],
+        children: loginList.map<ListTile>((each) => LoginTile(each)).toList(),
       ),
     );
   }

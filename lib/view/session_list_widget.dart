@@ -57,8 +57,9 @@ class _SessionListWidget extends State<SessionListWidget> {
     while (_isSessionExpanded.length < sessionList.length) {
       _isSessionExpanded.add(true);
     }
-    return ListView(children: [
-      ExpansionPanelList(
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12.0),
+      child: ExpansionPanelList(
         expansionCallback: (int index, bool isExpanded) {
           setState(() {
             _isSessionExpanded[index] = !isExpanded;
@@ -69,7 +70,7 @@ class _SessionListWidget extends State<SessionListWidget> {
                 _expansionPanel(session, _isSessionExpanded[index], index))
             .toList(),
       ),
-    ]);
+    );
   }
 
   @override

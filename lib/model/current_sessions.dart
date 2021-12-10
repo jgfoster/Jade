@@ -34,4 +34,9 @@ stream contents.
     _result = await _session.execute(code);
     notifyListeners();
   }
+
+  @override
+  void removeFromParent() {
+    _session.removeChild(this);
+  }
 }

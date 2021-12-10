@@ -16,6 +16,7 @@ class LoginTile extends ListTile {
       selected: login.isSelected,
       leading: IconButton(
         icon: const Icon(Icons.delete),
+        tooltip: 'Delete this login',
         onPressed: () {
           Jade().loginList.remove(login);
         },

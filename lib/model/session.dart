@@ -15,6 +15,8 @@ class Session extends JadeModel {
 
   get address => _address;
   get isLoggedIn => _isLoggedIn;
+  @override
+  get mayRemoveFromParent => false;
   get title => const Text('Actions, Transcript, and Workspace');
   get username => _username;
   get version => _version;
@@ -68,6 +70,15 @@ class Session extends JadeModel {
   Future<Map<String, dynamic>> execute(String string) async {
     await _server.execute(_session, string);
     return _server.nbResult(_session);
+  }
+
+  void removeChild(var child) {
+    if (child.isSelected) {
+      child.beNotSelected();
+      beSelected();
+    }
+    _children.remove(child);
+    notifyListeners();
   }
 
   void showSessionList() {

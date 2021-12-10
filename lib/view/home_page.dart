@@ -14,6 +14,8 @@ class HomePage extends StatefulWidget {
 
 // Holds ephemeral state: whether the navigation drawer is visible
 class _HomePage extends State<HomePage> {
+  final _toolBarHeight = 36.0;
+  final _drawerWidth = 200.0;
   bool _isShowingNavigation = true;
 
   Widget drawerIcon() {
@@ -30,30 +32,51 @@ class _HomePage extends State<HomePage> {
     );
   }
 
+  // constraints are infinite, so sizing is necessary
+  Widget _drawerAndSelection() {
+    var mediaSize = MediaQuery.of(context).size;
+    if (_isShowingNavigation) {
+      return Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Navigation(
+            _drawerWidth - 1,
+            mediaSize.height - _toolBarHeight,
+          ),
+          const VerticalDivider(
+            width: 1,
+            thickness: 1,
+          ),
+          SelectedModelWidget(
+            mediaSize.width - _drawerWidth,
+            mediaSize.height - _toolBarHeight,
+          ),
+        ],
+      );
+    } else {
+      return SelectedModelWidget(
+        mediaSize.width,
+        mediaSize.height - _toolBarHeight,
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 36,
+        toolbarHeight: _toolBarHeight,
         leading: drawerIcon(),
         title: const Text('Jade — an IDE for GemStone/S 64 Bit'),
       ),
-      body: ListView(
-        scrollDirection: Axis.horizontal,
-        children: [
-          _isShowingNavigation
-              ? Row(
-                  children: const [
-                    Navigation(),
-                    VerticalDivider(
-                      width: 1,
-                      thickness: 1,
-                    ),
-                  ],
-                )
-              : Container(),
-          const SelectedModelWidget(),
-        ],
+      // The InteractiveViewer allows us to support children that are larger
+      // than the window in which it is displayed. Specifically, a web browser
+      // that is resized by the user can cause overflows.
+      body: InteractiveViewer(
+        alignPanAxis: true,
+        constrained: false, // the child is allowed infinite size
+        scaleEnabled: false,
+        child: _drawerAndSelection(),
       ),
     );
   }

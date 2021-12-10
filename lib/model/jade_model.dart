@@ -17,4 +17,7 @@ abstract class JadeModel with ChangeNotifier {
   void selectionStatusChanged() {
     notifyListeners();
   }
+
+  get mayRemoveFromParent => true;
+  void removeFromParent() {}
 }

@@ -6,7 +6,10 @@ import 'package:provider/provider.dart';
 
 class CurrentSessionsWidget extends StatefulWidget {
   final CurrentSessions _currentSessions;
-  const CurrentSessionsWidget(this._currentSessions, {Key? key})
+  final double _width;
+  final double _height;
+  const CurrentSessionsWidget(this._currentSessions, this._width, this._height,
+      {Key? key})
       : super(key: key);
 
   @override

@@ -178,7 +178,7 @@ void main() {
 
   test('nbResult with nothing', () async {
     var x = await server.nbResult(session1, 0);
-    expect(x['type'], equals('timeout'));
+    expect(x['type'], equals('timeout after 0ms'));
   });
 
   test('getFreeOops', () async {

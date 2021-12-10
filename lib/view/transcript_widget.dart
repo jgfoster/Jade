@@ -11,7 +11,10 @@ import 'package:provider/provider.dart';
 
 class TranscriptWidget extends StatefulWidget {
   final Session _session;
-  const TranscriptWidget(this._session, {Key? key}) : super(key: key);
+  final double _width;
+  final double _height;
+  const TranscriptWidget(this._session, this._width, this._height, {Key? key})
+      : super(key: key);
 
   @override
   _TranscriptWidget createState() {
@@ -175,7 +178,7 @@ class _TranscriptWidget extends State<TranscriptWidget> {
       child: Container(
         width: 490,
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: ListView(
+        child: Column(
           children: <Widget>[
             _buttonRow(),
             _infoLine(),
@@ -192,6 +195,7 @@ class _TranscriptWidget extends State<TranscriptWidget> {
     );
   }
 
+  // our parent offers an infinite extent so we need to specify a size
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider.value(
