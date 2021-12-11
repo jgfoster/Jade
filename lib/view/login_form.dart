@@ -6,10 +6,7 @@ import 'unused.dart' if (dart.library.html) 'dart:html' as html;
 
 class LoginForm extends StatefulWidget {
   final Login _login;
-  final double _width;
-  final double _height;
-  const LoginForm(this._login, this._width, this._height, {Key? key})
-      : super(key: key);
+  const LoginForm(this._login, {Key? key}) : super(key: key);
 
   @override
   _LoginForm createState() {
@@ -181,13 +178,10 @@ class _LoginForm extends State<LoginForm> {
     );
   }
 
-  // our parent offers an infinite extent so we need to specify a size
   @override
   Widget build(BuildContext context) {
     _login = widget._login;
-    return Container(
-      width: widget._width,
-      height: widget._height,
+    return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Form(
         key: _formKey,

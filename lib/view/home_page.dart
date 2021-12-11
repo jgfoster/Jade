@@ -1,6 +1,8 @@
 // HomePage uses Scaffold to show
 // Navigation (a Drawer) and a SelectedModelForm
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:jade/view/navigation.dart';
 import 'package:jade/view/selected_model_widget.dart';
@@ -32,33 +34,50 @@ class _HomePage extends State<HomePage> {
     );
   }
 
-  // constraints are infinite, so sizing is necessary
   Widget _drawerAndSelection() {
-    var mediaSize = MediaQuery.of(context).size;
     if (_isShowingNavigation) {
-      return Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Navigation(
-            _drawerWidth - 1,
-            mediaSize.height - _toolBarHeight,
-          ),
-          const VerticalDivider(
-            width: 1,
-            thickness: 1,
-          ),
-          SelectedModelWidget(
-            mediaSize.width - _drawerWidth,
-            mediaSize.height - _toolBarHeight,
-          ),
-        ],
+      return LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: _drawerWidth - 1,
+                height: constraints.maxHeight,
+                child: const Navigation(),
+              ),
+              const VerticalDivider(
+                width: 1,
+                thickness: 1,
+              ),
+              SizedBox(
+                width: constraints.maxWidth - _drawerWidth,
+                height: constraints.maxHeight,
+                child: const SelectedModelWidget(),
+              ),
+            ],
+          );
+        },
       );
     } else {
-      return SelectedModelWidget(
-        mediaSize.width,
-        mediaSize.height - _toolBarHeight,
-      );
+      return const SelectedModelWidget();
     }
+  }
+
+  Widget _constrainedBox() {
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        return InteractiveViewer(
+          constrained: false, // the child is allowed to be larger
+          scaleEnabled: false,
+          child: SizedBox(
+            width: max(800, constraints.maxWidth),
+            height: max(600 - _toolBarHeight, constraints.maxHeight),
+            child: _drawerAndSelection(),
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -72,12 +91,7 @@ class _HomePage extends State<HomePage> {
       // The InteractiveViewer allows us to support children that are larger
       // than the window in which it is displayed. Specifically, a web browser
       // that is resized by the user can cause overflows.
-      body: InteractiveViewer(
-        alignPanAxis: true,
-        constrained: false, // the child is allowed infinite size
-        scaleEnabled: false,
-        child: _drawerAndSelection(),
-      ),
+      body: _constrainedBox(),
     );
   }
 }

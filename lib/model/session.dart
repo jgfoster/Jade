@@ -17,7 +17,7 @@ class Session extends JadeModel {
   get isLoggedIn => _isLoggedIn;
   @override
   get mayRemoveFromParent => false;
-  get title => const Text('Actions, Transcript, and Workspace');
+  get title => const Text('Transcript');
   get username => _username;
   get version => _version;
   get children => _children;

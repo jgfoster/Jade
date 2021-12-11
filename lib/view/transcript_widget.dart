@@ -11,10 +11,7 @@ import 'package:provider/provider.dart';
 
 class TranscriptWidget extends StatefulWidget {
   final Session _session;
-  final double _width;
-  final double _height;
-  const TranscriptWidget(this._session, this._width, this._height, {Key? key})
-      : super(key: key);
+  const TranscriptWidget(this._session, {Key? key}) : super(key: key);
 
   @override
   _TranscriptWidget createState() {
@@ -27,7 +24,7 @@ class _TranscriptWidget extends State<TranscriptWidget> {
   final Session _session;
   final _formKey = GlobalKey<FormState>();
   final _queryController = TextEditingController();
-  var _expression = 'System session.';
+  var _expression = 'System session';
   String _result = '';
 
   _TranscriptWidget(this._session);
@@ -109,34 +106,10 @@ class _TranscriptWidget extends State<TranscriptWidget> {
   }
 
   Widget _transcriptWidget() {
-    return Column(
-      children: const [
-        Text('Transcript'),
-        SizedBox(
-          height: 150,
-          child: TextField(
-            minLines: 10,
-            maxLines: null,
-            readOnly: false,
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _workspaceWidget() {
-    return Column(
-      children: const [
-        Text('Workspace'),
-        SizedBox(
-          height: 150,
-          child: TextField(
-            minLines: 10,
-            maxLines: null,
-            readOnly: false,
-          ),
-        ),
-      ],
+    return const TextField(
+      minLines: null,
+      maxLines: null,
+      readOnly: false,
     );
   }
 
@@ -147,9 +120,8 @@ class _TranscriptWidget extends State<TranscriptWidget> {
     });
     return TextFormField(
       decoration: const InputDecoration(
-        icon: Icon(Icons.account_circle),
         hintText: '2 + 3',
-        labelText: 'Smalltalk Expression',
+        labelText: 'Transcript show:',
       ),
       controller: _queryController,
       validator: (value) {
@@ -168,10 +140,6 @@ class _TranscriptWidget extends State<TranscriptWidget> {
     );
   }
 
-  Widget _resultWidget() {
-    return Text(_result);
-  }
-
   Widget _builder(var context, var session, var child) {
     return Form(
       key: _formKey,
@@ -184,18 +152,15 @@ class _TranscriptWidget extends State<TranscriptWidget> {
             _infoLine(),
             const Divider(height: 1, thickness: 1),
             _transcriptWidget(),
-            const Divider(height: 1, thickness: 1),
-            _workspaceWidget(),
-            const Divider(height: 1, thickness: 1),
-            _queryWidget(),
-            _resultWidget(),
+            Expanded(
+                child: Align(
+                    alignment: Alignment.bottomCenter, child: _queryWidget())),
           ],
         ),
       ),
     );
   }
 
-  // our parent offers an infinite extent so we need to specify a size
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider.value(
