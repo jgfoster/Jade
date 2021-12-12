@@ -180,6 +180,7 @@ getGciVersion
 	version := version copyFrom: 1 to: index - 1.
 	^Dictionary new
 		at: 'product' put: product;
+		at: 'type' put: 'String';
 		at: 'version' put: version;
 		yourself
 %

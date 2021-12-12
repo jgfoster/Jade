@@ -1,6 +1,9 @@
+// Display a login form and handle a login request.
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:jade/model/jade.dart';
+import 'package:jade/model/jade_server_abstract.dart';
 import 'package:jade/model/login.dart';
 import 'package:jade/model/session.dart';
 import 'unused.dart' if (dart.library.html) 'dart:html' as html;
@@ -23,7 +26,9 @@ class LoginFormState extends State<LoginForm> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
   var _isInLogin = false;
+  final _log = StringBuffer();
 
+  // Form
   @override
   Widget build(BuildContext context) {
     _login = widget._login;
@@ -36,6 +41,7 @@ class LoginFormState extends State<LoginForm> {
           _usernameWidget(),
           _passwordWidget(),
           _buttonRow(),
+          Expanded(child: _logWidget()),
         ],
       ),
     );
@@ -188,6 +194,19 @@ class LoginFormState extends State<LoginForm> {
     );
   }
 
+  Widget _logWidget() {
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        return TextField(
+          minLines: (constraints.maxHeight ~/ 19),
+          maxLines: null,
+          readOnly: true,
+          controller: TextEditingController(text: _log.toString()),
+        );
+      },
+    );
+  }
+
   void _doLogin() async {
     if (_formKey.currentState!.validate()) {
       setState(() {
@@ -195,17 +214,22 @@ class LoginFormState extends State<LoginForm> {
       });
       _formKey.currentState!.save();
       var session = Session(_login.address, _login.username, _login.password);
-      session.serverEvents.listen((event) {
-        print(event);
-      });
-      await session.doLogin((status) {
-        print(status);
-      });
-      // await Future.delayed(const Duration(milliseconds: 2000));
-      setState(() {
-        _isInLogin = false;
-      });
-      Jade().addSession(session);
+      try {
+        await session.doLogin((status) {
+          setState(() {
+            _log.writeln(status);
+          });
+        });
+        setState(() {
+          _isInLogin = false;
+        });
+        Jade().addSession(session);
+      } on GciError catch (ex) {
+        setState(() {
+          _log.writeln(ex);
+          _isInLogin = false;
+        });
+      }
     }
   }
 

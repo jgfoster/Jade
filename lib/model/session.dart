@@ -8,11 +8,10 @@ class Session extends JadeModel {
   late JadeServer _server;
   final String _address;
   final String _username;
-  var _password = '?';
-  var _version = '?';
+  final String _password;
+  late String _version;
   var _isLoggedIn = false;
   final _children = <JadeModel>[];
-  late Stream<String> serverEvents;
 
   get address => _address;
   get isLoggedIn => _isLoggedIn;
@@ -25,20 +24,14 @@ class Session extends JadeModel {
 
   Session(this._address, this._username, this._password) {
     _server = JadeServer(_address);
-    serverEvents = _server.stream;
   }
 
   Future<void> doLogin(var client) async {
     client('${DateTime.now()} - Initiating connection to server');
     _version = await _server.getGciVersion();
-    client('${DateTime.now()} - Server version = $_version');
-    try {
-      _session = await _server.login(_username, _password);
-      _password = '?';
-      _isLoggedIn = true;
-    } catch (ex) {
-      _isLoggedIn = false;
-    }
+    client('${DateTime.now()} - Server version = ${_version.split(' ')[0]}');
+    _session = await _server.login(_username, _password);
+    _isLoggedIn = true;
     _children.add(this);
     notifyListeners();
   }

@@ -20,18 +20,20 @@ class _HomePage extends State<HomePage> {
   final _drawerWidth = 200.0;
   bool _isShowingNavigation = true;
 
+  // Scaffold with AppBar and body
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: _toolBarHeight,
-        leading: drawerIcon(),
+        leading: _drawerIcon(),
         title: const Text('Jade — an IDE for GemStone/S 64 Bit'),
       ),
       body: _constrainedBox(),
     );
   }
 
+  // Minimum app size is 800x600
   Widget _constrainedBox() {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
@@ -51,6 +53,7 @@ class _HomePage extends State<HomePage> {
     );
   }
 
+  // Navigation drawer and selection editor/viewer
   Widget _drawerAndSelection() {
     if (_isShowingNavigation) {
       return LayoutBuilder(
@@ -80,7 +83,7 @@ class _HomePage extends State<HomePage> {
     }
   }
 
-  Widget drawerIcon() {
+  Widget _drawerIcon() {
     return IconButton(
       icon: const Icon(Icons.menu),
       tooltip: _isShowingNavigation

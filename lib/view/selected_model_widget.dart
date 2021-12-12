@@ -11,6 +11,26 @@ import 'package:provider/provider.dart';
 class SelectedModelWidget extends StatelessWidget {
   const SelectedModelWidget({Key? key}) : super(key: key);
 
+  // Set up notification for selectedModel changes
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider.value(
+      value: Jade(),
+      child: Consumer<Jade>(
+        builder: _builder,
+      ),
+    );
+  }
+
+  // Padding
+  Widget _builder(context, jade, child) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: _selectedWidget(jade.selectedModel),
+    );
+  }
+
+  // main widget depends on selected item from Navigation drawer
   Widget _selectedWidget(var model) {
     switch (model.runtimeType) {
       case Login:
@@ -20,26 +40,12 @@ class SelectedModelWidget extends StatelessWidget {
       case CurrentSessions:
         return CurrentSessionsWidget(model! as CurrentSessions);
       default:
-        return Container();
+        return const Center(
+          child: Text(
+            'Welcome to Jade, an IDE for GemStone/S 64 Bit.\n'
+            'Please select an item from Navigation drawer to the left.',
+          ),
+        );
     }
-  }
-
-  Widget _builder(context, jade, child) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: _selectedWidget(jade.selectedModel),
-    );
-  }
-
-  // the Provider/Consumer structure allows us to be
-  // notified when the selectedModel changes
-  @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider.value(
-      value: Jade(),
-      child: Consumer<Jade>(
-        builder: _builder,
-      ),
-    );
   }
 }

@@ -8,18 +8,9 @@ import 'package:jade/model/jade_server_abstract.dart';
 class JadeServer extends JadeServerAbstract {
   final _buffer = <Map<String, dynamic>>[];
   late final WebSocketChannel _channel;
-  var _streamIsActive = false;
-  late StreamController<String> _streamController;
-
-  get stream => _streamController.stream;
+  String? _error;
 
   JadeServer([var address = 'localhost:50378']) {
-    _streamController = StreamController<String>(
-      onListen: () => _streamIsActive = true,
-      onPause: () => _streamIsActive = false,
-      onResume: () => _streamIsActive = true,
-      onCancel: () => _streamIsActive = false,
-    );
     var uriString = 'ws://' + address + '/webSocket.gs';
     var uri = Uri.parse(uriString);
     _channel = WebSocketChannel.connect(uri);
@@ -30,31 +21,26 @@ class JadeServer extends JadeServerAbstract {
     );
   }
 
-  void _addToStream(var aString) {
-    if (_streamIsActive) {
-      _streamController.add(aString);
-    }
-  }
-
   void _onData(dynamic data) async {
     var x = jsonDecode(data);
-    _addToStream('Response for \'${x['request']}\' took ${x['time']} '
-        'and returned ${x['type'] == 'error' ? x['message'] : x['type']}');
     _buffer.add(x);
   }
 
-  void _onDone() {
-    _addToStream('Done');
+  void _onDone() async {
+    _error = 'Connection to server is closed!';
     _channel.sink.close();
   }
 
-  void _onError(var error) {
-    _addToStream('$error');
+  void _onError(var error) async {
+    _error = error.toString();
     _channel.sink.close();
   }
 
   Future<Map<String, dynamic>> _read() async {
     while (_buffer.isEmpty) {
+      if (_error != null) {
+        throw GciError({'message': _error});
+      }
       await Future.delayed(const Duration(milliseconds: 10));
     }
     var result = _buffer.removeAt(0);
@@ -65,14 +51,12 @@ class JadeServer extends JadeServerAbstract {
   }
 
   Future<void> _write(var map) async {
-    _addToStream('Request for \'${map['request']}\'');
     _channel.sink.add(jsonEncode(map));
   }
 
   @override
   void close() {
     _channel.sink.close();
-    _streamController.sink.close();
   }
 
 // Public API
