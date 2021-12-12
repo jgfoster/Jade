@@ -57,7 +57,11 @@ class JadeServer extends JadeServerAbstract {
     while (_buffer.isEmpty) {
       await Future.delayed(const Duration(milliseconds: 10));
     }
-    return _buffer.removeAt(0);
+    var result = _buffer.removeAt(0);
+    if (result['type'] == 'error') {
+      throw GciError(result);
+    }
+    return result;
   }
 
   Future<void> _write(var map) async {
@@ -184,11 +188,7 @@ class JadeServer extends JadeServerAbstract {
       'username': username,
       'password': password,
     });
-    var data = await _read();
-    if ((data['error'] ?? 0) > 0) {
-      throw GciError(data);
-    }
-    return data['result'];
+    return (await _read())['result'];
   }
 
   @override

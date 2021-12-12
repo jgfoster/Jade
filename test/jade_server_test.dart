@@ -18,7 +18,7 @@ void main() {
 // pre-login
   test('getGciVersion', () async {
     var version = await server.getGciVersion();
-    expect(version, startsWith('3.6.2'));
+    expect(version, startsWith('3.6.3'));
   });
 
   test('encrypt', () async {
@@ -74,9 +74,10 @@ void main() {
     try {
       session1 = await server.login('DataCurator', 'spearfish');
       // print(session1);
-    } on GciError catch (e) {
-      expect(e.error['type'], equals('error'));
-      expect(e.error['error'], equals(4051));
+    } on GciError catch (ex) {
+      expect(ex.error['type'], equals('error'));
+      expect(ex.error['error'], equals(4051));
+      expect(ex.error['message'], startsWith('Login failed'));
       flag = true;
     }
     expect(flag, isTrue);
@@ -170,7 +171,7 @@ void main() {
     // look for #'Array' in DataCurator's SymbolList
     // (AllUsers userWithId: 'DataCurator' ifAbsent: [nil])
     //     symbolList asOop printStringRadix: 16.
-    x = await server.resolveSymbolObj(session1, '1C6401', '28AC01');
+    x = await server.resolveSymbolObj(session1, '1C6401', '288B01');
     expect(x, '10501');
     x = await server.resolveSymbolObj(session1, '2A9701'); // #'size'
     expect(x, '1');
@@ -288,8 +289,15 @@ void main() {
 
 // after logout
   test('logout second time should fail', () async {
-    var result = await server.logout(session2);
-    expect(result, isFalse);
+    try {
+      await server.logout(session2);
+      expect(false, isTrue);
+    } on GciError catch (ex) {
+      expect(
+        ex.error['message'],
+        equals('argument is not a valid GciSession pointer'),
+      );
+    }
   });
 
   test('sessionIsRemote after logout', () async {
