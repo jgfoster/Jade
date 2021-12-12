@@ -8,7 +8,6 @@ import 'package:jade/view/session_list_widget.dart';
 class Navigation extends StatelessWidget {
   const Navigation({Key? key}) : super(key: key);
 
-  // our parent offers an infinite extent so we need to specify a size
   @override
   Widget build(BuildContext context) {
     return Drawer(

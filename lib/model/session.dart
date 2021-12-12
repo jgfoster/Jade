@@ -37,7 +37,7 @@ class Session extends JadeModel {
       _session = await _server.login(login.username, login.password);
       _isLoggedIn = true;
     } catch (ex) {
-      _isLoggedIn = true;
+      _isLoggedIn = false;
     }
     notifyListeners();
   }

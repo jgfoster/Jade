@@ -11,15 +11,20 @@ class CurrentSessionsWidget extends StatefulWidget {
 
   @override
   _CurrentSessionsWidget createState() {
-    // ignore: no_logic_in_create_state
-    return _CurrentSessionsWidget(_currentSessions);
+    return _CurrentSessionsWidget();
   }
 }
 
 class _CurrentSessionsWidget extends State<CurrentSessionsWidget> {
-  final CurrentSessions _currentSessions;
+  _CurrentSessionsWidget();
 
-  _CurrentSessionsWidget(this._currentSessions);
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider.value(
+      value: widget._currentSessions,
+      child: Consumer<CurrentSessions>(builder: _builder),
+    );
+  }
 
   Widget _builder(var context, var currentSessions, var child) {
     var tableRows = <TableRow>[];
@@ -45,14 +50,6 @@ class _CurrentSessionsWidget extends State<CurrentSessionsWidget> {
       defaultColumnWidth: const IntrinsicColumnWidth(),
       defaultVerticalAlignment: TableCellVerticalAlignment.top,
       children: tableRows,
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider.value(
-      value: _currentSessions,
-      child: Consumer<CurrentSessions>(builder: _builder),
     );
   }
 }

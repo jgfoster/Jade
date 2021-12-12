@@ -28,6 +28,7 @@ class _SessionListWidget extends State<SessionListWidget> {
       widgets.add(SessionChildTile(each));
     });
     return Column(
+      // each child is offered an infinite height
       children: widgets,
     );
   }

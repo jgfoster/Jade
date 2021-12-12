@@ -15,39 +15,58 @@ class TranscriptWidget extends StatefulWidget {
 
   @override
   _TranscriptWidget createState() {
-    // ignore: no_logic_in_create_state
-    return _TranscriptWidget(_session);
+    return _TranscriptWidget();
   }
 }
 
 class _TranscriptWidget extends State<TranscriptWidget> {
-  final Session _session;
+  late Session? _session;
   final _formKey = GlobalKey<FormState>();
   final _queryController = TextEditingController();
   var _expression = 'System session';
   String _result = '';
 
-  _TranscriptWidget(this._session);
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider.value(
+      value: widget._session,
+      child: Consumer<Session>(builder: _builder),
+    );
+  }
 
-  Widget _infoLine() {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Text(
-        '${_session.username} on ${_session.address} '
-        '(${_session.version.split(' ')[0]})',
-        style: Theme.of(context).textTheme.headline6,
-      ),
+  Widget _builder(var context, var session, var child) {
+    _session = session;
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        return Form(
+          key: _formKey,
+          child: Column(
+            // each child is offered an infinite height
+            children: <Widget>[
+              _buttonRow(),
+              _infoLine(),
+              const Divider(height: 1, thickness: 1),
+              SizedBox(
+                height: constraints.maxHeight - 148,
+                child: _transcriptWidget(),
+              ),
+              _queryWidget(),
+            ],
+          ),
+        );
+      },
     );
   }
 
   Widget _buttonRow() {
     return Row(
+      // each child is offered an infinite width
       children: [
         IconButton(
           icon: const Icon(Icons.photo_camera_outlined),
           tooltip: 'Commit transaction',
           onPressed: () async {
-            var result = await _session.commit();
+            var result = await _session!.commit();
             setState(() {
               _result =
                   'After commit current commit record = ${result['result'].toString()}';
@@ -58,7 +77,7 @@ class _TranscriptWidget extends State<TranscriptWidget> {
           icon: const Icon(Icons.format_list_numbered),
           tooltip: 'Show session list',
           onPressed: () {
-            _session.showSessionList();
+            _session!.showSessionList();
           },
         ),
         IconButton(
@@ -68,14 +87,14 @@ class _TranscriptWidget extends State<TranscriptWidget> {
           ),
           tooltip: 'Open code browser',
           onPressed: () {
-            // print('pressed commit button');
+            // print('Open code browser');
           },
         ),
         IconButton(
           icon: const Icon(Icons.article_outlined),
           tooltip: 'Open workspace',
           onPressed: () {
-            // print('pressed commit button');
+            // print('Open workspace');
           },
         ),
         Expanded(
@@ -85,7 +104,7 @@ class _TranscriptWidget extends State<TranscriptWidget> {
               icon: const Icon(Icons.delete_outlined),
               tooltip: 'Abort transaction',
               onPressed: () async {
-                var result = await _session.abort();
+                var result = await _session!.abort();
                 setState(() {
                   _result =
                       'After abort current commit record = ${result['result'].toString()}';
@@ -98,18 +117,33 @@ class _TranscriptWidget extends State<TranscriptWidget> {
           icon: const Icon(Icons.logout),
           tooltip: 'Logout',
           onPressed: () {
-            Jade().doLogout(_session);
+            Jade().doLogout(_session!);
           },
         ),
       ],
     );
   }
 
+  Widget _infoLine() {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Text(
+        '${_session!.username} on ${_session!.address} '
+        '(${_session!.version.split(' ')[0]})',
+        style: Theme.of(context).textTheme.headline6,
+      ),
+    );
+  }
+
   Widget _transcriptWidget() {
-    return const TextField(
-      minLines: null,
-      maxLines: null,
-      readOnly: false,
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        return TextField(
+          minLines: (constraints.maxHeight ~/ 19),
+          maxLines: null,
+          readOnly: false,
+        );
+      },
     );
   }
 
@@ -131,41 +165,12 @@ class _TranscriptWidget extends State<TranscriptWidget> {
         return null;
       },
       onFieldSubmitted: (_) async {
-        var map = await _session.execute(_expression);
+        var map = await _session!.execute(_expression);
         setState(() {
           _result = map.toString();
         });
       },
       onSaved: (value) => _expression = value!,
-    );
-  }
-
-  Widget _builder(var context, var session, var child) {
-    return Form(
-      key: _formKey,
-      child: Container(
-        width: 490,
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: Column(
-          children: <Widget>[
-            _buttonRow(),
-            _infoLine(),
-            const Divider(height: 1, thickness: 1),
-            _transcriptWidget(),
-            Expanded(
-                child: Align(
-                    alignment: Alignment.bottomCenter, child: _queryWidget())),
-          ],
-        ),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider.value(
-      value: widget._session,
-      child: Consumer<Session>(builder: _builder),
     );
   }
 

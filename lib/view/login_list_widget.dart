@@ -44,6 +44,7 @@ class _LoginListWidget extends State<LoginListWidget> {
         );
       },
       body: Column(
+        // each child is offered an infinite height
         children: loginList.map<ListTile>((each) => LoginTile(each)).toList(),
       ),
     );

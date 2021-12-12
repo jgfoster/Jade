@@ -8,12 +8,10 @@ import 'package:jade/view/login_form.dart';
 import 'package:jade/view/transcript_widget.dart';
 import 'package:provider/provider.dart';
 
-// our parent offers an infinite extent so we need to specify a size
 class SelectedModelWidget extends StatelessWidget {
   const SelectedModelWidget({Key? key}) : super(key: key);
 
-  Widget _builder(context, jade, child) {
-    var model = jade.selectedModel;
+  Widget _selectedWidget(var model) {
     switch (model.runtimeType) {
       case Login:
         return LoginForm(model! as Login);
@@ -24,6 +22,13 @@ class SelectedModelWidget extends StatelessWidget {
       default:
         return Container();
     }
+  }
+
+  Widget _builder(context, jade, child) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: _selectedWidget(jade.selectedModel),
+    );
   }
 
   // the Provider/Consumer structure allows us to be

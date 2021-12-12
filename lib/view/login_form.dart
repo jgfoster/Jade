@@ -21,19 +21,21 @@ class _LoginForm extends State<LoginForm> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  void _doLogin() {
-    if (_formKey.currentState!.validate()) {
-      setState(() {
-        _formKey.currentState!.save();
-        Jade().doLogin(_login);
-      });
-    }
-  }
-
-  void _doOpen() {
-    // var url = Uri.base.path;
-    var features = 'width=800,height=600';
-    html.window.open('https://www.google.com/', 'new browser', features);
+  @override
+  Widget build(BuildContext context) {
+    _login = widget._login;
+    return Form(
+      key: _formKey,
+      child: Column(
+        // each child is offered an infinite height
+        children: <Widget>[
+          _addressWidget(),
+          _usernameWidget(),
+          _passwordWidget(),
+          _buttonRow(),
+        ],
+      ),
+    );
   }
 
   Widget _addressWidget() {
@@ -124,6 +126,7 @@ class _LoginForm extends State<LoginForm> {
       child: ElevatedButton(
         onPressed: () => _doLogin(),
         child: Row(
+          // each child is offered an infinite width
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: const [
@@ -146,6 +149,7 @@ class _LoginForm extends State<LoginForm> {
       child: ElevatedButton(
         onPressed: () => _doOpen(),
         child: Row(
+          // each child is offered an infinite width
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: const [
@@ -178,23 +182,19 @@ class _LoginForm extends State<LoginForm> {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    _login = widget._login;
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: Form(
-        key: _formKey,
-        child: Column(
-          children: <Widget>[
-            _addressWidget(),
-            _usernameWidget(),
-            _passwordWidget(),
-            _buttonRow(),
-          ],
-        ),
-      ),
-    );
+  void _doLogin() {
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        _formKey.currentState!.save();
+        Jade().doLogin(_login);
+      });
+    }
+  }
+
+  void _doOpen() {
+    // var url = Uri.base.path;
+    var features = 'width=800,height=600';
+    html.window.open('https://www.google.com/', 'new browser', features);
   }
 
   @override
