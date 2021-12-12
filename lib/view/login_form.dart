@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:jade/model/jade.dart';
 import 'package:jade/model/login.dart';
+import 'package:jade/model/session.dart';
 import 'unused.dart' if (dart.library.html) 'dart:html' as html;
 
 class LoginForm extends StatefulWidget {
@@ -9,17 +10,19 @@ class LoginForm extends StatefulWidget {
   const LoginForm(this._login, {Key? key}) : super(key: key);
 
   @override
-  _LoginForm createState() {
-    return _LoginForm();
+  LoginFormState createState() {
+    return LoginFormState();
   }
 }
 
-class _LoginForm extends State<LoginForm> {
+class LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
   late Login _login;
+  get login => _login;
   final _addressController = TextEditingController();
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
+  var _isInLogin = false;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +47,7 @@ class _LoginForm extends State<LoginForm> {
       _login.address = _addressController.text;
     });
     return TextFormField(
+      enabled: !_isInLogin,
       decoration: const InputDecoration(
         icon: Icon(Icons.storage),
         hintText: 'localhost:50378',
@@ -80,6 +84,7 @@ class _LoginForm extends State<LoginForm> {
       _login.username = _usernameController.text;
     });
     return TextFormField(
+      enabled: !_isInLogin,
       decoration: const InputDecoration(
         icon: Icon(Icons.account_circle),
         hintText: 'DataCurator',
@@ -103,6 +108,7 @@ class _LoginForm extends State<LoginForm> {
       _login.password = _passwordController.text;
     });
     return TextFormField(
+      enabled: !_isInLogin,
       decoration: const InputDecoration(
         icon: Icon(Icons.password),
         labelText: 'Password *',
@@ -124,7 +130,7 @@ class _LoginForm extends State<LoginForm> {
     return Padding(
       padding: const EdgeInsets.only(right: 8.0),
       child: ElevatedButton(
-        onPressed: () => _doLogin(),
+        onPressed: _isInLogin ? null : () => _doLogin(),
         child: Row(
           // each child is offered an infinite width
           mainAxisAlignment: MainAxisAlignment.center,
@@ -182,12 +188,24 @@ class _LoginForm extends State<LoginForm> {
     );
   }
 
-  void _doLogin() {
+  void _doLogin() async {
     if (_formKey.currentState!.validate()) {
       setState(() {
-        _formKey.currentState!.save();
-        Jade().doLogin(_login);
+        _isInLogin = true;
       });
+      _formKey.currentState!.save();
+      var session = Session(_login.address, _login.username, _login.password);
+      session.serverEvents.listen((event) {
+        print(event);
+      });
+      await session.doLogin((status) {
+        print(status);
+      });
+      // await Future.delayed(const Duration(milliseconds: 2000));
+      setState(() {
+        _isInLogin = false;
+      });
+      Jade().addSession(session);
     }
   }
 

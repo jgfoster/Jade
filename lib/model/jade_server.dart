@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:web_socket_channel/web_socket_channel.dart';
@@ -6,14 +7,19 @@ import 'package:jade/model/jade_server_abstract.dart';
 
 class JadeServer extends JadeServerAbstract {
   final _buffer = <Map<String, dynamic>>[];
-  var _isInitialized = false;
   late final WebSocketChannel _channel;
+  var _streamIsActive = false;
+  late StreamController<String> _streamController;
+
+  get stream => _streamController.stream;
 
   JadeServer([var address = 'localhost:50378']) {
-    _initialize(address);
-  }
-
-  Future<void> _initialize(var address) async {
+    _streamController = StreamController<String>(
+      onListen: () => _streamIsActive = true,
+      onPause: () => _streamIsActive = false,
+      onResume: () => _streamIsActive = true,
+      onCancel: () => _streamIsActive = false,
+    );
     var uriString = 'ws://' + address + '/webSocket.gs';
     var uri = Uri.parse(uriString);
     _channel = WebSocketChannel.connect(uri);
@@ -22,24 +28,28 @@ class JadeServer extends JadeServerAbstract {
       onDone: _onDone,
       onError: _onError,
     );
-    _isInitialized = true;
+  }
+
+  void _addToStream(var aString) {
+    if (_streamIsActive) {
+      _streamController.add(aString);
+    }
   }
 
   void _onData(dynamic data) async {
     var x = jsonDecode(data);
-    // if (x['type'] == 'error') {
-    //   print('_onData($x)');
-    // }
+    _addToStream('Response for \'${x['request']}\' took ${x['time']} '
+        'and returned ${x['type'] == 'error' ? x['message'] : x['type']}');
     _buffer.add(x);
   }
 
   void _onDone() {
-    // print('_onDone()');
+    _addToStream('Done');
     _channel.sink.close();
   }
 
   void _onError(var error) {
-    // print('_onError($error)');
+    _addToStream('$error');
     _channel.sink.close();
   }
 
@@ -51,20 +61,14 @@ class JadeServer extends JadeServerAbstract {
   }
 
   Future<void> _write(var map) async {
-    await _waitForInitialization();
+    _addToStream('Request for \'${map['request']}\'');
     _channel.sink.add(jsonEncode(map));
   }
 
   @override
   void close() {
-    // print('JadeServer().close();');
     _channel.sink.close();
-  }
-
-  Future<void> _waitForInitialization() async {
-    while (!_isInitialized) {
-      await Future.delayed(const Duration(milliseconds: 50));
-    }
+    _streamController.sink.close();
   }
 
 // Public API

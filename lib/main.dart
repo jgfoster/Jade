@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:jade/view/home_page.dart';
-// import 'dart:io' if (dart.library.html) 'dart:html';
 import 'package:window_size/window_size.dart'
     if (dart.library.html) 'package:jade/view/unused.dart';
 
@@ -17,15 +16,12 @@ void main() {
 class JadeApp extends StatelessWidget {
   const JadeApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Jade', // web tab
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: const HomePage(),
     );
   }

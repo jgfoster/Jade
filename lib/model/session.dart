@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:jade/model/current_sessions.dart';
 import 'package:jade/model/jade_model.dart';
 import 'package:jade/model/jade_server.dart';
-import 'package:jade/model/login.dart';
 
 class Session extends JadeModel {
   late String _session;
   late JadeServer _server;
-  var _address = '?';
-  var _username = '?';
+  final String _address;
+  final String _username;
+  var _password = '?';
   var _version = '?';
   var _isLoggedIn = false;
   final _children = <JadeModel>[];
+  late Stream<String> serverEvents;
 
   get address => _address;
   get isLoggedIn => _isLoggedIn;
@@ -22,23 +23,23 @@ class Session extends JadeModel {
   get version => _version;
   get children => _children;
 
-  Session(Login login) {
-    _initialize(login);
-    _children.add(this);
+  Session(this._address, this._username, this._password) {
+    _server = JadeServer(_address);
+    serverEvents = _server.stream;
   }
 
-  void _initialize(Login login) async {
-    _address = login.address;
-    _username = login.username;
-    _server = JadeServer(login.address);
+  Future<void> doLogin(var client) async {
+    client('${DateTime.now()} - Initiating connection to server');
     _version = await _server.getGciVersion();
-    notifyListeners();
+    client('${DateTime.now()} - Server version = $_version');
     try {
-      _session = await _server.login(login.username, login.password);
+      _session = await _server.login(_username, _password);
+      _password = '?';
       _isLoggedIn = true;
     } catch (ex) {
       _isLoggedIn = false;
     }
+    _children.add(this);
     notifyListeners();
   }
 

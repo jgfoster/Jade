@@ -23,8 +23,7 @@ class Jade with ChangeNotifier {
 
   Jade._();
 
-  void doLogin(Login login) {
-    var session = Session(login);
+  Future<void> addSession(Session session) async {
     sessionList.add(session);
     session.beSelected();
   }

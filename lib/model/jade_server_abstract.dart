@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 class GciError extends StateError {
   late final Map<String, dynamic> error;
   GciError(Map<String, dynamic> gciError)
@@ -13,7 +15,7 @@ class GciError extends StateError {
   characters by using Base64 encoding, but that seems unnecessary.)
  */
 
-abstract class JadeServerAbstract {
+abstract class JadeServerAbstract with ChangeNotifier {
   static const oopNil = '14';
 
   Future<bool> abort(String session);
