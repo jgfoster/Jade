@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:jade/model/code_model.dart';
 import 'package:jade/model/current_sessions.dart';
 import 'package:jade/model/jade.dart';
 import 'package:jade/model/login.dart';
 import 'package:jade/model/session.dart';
+import 'package:jade/view/code_browser.dart';
 import 'package:jade/view/current_sessions_widget.dart';
 import 'package:jade/view/login_form.dart';
 import 'package:jade/view/transcript_widget.dart';
@@ -39,6 +41,8 @@ class SelectedModelWidget extends StatelessWidget {
         return TranscriptWidget(model! as Session);
       case CurrentSessions:
         return CurrentSessionsWidget(model! as CurrentSessions);
+      case CodeModel:
+        return CodeBrowser(model! as CodeModel);
       default:
         return const Center(
           child: Text(

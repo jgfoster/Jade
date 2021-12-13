@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jade/model/code_model.dart';
 import 'package:jade/model/current_sessions.dart';
 import 'package:jade/model/jade_model.dart';
 import 'package:jade/model/jade_server.dart';
@@ -85,6 +86,14 @@ class Session extends JadeModel {
       model = CurrentSessions(this);
       _children.add(model);
     }
+    model.beSelected();
+    notifyListeners();
+  }
+
+  void openCodeBrowser() {
+    late JadeModel model;
+    model = CodeModel(this);
+    _children.add(model);
     model.beSelected();
     notifyListeners();
   }

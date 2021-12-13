@@ -62,6 +62,7 @@ class _TranscriptWidget extends State<TranscriptWidget> {
     return Row(
       // each child is offered an infinite width
       children: [
+        // Commit transaction
         IconButton(
           icon: const Icon(Icons.photo_camera_outlined),
           tooltip: 'Commit transaction',
@@ -74,6 +75,7 @@ class _TranscriptWidget extends State<TranscriptWidget> {
             });
           },
         ),
+        // Show session list
         IconButton(
           icon: const Icon(Icons.format_list_numbered),
           tooltip: 'Show session list',
@@ -81,6 +83,7 @@ class _TranscriptWidget extends State<TranscriptWidget> {
             _session!.showSessionList();
           },
         ),
+        // Open code browser
         IconButton(
           icon: Transform.rotate(
             angle: 270 * pi / 180,
@@ -88,9 +91,10 @@ class _TranscriptWidget extends State<TranscriptWidget> {
           ),
           tooltip: 'Open code browser',
           onPressed: () {
-            // print('Open code browser');
+            _session!.openCodeBrowser();
           },
         ),
+        // Open workspace
         IconButton(
           icon: const Icon(Icons.article_outlined),
           tooltip: 'Open workspace',
@@ -98,6 +102,7 @@ class _TranscriptWidget extends State<TranscriptWidget> {
             // print('Open workspace');
           },
         ),
+        // Abort transaction
         Expanded(
           child: Align(
             alignment: Alignment.centerRight,
@@ -115,6 +120,7 @@ class _TranscriptWidget extends State<TranscriptWidget> {
             ),
           ),
         ),
+        // Logout
         IconButton(
           icon: const Icon(Icons.logout),
           tooltip: 'Logout',
