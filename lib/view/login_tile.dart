@@ -3,7 +3,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:jade/model/jade.dart';
 import 'package:jade/model/login.dart';
 
 class LoginTile extends ListTile {
@@ -14,13 +13,7 @@ class LoginTile extends ListTile {
     return ListTile(
       dense: true,
       selected: login.isSelected,
-      leading: IconButton(
-        icon: const Icon(Icons.delete),
-        tooltip: 'Delete this login',
-        onPressed: () {
-          Jade().loginList.remove(login);
-        },
-      ),
+      leading: const Icon(Icons.login_outlined),
       title: Text('${_login.username} at ${login.address}'),
       onTap: () {
         login.beSelected();

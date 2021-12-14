@@ -27,7 +27,7 @@ class SelectedModelWidget extends StatelessWidget {
   // Padding
   Widget _builder(context, jade, child) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      padding: const EdgeInsets.all(8.0),
       child: _selectedWidget(jade.selectedModel),
     );
   }

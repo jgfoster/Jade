@@ -17,6 +17,7 @@ class CodeBrowser extends StatefulWidget {
 class _CodeBrowser extends State<CodeBrowser> {
   _CodeBrowser();
 
+  // Set up notification for changes in the CodeModel
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider.value(

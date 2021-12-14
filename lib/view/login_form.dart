@@ -37,13 +37,58 @@ class LoginFormState extends State<LoginForm> {
       child: Column(
         // each child is offered an infinite height
         children: <Widget>[
+          _headerRow(),
+          const Divider(thickness: 1),
           _addressWidget(),
           _usernameWidget(),
           _passwordWidget(),
-          _buttonRow(),
+          _bottomButtonRow(),
           Expanded(child: _logWidget()),
         ],
       ),
+    );
+  }
+
+  Widget _headerRow() {
+    // Button row
+    return Row(
+      children: [
+        _drawerIcon(),
+        Expanded(
+          child: Align(
+            alignment: Alignment.center,
+            child: Text(
+              'Define a Login to Connect to GemStone',
+              style: Theme.of(context).textTheme.headline6,
+            ),
+          ),
+        ),
+        _closeIcon(),
+      ],
+    );
+  }
+
+  Widget _drawerIcon() {
+    return IconButton(
+      icon: const Icon(Icons.menu),
+      tooltip: 2 == 3 // _isShowingNavigation
+          ? 'Close navigation drawer'
+          : 'Open navigation drawer',
+      onPressed: () {
+        setState(() {
+          // _isShowingNavigation = !_isShowingNavigation;
+        });
+      },
+    );
+  }
+
+  Widget _closeIcon() {
+    return IconButton(
+      icon: const Icon(Icons.close_outlined),
+      tooltip: 'Remove this login',
+      onPressed: () {
+        _login.removeFromParent();
+      },
     );
   }
 
@@ -132,6 +177,21 @@ class LoginFormState extends State<LoginForm> {
     );
   }
 
+  Widget _bottomButtonRow() {
+    return Container(
+      height: 45,
+      padding: const EdgeInsets.only(top: 8.0),
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        itemExtent: 120.0,
+        children: [
+          _loginButton(),
+          if (kIsWeb) _openButton(),
+        ],
+      ),
+    );
+  }
+
   Widget _loginButton() {
     return Padding(
       padding: const EdgeInsets.only(right: 8.0),
@@ -174,22 +234,6 @@ class LoginFormState extends State<LoginForm> {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buttonRow() {
-    return Container(
-      // width: 500,
-      height: 45,
-      padding: const EdgeInsets.only(top: 8.0),
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        itemExtent: 120.0,
-        children: [
-          _loginButton(),
-          if (kIsWeb) _openButton(),
-        ],
       ),
     );
   }

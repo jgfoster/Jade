@@ -1,3 +1,4 @@
+import 'package:jade/model/jade.dart';
 import 'package:jade/model/jade_model.dart';
 
 class Login extends JadeModel {
@@ -30,5 +31,10 @@ class Login extends JadeModel {
       _password = aString;
       notifyListeners();
     }
+  }
+
+  @override
+  void removeFromParent() {
+    Jade().loginList.remove(this);
   }
 }

@@ -22,38 +22,16 @@ class SessionListWidget extends StatefulWidget {
 class _SessionListWidget extends State<SessionListWidget> {
   final List<bool> _isSessionExpanded = [];
 
-  Widget _sessionDetailsBuilder(var context, var session, var child) {
-    final widgets = <Widget>[];
-    session.children.forEach((each) {
-      widgets.add(SessionChildTile(each));
-    });
-    return Column(
-      // each child is offered an infinite height
-      children: widgets,
+  // Notification for changes to a SessionList
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider.value(
+      value: Jade().sessionList,
+      child: Consumer<SessionList>(builder: _builder),
     );
   }
 
-  ExpansionPanel _expansionPanel(Session session, bool isExpanded, int index) {
-    return ExpansionPanel(
-      isExpanded: isExpanded,
-      canTapOnHeader: true,
-      headerBuilder: (BuildContext context, bool isExpanded) {
-        return GestureDetector(
-          child: ListTile(
-            title: Text('Session ${index + 1}'),
-          ),
-          onTap: () {
-            session.beSelected();
-          },
-        );
-      },
-      body: ChangeNotifierProvider.value(
-        value: session,
-        child: Consumer<Session>(builder: _sessionDetailsBuilder),
-      ),
-    );
-  }
-
+  // Each Session gets an ExpansionPanel
   Widget _builder(var context, var sessionList, var child) {
     while (_isSessionExpanded.length < sessionList.length) {
       _isSessionExpanded.add(true);
@@ -74,11 +52,42 @@ class _SessionListWidget extends State<SessionListWidget> {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider.value(
-      value: Jade().sessionList,
-      child: Consumer<SessionList>(builder: _builder),
+  ExpansionPanel _expansionPanel(Session session, bool isExpanded, int index) {
+    return ExpansionPanel(
+      isExpanded: isExpanded,
+      canTapOnHeader: true,
+      headerBuilder: (BuildContext context, bool isExpanded) {
+        return GestureDetector(
+          child: ListTile(
+            title: Text(
+              'Session ${index + 1}',
+              style: TextStyle(
+                color: session.isSelected
+                    ? Theme.of(context).colorScheme.primary
+                    : null,
+              ),
+            ),
+          ),
+          onTap: () {
+            session.beSelected();
+          },
+        );
+      },
+      body: ChangeNotifierProvider.value(
+        value: session,
+        child: Consumer<Session>(builder: _sessionDetailsBuilder),
+      ),
+    );
+  }
+
+  Widget _sessionDetailsBuilder(var context, var session, var child) {
+    final widgets = <Widget>[];
+    session.children.forEach((each) {
+      widgets.add(SessionChildTile(each));
+    });
+    return Column(
+      // each child is offered an infinite height
+      children: widgets,
     );
   }
 }

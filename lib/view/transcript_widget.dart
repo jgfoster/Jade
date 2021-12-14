@@ -47,7 +47,7 @@ class _TranscriptWidget extends State<TranscriptWidget> {
             // each child is offered an infinite height
             children: <Widget>[
               _buttonRow(),
-              _infoLine(),
+              // _infoLine(),
               const Divider(height: 1, thickness: 1),
               Expanded(child: _transcriptWidget()),
               _promptWidget(),
@@ -62,73 +62,109 @@ class _TranscriptWidget extends State<TranscriptWidget> {
     return Row(
       // each child is offered an infinite width
       children: [
-        // Commit transaction
-        IconButton(
-          icon: const Icon(Icons.photo_camera_outlined),
-          tooltip: 'Commit transaction',
-          onPressed: () async {
-            var result = await _session!.commit();
-            setState(() {
-              _transcript.writeln(
-                  '> System commit; commitRecordPageForSessionId: System session');
-              _transcript.writeln(result['result']);
-            });
-          },
-        ),
-        // Show session list
-        IconButton(
-          icon: const Icon(Icons.format_list_numbered),
-          tooltip: 'Show session list',
-          onPressed: () {
-            _session!.showSessionList();
-          },
-        ),
-        // Open code browser
-        IconButton(
-          icon: Transform.rotate(
-            angle: 270 * pi / 180,
-            child: const Icon(Icons.view_sidebar_outlined),
-          ),
-          tooltip: 'Open code browser',
-          onPressed: () {
-            _session!.openCodeBrowser();
-          },
-        ),
-        // Open workspace
-        IconButton(
-          icon: const Icon(Icons.article_outlined),
-          tooltip: 'Open workspace',
-          onPressed: () {
-            // print('Open workspace');
-          },
-        ),
-        // Abort transaction
+        _drawerIcon(),
+        _commitButton(),
+        _sessionListButton(),
+        _codeBrowserButton(),
+        _workspaceButton(),
         Expanded(
           child: Align(
-            alignment: Alignment.centerRight,
-            child: IconButton(
-              icon: const Icon(Icons.delete_outlined),
-              tooltip: 'Abort transaction',
-              onPressed: () async {
-                var result = await _session!.abort();
-                setState(() {
-                  _transcript.writeln(
-                      '> System abortTransaction; commitRecordPageForSessionId: System session');
-                  _transcript.writeln(result['result']);
-                });
-              },
-            ),
+            // alignment: Alignment.center,
+            child: Text('${_session!.username} on ${_session!.address} '
+                '(${_session!.version.split(' ')[0]})'),
           ),
         ),
-        // Logout
-        IconButton(
-          icon: const Icon(Icons.logout),
-          tooltip: 'Logout',
-          onPressed: () {
-            Jade().doLogout(_session!);
-          },
-        ),
+        _abortButton(),
+        _logoutButton(),
       ],
+    );
+  }
+
+  Widget _commitButton() {
+    return IconButton(
+      icon: const Icon(Icons.photo_camera_outlined),
+      tooltip: 'Commit transaction',
+      onPressed: () async {
+        var result = await _session!.commit();
+        setState(() {
+          _transcript.writeln(
+              '> System commit; commitRecordPageForSessionId: System session');
+          _transcript.writeln(result['result']);
+        });
+      },
+    );
+  }
+
+  Widget _sessionListButton() {
+    return IconButton(
+      icon: const Icon(Icons.format_list_numbered),
+      tooltip: 'Show session list',
+      onPressed: () {
+        _session!.showSessionList();
+      },
+    );
+  }
+
+  Widget _codeBrowserButton() {
+    return // Open code browser
+        IconButton(
+      icon: Transform.rotate(
+        angle: 270 * pi / 180,
+        child: const Icon(Icons.view_sidebar_outlined),
+      ),
+      tooltip: 'Open code browser',
+      onPressed: () {
+        _session!.openCodeBrowser();
+      },
+    );
+  }
+
+  Widget _workspaceButton() {
+    return IconButton(
+      icon: const Icon(Icons.article_outlined),
+      tooltip: 'Open workspace',
+      onPressed: () {
+        // print('Open workspace');
+      },
+    );
+  }
+
+  Widget _abortButton() {
+    return IconButton(
+      icon: const Icon(Icons.delete_outlined),
+      tooltip: 'Abort transaction',
+      onPressed: () async {
+        var result = await _session!.abort();
+        setState(() {
+          _transcript.writeln(
+              '> System abortTransaction; commitRecordPageForSessionId: System session');
+          _transcript.writeln(result['result']);
+        });
+      },
+    );
+  }
+
+  Widget _logoutButton() {
+    return IconButton(
+      icon: const Icon(Icons.logout),
+      tooltip: 'Logout',
+      onPressed: () {
+        Jade().doLogout(_session!);
+      },
+    );
+  }
+
+  Widget _drawerIcon() {
+    return IconButton(
+      icon: const Icon(Icons.menu),
+      tooltip: 2 == 3 // _isShowingNavigation
+          ? 'Close navigation drawer'
+          : 'Open navigation drawer',
+      onPressed: () {
+        setState(() {
+          // _isShowingNavigation = !_isShowingNavigation;
+        });
+      },
     );
   }
 
