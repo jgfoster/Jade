@@ -11,6 +11,9 @@ class CodeModel extends JadeModel {
       );
   static String getTitle() => 'Code Browser';
 
+  get icon => getIcon();
+  get title => getTitle();
+
   final Session _session;
 
   CodeModel(this._session);

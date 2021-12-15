@@ -45,7 +45,7 @@ class Session extends JadeModel {
       // ignore this!
     }
 
-    Jade().removeSession(_session);
+    Jade().removeSession(this);
     notifyListeners();
   }
 

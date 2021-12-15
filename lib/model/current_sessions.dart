@@ -27,7 +27,9 @@ System currentSessions do: [:each |
 stream contents.
 ''';
 
+  get icon => getIcon();
   get result => _result;
+  get title => getTitle();
 
   CurrentSessions(this._session);
 

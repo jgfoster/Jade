@@ -4,6 +4,7 @@ import 'package:jade/model/jade_model.dart';
 class Login extends JadeModel {
   static Widget getIcon() => const Icon(Icons.login_outlined);
   static String getTitle() => 'Login';
+  get title => getTitle();
 
   String _address = 'localhost:50378';
   String _username = 'DataCurator';

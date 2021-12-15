@@ -15,7 +15,7 @@ class SessionChildTile extends ListTile {
     return ListTile(
       dense: true,
       selected: model.isSelected,
-      title: Text(model.getTitle()),
+      title: Text(model.title),
       onTap: () => model.beSelected(),
       leading: model.icon,
     );
