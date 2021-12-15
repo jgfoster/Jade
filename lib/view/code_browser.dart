@@ -5,24 +5,15 @@ import 'package:jade/model/code_model.dart';
 import 'package:jade/view/open_nav_drawer.dart';
 import 'package:provider/provider.dart';
 
-class CodeBrowser extends StatefulWidget {
+class CodeBrowser extends StatelessWidget {
   final CodeModel _codeModel;
   const CodeBrowser(this._codeModel, {Key? key}) : super(key: key);
-
-  @override
-  _CodeBrowser createState() {
-    return _CodeBrowser();
-  }
-}
-
-class _CodeBrowser extends State<CodeBrowser> {
-  _CodeBrowser();
 
   // Set up notification for changes in the CodeModel
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider.value(
-      value: widget._codeModel,
+      value: _codeModel,
       child: Consumer<CodeModel>(builder: _builder),
     );
   }
@@ -39,10 +30,7 @@ class _CodeBrowser extends State<CodeBrowser> {
               icon: const Icon(Icons.photo_camera_outlined),
               tooltip: 'Commit transaction',
               onPressed: () async {
-                // var result = await widget._codeModel!.commit();
-                setState(() {
-                  // print(result);
-                });
+                // TODO
               },
             ),
             // Abort transaction
@@ -53,10 +41,7 @@ class _CodeBrowser extends State<CodeBrowser> {
                   icon: const Icon(Icons.delete_outlined),
                   tooltip: 'Abort transaction',
                   onPressed: () async {
-                    // var result = await widget._codeModel!.commit();
-                    setState(() {
-                      // print(result);
-                    });
+                    // TODO
                   },
                 ),
               ),
@@ -66,17 +51,14 @@ class _CodeBrowser extends State<CodeBrowser> {
               icon: const Icon(Icons.close_outlined),
               tooltip: 'Close browser',
               onPressed: () async {
-                // var result = await widget._codeModel!.commit();
-                setState(() {
-                  // print(result);
-                });
+                // TODO
               },
             ),
           ],
         ),
         Expanded(
           child: Row(
-            children: [
+            children: const [
               Expanded(
                 child: Placeholder(),
               ),
@@ -95,7 +77,7 @@ class _CodeBrowser extends State<CodeBrowser> {
             ],
           ),
         ),
-        Expanded(
+        const Expanded(
           child: Placeholder(),
         ),
       ],

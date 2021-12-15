@@ -22,12 +22,11 @@ class LoginForm extends StatefulWidget {
 class LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
   late Login _login;
-  get login => _login;
   final _addressController = TextEditingController();
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
   var _isInLogin = false;
-  final _log = StringBuffer();
+  final _log = StringBuffer(); // TODO: should be with model, not view
 
   // Form
   @override
