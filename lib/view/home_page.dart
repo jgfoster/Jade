@@ -10,7 +10,7 @@ import 'package:jade/view/selected_model_widget.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
-  final _drawerWidth = 200.0;
+  final _drawerWidth = 220.0;
 
   const HomePage({Key? key}) : super(key: key);
 

@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:jade/model/jade.dart';
-import 'package:jade/model/login_list.dart';
+import 'package:jade/model/login.dart';
 import 'package:jade/view/login_tile.dart';
 import 'package:provider/provider.dart';
 
@@ -20,7 +20,26 @@ class LoginListWidget extends StatefulWidget {
 class _LoginListWidget extends State<LoginListWidget> {
   bool _isLoginListExpanded = true;
 
-  ExpansionPanel _expansionPanel(LoginList loginList) {
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider.value(
+      value: Jade(),
+      child: Consumer<Jade>(builder: _builder),
+    );
+  }
+
+  Widget _builder(var context, var jade, var child) {
+    return ExpansionPanelList(
+      expansionCallback: (int index, bool isExpanded) {
+        setState(() {
+          _isLoginListExpanded = !isExpanded;
+        });
+      },
+      children: [_expansionPanel(jade.loginList)],
+    );
+  }
+
+  ExpansionPanel _expansionPanel(List<Login> loginList) {
     return ExpansionPanel(
       canTapOnHeader: true,
       isExpanded: _isLoginListExpanded,
@@ -31,7 +50,7 @@ class _LoginListWidget extends State<LoginListWidget> {
                   icon: const Icon(Icons.add),
                   tooltip: 'Add login',
                   onPressed: () {
-                    Jade().newLogin();
+                    Jade().addLogin(Login());
                     if (!isExpanded) {
                       setState(() {
                         _isLoginListExpanded = true;
@@ -47,25 +66,6 @@ class _LoginListWidget extends State<LoginListWidget> {
         // each child is offered an infinite height
         children: loginList.map<ListTile>((each) => LoginTile(each)).toList(),
       ),
-    );
-  }
-
-  Widget _builder(var context, var loginList, var child) {
-    return ExpansionPanelList(
-      expansionCallback: (int index, bool isExpanded) {
-        setState(() {
-          _isLoginListExpanded = !isExpanded;
-        });
-      },
-      children: [_expansionPanel(loginList)],
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider.value(
-      value: Jade().loginList,
-      child: Consumer<LoginList>(builder: _builder),
     );
   }
 }

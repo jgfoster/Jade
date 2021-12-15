@@ -18,7 +18,7 @@ void main() {
 // pre-login
   test('getGciVersion', () async {
     var version = await server.getGciVersion();
-    expect(version, startsWith('3.6.3'));
+    expect(version, startsWith('3.6.'));
   });
 
   test('encrypt', () async {

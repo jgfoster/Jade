@@ -7,7 +7,6 @@
 import 'package:flutter/material.dart';
 import 'package:jade/model/jade.dart';
 import 'package:jade/model/session.dart';
-import 'package:jade/model/session_list.dart';
 import 'package:jade/view/session_child_tile.dart';
 import 'package:provider/provider.dart';
 
@@ -19,22 +18,29 @@ class SessionListWidget extends StatefulWidget {
 }
 
 // Holds ephemeral state: is list expanded
+// Watch for changes to Jade (updates to session list)
 class _SessionListWidget extends State<SessionListWidget> {
   final List<bool> _isSessionExpanded = [];
 
-  // Notification for changes to a SessionList
+  // Notification for changes to session list
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider.value(
-      value: Jade().sessionList,
-      child: Consumer<SessionList>(builder: _builder),
+      value: Jade(),
+      child: Consumer<Jade>(builder: _builder),
     );
   }
 
   // Each Session gets an ExpansionPanel
-  Widget _builder(var context, var sessionList, var child) {
-    while (_isSessionExpanded.length < sessionList.length) {
+  Widget _builder(var context, var jade, var child) {
+    while (_isSessionExpanded.length < jade.sessionList.length) {
       _isSessionExpanded.add(true);
+    }
+    List<Session> sessionList = jade.sessionList;
+    final panels = <ExpansionPanel>[];
+    for (var i = 0; i < sessionList.length; ++i) {
+      var session = sessionList[i];
+      panels.add(_expansionPanel(session, _isSessionExpanded[i], i));
     }
     return Padding(
       padding: const EdgeInsets.only(bottom: 12.0),
@@ -44,10 +50,7 @@ class _SessionListWidget extends State<SessionListWidget> {
             _isSessionExpanded[index] = !isExpanded;
           });
         },
-        children: sessionList
-            .map<ExpansionPanel>((session, index) =>
-                _expansionPanel(session, _isSessionExpanded[index], index))
-            .toList(),
+        children: panels,
       ),
     );
   }
@@ -59,6 +62,7 @@ class _SessionListWidget extends State<SessionListWidget> {
       headerBuilder: (BuildContext context, bool isExpanded) {
         return GestureDetector(
           child: ListTile(
+            leading: const Icon(Icons.person_outline),
             title: Text(
               'Session ${index + 1}',
               style: TextStyle(

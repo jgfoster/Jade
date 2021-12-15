@@ -2,22 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:jade/model/jade.dart';
 
 abstract class JadeModel with ChangeNotifier {
+  void beSelected() {
+    Jade().selectModel(this);
+  }
+
   get isSelected => Jade().selectedModel == this;
 
-  void beSelected() {
-    Jade().selectedModel = this;
+  void updateState() {
+    // notifyListeners();
   }
-
-  void beNotSelected() {
-    if (Jade().selectedModel == this) {
-      Jade().selectedModel = null;
-    }
-  }
-
-  void selectionStatusChanged() {
-    notifyListeners();
-  }
-
-  get mayRemoveFromParent => true;
-  void removeFromParent() {}
 }

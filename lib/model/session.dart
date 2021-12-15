@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:jade/model/code_model.dart';
 import 'package:jade/model/current_sessions.dart';
+import 'package:jade/model/jade.dart';
 import 'package:jade/model/jade_model.dart';
 import 'package:jade/model/jade_server.dart';
+import 'package:jade/model/jade_server_abstract.dart';
 
 class Session extends JadeModel {
+  static Widget getIcon() => const Icon(Icons.person_outline);
+  static String getTitle() => 'Transcript';
+
   late String _session;
   late JadeServer _server;
   final String _address;
@@ -16,9 +21,6 @@ class Session extends JadeModel {
 
   get address => _address;
   get isLoggedIn => _isLoggedIn;
-  @override
-  get mayRemoveFromParent => false;
-  get title => const Text('Transcript');
   get username => _username;
   get version => _version;
   get children => _children;
@@ -33,18 +35,23 @@ class Session extends JadeModel {
     client('${DateTime.now()} - Server version = ${_version.split(' ')[0]}');
     _session = await _server.login(_username, _password);
     _isLoggedIn = true;
-    _children.add(this);
     notifyListeners();
   }
 
   void logout() async {
-    await _server.logout(_session);
+    try {
+      await _server.logout(_session);
+    } on GciError {
+      // ignore this!
+    }
+
+    Jade().removeSession(_session);
     notifyListeners();
   }
 
   @override
-  void selectionStatusChanged() {
-    notifyListeners();
+  void updateState() {
+    // notifyListeners();
   }
 
   Future<Map<String, dynamic>> abort() async {
@@ -70,7 +77,7 @@ class Session extends JadeModel {
   void removeChild(var child) {
     if (child.isSelected) {
       child.beNotSelected();
-      beSelected();
+      Jade().selectModel(this);
     }
     _children.remove(child);
     notifyListeners();

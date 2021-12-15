@@ -77,7 +77,7 @@ class LoginFormState extends State<LoginForm> {
       icon: const Icon(Icons.close_outlined),
       tooltip: 'Remove this login',
       onPressed: () {
-        _login.removeFromParent();
+        Jade().removeLogin(_login);
       },
     );
   }
@@ -191,9 +191,9 @@ class LoginFormState extends State<LoginForm> {
           // each child is offered an infinite width
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            Icon(Icons.login),
-            Expanded(
+          children: [
+            Login.getIcon(),
+            const Expanded(
               child: Padding(
                 padding: EdgeInsets.only(left: 8.0),
                 child: Text('Login'),

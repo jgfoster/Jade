@@ -23,7 +23,7 @@ class LoginTile extends ListTile {
     return ListTile(
       dense: true,
       selected: login.isSelected,
-      leading: const Icon(Icons.login_outlined),
+      leading: Login.getIcon(),
       title: Text('${_login.username} at ${login.address}'),
       onTap: () {
         login.beSelected();

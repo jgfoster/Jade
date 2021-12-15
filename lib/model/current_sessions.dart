@@ -3,6 +3,9 @@ import 'package:jade/model/jade_model.dart';
 import 'package:jade/model/session.dart';
 
 class CurrentSessions extends JadeModel {
+  static Widget getIcon() => const Icon(Icons.people_outline);
+  static String getTitle() => 'Current Sessions';
+
   final Session _session;
   Map<String, dynamic> _result = {'string': ''};
   var code = '''
@@ -25,18 +28,12 @@ stream contents.
 ''';
 
   get result => _result;
-  get title => const Text('Current Sessions');
 
   CurrentSessions(this._session);
 
   @override
-  void selectionStatusChanged() async {
+  void updateState() async {
     _result = await _session.execute(code);
     notifyListeners();
-  }
-
-  @override
-  void removeFromParent() {
-    _session.removeChild(this);
   }
 }

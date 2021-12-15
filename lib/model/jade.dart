@@ -1,67 +1,75 @@
 import 'package:flutter/material.dart';
 import 'package:jade/model/jade_model.dart';
 import 'package:jade/model/login.dart';
-import 'package:jade/model/login_list.dart';
 import 'package:jade/model/session.dart';
-import 'package:jade/model/session_list.dart';
 
 class Jade with ChangeNotifier {
   static Jade? _jade;
-  final LoginList loginList = LoginList();
-  final SessionList sessionList = SessionList();
+  final _loginList = <Login>[];
+  final _sessionList = <Session>[];
   JadeModel? _selectedModel;
   bool _isShowingNavigation = true;
 
+  // Singleton
   factory Jade() {
     if (_jade == null) {
       // assign variable before proceeding so that
       // subsequent calls find something
       _jade ??= Jade._();
-      _jade!.newLogin();
+      _jade!.addLogin(Login());
     }
     return _jade!;
   }
 
   Jade._();
 
-  void addSession(Session session) {
-    sessionList.add(session);
-    session.beSelected();
+  get loginList => _loginList;
+  get sessionList => _sessionList;
+
+  void addLogin(login) {
+    _loginList.add(login);
+    _selectedModel = login;
+    notifyListeners();
   }
 
-  void doLogout(Session session) {
-    sessionList.remove(session);
-    session.beNotSelected();
-    session.logout();
+  void addSession(Session session) {
+    _sessionList.add(session);
+    _selectedModel = session;
+    notifyListeners();
   }
 
   get isShowingNavigation => _isShowingNavigation;
 
-  void toggleIsShowingNavigation() {
-    _isShowingNavigation = !_isShowingNavigation;
+  void removeLogin(login) {
+    _loginList.remove(login);
+    if (_selectedModel == login) {
+      _selectedModel = null;
+    }
     notifyListeners();
   }
 
-  void newLogin() {
-    var login = Login();
-    loginList.add(login);
-    login.beSelected();
+  void removeSession(session) {
+    _sessionList.remove(session);
+    if (_selectedModel == session) {
+      _selectedModel = null;
+    }
+    notifyListeners();
   }
 
   JadeModel? get selectedModel => _selectedModel;
 
-  set selectedModel(JadeModel? login) {
-    if (_selectedModel != login) {
-      var priorSelection = _selectedModel;
-      _selectedModel = login;
-      priorSelection?.selectionStatusChanged();
-      _selectedModel?.selectionStatusChanged();
-      // nothing is selected; what should we do?
-      if (_selectedModel == null && loginList.isNotEmpty) {
-        loginList.last.beSelected(); // this will come back to us!
-      } else {
-        notifyListeners();
+  void selectModel(JadeModel? model) {
+    if (_selectedModel != model) {
+      _selectedModel = model;
+      if (_selectedModel != null) {
+        _selectedModel?.updateState();
       }
+      notifyListeners();
     }
+  }
+
+  void toggleIsShowingNavigation() {
+    _isShowingNavigation = !_isShowingNavigation;
+    notifyListeners();
   }
 }

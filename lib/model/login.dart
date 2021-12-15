@@ -1,7 +1,10 @@
-import 'package:jade/model/jade.dart';
+import 'package:flutter/material.dart';
 import 'package:jade/model/jade_model.dart';
 
 class Login extends JadeModel {
+  static Widget getIcon() => const Icon(Icons.login_outlined);
+  static String getTitle() => 'Login';
+
   String _address = 'localhost:50378';
   String _username = 'DataCurator';
   String _password = 'swordfish';
@@ -31,10 +34,5 @@ class Login extends JadeModel {
       _password = aString;
       notifyListeners();
     }
-  }
-
-  @override
-  void removeFromParent() {
-    Jade().loginList.remove(this);
   }
 }

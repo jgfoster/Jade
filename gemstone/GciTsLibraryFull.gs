@@ -1053,7 +1053,7 @@ classmethod: GciTsLibraryFull
 initializeFunctions
 
 	| library |
-	library := CLibrary named: '$GEMSTONE/lib/libgcits-3.6.3-64.dylib'.
+	library := CLibrary named: '$GEMSTONE/lib/libgcits-' , (System gemVersionAt: 'gsVersion') , '-64.dylib'.
 	self
 		initializeFunction_GciFree_inLibrary: library;
 		initializeFunction_GciHostCallDebuggerMsg_inLibrary: library;

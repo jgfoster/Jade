@@ -15,17 +15,9 @@ class SessionChildTile extends ListTile {
     return ListTile(
       dense: true,
       selected: model.isSelected,
-      title: model.title,
+      title: Text(model.getTitle()),
       onTap: () => model.beSelected(),
-      leading: model.mayRemoveFromParent
-          ? IconButton(
-              icon: const Icon(Icons.delete),
-              tooltip: 'Delete',
-              onPressed: () {
-                _model.removeFromParent();
-              },
-            )
-          : Container(width: 1.0),
+      leading: model.icon,
     );
   }
 

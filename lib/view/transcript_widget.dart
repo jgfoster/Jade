@@ -5,7 +5,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:jade/model/jade.dart';
 import 'package:jade/model/jade_server_abstract.dart';
 import 'package:jade/model/session.dart';
 import 'package:jade/view/open_nav_drawer.dart';
@@ -154,7 +153,7 @@ class _TranscriptWidget extends State<TranscriptWidget> {
       icon: const Icon(Icons.logout),
       tooltip: 'Logout',
       onPressed: () {
-        Jade().doLogout(_session!);
+        _session!.logout();
       },
     );
   }
