@@ -10,6 +10,7 @@ class Jade with ChangeNotifier {
   final LoginList loginList = LoginList();
   final SessionList sessionList = SessionList();
   JadeModel? _selectedModel;
+  bool _isShowingNavigation = true;
 
   factory Jade() {
     if (_jade == null) {
@@ -23,7 +24,7 @@ class Jade with ChangeNotifier {
 
   Jade._();
 
-  Future<void> addSession(Session session) async {
+  void addSession(Session session) {
     sessionList.add(session);
     session.beSelected();
   }
@@ -32,6 +33,13 @@ class Jade with ChangeNotifier {
     sessionList.remove(session);
     session.beNotSelected();
     session.logout();
+  }
+
+  get isShowingNavigation => _isShowingNavigation;
+
+  void toggleIsShowingNavigation() {
+    _isShowingNavigation = !_isShowingNavigation;
+    notifyListeners();
   }
 
   void newLogin() {

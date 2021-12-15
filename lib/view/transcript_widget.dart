@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:jade/model/jade.dart';
 import 'package:jade/model/jade_server_abstract.dart';
 import 'package:jade/model/session.dart';
+import 'package:jade/view/open_nav_drawer.dart';
 import 'package:provider/provider.dart';
 
 class TranscriptWidget extends StatefulWidget {
@@ -46,7 +47,7 @@ class _TranscriptWidget extends State<TranscriptWidget> {
           child: Column(
             // each child is offered an infinite height
             children: <Widget>[
-              _buttonRow(),
+              _header(),
               // _infoLine(),
               const Divider(height: 1, thickness: 1),
               Expanded(child: _transcriptWidget()),
@@ -58,22 +59,16 @@ class _TranscriptWidget extends State<TranscriptWidget> {
     );
   }
 
-  Widget _buttonRow() {
+  Widget _header() {
     return Row(
       // each child is offered an infinite width
       children: [
-        _drawerIcon(),
+        const OpenNavDrawer(),
         _commitButton(),
         _sessionListButton(),
         _codeBrowserButton(),
         _workspaceButton(),
-        Expanded(
-          child: Align(
-            // alignment: Alignment.center,
-            child: Text('${_session!.username} on ${_session!.address} '
-                '(${_session!.version.split(' ')[0]})'),
-          ),
-        ),
+        _loginInfo(),
         _abortButton(),
         _logoutButton(),
       ],
@@ -129,6 +124,16 @@ class _TranscriptWidget extends State<TranscriptWidget> {
     );
   }
 
+  Widget _loginInfo() {
+    return Expanded(
+      child: Align(
+        // alignment: Alignment.center,
+        child: Text('${_session!.username} on ${_session!.address} '
+            '(${_session!.version.split(' ')[0]})'),
+      ),
+    );
+  }
+
   Widget _abortButton() {
     return IconButton(
       icon: const Icon(Icons.delete_outlined),
@@ -151,31 +156,6 @@ class _TranscriptWidget extends State<TranscriptWidget> {
       onPressed: () {
         Jade().doLogout(_session!);
       },
-    );
-  }
-
-  Widget _drawerIcon() {
-    return IconButton(
-      icon: const Icon(Icons.menu),
-      tooltip: 2 == 3 // _isShowingNavigation
-          ? 'Close navigation drawer'
-          : 'Open navigation drawer',
-      onPressed: () {
-        setState(() {
-          // _isShowingNavigation = !_isShowingNavigation;
-        });
-      },
-    );
-  }
-
-  Widget _infoLine() {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Text(
-        '${_session!.username} on ${_session!.address} '
-        '(${_session!.version.split(' ')[0]})',
-        style: Theme.of(context).textTheme.headline6,
-      ),
     );
   }
 

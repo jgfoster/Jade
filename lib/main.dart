@@ -8,7 +8,7 @@ import 'package:window_size/window_size.dart'
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   setWindowTitle('Jade — an IDE for GemStone/S 64 Bit');
-  setWindowMinSize(const Size(800, 640));
+  setWindowMinSize(const Size(800, 600));
   setWindowMaxSize(Size.infinite);
   runApp(const JadeApp());
 }

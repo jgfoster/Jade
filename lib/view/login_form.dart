@@ -6,6 +6,7 @@ import 'package:jade/model/jade.dart';
 import 'package:jade/model/jade_server_abstract.dart';
 import 'package:jade/model/login.dart';
 import 'package:jade/model/session.dart';
+import 'package:jade/view/open_nav_drawer.dart';
 import 'unused.dart' if (dart.library.html) 'dart:html' as html;
 
 class LoginForm extends StatefulWidget {
@@ -53,32 +54,22 @@ class LoginFormState extends State<LoginForm> {
     // Button row
     return Row(
       children: [
-        _drawerIcon(),
-        Expanded(
-          child: Align(
-            alignment: Alignment.center,
-            child: Text(
-              'Define a Login to Connect to GemStone',
-              style: Theme.of(context).textTheme.headline6,
-            ),
-          ),
-        ),
+        const OpenNavDrawer(),
+        _title(),
         _closeIcon(),
       ],
     );
   }
 
-  Widget _drawerIcon() {
-    return IconButton(
-      icon: const Icon(Icons.menu),
-      tooltip: 2 == 3 // _isShowingNavigation
-          ? 'Close navigation drawer'
-          : 'Open navigation drawer',
-      onPressed: () {
-        setState(() {
-          // _isShowingNavigation = !_isShowingNavigation;
-        });
-      },
+  Widget _title() {
+    return Expanded(
+      child: Align(
+        alignment: Alignment.center,
+        child: Text(
+          'Define a Connection to GemStone/S 64 Bit',
+          style: Theme.of(context).textTheme.headline6,
+        ),
+      ),
     );
   }
 

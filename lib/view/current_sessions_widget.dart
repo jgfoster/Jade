@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:jade/model/current_sessions.dart';
+import 'package:jade/view/open_nav_drawer.dart';
 import 'package:provider/provider.dart';
 
 class CurrentSessionsWidget extends StatefulWidget {
@@ -46,10 +47,48 @@ class _CurrentSessionsWidget extends State<CurrentSessionsWidget> {
       }
     });
 
-    return Table(
-      defaultColumnWidth: const IntrinsicColumnWidth(),
-      defaultVerticalAlignment: TableCellVerticalAlignment.top,
-      children: tableRows,
+    return Column(
+      children: [
+        _headerRow(),
+        Table(
+          defaultColumnWidth: const IntrinsicColumnWidth(),
+          defaultVerticalAlignment: TableCellVerticalAlignment.top,
+          children: tableRows,
+        ),
+      ],
+    );
+  }
+
+  Widget _headerRow() {
+    // Button row
+    return Row(
+      children: [
+        const OpenNavDrawer(),
+        _title(),
+        _closeIcon(),
+      ],
+    );
+  }
+
+  Widget _title() {
+    return Expanded(
+      child: Align(
+        alignment: Alignment.center,
+        child: Text(
+          'Current Session List',
+          style: Theme.of(context).textTheme.headline6,
+        ),
+      ),
+    );
+  }
+
+  Widget _closeIcon() {
+    return IconButton(
+      icon: const Icon(Icons.close_outlined),
+      tooltip: 'Close this page',
+      onPressed: () {
+        // _login.removeFromParent();
+      },
     );
   }
 }

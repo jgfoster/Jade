@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:jade/model/code_model.dart';
+import 'package:jade/view/open_nav_drawer.dart';
 import 'package:provider/provider.dart';
 
 class CodeBrowser extends StatefulWidget {
@@ -32,6 +33,7 @@ class _CodeBrowser extends State<CodeBrowser> {
         // Button row
         Row(
           children: [
+            const OpenNavDrawer(),
             // Commit transaction
             IconButton(
               icon: const Icon(Icons.photo_camera_outlined),
