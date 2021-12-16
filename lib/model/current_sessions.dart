@@ -8,7 +8,15 @@ class CurrentSessions extends JadeModel {
 
   final Session _session;
   Map<String, dynamic> _result = {'string': ''};
-  var code = '''
+
+  CurrentSessions(this._session);
+
+  get icon => getIcon();
+  get result => _result;
+  get title => getTitle();
+
+  String _code() {
+    return '''
 | stream |
 stream := WriteStream on: String new.
 System currentSessions do: [:each |
@@ -26,16 +34,15 @@ System currentSessions do: [:each |
 ].
 stream contents.
 ''';
+  }
 
-  get icon => getIcon();
-  get result => _result;
-  get title => getTitle();
-
-  CurrentSessions(this._session);
+  void close() {
+    _session.removeChild(this);
+  }
 
   @override
   void updateState() async {
-    _result = await _session.execute(code);
+    _result = await _session.execute(_code());
     notifyListeners();
   }
 }

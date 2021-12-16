@@ -51,7 +51,7 @@ class CodeBrowser extends StatelessWidget {
               icon: const Icon(Icons.close_outlined),
               tooltip: 'Close browser',
               onPressed: () async {
-                // TODO
+                _codeModel.close();
               },
             ),
           ],

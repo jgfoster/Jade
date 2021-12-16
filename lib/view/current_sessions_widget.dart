@@ -66,7 +66,7 @@ class CurrentSessionsWidget extends StatelessWidget {
       icon: const Icon(Icons.close_outlined),
       tooltip: 'Close this page',
       onPressed: () {
-        // TODO
+        _currentSessions.close();
       },
     );
   }

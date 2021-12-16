@@ -69,6 +69,10 @@ class Jade with ChangeNotifier {
   }
 
   void toggleIsShowingNavigation() {
+    // don't close the drawer if we aren't showing anything!
+    if (_isShowingNavigation && _selectedModel == null) {
+      return;
+    }
     _isShowingNavigation = !_isShowingNavigation;
     notifyListeners();
   }

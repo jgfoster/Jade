@@ -18,6 +18,10 @@ class CodeModel extends JadeModel {
 
   CodeModel(this._session);
 
+  void close() {
+    _session.removeChild(this);
+  }
+
   @override
   void updateState() async {
     // TODO: _result = await _session.execute(code);

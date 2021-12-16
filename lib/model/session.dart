@@ -76,11 +76,9 @@ class Session extends JadeModel {
 
   void removeChild(var child) {
     if (child.isSelected) {
-      child.beNotSelected();
       Jade().selectModel(this);
     }
     _children.remove(child);
-    notifyListeners();
   }
 
   void showSessionList() {
