@@ -2,9 +2,8 @@
 // and displays a row of action buttons (commit, open session list, ...)
 // followed by a transcript and REPL prompt
 
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:jade/model/code_model.dart';
 import 'package:jade/model/jade_server_abstract.dart';
 import 'package:jade/model/session.dart';
 import 'package:jade/view/open_nav_drawer.dart';
@@ -102,10 +101,7 @@ class _TranscriptWidget extends State<TranscriptWidget> {
   Widget _codeBrowserButton() {
     return // Open code browser
         IconButton(
-      icon: Transform.rotate(
-        angle: 270 * pi / 180,
-        child: const Icon(Icons.view_sidebar_outlined),
-      ),
+      icon: CodeModel.getIcon(),
       tooltip: 'Open code browser',
       onPressed: () {
         _session!.openCodeBrowser();
