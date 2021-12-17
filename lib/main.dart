@@ -8,7 +8,8 @@ import 'package:window_size/window_size.dart'
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   setWindowTitle('Jade — an IDE for GemStone/S 64 Bit');
-  setWindowMinSize(const Size(800, 600));
+  // allow extra height for the title bar (app area is min of 800x600)
+  setWindowMinSize(const Size(800, 622));
   setWindowMaxSize(Size.infinite);
   runApp(const JadeApp());
 }

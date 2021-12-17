@@ -123,14 +123,17 @@ class CodeBrowser extends StatelessWidget {
     final list = _codeModel.classes;
     final selectedColor = Theme.of(context).colorScheme.primary;
     const unselectedColor = Colors.black;
-    return ListView(
-      controller: ScrollController(
-        initialScrollOffset: 0.0,
-        keepScrollOffset: false,
-      ),
-      children: list
-          .map(
-            (each) => TextButton(
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: SizedBox(
+        width: 400.0,
+        child: ListView.builder(
+          itemCount: list.length,
+          itemExtent: 20.0,
+          controller: ScrollController(),
+          itemBuilder: (BuildContext context, int index) {
+            var each = list[index];
+            return TextButton(
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -141,9 +144,10 @@ class CodeBrowser extends StatelessWidget {
                 ),
               ),
               onPressed: () => _codeModel.selectClass(each),
-            ),
-          )
-          .toList(),
+            );
+          },
+        ),
+      ),
     );
   }
 
