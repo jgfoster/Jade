@@ -123,7 +123,7 @@ class CodeBrowser extends StatelessWidget {
     return _list(
       context,
       _codeModel.methods,
-      (each) => null, // _codeModel.selectMethod(each),
+      (each) => _codeModel.selectMethod(each),
     );
   }
 

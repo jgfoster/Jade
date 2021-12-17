@@ -59,9 +59,18 @@ class CodeModel extends JadeModel {
     updateState();
   }
 
+  void selectMethod(var dict) async {
+    for (var each in methods) {
+      each.isSelected = false;
+    }
+    dict.isSelected = true;
+    updateState();
+  }
+
   @override
   void updateState() async {
     var buffer = _updateStateCode();
+
     GsObject myDict = nil;
     try {
       myDict = dictionaries.firstWhere((each) => each.isSelected);
@@ -70,6 +79,11 @@ class CodeModel extends JadeModel {
     GsObject myClass = nil;
     try {
       myClass = classes.firstWhere((each) => each.isSelected);
+    } catch (_) {}
+
+    GsObject myMethod = nil;
+    try {
+      myMethod = methods.firstWhere((each) => each.isSelected);
     } catch (_) {}
 
     buffer.write(' value: \'${myDict.oop}\' value: \'${myClass.oop}\'');
@@ -101,7 +115,7 @@ class CodeModel extends JadeModel {
       var each = GsObject(
         eachMap['name'],
         eachMap['oop'],
-        eachMap['oop'] == myClass.oop && eachMap['name'] == myClass.name,
+        eachMap['oop'] == myMethod.oop && eachMap['name'] == myMethod.name,
       );
       methods.add(each);
     }
@@ -116,7 +130,7 @@ class CodeModel extends JadeModel {
 selectedDictOop := Integer fromHexString: dictOop.
 selectedClassOop := Integer fromHexString: classOop.
 dict := Dictionary new.
-selectors := [].
+selectors := #().
 result := Dictionary new
 	at: 'dicts' put: (System myUserProfile symbolList collect: [:each |
 		each asOop == selectedDictOop ifTrue: [dict := each].
