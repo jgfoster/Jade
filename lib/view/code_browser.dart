@@ -1,5 +1,7 @@
 // CurrentSessionsWidget displays a list of the current sessions
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:jade/model/code_model.dart';
 import 'package:jade/view/open_nav_drawer.dart';
@@ -78,85 +80,94 @@ class CodeBrowser extends StatelessWidget {
 
   Widget _filterRow(context) {
     return Expanded(
-      child: Row(
-        children: [
-          Expanded(child: _dictionaries(context)),
-          Expanded(child: _classCategories()),
-          Expanded(child: _classes(context)),
-          Expanded(child: _methodCategories()),
-          Expanded(child: _methods()),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 8.0),
+        child: Row(
+          children: [
+            Expanded(child: _dictionaries(context)),
+            Expanded(child: _classCategories(context)),
+            Expanded(child: _classes(context)),
+            Expanded(child: _methodCategories(context)),
+            Expanded(child: _methods(context)),
+          ],
+        ),
       ),
     );
   }
 
   Widget _dictionaries(context) {
-    final selectedColor = Theme.of(context).colorScheme.primary;
-    const unselectedColor = Colors.black;
-    final list = _codeModel.dictionaries;
-    return ListView.builder(
-      itemCount: list.length,
-      itemExtent: 20.0,
-      itemBuilder: (BuildContext context, int index) {
-        var each = list[index];
-        return TextButton(
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              each.name,
-              style: TextStyle(
-                color: each.isSelected ? selectedColor : unselectedColor,
-              ),
-            ),
-          ),
-          onPressed: () => _codeModel.selectDictionary(each),
-        );
-      },
+    return _list(
+      context,
+      _codeModel.dictionaries,
+      (each) => _codeModel.selectDictionary(each),
     );
   }
 
-  Widget _classCategories() {
+  Widget _classCategories(context) {
     return const Placeholder();
   }
 
   Widget _classes(context) {
-    final list = _codeModel.classes;
+    return _list(
+      context,
+      _codeModel.classes,
+      (each) => _codeModel.selectClass(each),
+    );
+  }
+
+  Widget _methodCategories(context) {
+    return const Placeholder();
+  }
+
+  Widget _methods(context) {
+    return _list(
+      context,
+      _codeModel.methods,
+      (each) => null, // _codeModel.selectMethod(each),
+    );
+  }
+
+  Widget _list(var context, var list, var onPressed) {
     final selectedColor = Theme.of(context).colorScheme.primary;
     const unselectedColor = Colors.black;
+    var size = 0.0;
+    // calculate maximum width (<2ms for ~650 items)
+    for (var each in list) {
+      final TextPainter textPainter = TextPainter(
+          text: TextSpan(text: each.name),
+          maxLines: 1,
+          textDirection: TextDirection.ltr)
+        ..layout(minWidth: 0, maxWidth: double.infinity);
+      size = max(size, textPainter.size.width);
+    }
+    // return textPainter.size;
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: SizedBox(
-        width: 400.0,
+        width: size + 30,
         child: ListView.builder(
           itemCount: list.length,
           itemExtent: 20.0,
           controller: ScrollController(),
           itemBuilder: (BuildContext context, int index) {
             var each = list[index];
+            var name = each.name;
             return TextButton(
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  each.name,
+                  name,
                   style: TextStyle(
                     color: each.isSelected ? selectedColor : unselectedColor,
                   ),
                 ),
               ),
-              onPressed: () => _codeModel.selectClass(each),
+              onPressed: () => onPressed(each),
             );
           },
         ),
       ),
     );
-  }
-
-  Widget _methodCategories() {
-    return const Placeholder();
-  }
-
-  Widget _methods() {
-    return const Placeholder();
   }
 
   Widget _editors() {
