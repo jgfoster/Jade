@@ -123,24 +123,27 @@ class CodeBrowser extends StatelessWidget {
     final list = _codeModel.classes;
     final selectedColor = Theme.of(context).colorScheme.primary;
     const unselectedColor = Colors.black;
-    return ListView.builder(
-      itemCount: list.length,
-      itemExtent: 20.0,
-      itemBuilder: (BuildContext context, int index) {
-        var each = list[index];
-        return TextButton(
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              each.name,
-              style: TextStyle(
-                color: each.isSelected ? selectedColor : unselectedColor,
+    return InteractiveViewer(
+      constrained: false, // the child is allowed to be larger
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: list
+            .map(
+              (each) => TextButton(
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    each.name,
+                    style: TextStyle(
+                      color: each.isSelected ? selectedColor : unselectedColor,
+                    ),
+                  ),
+                ),
+                onPressed: () => _codeModel.selectClass(each),
               ),
-            ),
-          ),
-          onPressed: () => _codeModel.selectClass(each),
-        );
-      },
+            )
+            .toList(),
+      ),
     );
   }
 
