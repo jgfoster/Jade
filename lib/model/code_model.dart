@@ -105,6 +105,7 @@ class CodeModel extends JadeModel {
     return StringBuffer('''
 [:dictOop | | dict result selectedDictOop |
 selectedDictOop := Integer fromHexString: dictOop.
+dict := Dictionary new.
 result := Dictionary new
 	at: 'dicts' put: (System myUserProfile symbolList collect: [:each |
 		each asOop == selectedDictOop ifTrue: [dict := each].
@@ -114,17 +115,15 @@ result := Dictionary new
 			yourself.
 	]);
 	yourself.
-dict ifNotNil: [
-	result at: 'classes' put: (((dict values
-    select: [:each | each isClass])
-    asSortedCollection: [:a :b | a name <= b name])
-    collect: [:each |
-    	Dictionary new
-        at: 'name' put: each name;
-        at: 'oop' put: (each asOop printStringRadix: 16 showRadix: false);
-        yourself.
-    ]).
-].
+result at: 'classes' put: (((dict values
+  select: [:each | each isClass])
+  asSortedCollection: [:a :b | a name <= b name])
+  collect: [:each |
+    Dictionary new
+      at: 'name' put: each name;
+      at: 'oop' put: (each asOop printStringRadix: 16 showRadix: false);
+      yourself.
+  ]).
 result asJson]
 ''');
   }

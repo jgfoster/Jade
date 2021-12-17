@@ -37,7 +37,7 @@ abstract class JadeServerAbstract with ChangeNotifier {
   Future<String> i64ToOop(String session, BigInt value);
   Future<String> login(String username, String password);
   Future<bool> logout(String session);
-  Future<Map<String, dynamic>> nbResult(String session, [int timeoutMs = 0]);
+  Future<Map<String, dynamic>> nbResult(String session, [int timeoutMs = -1]);
   Future<String> newByteArray(String session, List<int> bytes);
   Future<String> newObj(String session, String classOop);
   Future<String> newString(String session, String string);

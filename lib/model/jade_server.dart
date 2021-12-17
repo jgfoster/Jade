@@ -184,7 +184,7 @@ class JadeServer extends JadeServerAbstract {
 
   @override
   Future<Map<String, dynamic>> nbResult(String session,
-      [int timeoutMs = 0]) async {
+      [int timeoutMs = -1]) async {
     _write({
       'request': 'nbResult',
       'session': session,

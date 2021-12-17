@@ -244,7 +244,7 @@ method: GciLibraryApp
 nbResult
 
 	| timeoutMs |
-	timeoutMs := requestDict at: 'timeout' ifAbsent: [0].
+	timeoutMs := requestDict at: 'timeout' ifAbsent: [-1].
 	((GsSocket fromFileHandle: socketFileHandle) readWillNotBlockWithin: timeoutMs) ifTrue: [
 		| oop |
 		oop := self library GciTsNbResult_: session _: error.
@@ -482,6 +482,18 @@ returnOop: anInteger
 			_: buffer
 			_: buffer size
 			_: error.
+		"If we didn't have enough room, try again!"
+		buffer size < objInfo objSize ifTrue: [
+			buffer := CByteArray gcMalloc: objInfo objSize + 8.
+			result := self library
+				GciTsFetchObjInfo_: session
+				_: anInteger
+				_: 1
+				_: objInfo
+				_: buffer
+				_: buffer size
+				_: error.
+		].
 		impl := #('oop' 'byte' 'nsc' 'special') at: (objInfo _bits bitAnd: 16r03) + 1.
 		class := Object objectForOop: objInfo objClass.
 		dict := Dictionary new

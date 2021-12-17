@@ -44,6 +44,7 @@ class Jade with ChangeNotifier {
     _loginList.remove(login);
     if (_selectedModel == login) {
       _selectedModel = null;
+      _isShowingNavigation = true;
     }
     notifyListeners();
   }
@@ -52,6 +53,7 @@ class Jade with ChangeNotifier {
     _sessionList.remove(session);
     if (_selectedModel == session) {
       _selectedModel = null;
+      _isShowingNavigation = true;
     }
     notifyListeners();
   }
@@ -61,7 +63,9 @@ class Jade with ChangeNotifier {
   void selectModel(JadeModel? model) {
     if (_selectedModel != model) {
       _selectedModel = model;
-      if (_selectedModel != null) {
+      if (_selectedModel == null) {
+        _isShowingNavigation = true;
+      } else {
         _selectedModel?.updateState();
       }
       notifyListeners();
