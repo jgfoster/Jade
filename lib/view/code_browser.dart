@@ -2,6 +2,7 @@
 
 import 'dart:math';
 
+import 'package:code_text_field/code_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:jade/model/code_model.dart';
 import 'package:jade/view/open_nav_drawer.dart';
@@ -215,6 +216,30 @@ class CodeBrowser extends StatelessWidget {
   }
 
   Widget _method() {
-    return Text(_codeModel.method['source']);
+    // return Text();
+    var _codeController = CodeController(
+      text: _codeModel.method['source'],
+      patternMap: {
+        r"\B#[a-zA-Z0-9]+\b": const TextStyle(color: Colors.red),
+        r"\B@[a-zA-Z0-9]+\b": const TextStyle(
+          fontWeight: FontWeight.w800,
+          color: Colors.blue,
+        ),
+        r"\B![a-zA-Z0-9]+\b":
+            const TextStyle(color: Colors.yellow, fontStyle: FontStyle.italic),
+      },
+      stringMap: {
+        "bev": const TextStyle(color: Colors.indigo),
+      },
+      language: null,
+      theme: {},
+    );
+
+    return SingleChildScrollView(
+      child: CodeField(
+        controller: _codeController,
+        textStyle: const TextStyle(fontFamily: 'SourceCode'),
+      ),
+    );
   }
 } // CodeBrowser
