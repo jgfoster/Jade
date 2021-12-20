@@ -191,7 +191,7 @@ class _TranscriptWidget extends State<TranscriptWidget> {
             var map = await _session!.execute(_expression);
             setState(() {
               _session!.addToTranscript('> $_expression');
-              _session!.addToTranscript(map['result']);
+              _session!.addToTranscript(map['result'] ?? map['className']);
             });
           } on GciError catch (ex) {
             // TODO: terminate process

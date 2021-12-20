@@ -26,7 +26,7 @@ class CodeBrowser extends StatelessWidget {
       children: [
         _buttonRow(),
         _filterRow(context),
-        _editors(),
+        _editors(context),
       ],
     );
   }
@@ -170,9 +170,51 @@ class CodeBrowser extends StatelessWidget {
     );
   }
 
-  Widget _editors() {
-    return const Expanded(
-      child: Placeholder(),
+  Widget _editors(context) {
+    return Expanded(
+      child: DefaultTabController(
+        length: 3,
+        child: Column(
+          children: [
+            // tabs
+            SizedBox(
+              height: 25,
+              child: Container(
+                color: Theme.of(context).primaryColor,
+                child: const TabBar(
+                  tabs: [
+                    Tab(text: 'Globals'),
+                    Tab(text: 'Class'),
+                    Tab(text: 'Method'),
+                  ],
+                ),
+              ),
+            ),
+            // tab contents
+            Expanded(
+              child: TabBarView(
+                children: [
+                  _globals(),
+                  _class(),
+                  _method(),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
+  } // _editors()
+
+  Widget _globals() {
+    return const Icon(Icons.directions_car);
   }
-}
+
+  Widget _class() {
+    return Text(_codeModel.klass['definition']);
+  }
+
+  Widget _method() {
+    return Text(_codeModel.method['source']);
+  }
+} // CodeBrowser

@@ -13,6 +13,9 @@ class CodeModel extends JadeModel {
   static String getTitle() => 'Code Browser';
   final dictionaries = <Map<String, dynamic>>[];
   final classes = <Map<String, dynamic>>[];
+  final globals = <Map<String, dynamic>>[];
+  var klass = {};
+  var method = {};
   final methods = <Map<String, dynamic>>[];
   final nil = {'name': 'nil', 'oop': '18', 'isSelected': false};
 
@@ -73,13 +76,19 @@ class CodeModel extends JadeModel {
       myClass = classes.firstWhere((each) => each['isSelected']);
     } catch (_) {}
 
+    Map<String, dynamic> myGlobal = nil;
+    try {
+      myGlobal = globals.firstWhere((each) => each['isSelected']);
+    } catch (_) {}
+
     Map<String, dynamic> myMethod = nil;
     try {
       myMethod = methods.firstWhere((each) => each['isSelected']);
     } catch (_) {}
 
-    // OOPs for dictionary, class,
-    buffer.write("#( '${myDict['oop']}' '${myClass['oop']}' )");
+    // OOPs for dictionary, global, class, method,
+    buffer.write(
+        "#( '${myDict['oop']}' '${myGlobal['oop']}' '${myClass['oop']}' '${myMethod['oop']}' )");
     var response = await _session.execute(buffer.toString());
     var myMap = jsonDecode(response['string']);
 
@@ -90,12 +99,21 @@ class CodeModel extends JadeModel {
       dictionaries.add(eachMap);
     }
 
+    globals.clear();
+    for (var eachMap in myMap['globals']) {
+      eachMap['isSelected'] = eachMap['oop'] == myGlobal['oop'] &&
+          eachMap['name'] == myGlobal['name'];
+      globals.add(eachMap);
+    }
+
     classes.clear();
     for (var eachMap in myMap['classes']) {
       eachMap['isSelected'] = eachMap['oop'] == myClass['oop'] &&
           eachMap['name'] == myClass['name'];
       classes.add(eachMap);
     }
+
+    klass = myMap['class'];
 
     methods.clear();
     for (var eachMap in myMap['methods']) {
@@ -104,15 +122,20 @@ class CodeModel extends JadeModel {
       methods.add(eachMap);
     }
 
+    method = myMap['method'];
+
     notifyListeners();
   }
 
   StringBuffer _updateStateCode() {
     return StringBuffer('''
-[:dictOop :classOop |
-| class dict result selectedClassOop selectedDictOop selectors |
+[:dictOop :globalOop :classOop :methodOop |
+| class classes dict globals method result 
+  selectedClassOop selectedDictOop selectedGlobalOop selectedMethodOop 
+  selectors |
 selectedDictOop := Integer fromHexString: dictOop.
 selectedClassOop := Integer fromHexString: classOop.
+selectedMethodOop := Integer fromHexString: methodOop.
 dict := Dictionary new.
 selectors := #().
 result := Dictionary new
@@ -124,27 +147,54 @@ result := Dictionary new
 			yourself.
 	]);
 	yourself.
-result at: 'classes' put: (((dict values
-  select: [:each | each isClass])
-  asSortedCollection: [:a :b | a name <= b name])
-  collect: [:each |
-		each asOop == selectedClassOop ifTrue: [
-      class := each.
+classes := SortedCollection new.
+globals := SortedCollection new.
+dict keysAndValuesDo: [:eachKey :eachValue |
+  eachValue isClass ifTrue: [
+		eachValue asOop == selectedClassOop ifTrue: [
+      class := eachValue.
       selectors := class selectors.
     ].
-    Dictionary new
-      at: 'name' put: each name;
-      at: 'oop' put: (each asOop printStringRadix: 16 showRadix: false);
-      yourself.
-  ]).
-result at: 'methods' put: (selectors asSortedCollection collect: [:each |
-  | method |
-  method := class compiledMethodAt: each.
+    classes add: eachKey -> (Dictionary new
+      at: 'name' put: eachKey;
+      at: 'oop' put: (eachValue asOop printStringRadix: 16 showRadix: false);
+      yourself).
+  ] ifFalse: [
+    globals add: eachKey -> (Dictionary new
+      at: 'name' put: eachKey;
+      at: 'class' put: eachValue class name asString;
+      yourself).
+  ].
+].
+result 
+  at: 'class' put: (Dictionary new
+    at: 'definition' put: (class ifNil: [
+        'Object subclass: ''MyNewClass'' '
+      ] ifNotNil: [
+        class definition.
+    ]);
+    yourself);
+  at: 'classes' put: (classes asArray collect: [:each | each value]);
+  at: 'globals' put: (globals asArray collect: [:each | each value]);
+  yourself.
+result at: 'methods' put: (selectors asSortedCollection collect: [:eachSelector |
+  | eachMethod |
+  eachMethod := class compiledMethodAt: eachSelector.
+  eachMethod asOop == selectedMethodOop ifTrue: [
+    method := eachMethod.
+  ].
   Dictionary new
-    at: 'name' put: each;
-    at: 'oop' put: (method asOop printStringRadix: 16 showRadix: false);
+    at: 'name' put: eachSelector;
+    at: 'oop' put: (eachMethod asOop printStringRadix: 16 showRadix: false);
     yourself.
 ]).
+result at: 'method' put: Dictionary new.
+method ifNotNil: [
+  (result at: 'method')
+    at: 'selector' put: method selector;
+    at: 'source' put: method sourceString;
+    yourself.
+].
 result asJson] valueWithArguments:
 ''');
   }
