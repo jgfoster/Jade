@@ -18,6 +18,7 @@ class Session extends JadeModel {
   late String _version;
   var _isLoggedIn = false;
   final _children = <JadeModel>[];
+  final _transcript = StringBuffer();
 
   get address => _address;
   get isLoggedIn => _isLoggedIn;
@@ -29,6 +30,11 @@ class Session extends JadeModel {
     _server = JadeServer(_address);
   }
 
+  void addToTranscript(Object obj) {
+    _transcript.writeln(obj.toString());
+    notifyListeners();
+  }
+
   Future<void> doLogin(var client) async {
     client('${DateTime.now()} - Initiating connection to server');
     _version = await _server.getGciVersion();
@@ -36,6 +42,10 @@ class Session extends JadeModel {
     _session = await _server.login(_username, _password);
     _isLoggedIn = true;
     notifyListeners();
+  }
+
+  String getTranscript() {
+    return _transcript.toString();
   }
 
   void logout() async {

@@ -26,7 +26,6 @@ class LoginFormState extends State<LoginForm> {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
   var _isInLogin = false;
-  final _log = StringBuffer(); // TODO: should be with model, not view
 
   // Form
   @override
@@ -235,7 +234,7 @@ class LoginFormState extends State<LoginForm> {
           minLines: (constraints.maxHeight ~/ 19),
           maxLines: null,
           readOnly: true,
-          controller: TextEditingController(text: _log.toString()),
+          controller: TextEditingController(text: _login.getLog()),
         );
       },
     );
@@ -251,7 +250,7 @@ class LoginFormState extends State<LoginForm> {
       try {
         await session.doLogin((status) {
           setState(() {
-            _log.writeln(status);
+            _login.addToLog(status);
           });
         });
         setState(() {
@@ -260,7 +259,7 @@ class LoginFormState extends State<LoginForm> {
         Jade().addSession(session);
       } on GciError catch (ex) {
         setState(() {
-          _log.writeln(ex);
+          _login.addToLog(ex.toString());
           _isInLogin = false;
         });
       }

@@ -134,7 +134,7 @@ class CodeBrowser extends StatelessWidget {
     // calculate maximum width (<2ms for ~650 items)
     for (var each in list) {
       final TextPainter textPainter = TextPainter(
-          text: TextSpan(text: each.name),
+          text: TextSpan(text: each['name']),
           maxLines: 1,
           textDirection: TextDirection.ltr)
         ..layout(minWidth: 0, maxWidth: double.infinity);
@@ -151,14 +151,14 @@ class CodeBrowser extends StatelessWidget {
           controller: ScrollController(),
           itemBuilder: (BuildContext context, int index) {
             var each = list[index];
-            var name = each.name;
+            var name = each['name'];
             return TextButton(
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   name,
                   style: TextStyle(
-                    color: each.isSelected ? selectedColor : unselectedColor,
+                    color: each['isSelected'] ? selectedColor : unselectedColor,
                   ),
                 ),
               ),

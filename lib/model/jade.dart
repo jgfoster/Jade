@@ -40,22 +40,25 @@ class Jade with ChangeNotifier {
 
   get isShowingNavigation => _isShowingNavigation;
 
-  void removeLogin(login) {
-    _loginList.remove(login);
-    if (_selectedModel == login) {
-      _selectedModel = null;
+  void remove({required myMap, required from}) {
+    from.remove(myMap);
+    if (_selectedModel == myMap) {
+      if (_loginList.isNotEmpty) {
+        _selectedModel = _loginList.first;
+      } else {
+        _selectedModel = null;
+      }
       _isShowingNavigation = true;
     }
     notifyListeners();
   }
 
+  void removeLogin(login) {
+    remove(myMap: login, from: _loginList);
+  }
+
   void removeSession(session) {
-    _sessionList.remove(session);
-    if (_selectedModel == session) {
-      _selectedModel = null;
-      _isShowingNavigation = true;
-    }
-    notifyListeners();
+    remove(myMap: session, from: _sessionList);
   }
 
   JadeModel? get selectedModel => _selectedModel;

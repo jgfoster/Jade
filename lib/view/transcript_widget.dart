@@ -24,7 +24,6 @@ class _TranscriptWidget extends State<TranscriptWidget> {
   final _formKey = GlobalKey<FormState>();
   final _queryController = TextEditingController();
   var _expression = 'System session';
-  final _transcript = StringBuffer();
 
   // Set up notification for changes to session
   @override
@@ -80,9 +79,9 @@ class _TranscriptWidget extends State<TranscriptWidget> {
       onPressed: () async {
         var result = await _session!.commit();
         setState(() {
-          _transcript.writeln(
+          _session!.addToTranscript(
               '> System commit; commitRecordPageForSessionId: System session');
-          _transcript.writeln(result['result']);
+          _session!.addToTranscript(result['result']);
         });
       },
     );
@@ -136,9 +135,9 @@ class _TranscriptWidget extends State<TranscriptWidget> {
       onPressed: () async {
         var result = await _session!.abort();
         setState(() {
-          _transcript.writeln(
+          _session!.addToTranscript(
               '> System abortTransaction; commitRecordPageForSessionId: System session');
-          _transcript.writeln(result['result']);
+          _session!.addToTranscript(result['result']);
         });
       },
     );
@@ -161,7 +160,7 @@ class _TranscriptWidget extends State<TranscriptWidget> {
           minLines: (constraints.maxHeight ~/ 19),
           maxLines: null,
           readOnly: true,
-          controller: TextEditingController(text: _transcript.toString()),
+          controller: TextEditingController(text: _session!.getTranscript()),
         );
       },
     );
@@ -191,14 +190,14 @@ class _TranscriptWidget extends State<TranscriptWidget> {
           try {
             var map = await _session!.execute(_expression);
             setState(() {
-              _transcript.writeln('> $_expression');
-              _transcript.writeln(map['result']);
+              _session!.addToTranscript('> $_expression');
+              _session!.addToTranscript(map['result']);
             });
           } on GciError catch (ex) {
             // TODO: terminate process
             setState(() {
-              _transcript.writeln('> $_expression');
-              _transcript.writeln(ex.message);
+              _session!.addToTranscript('> $_expression');
+              _session!.addToTranscript(ex.message);
             });
           }
         },
