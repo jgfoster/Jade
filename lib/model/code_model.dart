@@ -87,8 +87,9 @@ class CodeModel extends JadeModel {
     } catch (_) {}
 
     // OOPs for dictionary, global, class, method,
-    buffer.write(
-        "#( '${myDict['oop']}' '${myGlobal['oop']}' '${myClass['oop']}' '${myMethod['oop']}' )");
+    buffer
+        .write("#( '${myDict['oop']}' '${myGlobal['oop']}' '${myClass['oop']}' "
+            " '${myMethod['oop']}' )");
     var response = await _session.execute(buffer.toString());
     var myMap = jsonDecode(response['string']);
 
@@ -113,8 +114,6 @@ class CodeModel extends JadeModel {
       classes.add(eachMap);
     }
 
-    klass = myMap['class'];
-
     methods.clear();
     for (var eachMap in myMap['methods']) {
       eachMap['isSelected'] = eachMap['oop'] == myMethod['oop'] &&
@@ -122,7 +121,8 @@ class CodeModel extends JadeModel {
       methods.add(eachMap);
     }
 
-    method = myMap['method'];
+    klass = myMap['class'] ?? {};
+    method = myMap['method'] ?? {};
 
     notifyListeners();
   }

@@ -172,38 +172,43 @@ class CodeBrowser extends StatelessWidget {
   }
 
   Widget _editors(context) {
-    return Expanded(
-      child: DefaultTabController(
-        length: 3,
-        child: Column(
-          children: [
-            // tabs
-            SizedBox(
-              height: 25,
-              child: Container(
-                color: Theme.of(context).primaryColor,
-                child: const TabBar(
-                  tabs: [
-                    Tab(text: 'Globals'),
-                    Tab(text: 'Class'),
-                    Tab(text: 'Method'),
-                  ],
-                ),
-              ),
-            ),
-            // tab contents
-            Expanded(
-              child: TabBarView(
-                children: [
-                  _globals(),
-                  _class(),
-                  _method(),
+    // int index = _codeModel.method.isNotEmpty
+    //     ? 2
+    //     : (_codeModel.klass.isNotEmpty ? 1 : 0);
+    var tabController = DefaultTabController(
+      initialIndex: 0,
+      length: 3,
+      child: Column(
+        children: [
+          // tabs
+          SizedBox(
+            height: 25,
+            child: Container(
+              color: Theme.of(context).primaryColor,
+              child: const TabBar(
+                tabs: [
+                  Tab(text: 'Globals'),
+                  Tab(text: 'Class'),
+                  Tab(text: 'Method'),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+          // tab contents
+          Expanded(
+            child: TabBarView(
+              children: [
+                _globals(),
+                _class(),
+                _method(),
+              ],
+            ),
+          ),
+        ],
       ),
+    );
+    return Expanded(
+      child: tabController,
     );
   } // _editors()
 
@@ -212,11 +217,10 @@ class CodeBrowser extends StatelessWidget {
   }
 
   Widget _class() {
-    return Text(_codeModel.klass['definition']);
+    return Text(_codeModel.klass['definition'] ?? '');
   }
 
   Widget _method() {
-    // return Text();
     var _codeController = CodeController(
       text: _codeModel.method['source'],
       patternMap: {
@@ -237,8 +241,21 @@ class CodeBrowser extends StatelessWidget {
 
     return SingleChildScrollView(
       child: CodeField(
+        background: Colors.white,
         controller: _codeController,
-        textStyle: const TextStyle(fontFamily: 'SourceCode'),
+        cursorColor: Colors.black,
+        lineNumberStyle: const LineNumberStyle(
+          // background: Colors.black12,
+          background: Color(0xFFECECEC),
+          textStyle: TextStyle(
+            color: Colors.black87,
+          ),
+        ),
+        textStyle: const TextStyle(
+          color: Colors.black,
+          fontFamily: 'SourceCodePro',
+          fontWeight: FontWeight.w900,
+        ),
       ),
     );
   }
