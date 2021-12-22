@@ -747,23 +747,25 @@ compileMethod: methodString behavior: aBehavior symbolList: aSymbolList inCatego
 		warnings := ex gsArguments at: 1.
 		ex resume.
 	].
-	^[	"Above method does not notify package of changes. 
+	"Check for method before calling it to avoid DNU (https://github.com/jgfoster/Jade/issues/62)"
+	(Behavior includesSelector: #'compileMethod:category:using:environmentId:') ifTrue: [
+		"Above method does not notify package of changes. 
 		Repeat compile if possible using method that broadcasts changes (but does not signal warnings).
-		See https://github.com/jgfoster/Jade/issues/3."
+		See https://github.com/jgfoster/Jade.bak/issues/3."
 		aBehavior
 			compileMethod: methodString 
 			category: categorySymbol 
 			using: aSymbolList 
 			environmentId: 0.
-		(self _compiledMethodAt: method key selector inClass: aBehavior) -> warnings.
-	] on: Error do: [:ex | 
-		ex return: method -> warnings.
+		^(self _compiledMethodAt: method key selector inClass: aBehavior) -> warnings.
 	].
+	^method -> warnings
+
 ! !
 !JadeServer64bit3x categoriesForMethods!
 _behavior:categoryOfSelector:!Methods!private! !
 _methodsFor:categories:!Methods!private! !
-compileMethod:behavior:symbolList:inCategory:!Methods!private!System Browser! !
+compileMethod:behavior:symbolList:inCategory:!private! !
 !
 
 "End of package definition"!

@@ -197,15 +197,6 @@ searchFor: aString
 	].
 !
 
-selectedCategory
-
-	| method |
-	(method := methodListPresenter selectedMethod) notNil ifTrue: [
-		^method category.
-	].
-	^'as yet unclassified'.
-!
-
 selectedClass
 
 	| gsMethod |
@@ -285,7 +276,6 @@ methodListPresenter!public! !
 onLeftButtonPressed:!public! !
 onViewOpened!public! !
 searchFor:!public! !
-selectedCategory!public! !
 selectedClass!public! !
 selectFirstMethod!public! !
 selecting:!public! !
