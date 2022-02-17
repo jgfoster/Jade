@@ -1,7 +1,7 @@
 ﻿"Filed out from Dolphin Smallalk"!
 
 GsObject subclass: #GsStackFrame
-	instanceVariableNames: 'ipOffset frameOffset gsMethod stepPoint vars offsets breaks source'
+	instanceVariableNames: 'ipOffset gsMethod stepPoint vars offsets breaks source'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
@@ -14,12 +14,6 @@ breaks
 
 	^breaks.
 !
-
-frameOffset
-	^frameOffset!
-
-frameOffset: anObject
-	frameOffset := anObject!
 
 gsMethod
 
@@ -36,7 +30,6 @@ initializeXML: xmlNode
 	| string stream |
 	super initializeXML: xmlNode.
 	ipOffset := (xmlNode getAttribute: 'ipOffset') asNumber.
-	frameOffset := (xmlNode getAttribute: 'frameOffset') asNumber.
 	stepPoint := (xmlNode getAttribute: 'stepPoint') asNumber.
 	vars := OrderedCollection new.
 	(xmlNode getElementsByTagName: 'var') do: [:each | 
@@ -80,8 +73,6 @@ vars: anObject
 	vars := anObject! !
 !GsStackFrame categoriesForMethods!
 breaks!public! !
-frameOffset!accessing!private! !
-frameOffset:!accessing!private! !
 gsMethod!accessing!public! !
 initialize:!public! !
 initializeXML:!public! !

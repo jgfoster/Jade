@@ -269,8 +269,6 @@ _sourceForProcess: gsProcess frame: level
 		nextPutAll: (self oopOf: frame) printString printString;
 		nextPutAll: ' ipOffset=';
 		nextPutAll: (frame at: 2) printString printString;
-		nextPutAll: ' frameOffset=';
-		nextPutAll: ((frame at: 3) isNil ifTrue: [''] ifFalse: [(frame at: 3) printString]) printString;
 		nextPutAll: ' stepPoint=';
 		nextPutAll: stepPoint printString printString;
 		nextPutAll: '>'; lf;
