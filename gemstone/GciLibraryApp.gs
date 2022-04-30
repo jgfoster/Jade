@@ -6,21 +6,17 @@ set compile_env: 0
 category: 'required'
 classmethod: GciLibraryApp
 run
-"
+	"
 	GciLibraryApp run.
-"
-	HttpListener new
-		listenBacklog: 100;
-		port: 50378;
-		webApp: self;
-		run.
+	"
+	self run: 50378.
 %
 category: 'required'
 classmethod: GciLibraryApp
 run: anInteger
-"
+	"
 	GciLibraryApp run: 50378.
-"
+	"
 	HttpListener new
 		listenBacklog: 100;
 		port: anInteger;
