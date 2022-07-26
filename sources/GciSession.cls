@@ -1041,7 +1041,9 @@ stopHeartbeat
 
 terminate: anOopType
 
-	self serverPerform: #'terminate:' with: anOopType.
+	[
+		self serverPerform: #'terminate:' with: anOopType.
+	] on: Error do: [:ex | ].
 	TerminateProcess signal.!
 
 titleBarFor: aString

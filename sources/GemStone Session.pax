@@ -37,6 +37,7 @@ package classNames
 	add: #JadeServer64bit32;
 	add: #JadeServer64bit33;
 	add: #JadeServer64bit34;
+	add: #JadeServer64bit37;
 	add: #JadeServer64bit3x;
 	add: #JadeServerTestCase;
 	add: #TerminateProcess;
@@ -52,6 +53,7 @@ package methodNames
 	add: #LibGciRpc64_3_2_0 -> #jadeServerClass;
 	add: #LibGciRpc64_3_3_0 -> #jadeServerClass;
 	add: #LibGciRpc64_3_4_0 -> #jadeServerClass;
+	add: #LibGciRpc64_3_7_0 -> #jadeServerClass;
 	add: #LibGciTs_3_3 -> #jadeServerClass;
 	add: 'GciLibrary class' -> #gciSessionClass;
 	add: 'LibGciRpc64_24 class' -> #gciSessionClass;
@@ -237,6 +239,11 @@ JadeServer64bit33 subclass: #JadeServer64bit34
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+JadeServer64bit34 subclass: #JadeServer64bit37
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
 TestCase subclass: #JadeServerTestCase
 	instanceVariableNames: ''
 	classVariableNames: ''
@@ -374,6 +381,16 @@ jadeServerClass
 	^JadeServer64bit34
 ! !
 !LibGciRpc64_3_4_0 categoriesForMethods!
+jadeServerClass!public! !
+!
+
+!LibGciRpc64_3_7_0 methodsFor!
+
+jadeServerClass
+
+	^JadeServer64bit37
+! !
+!LibGciRpc64_3_7_0 categoriesForMethods!
 jadeServerClass!public! !
 !
 

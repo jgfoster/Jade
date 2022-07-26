@@ -3637,7 +3637,7 @@ methodMenu:!event handlers!menu handlers!public! !
 methodMenuBreak:!event handlers!menu handlers!public! !
 methodsIdentifier!menu handlers!public! !
 methodsMenuStrings!menus!public! !
-methodSourcePresenter!public!updating! !
+methodSourcePresenter!accessing!public! !
 methodValueChanged!event handlers!public! !
 moveHistoryIndexTo:!history!public! !
 onDragClassesOverDictionary:!drag & drop!public! !

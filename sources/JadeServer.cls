@@ -65,10 +65,14 @@ _defectiveTestsIn: aClass
 	stream := self _writeStreamOnString.
 	stream nextPutAll: results printString; lf.
 	results defects asSet do: [:each | 
-		| selector class |
-		selector := each selector asSymbol.
-		class := each class whichClassIncludesSelector: selector.
-		stream nextPutAll: class name , ' debug: ' , each selector printString; lf.
+		(each isKindOf: String) ifTrue: [
+			stream nextPutAll: each; lf.
+		] ifFalse: [
+			| selector class |
+			selector := each selector asSymbol.
+			class := each class whichClassIncludesSelector: selector.
+			stream nextPutAll: class name , ' debug: ' , each selector printString; lf.
+		].
 	].
 	^stream contents.
 !

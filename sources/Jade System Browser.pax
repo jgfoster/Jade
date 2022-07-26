@@ -125,6 +125,7 @@ package methodNames
 	add: #JadeServer64bit32 -> #dictionaryAndSymbolOf:;
 	add: #JadeServer64bit32 -> #dictionaryAndSymbolOf:forUser:;
 	add: #JadeServer64bit34 -> #sbUpdateMethodsByCategories;
+	add: #JadeServer64bit37 -> #sbUpdateMethodBreakPointsFor:;
 	add: #JadeServer64bit3x -> #_addMethodCategoryNamesToMethodFilters;
 	add: #JadeServer64bit3x -> #_class:includesSelector:;
 	add: #JadeServer64bit3x -> #_compiledMethodAt:inClass:;
@@ -2056,6 +2057,25 @@ sbUpdateMethodsByCategories
 ! !
 !JadeServer64bit34 categoriesForMethods!
 sbUpdateMethodsByCategories!private!System Browser! !
+!
+
+!JadeServer64bit37 methodsFor!
+
+sbUpdateMethodBreakPointsFor: aMethod
+	"Private - Answers an Array of step points"
+
+	| list array |
+	(array := aMethod _allBreakpoints) isNil ifTrue: [^#()].      "{ breakpointNumber1 . method . ipOffset1 . ... }"
+	list := Array new.
+	1 to: array size by: 4 do: [:i |
+		list add: (aMethod
+			_stepPointForMeth: (array at: i + 1)
+			ip: (array at: i + 2)).
+	].
+	^list.
+! !
+!JadeServer64bit37 categoriesForMethods!
+sbUpdateMethodBreakPointsFor:!private!System Browser! !
 !
 
 !JadeServer64bit3x methodsFor!
