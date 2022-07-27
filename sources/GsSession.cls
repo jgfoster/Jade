@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 GsObject subclass: #GsSession
 	instanceVariableNames: 'backlog cacheDesc description hasOldestCR host hostId id ip lifeTime objects pages primitive priority process quietTime serial state transaction viewAge voteState'

@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 Object subclass: #GsObject
 	instanceVariableNames: 'gciSession name oopType'
@@ -124,8 +124,9 @@ fromString: aString session: aGciSession
 fromStringXML: aString session: gciSession
 
 	[
-		| xmlElement |
-		xmlElement := (IXMLDOMDocument new loadText: aString) documentElement.
+		| string xmlElement |
+		string := aString collect: [:each | (each codePoint < 32 and: [(#(9 10 13) includes: each codePoint) not]) ifTrue: [$?] ifFalse: [each]].
+		xmlElement := (IXMLDOMDocument new loadText: string) documentElement.
 		xmlElement baseName = self xmlBaseName ifFalse: [self error: ''].
 		^self fromXML: xmlElement session: gciSession.
 	] on: DOMParseError do: [:ex | 

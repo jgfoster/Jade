@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 GsObject subclass: #GsMethod
 	instanceVariableNames: 'behavior behaviorName breakPoints category isReadOnly originalSource source stepPoints unimplementedSelectors warnings'

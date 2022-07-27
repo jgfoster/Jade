@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 GsObject subclass: #GsStackFrame
 	instanceVariableNames: 'ipOffset gsMethod stepPoint vars offsets breaks source'
