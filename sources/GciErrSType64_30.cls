@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 GciErrSType subclass: #GciErrSType64_30
 	instanceVariableNames: ''

@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 ULARGE_INTEGER subclass: #OopType64
 	instanceVariableNames: 'objectInfo'

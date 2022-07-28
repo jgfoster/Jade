@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 Object subclass: #GciActivity
 	instanceVariableNames: 'index process sessionId time request msStart msSemaphore msResult response window'

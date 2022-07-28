@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 GciSingleThreadedLibrary subclass: #LibGciRpc64
 	instanceVariableNames: ''

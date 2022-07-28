@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 Gcilw6x subclass: #Gcilw67
 	instanceVariableNames: ''

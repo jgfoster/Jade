@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 LibGciRpc64 subclass: #LibGciRpc64_3_0
 	instanceVariableNames: ''
