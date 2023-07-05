@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 Object subclass: #JadeFileIn
 	instanceVariableNames: 'gciSession stream line words text category className packageName'
@@ -185,21 +185,9 @@ processLine
 
 read
 
-	| semaphore |
-	semaphore := Semaphore new.
-	[
-		stream reset.
-		[
-			ProgressDialog showModalWhile: [:progress |
-				self readWithProgress: progress.
-				semaphore signal.
-			].
-		] ifCurtailed: [
-			semaphore signal.
-		].
-	] forkAt: Processor userBackgroundPriority.
-	semaphore wait.
-!
+	ProgressDialog showModalWhile: [:progress |
+		self readWithProgress: progress.
+	].!
 
 readCommit
 
