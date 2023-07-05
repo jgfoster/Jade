@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 Shell subclass: #JadeLoginShell
 	instanceVariableNames: 'activeLibraryPresenter activityListMutex activityListPresenter debugPathPresenter gemHostPresenter gemServicePresenter gemTaskPresenter gemTypePresenter hostPasswordPresenter hostUserIDPresenter initialsPresenter inUpdateView loginListPresenter loginTypePresenter passwordPresenter recentActivity resetButtonPresenter stoneHostPresenter stoneNamePresenter userIDPresenter versionListPresenter'

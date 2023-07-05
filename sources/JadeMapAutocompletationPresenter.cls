@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 JadePresenterA subclass: #JadeMapAutocompletationPresenter
 	instanceVariableNames: 'namePresenter gsClassListPresenter mapPresenter'

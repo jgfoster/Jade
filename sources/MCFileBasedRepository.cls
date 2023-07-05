@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 MCRepository subclass: #MCFileBasedRepository
 	instanceVariableNames: ''

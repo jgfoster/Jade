@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 CodeSourcePresenter subclass: #MethodSourcePresenter
 	instanceVariableNames: 'currentSelector gsMethod originalSource'

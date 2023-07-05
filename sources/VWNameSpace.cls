@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 VWComponent subclass: #VWNameSpace
 	instanceVariableNames: 'imports'

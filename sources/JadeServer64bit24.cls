@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 JadeServer64bit subclass: #JadeServer64bit24
 	instanceVariableNames: ''

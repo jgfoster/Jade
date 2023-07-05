@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 MCDefinition subclass: #MCClassDefinition
 	instanceVariableNames: 'className definition'

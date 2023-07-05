@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 GciSession24 subclass: #GciSession30
 	instanceVariableNames: ''

@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 JadeShell subclass: #JadeMethodHistoryBrowser
 	instanceVariableNames: 'versionListPresenter editorPresenter'

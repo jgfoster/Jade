@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 JadePresenterA subclass: #JadePreferencesPresenter
 	instanceVariableNames: 'autoCommitPresenter autoMigratePresenter codeFontPresenter debugPresenter defaultFontPresenter nativeCodePresenter unimplementedPresenter'

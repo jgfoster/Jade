@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 JadeValueDialog subclass: #JadeErrorShell
 	instanceVariableNames: 'messagePresenter stackPresenter textEditPresenter isResumable'

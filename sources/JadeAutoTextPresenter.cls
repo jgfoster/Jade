@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 JadeTextPresenter subclass: #JadeAutoTextPresenter
 	instanceVariableNames: 'lastGsShape lastWord lastCharacter currentWord temporaries arguments altMode'

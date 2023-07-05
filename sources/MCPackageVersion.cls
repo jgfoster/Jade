@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 GsObject subclass: #MCPackageVersion
 	instanceVariableNames: 'date time author id ancestors stepChildren message'

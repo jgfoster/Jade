@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 Object subclass: #JadeGsMethodShape
 	instanceVariableNames: 'ownerClass methodName source replacementSource isInstanceMethod packageName applied'

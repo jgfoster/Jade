@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 VWComponent subclass: #VWClass
 	instanceVariableNames: 'superClass indexedType instVars classInstVars imports comment methods'

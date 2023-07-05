@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 ContactsShell subclass: #ContactEditor
 	instanceVariableNames: 'contact namePresenter titlePresenter phonePresenter'

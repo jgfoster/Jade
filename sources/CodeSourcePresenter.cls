@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 JadePresenterA subclass: #CodeSourcePresenter
 	instanceVariableNames: 'documentPresenter menuTitle environment'

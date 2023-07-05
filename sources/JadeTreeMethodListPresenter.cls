@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 JadeMethodListPresenter subclass: #JadeTreeMethodListPresenter
 	instanceVariableNames: 'treeMethodsPresenter treeMethodsMap historyEntries entriesIndex historyList historyIndex'

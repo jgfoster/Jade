@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 JadeShell subclass: #MCPatchDiffBrowser
 	instanceVariableNames: 'patch includeIdenticalPresenter operationListPresenter diffPresenter'

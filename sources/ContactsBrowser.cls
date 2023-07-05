@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 ContactsShell subclass: #ContactsBrowser
 	instanceVariableNames: 'listPresenter beginPresenter listClassPresenter commitRecordPresenter'

@@ -1,4 +1,4 @@
-﻿"Filed out from Dolphin Smallalk"!
+﻿"Filed out from Dolphin Smalltalk"!
 
 MCDefinition subclass: #MCMethodDefinition
 	instanceVariableNames: 'classIsMeta source category selector className timeStamp'
