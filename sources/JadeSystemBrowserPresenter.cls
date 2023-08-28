@@ -3117,29 +3117,33 @@ updateCommand: aString onSuccessDo: aBlock
 
 	JadeLog log: 'JadeSystemBrowserPresenter>>updateCommand: ' , aString printString , ' onSuccessDo: '.
 	[
-		| time1 time2 time3 string |
-		time1 := Time millisecondsToRun: [
+		| awayTime clientTime serverTime string |
+		clientTime := Time millisecondsToRun: [
 			string := self gciSession encode: environment printString , ' ' , aString.
+		].
+		awayTime := Time millisecondsToRun: [
 			string := self gciSession 
 				serverPerform: #'systemBrowser:' 
 				with: string.
+		].
+		clientTime := clientTime + (Time millisecondsToRun: [
 			string := self gciSession decode: string.
 			JadeLog log: 'JadeSystemBrowserPresenter>>updateCommand:onSuccessDo:  - a - ' , string printString.
 			eventCount := self gciSession eventCount.
-		].
-		time2 := Time millisecondsToRun: [
+		]).
+		clientTime := clientTime + (Time millisecondsToRun: [
 			| responseType |
 			readStream := JadeServerReadStream on: string.
-			time3 := readStream nextLine asNumber.
+			serverTime := readStream nextLine asNumber.
 			aBlock value.
 			(responseType := readStream nextLine) = 'update' ifFalse: [^responseType].
 			self updatePresenters.
-		].
+		]).
 		self statusBarServerRequestText:
-			'server took ' , time3 printString , 'ms; ' , 
-			'network took ' , (time1 - time3) printString , 'ms; ' , 
-			'client took ' , time2 printString , 'ms; ' , 
-			'total of ' , (time1 + time2) printString , 'ms'.
+			'server took ' , serverTime printString , 'ms; ' , 
+			'network took ' , (awayTime - serverTime ) printString , 'ms; ' , 
+			'client took ' , clientTime printString , 'ms; ' , 
+			'total of ' , (awayTime + clientTime ) printString , 'ms'.
 	] ensure: [
 		selectedClassChanged := false.
 	].
