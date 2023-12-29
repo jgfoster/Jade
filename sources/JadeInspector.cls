@@ -154,13 +154,18 @@ setDocumentPresenterLabel
 		documentPresenter value: model printString.
 		^self.
 	].
-	(#(Boolean Character Integer Fraction SmallInteger #LargeInteger UndefinedObject) includes: model class name) ifTrue: [
+	(#(Boolean Character Integer Fraction SmallInteger LargeInteger UndefinedObject) includes: model class name) ifTrue: [
 		self view caption: model class name.
 		documentPresenter value: model printString.
 		^self.
 	].
 	(model isKindOf: Boolean) ifTrue: [
 		self view caption: 'Boolean'.
+		documentPresenter value: model printString.
+		^self.
+	].
+	(model isKindOf: Time) ifTrue: [
+		self view caption: 'SmallTime'.
 		documentPresenter value: model printString.
 		^self.
 	].

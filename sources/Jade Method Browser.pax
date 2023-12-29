@@ -757,7 +757,7 @@ compileMethod: methodString behavior: aBehavior symbolList: aSymbolList inCatego
 			category: categorySymbol 
 			using: aSymbolList 
 			environmentId: 0.
-		^(self _compiledMethodAt: method key selector inClass: aBehavior) -> warnings.
+		^(self _compiledMethodAt: method selector inClass: aBehavior) -> warnings.
 	].
 	^method -> warnings
 

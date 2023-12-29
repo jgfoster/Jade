@@ -722,6 +722,10 @@ sbClassTemplate
 
 	| string index |
 	string := Stream definition.
+	index := string findPattern: #(' Lf Tab') startingAt: 1.
+	index > 0 ifTrue: [
+		string := (string copyFrom: 1 to: index - 1) , (string copyFrom: index + 7 to: string size).
+	].	
 	index := string findPattern: #('Stream') startingAt: 1.
 	writeStream 
 		nextPutAll: '0'; lf;	"selectedClassOop"
