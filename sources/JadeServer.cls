@@ -745,6 +745,7 @@ gsString
 		yourself.
 	(self withAllSuperclasses remove: Object; yourself) reverseDo: [:eachClass | self addGsStringForClass: eachClass to: stream].
 	stream 
+		nextPutAll: 'System abortTransaction.'; lf;
 		nextPutAll: 'class new initialize'; lf;
 		nextPutAll: '] on: (symbolList objectNamed: #Error) do: [:ex | ex return: ''ERROR: '' , (GsProcess stackReportToLevel: 100)]';
 		yourself.
