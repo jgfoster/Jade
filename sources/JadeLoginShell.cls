@@ -322,6 +322,8 @@ loadDataFrom: aPath
 		data := Object binaryReadFrom: fileStream.
 		fileStream close.
 	] on: Error do: [:ex | 
+		MessageBox notify: ex description.
+		SessionManager current pause.
 		data := OrderedCollection new.
 	].
 	data size < 1 ifTrue: [data add: (OrderedCollection with: JadeLogin default)].
@@ -515,12 +517,21 @@ saveData
 !
 
 saveDataTo: aPath
-	"Version is essentially the number of elements"
+	"Version is essentially the number of elements.
+	If the login window is closed when a session is logged in, then we attempt to save the session and transcript (part of the login so we can select the window).
+	When restoring the list we are unable to restore the window so just throw away the entire list (see https://github.com/jgfoster/Jade/issues/77).
+	We now clear out the session and transcript so that we don't try to persist and restore the transcript window."
 
-	| data fileStream |
+	| data fileStream index list selection |
+	list :=  loginListPresenter list.
+	selection := loginListPresenter selectionOrNil.
+	index := list indexOf: selection ifAbsent: [0].
+	list :=list collect: [:each | each copy].
+	list do: [:each | each session: nil; transcript: nil].
+	index > 0 ifTrue: [selection := list at: index].
 	data := OrderedCollection new
-		add: loginListPresenter list;
-		add: loginListPresenter selectionOrNil;
+		add: list;
+		add: selection;
 		add: JadePreferencesPresenter defaultFont;
 		add: JadePreferencesPresenter codeFont;
 		yourself.
@@ -716,7 +727,7 @@ queryCommand:!public! !
 removeLogin!commands!public! !
 resetActivity!private! !
 saveData!public!user data! !
-saveDataTo:!public!user data! !
+saveDataTo:!public! !
 selectionChanged!public! !
 sendRequiredMessages!public! !
 setWorkingDirectory!public! !
