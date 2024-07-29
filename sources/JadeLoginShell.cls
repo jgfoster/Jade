@@ -568,6 +568,8 @@ sendRequiredMessages
 
 	false ifTrue: [
 		self onShutdown.	"https://github.com/dolphinsmalltalk/Dolphin/issues/1103"
+		self _isLarge.
+		self _setNoStubbing.
 	].
 !
 
