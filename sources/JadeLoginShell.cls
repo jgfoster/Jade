@@ -316,15 +316,18 @@ loadData
 loadDataFrom: aPath
 
 	| data |
-	[
-		| fileStream |
-		fileStream := FileStream read: aPath type: #'binary'.
-		data := Object binaryReadFrom: fileStream.
-		fileStream close.
-	] on: Error do: [:ex | 
-		MessageBox notify: ex description.
-		SessionManager current pause.
-		data := OrderedCollection new.
+	data := OrderedCollection new.
+	(File exists: aPath) ifTrue: [
+		[
+			| fileStream |
+			fileStream := FileStream read: aPath type: #'binary'.
+			data := Object binaryReadFrom: fileStream.
+			fileStream close.
+		] on: Error do: [:ex | 
+			MessageBox notify: ex description.
+			SessionManager current pause.
+			data := OrderedCollection new.
+		].
 	].
 	data size < 1 ifTrue: [data add: (OrderedCollection with: JadeLogin default)].
 	data size < 2 ifTrue: [data add: data first first].

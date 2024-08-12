@@ -19,9 +19,7 @@ main
 "
 	JadeSessionManager basicNew main.
 "
-	Keyboard default isShiftDown 
-		ifTrue: [self mainShellClass show: 'Compact view']
-		ifFalse: [self mainShellClass show].
+	self mainShellClass show.
 !
 
 pause
