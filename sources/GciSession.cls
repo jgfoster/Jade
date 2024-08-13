@@ -501,6 +501,7 @@ initializeServer
 ' , server asAnsiString
 			with: self.
 	].
+	self send: #'initialize' to: server.
 	1 ~~ 1 ifTrue: [		"messasges that are sent by a ClientForwarderSend should not be stripped"
 		self 
 			signalConfirmationRequestUsing: nil;

@@ -1515,7 +1515,8 @@ sbUpdateMethod: aSymbol
 	writeStream nextPutAll: selection; lf.	"Line 2"
 
 	method := self _compiledMethodAt: aSymbol inClass: (classes detect: [:each | each name asString = selection]).
-	self _describeMethod: method.!
+	self _describeMethod: method.
+!
 
 sbUpdateMethodBreakPointsFor: aMethod
 	"Private - Answers an Array of step points"

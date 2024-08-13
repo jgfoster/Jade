@@ -8,8 +8,8 @@ Object subclass: #JadeServer
 JadeServer guid: (GUID fromString: '{fc038152-9707-4c5f-8977-a1f8d02eb005}')!
 JadeServer comment: '(System _sessionStateAt: 3).	"pre-3.2"
 (System __sessionStateAt: 3).	"3.2 and on"
-GciSession allInstances do: [:each | each initializeServer].
-GciSession allInstances do: [:each | each logout].
+GciSession33 allInstances do: [:each | each initializeServer].
+GciSession33 allInstances do: [:each | each logout].
 
 All transfers between client and server of strings should be UTF-8 encoded.
 Public methods are called from the client.
@@ -98,7 +98,7 @@ _describeMethod: aMethod
 	writeStream nextPut: $%; lf.	"Lines 2-N"
 
 	"unimplemented selectors"			"https://github.com/jgfoster/Jade/issues/117"
-	(showUnimplementedMessages and: [(aMethod class includesSelector: #'_selectorPool') and: [aMethod class includesSelector: #'_sourceOffsetOfFirstSendOf:']]) ifTrue: [
+	(self showUnimplementedMessages and: [(aMethod class includesSelector: #'_selectorPool') and: [aMethod class includesSelector: #'_sourceOffsetOfFirstSendOf:']]) ifTrue: [
 		allSelectors := self _allSelectors.
 		(aMethod _selectorPool reject: [:each | allSelectors includes: each]) do: [:each | 
 			(aMethod _sourceOffsetOfFirstSendOf: each) printOn: writeStream.

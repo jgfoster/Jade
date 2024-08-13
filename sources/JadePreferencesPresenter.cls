@@ -54,7 +54,6 @@ nativeCodeChanged
 
 onViewActivated
 
-	| x |
 	super onViewOpened.
 	codeFontPresenter	value: CodeSourcePresenter codeFont.
 	defaultFontPresenter	value: View desktop font.

@@ -73,7 +73,6 @@ add: anObject toByteStream: aStream
 	(anObject isKindOf: Exception	) ifTrue: [self addException:	anObject toByteStream: aStream. ^self].	"16"
 	self isInDolphin ifTrue: [self error: 'Attempt to encode an unsupported object'].
 	self addPositiveInteger: anObject toByteStream: aStream.
-UserGlobals at: #'James' put: anObject.
 !
 
 addArray: anArray toByteStream: aStream

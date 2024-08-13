@@ -390,12 +390,12 @@ isResumableCategory: category number: number context: context
 
 showUnimplementedMessages
 
-	^showUnimplementedMessages
+	^showUnimplementedMessages ~~ false
 !
 
 showUnimplementedMessages: aBoolean
 
-	showUnimplementedMessages := aBoolean.
+	showUnimplementedMessages := aBoolean ~~ false.
 !
 
 sourceForProcess: gsProcess frame: level
