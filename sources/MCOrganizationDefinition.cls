@@ -5,9 +5,13 @@ MCDefinition subclass: #MCOrganizationDefinition
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCOrganizationDefinition guid: (GUID fromString: '{80167200-683e-4723-81d0-1471bca0142b}')!
+
 MCOrganizationDefinition comment: ''!
+
 !MCOrganizationDefinition categoriesForClass!Unclassified! !
+
 !MCOrganizationDefinition methodsFor!
 
 className
@@ -39,6 +43,7 @@ initialize: aStream
 
 	categories := aStream nextLine subStrings: Character tab.
 ! !
+
 !MCOrganizationDefinition categoriesForMethods!
 className!public! !
 detailsString!public! !

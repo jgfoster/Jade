@@ -5,9 +5,13 @@ Object subclass: #JadeTextStyles
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: 'default'!
+
 JadeTextStyles guid: (GUID fromString: '{2dadb98c-2aaa-4ce2-8457-7737a2104ac4}')!
+
 JadeTextStyles comment: ''!
+
 !JadeTextStyles categoriesForClass!Kernel-Objects! !
+
 !JadeTextStyles methodsFor!
 
 colorForCompileError
@@ -174,6 +178,7 @@ textStyles
 
 textStyles: anObject
 	textStyles := anObject! !
+
 !JadeTextStyles categoriesForMethods!
 colorForCompileError!accessing!public! !
 colorForCompileError:!accessing!public! !
@@ -193,6 +198,7 @@ default
 
 	^default ifNil: [default := self new].
 ! !
+
 !JadeTextStyles class categoriesForMethods!
 default!public! !
 !

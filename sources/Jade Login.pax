@@ -5,7 +5,6 @@ package paxVersion: 1;
 
 package basicPackageVersion: '0.094'.
 
-
 package classNames
 	add: #JadeLogin;
 	add: #JadeLoginShell;
@@ -51,16 +50,12 @@ Model subclass: #JadeLogin
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 Shell subclass: #JadeLoginShell
 	instanceVariableNames: 'activeLibraryPresenter activityListMutex activityListPresenter debugPathPresenter gemHostPresenter gemServicePresenter gemTaskPresenter gemTypePresenter hostPasswordPresenter hostUserIDPresenter initialsPresenter inUpdateView loginListPresenter loginTypePresenter passwordPresenter recentActivity resetButtonPresenter stoneHostPresenter stoneNamePresenter userIDPresenter versionListPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
-
-"Global Aliases"!
-
-
-"Loose Methods"!
 
 "End of package definition"!
 

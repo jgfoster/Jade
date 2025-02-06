@@ -5,9 +5,13 @@ TestResource subclass: #GciLibraryTestResource
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GciLibraryTestResource guid: (GUID fromString: '{689b0a0e-e39a-43ab-ae67-060af181bb24}')!
+
 GciLibraryTestResource comment: ''!
+
 !GciLibraryTestResource categoriesForClass!Unclassified! !
+
 !GciLibraryTestResource methodsFor!
 
 libraryClass
@@ -38,6 +42,7 @@ tearDown
 	].
 	super tearDown.
 ! !
+
 !GciLibraryTestResource categoriesForMethods!
 libraryClass!private! !
 session!accessing!public! !

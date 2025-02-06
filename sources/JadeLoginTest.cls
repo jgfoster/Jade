@@ -5,7 +5,9 @@ TestCase subclass: #JadeLoginTest
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeLoginTest guid: (GUID fromString: '{c02b6503-ffd6-49cf-a51e-8a389fb7e5f8}')!
+
 JadeLoginTest comment: 'Transcript:
 	Transcript show: ''Transcript test''.	"Copy, Delete"
 My Session:
@@ -26,7 +28,9 @@ User Browser:
 	"New user: Seaside"
 	"Missing edit of Details & Password"
 '!
+
 !JadeLoginTest categoriesForClass!SUnit! !
+
 !JadeLoginTest methodsFor!
 
 loginShell
@@ -60,6 +64,7 @@ transcriptShell
 	].
 	^list first.
 ! !
+
 !JadeLoginTest categoriesForMethods!
 loginShell!public! !
 test!public! !

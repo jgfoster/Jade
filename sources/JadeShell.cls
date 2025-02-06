@@ -5,9 +5,13 @@ Shell subclass: #JadeShell
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeShell guid: (GUID fromString: '{d1d000ee-0b26-4af9-8c27-396116cb864d}')!
+
 JadeShell comment: ''!
+
 !JadeShell categoriesForClass!Unclassified! !
+
 !JadeShell methodsFor!
 
 createComponents
@@ -86,6 +90,7 @@ updateCaption
 
 	self caption: (gciSession titleBarFor: self shellName).
 ! !
+
 !JadeShell categoriesForMethods!
 createComponents!private! !
 gciSession!private! !
@@ -119,6 +124,7 @@ showOnSession: aGciSession
 		showShell;
 		yourself.
 ! !
+
 !JadeShell class categoriesForMethods!
 icon!public! !
 showOnSession:!public! !

@@ -35,31 +35,30 @@ Object subclass: #VWComponent
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 Object subclass: #VWMethods
 	instanceVariableNames: 'package className isMeta category methods'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 Object subclass: #VWSourceFile
 	instanceVariableNames: 'timeStamp classes methods nameSpaces properties initializers stream'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 VWComponent subclass: #VWClass
 	instanceVariableNames: 'superClass indexedType instVars classInstVars imports comment methods'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 VWComponent subclass: #VWNameSpace
 	instanceVariableNames: 'imports'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
-
-"Global Aliases"!
-
-
-"Loose Methods"!
 
 "End of package definition"!
 

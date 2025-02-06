@@ -5,7 +5,6 @@ package paxVersion: 1;
 
 package basicPackageVersion: '0.057'.
 
-
 package classNames
 	add: #AllSessionsPresenter;
 	add: #FileInPharo;
@@ -76,39 +75,42 @@ Object subclass: #FileInPharo
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 Object subclass: #PharoClass
 	instanceVariableNames: 'superclassName name instVarNames classVarNames classInstVarNames packageName category comment classMethods instanceMethods parent children'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenterA subclass: #AllSessionsPresenter
 	instanceVariableNames: 'autoUpdatePresenter autoUpdateProcess sessionListPresenter sessionListErrorPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenterA subclass: #MySessionPresenter
 	instanceVariableNames: 'configurationReportPresenter gciSessionIdPresenter gciVersionPresenter gemHostPresenter gemTypePresenter logPathPresenter netPortPresenter netTaskPresenter stoneHostPresenter stoneNamePresenter stoneSerialPresenter stoneSessionIDPresenter userIDPresenter versionReportPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenterA subclass: #StoneInfoPresenter
 	instanceVariableNames: 'configurationReportPresenter streamTypePresenter stringTypePresenter versionReportPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 CodeSourcePresenter subclass: #TranscriptPresenter
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeWorkspace subclass: #JadeTranscript
 	instanceVariableNames: 'allSessionsPresenter historyPresenter mySessionPresenter stoneInfoPresenter toolbarPresenter transcriptPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
-
-"Global Aliases"!
-
 
 "Loose Methods"!
 
@@ -331,6 +333,7 @@ stopSession: anInteger
 
 	System stopSession: anInteger.
 ! !
+
 !JadeServer categoriesForMethods!
 _addSessionWithId:toStream:!private!Sessions! !
 _streamType!private!Transcript! !
@@ -360,6 +363,7 @@ _addSessionWithId: anInteger toStream: aStream
 		_addSessionWithId: anInteger 
 		toStream: aStream.
 ! !
+
 !JadeServer32bit categoriesForMethods!
 _addSessionWithId:toStream:!private!Sessions! !
 !
@@ -391,6 +395,7 @@ _stringType
 
 	^(Globals at: #StringConfiguration ifAbsent: [String]) name
 ! !
+
 !JadeServer64bit categoriesForMethods!
 _addSessionWithId:toStream:!private!Sessions! !
 _streamType!private!Transcript! !

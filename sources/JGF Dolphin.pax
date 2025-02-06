@@ -5,7 +5,6 @@ package paxVersion: 1;
 
 package basicPackageVersion: '0.010'.
 
-
 package classNames
 	add: #CharacterCollection;
 	yourself.
@@ -44,9 +43,6 @@ ArrayedCollection variableSubclass: #CharacterCollection
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
 
-"Global Aliases"!
-
-
 "Loose Methods"!
 
 !String methodsFor!
@@ -67,6 +63,7 @@ asCharacterCollection
 		writeStream nextPut: readStream next.
 	].
 	^readStream contents! !
+
 !String categoriesForMethods!
 asBoolean!converting!JGF!public! !
 asCharacterCollection!converting!JGF!public! !
@@ -101,6 +98,7 @@ forceSystemReboot
 
 	^self exitWindowsEx: 2 + 4. "EWX_REBOOT + EWX_FORCE"
 ! !
+
 !UserLibrary categoriesForMethods!
 exitWindowsEx:!JGF!public!win32 functions-system information! !
 exitWindowsEx:_:!JGF!public!win32 functions-system information! !
@@ -113,6 +111,7 @@ forceSystemReboot!JGF!public!win32 functions-system information! !
 lf
 	self nextPut: Character lf.
 ! !
+
 !WriteStream categoriesForMethods!
 lf!JGF!public! !
 !

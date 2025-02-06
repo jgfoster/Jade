@@ -5,9 +5,13 @@ JadePreferenceObject subclass: #JadeAutoCompletationRegistryPreference
 	classVariableNames: 'Default'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeAutoCompletationRegistryPreference guid: (GUID fromString: '{adc2a222-162c-4d55-a3ed-4cc43a4a1705}')!
+
 JadeAutoCompletationRegistryPreference comment: ''!
+
 !JadeAutoCompletationRegistryPreference categoriesForClass!Unclassified! !
+
 !JadeAutoCompletationRegistryPreference methodsFor!
 
 configuration
@@ -404,6 +408,7 @@ variableMap
 
 variableMap: anObject
 	variableMap := anObject! !
+
 !JadeAutoCompletationRegistryPreference categoriesForMethods!
 configuration!public! !
 defaultFileName!public! !
@@ -467,6 +472,7 @@ newFromFile: pathFile
 	obj := self binaryReadFrom: fileStream.
 	fileStream close.
 	^obj! !
+
 !JadeAutoCompletationRegistryPreference class categoriesForMethods!
 newFromFile:!public! !
 !

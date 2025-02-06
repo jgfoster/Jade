@@ -5,9 +5,13 @@ Presenter subclass: #JadePresenter
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenter guid: (GUID fromString: '{b55f33eb-59fb-46d6-8fec-7df1571c7d45}')!
+
 JadePresenter comment: ''!
+
 !JadePresenter categoriesForClass!MVP-Presenters! !
+
 !JadePresenter methodsFor!
 
 gciSession
@@ -74,6 +78,7 @@ updateMenuBar: aMenuBar withName: aString itemsFrom: aPresenter
 			at: i.
 	].
 ! !
+
 !JadePresenter categoriesForMethods!
 gciSession!public! !
 gciSession:!public! !

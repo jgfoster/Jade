@@ -5,9 +5,13 @@ JadePresenter subclass: #JadeRewriteMethodsList
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeRewriteMethodsList guid: (GUID fromString: '{3fdc46ed-5f49-4a6d-b15e-cf6d2803e4b5}')!
+
 JadeRewriteMethodsList comment: ''!
+
 !JadeRewriteMethodsList categoriesForClass!Unclassified! !
+
 !JadeRewriteMethodsList methodsFor!
 
 createComponents
@@ -41,6 +45,7 @@ removeFromList
 	methodsPresenter hasSelection ifFalse: [^self].
 
 	methodsPresenter model remove: methodsPresenter selection! !
+
 !JadeRewriteMethodsList categoriesForMethods!
 createComponents!public! !
 createSchematicWiring!public! !

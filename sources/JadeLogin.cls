@@ -5,9 +5,13 @@ Model subclass: #JadeLogin
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeLogin guid: (GUID fromString: '{585bd13e-3a03-47f3-b78d-5c29ef797913}')!
+
 JadeLogin comment: ''!
+
 !JadeLogin categoriesForClass!Unclassified! !
+
 !JadeLogin methodsFor!
 
 asXML
@@ -330,6 +334,7 @@ transcript: aJadeTranscript
 
 	transcript := aJadeTranscript.
 ! !
+
 !JadeLogin categoriesForMethods!
 asXML!public! !
 debugPath!accessing!public! !
@@ -441,6 +446,7 @@ new
 
 	^self fromXML: self defaultXML
 ! !
+
 !JadeLogin class categoriesForMethods!
 default!public! !
 defaultPath!public! !

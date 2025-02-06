@@ -43,12 +43,6 @@ package setPrerequisites: #(
 
 package!
 
-"Class Definitions"!
-
-
-"Global Aliases"!
-
-
 "Loose Methods"!
 
 !DevelopmentSessionManager methodsFor!
@@ -58,6 +52,7 @@ pause
 
 	Keyboard default isShiftDown ifTrue: [self halt].
 ! !
+
 !DevelopmentSessionManager categoriesForMethods!
 pause!public! !
 !
@@ -90,6 +85,7 @@ toolsIcon
 
 	^Icon fromFile: 'icons\GS128.ico'.
 ! !
+
 !JadeLoginShell class categoriesForMethods!
 addToDevelopmentTools!Development Image!public! !
 removeFromDevelopmentTools!Development Image!public! !

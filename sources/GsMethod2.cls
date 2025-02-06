@@ -5,9 +5,13 @@ GsObject subclass: #GsMethod2
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsMethod2 guid: (GUID fromString: '{d21971c6-fa84-4d7b-a684-d1de5b9f0519}')!
+
 GsMethod2 comment: ''!
+
 !GsMethod2 categoriesForClass!Unclassified! !
+
 !GsMethod2 methodsFor!
 
 <= aGsMethod
@@ -84,6 +88,7 @@ setBreakAtStepPoint: anInteger
 		to: oopType	
 		with: anInteger.
 ! !
+
 !GsMethod2 categoriesForMethods!
 <=!public! !
 asUpdatedVersion:!public! !

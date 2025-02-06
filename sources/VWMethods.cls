@@ -5,9 +5,13 @@ Object subclass: #VWMethods
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 VWMethods guid: (GUID fromString: '{2ad4f4de-e467-49de-bbb0-15e24abee6df}')!
+
 VWMethods comment: ''!
+
 !VWMethods categoriesForClass!Unclassified! !
+
 !VWMethods methodsFor!
 
 className
@@ -76,6 +80,7 @@ processElement: aKey value: aValue
 	MessageBox notify: 'Sorry, we are not yet prepared to handle ' , aKey printString , ' (we only support the #''class-id'', #''category'', and #''body'' keys)!!'.
 	Keyboard default isShiftDown ifTrue: [self halt].
 ! !
+
 !VWMethods categoriesForMethods!
 className!public! !
 initialize:!public! !

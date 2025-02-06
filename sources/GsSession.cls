@@ -5,9 +5,13 @@ GsObject subclass: #GsSession
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsSession guid: (GUID fromString: '{15f90553-cccf-4f17-bf73-85dc91c7f6d0}')!
+
 GsSession comment: ''!
+
 !GsSession categoriesForClass!Unclassified! !
+
 !GsSession methodsFor!
 
 backlog
@@ -146,6 +150,7 @@ viewAge
 
 voteState
 	^voteState! !
+
 !GsSession categoriesForMethods!
 backlog!accessing!public! !
 cacheDesc!accessing!public! !
@@ -194,6 +199,7 @@ xmlBaseName
 
 	^'sessions'.
 ! !
+
 !GsSession class categoriesForMethods!
 fromXML:session:!public! !
 xmlBaseName!public! !

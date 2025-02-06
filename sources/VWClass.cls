@@ -5,9 +5,13 @@ VWComponent subclass: #VWClass
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 VWClass guid: (GUID fromString: '{148c4a80-9d4d-4757-ae9c-49a17aef60c5}')!
+
 VWClass comment: ''!
+
 !VWClass categoriesForClass!Unclassified! !
+
 !VWClass methodsFor!
 
 addMethod: aMethod 
@@ -193,6 +197,7 @@ readOther
 	instVars 		notEmpty ifTrue: [instVars 		:= instVars 		first string subStrings].
 	classInstVars 	notEmpty ifTrue: [classInstVars 	:= classInstVars 	first string subStrings].
 ! !
+
 !VWClass categoriesForMethods!
 addMethod:!public! !
 addMethods:!public! !

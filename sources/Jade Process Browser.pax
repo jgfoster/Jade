@@ -5,7 +5,6 @@ package paxVersion: 1;
 
 package basicPackageVersion: '0.014'.
 
-
 package classNames
 	add: #JadeProcessBrowser;
 	yourself.
@@ -50,9 +49,6 @@ JadeShell subclass: #JadeProcessBrowser
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
-
-"Global Aliases"!
-
 
 "Loose Methods"!
 
@@ -111,6 +107,7 @@ processes
 	^self _encodeString: stream contents.
 
 ! !
+
 !JadeServer categoriesForMethods!
 _addProcess:to:withStatus:scheduler:!private!Processes! !
 _addProcess2:to:withStatus:scheduler:!private!Processes! !
@@ -127,6 +124,7 @@ _waitingProcesses
 	^ProcessorScheduler scheduler waitingProcesses reject: [:each | each == processToIgnore]
 
 ! !
+
 !JadeServer64bit33 categoriesForMethods!
 _waitingProcesses!private!Processes! !
 !
@@ -159,6 +157,7 @@ _addProcess2: aProcess to: aStream withStatus: aString scheduler: aScheduler
 "10"		"live or terminated"
 		yourself.
 ! !
+
 !JadeServer64bit3x categoriesForMethods!
 _addProcess:to:withStatus:scheduler:!private!Processes! !
 _addProcess2:to:withStatus:scheduler:!private!Processes! !
@@ -170,6 +169,7 @@ browseProcesses
 
 	JadeProcessBrowser showOnSession: gciSession.
 ! !
+
 !JadeTranscript categoriesForMethods!
 browseProcesses!public! !
 !

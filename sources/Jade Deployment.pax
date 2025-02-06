@@ -19,7 +19,6 @@ MVIAAAAQAAAAT3JpZ2luYWxGaWxlbmFtZVIAAAAIAAAASmFkZS5leGVSAAAADgAAAFByb2R1Y3RW
 ZXJzaW9uUgAAAAoAAAAxLCAwLCAwLCAxygAAANAAAABiAAAAAQAAAAYCCgBEV09SREFycmF5cgAA
 AAQAAAAJBLAEAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAA==').
-
 package classNames
 	add: #JadeImageStripper;
 	add: #JadeSessionManager;
@@ -59,14 +58,12 @@ ImageStripper subclass: #JadeImageStripper
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 RuntimeSessionManager subclass: #JadeSessionManager
 	instanceVariableNames: ''
 	classVariableNames: 'Version'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
-
-"Global Aliases"!
-
 
 "Loose Methods"!
 
@@ -75,6 +72,7 @@ RuntimeSessionManager subclass: #JadeSessionManager
 jadeSessionManagerClass
 
 	^JadeSessionManager! !
+
 !GciSession categoriesForMethods!
 jadeSessionManagerClass!public! !
 !
@@ -84,6 +82,7 @@ jadeSessionManagerClass!public! !
 jadeSessionManagerClass
 
 	^JadeSessionManager! !
+
 !JadeServer class categoriesForMethods!
 jadeSessionManagerClass!public! !
 !
@@ -93,6 +92,7 @@ jadeSessionManagerClass!public! !
 jadeSessionManagerClass
 
 	^JadeSessionManager! !
+
 !JadeTranscript categoriesForMethods!
 jadeSessionManagerClass!public! !
 !

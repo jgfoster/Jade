@@ -5,9 +5,13 @@ ExternalStructure subclass: #GciErrSType
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GciErrSType guid: (GUID fromString: '{9932de27-acc2-4e27-ad64-9a3ff8b6ecf9}')!
+
 GciErrSType comment: ''!
+
 !GciErrSType categoriesForClass!Unclassified! !
+
 !GciErrSType methodsFor!
 
 args: anArray
@@ -115,6 +119,7 @@ stack
 stack: anObject
 	stack := anObject.
 ! !
+
 !GciErrSType categoriesForMethods!
 args:!public! !
 isApplicationErrorInSession:!public! !

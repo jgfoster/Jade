@@ -5,9 +5,13 @@ GsApplicationError subclass: #GsHaltError
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsHaltError guid: (GUID fromString: '{86ca4ef5-c363-4a19-820b-21230e7d7949}')!
+
 GsHaltError comment: ''!
+
 !GsHaltError categoriesForClass!Unclassified! !
+
 !GsHaltError class methodsFor!
 
 wantsToHandle: aGciErrorSType session: aGciSession
@@ -16,6 +20,7 @@ wantsToHandle: aGciErrorSType session: aGciSession
 		aGciErrorSType message = 'a Halt occurred (error 2709)'].
 
 ! !
+
 !GsHaltError class categoriesForMethods!
 wantsToHandle:session:!public! !
 !

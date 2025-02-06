@@ -5,9 +5,13 @@ JadeBrowserPresenter subclass: #JadeMethodListPresenter
 	classVariableNames: 'JadeMethodBrowserPresenterClass'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeMethodListPresenter guid: (GUID fromString: '{bcf7edb6-114a-4e67-84d3-6fecd6c5ae0c}')!
+
 JadeMethodListPresenter comment: ''!
+
 !JadeMethodListPresenter categoriesForClass!Unclassified! !
+
 !JadeMethodListPresenter methodsFor!
 
 browse: performSelector gsMethod: aGsMethod
@@ -253,6 +257,7 @@ updateSource
 	methodSourcePresenter gsMethod: gsMethod.
 	self doSearch.
 	methodSourcePresenter documentPresenter lastGsShape: (self registry getClass: methodListPresenter selectedMethod gsClass name).! !
+
 !JadeMethodListPresenter categoriesForMethods!
 browse:gsMethod:!public! !
 browse:method:!public! !
@@ -319,6 +324,7 @@ setListView
 setTreeView
 
 	self setJadeMethodBrowserPresenterClass: JadeTreeMethodListPresenter! !
+
 !JadeMethodListPresenter class categoriesForMethods!
 getJadeMethodBrowserPresenterClass!public! !
 getJadeShellViewName!public! !

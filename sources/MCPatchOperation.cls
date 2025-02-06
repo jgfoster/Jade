@@ -5,9 +5,13 @@ GsObject subclass: #MCPatchOperation
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCPatchOperation guid: (GUID fromString: '{656d8071-9137-4a7a-9aba-d0273ee9d33c}')!
+
 MCPatchOperation comment: ''!
+
 !MCPatchOperation categoriesForClass!Unclassified! !
+
 !MCPatchOperation methodsFor!
 
 <= aPatchOperation
@@ -78,6 +82,7 @@ typeString
 
 	^self class name copyFrom: 3 to: self class name size.
 ! !
+
 !MCPatchOperation categoriesForMethods!
 <=!public! !
 className!public! !
@@ -110,6 +115,7 @@ fromStream: aStream session: aGciSession
 		initialize: aStream
 		session:  aGciSession.
 ! !
+
 !MCPatchOperation class categoriesForMethods!
 fromStream:session:!public! !
 !

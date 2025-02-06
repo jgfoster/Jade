@@ -5,9 +5,13 @@ Object subclass: #JadeAbstractHistoryEntry
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeAbstractHistoryEntry guid: (GUID fromString: '{bee97cde-c39a-4f05-8286-df3a70c0fbf6}')!
+
 JadeAbstractHistoryEntry comment: ''!
+
 !JadeAbstractHistoryEntry categoriesForClass!Unclassified! !
+
 !JadeAbstractHistoryEntry methodsFor!
 
 classCategory
@@ -70,6 +74,7 @@ printOn: target
 
 
 	target nextPutAll: ('aHistoryEntry ', self getClassName, '>>', self getMethodName)! !
+
 !JadeAbstractHistoryEntry categoriesForMethods!
 classCategory!accessing!private! !
 classCategory:!accessing!private! !
@@ -92,6 +97,7 @@ newFrom: aJadeAutoSystemBrowserPresenter
 	^super new initialize
 		populateFrom: aJadeAutoSystemBrowserPresenter;
 		yourself! !
+
 !JadeAbstractHistoryEntry class categoriesForMethods!
 newFrom:!public! !
 !

@@ -57,64 +57,72 @@ Object subclass: #JadeTextStyles
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: 'default'!
+
 Presenter subclass: #JadePresenter
 	instanceVariableNames: 'gciSession'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenter subclass: #JadePresenterA
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenter subclass: #JadeToolsToolBarPresenter
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenterA subclass: #CodeSourcePresenter
 	instanceVariableNames: 'documentPresenter menuTitle environment'
 	classVariableNames: 'CodeFont'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenterA subclass: #JadeBrowserPresenter
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 Shell subclass: #JadeShell
 	instanceVariableNames: 'gciSession myPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 TextDocument subclass: #JadeTextDocument
 	instanceVariableNames: 'gciSession codePane environment'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeTextDocument subclass: #JadeWorkspace
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 ValueDialog subclass: #JadeValueDialog
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 TextPresenter subclass: #JadeTextPresenter
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 Toolbar subclass: #ToolbarA
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
-
-"Global Aliases"!
-
 
 "Loose Methods"!
 
@@ -138,6 +146,7 @@ fileInClass: aString
 	].
 	oldString = sourceString ifFalse: [sourceString evaluate].
 ! !
+
 !JadeServer categoriesForMethods!
 fileInClass:!Classes!public! !
 !

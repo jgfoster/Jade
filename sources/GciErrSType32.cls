@@ -5,7 +5,9 @@ GciErrSType subclass: #GciErrSType32
 	classVariableNames: '_OffsetOf_argCount _OffsetOf_args _OffsetOf_category _OffsetOf_context _OffsetOf_fatal _OffsetOf_message _OffsetOf_number'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GciErrSType32 guid: (GUID fromString: '{a4559093-6277-4975-a45b-6f8fa8285429}')!
+
 GciErrSType32 addClassConstant: '_OffsetOf_argCount' value: 16r1C8!
 GciErrSType32 addClassConstant: '_OffsetOf_args' value: 16r1A0!
 GciErrSType32 addClassConstant: '_OffsetOf_category' value: 16r0!
@@ -13,6 +15,7 @@ GciErrSType32 addClassConstant: '_OffsetOf_context' value: 16r8!
 GciErrSType32 addClassConstant: '_OffsetOf_fatal' value: 16r1CC!
 GciErrSType32 addClassConstant: '_OffsetOf_message' value: 16rC!
 GciErrSType32 addClassConstant: '_OffsetOf_number' value: 16r4!
+
 GciErrSType32 comment: 'GciErrSType
 	<C: typedef struct {
 			OopType category;
@@ -23,7 +26,9 @@ GciErrSType32 comment: 'GciErrSType
 			long argCount;
 			BoolType fatal;
 		} GciErrSType>'!
+
 !GciErrSType32 categoriesForClass!Unclassified! !
+
 !GciErrSType32 methodsFor!
 
 argCount
@@ -106,6 +111,7 @@ oopTypeClass
 
 	^OopType32.
 ! !
+
 !GciErrSType32 categoriesForMethods!
 argCount!**compiled accessors**!public! !
 argCount:!public! !
@@ -154,6 +160,7 @@ defineFields
 		defineField: #fatal			type: BOOLField			new	;
 		yourself.
 ! !
+
 !GciErrSType32 class categoriesForMethods!
 defineFields!public! !
 !

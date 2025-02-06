@@ -5,9 +5,13 @@ MCDefinition subclass: #MCMethodDefinition
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCMethodDefinition guid: (GUID fromString: '{2fc81943-2846-4631-abf1-f40bd2da0274}')!
+
 MCMethodDefinition comment: ''!
+
 !MCMethodDefinition categoriesForClass!Unclassified! !
+
 !MCMethodDefinition methodsFor!
 
 category
@@ -56,6 +60,7 @@ source
 
 timeStamp
 	^timeStamp! !
+
 !MCMethodDefinition categoriesForMethods!
 category!accessing!public! !
 classIsMeta!accessing!public! !

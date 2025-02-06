@@ -5,9 +5,13 @@ Object subclass: #JadeFileIn
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeFileIn guid: (GUID fromString: '{5eb74a05-1227-4d91-9750-01548085fa61}')!
+
 JadeFileIn comment: ''!
+
 !JadeFileIn categoriesForClass!Unclassified! !
+
 !JadeFileIn methodsFor!
 
 defineClass
@@ -340,6 +344,7 @@ stream: aStream
 
 	stream := aStream.
 ! !
+
 !JadeFileIn categoriesForMethods!
 defineClass!public! !
 defineClassMethod!public! !

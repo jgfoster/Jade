@@ -5,9 +5,13 @@ GciSingleThreadedLibrary subclass: #Gcilw6x
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 Gcilw6x guid: (GUID fromString: '{903182ee-3a32-4868-8468-77731d1b2fd5}')!
+
 Gcilw6x comment: ''!
+
 !Gcilw6x categoriesForClass!Unclassified! !
+
 !Gcilw6x methodsFor!
 
 errorStructureClass
@@ -272,6 +276,7 @@ specialFromOop: anOop
 	].
 	^nil.
 ! !
+
 !Gcilw6x categoriesForMethods!
 errorStructureClass!private! !
 gciClearStack:!private! !
@@ -330,6 +335,7 @@ fileNameSearch
 
 	^self name , '.dll'
 ! !
+
 !Gcilw6x class categoriesForMethods!
 fileNameSearch!public! !
 !

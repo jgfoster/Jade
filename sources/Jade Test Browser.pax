@@ -5,7 +5,6 @@ package paxVersion: 1;
 
 package basicPackageVersion: '0.022'.
 
-
 package classNames
 	add: #GsTestMethod;
 	add: #JadeSUnitAbstractPresenter;
@@ -57,34 +56,36 @@ Object subclass: #GsTestMethod
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 Object subclass: #JadeTestResult
 	instanceVariableNames: 'failures errors passed summary'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenter subclass: #JadeSUnitAbstractPresenter
 	instanceVariableNames: 'testCasesPresenter textResultPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeSUnitAbstractPresenter subclass: #JadeSUnitInClassPresenter
 	instanceVariableNames: 'testClassName'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeSUnitAbstractPresenter subclass: #JadeSUnitPresenter
 	instanceVariableNames: 'packagesPresenter testClassesPresenter status testCounter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeShell subclass: #JadeSUnitBrowser
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
-
-"Global Aliases"!
-
 
 "Loose Methods"!
 
@@ -156,6 +157,7 @@ runTestNamed: testName in: gsClass
 	testResult := (self objectNamed: (self _decodeString: gsClass)) run: (self _decodeString: testName) asSymbol.
 
 	^self _encodeString: testResult errorCount printString, ',' ,testResult failureCount printString, ',', testResult passedCount printString! !
+
 !JadeServer categoriesForMethods!
 debugTestNamed:of:!public!Test Browser! !
 getPackagesNamesWithTestClasses!public!Test Browser! !
@@ -169,6 +171,7 @@ runTestNamed:in:!public!Test Browser! !
 browseTests
 
 	JadeSUnitBrowser showOnSession: gciSession.! !
+
 !JadeToolsToolBarPresenter categoriesForMethods!
 browseTests!public! !
 !

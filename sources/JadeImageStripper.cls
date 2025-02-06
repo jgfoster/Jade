@@ -5,9 +5,13 @@ ImageStripper subclass: #JadeImageStripper
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeImageStripper guid: (GUID fromString: '{773ab738-9d79-41cb-b663-df50bce9c3e5}')!
+
 JadeImageStripper comment: ''!
+
 !JadeImageStripper categoriesForClass!Unclassified! !
+
 !JadeImageStripper methodsFor!
 
 closeLoginShells
@@ -170,6 +174,7 @@ requiredPackageNames
 		add: 'Jade Process Browser';
 		add: 'Jade Tutorial';
 		yourself! !
+
 !JadeImageStripper categoriesForMethods!
 closeLoginShells!public! !
 copyRuntimeFiles!public! !
@@ -210,6 +215,7 @@ JadeImageStripper versionHistory.
 	].
 	^stream contents.
 ! !
+
 !JadeImageStripper class categoriesForMethods!
 versionHistory!public! !
 !

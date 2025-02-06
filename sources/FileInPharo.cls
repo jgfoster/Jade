@@ -5,9 +5,13 @@ Object subclass: #FileInPharo
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 FileInPharo guid: (GUID fromString: '{256c2c5a-83ee-490d-ba07-7388c5e12701}')!
+
 FileInPharo comment: ''!
+
 !FileInPharo categoriesForClass!Unclassified! !
+
 !FileInPharo methodsFor!
 
 chunk: aString
@@ -162,6 +166,7 @@ writeToPath: aString
 	| roots |
 	roots := classes select: [:each | each parent isNil].
 	roots halt.! !
+
 !FileInPharo categoriesForMethods!
 chunk:!public! !
 class:instVarNames:!public! !
@@ -183,6 +188,7 @@ path: aString
 		initialize: aString;
 		yourself
 ! !
+
 !FileInPharo class categoriesForMethods!
 path:!public! !
 !

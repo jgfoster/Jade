@@ -5,9 +5,13 @@ LibGciRpc64_3_0 subclass: #LibGciRpc64_3_1_0
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 LibGciRpc64_3_1_0 guid: (GUID fromString: '{b9f761f8-7aa2-47ab-804a-8a2c76afdb1d}')!
+
 LibGciRpc64_3_1_0 comment: ''!
+
 !LibGciRpc64_3_1_0 categoriesForClass!Unclassified! !
+
 !LibGciRpc64_3_1_0 methodsFor!
 
 errorStructureClass
@@ -20,6 +24,7 @@ gciErr: errorReport
 	<cdecl: bool GciErr GciErrSType64_31*>
 	^self invalidCall: _failureCode
 ! !
+
 !LibGciRpc64_3_1_0 categoriesForMethods!
 errorStructureClass!private! !
 gciErr:!private! !
@@ -50,6 +55,7 @@ version
 		dot := '.'.
 	].
 	^stream contents! !
+
 !LibGciRpc64_3_1_0 class categoriesForMethods!
 displayName!public! !
 fileNameSearch!public! !

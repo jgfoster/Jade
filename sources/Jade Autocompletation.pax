@@ -5,7 +5,6 @@ package paxVersion: 1;
 
 package basicPackageVersion: '0.066'.
 
-
 package classNames
 	add: #JadeAutocompletationConfigurationPresenter;
 	add: #JadeAutocompletationConfigurationShell;
@@ -71,69 +70,78 @@ Object subclass: #JadeAutoMap
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 Object subclass: #JadeGsClassShape
 	instanceVariableNames: 'name gsInstVariables gsClassVariables gsInstClassVariables gsPoolDictionaries gsMethods gsClassMethods gsClassHierarchy'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePreferenceObject subclass: #JadeAutoCompletationPreference
 	instanceVariableNames: 'isEnabled logEnabled filterObjectMethods filterPrimitiveMethods hideClassVars hideInstClassVars hidePoolDictionaries'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePreferenceObject subclass: #JadeAutoCompletationRegistryPreference
 	instanceVariableNames: 'registry variableMap paramMap'
 	classVariableNames: 'Default'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenter subclass: #JadeMaximizedCodePresenter
 	instanceVariableNames: 'parentMethodPresenter codePresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenterA subclass: #JadeAutocompletationConfigurationPresenter
 	instanceVariableNames: 'isEnabledPresenter logEnabledPresenter filterObjectPresenter filterPrimitivePresenter hideClassVarPresenter hideInstClassVarPresenter hidePoolDictionariesPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenterA subclass: #JadeMapAutocompletationPresenter
 	instanceVariableNames: 'namePresenter gsClassListPresenter mapPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenterA subclass: #JadeParamAutocompletationPresenter
 	instanceVariableNames: 'methodNamePresenter paramPresenter paramsPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenterA subclass: #JadeRegistryPresenter
 	instanceVariableNames: 'registryPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 Shell subclass: #JadeAutocompletationConfigurationShell
 	instanceVariableNames: 'configurationComposite registryComposite mapingComposite paramComposite'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeShell subclass: #JadeMaximizedCodeShell
 	instanceVariableNames: 'maximizedPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeTextPresenter subclass: #JadeAutoTextPresenter
 	instanceVariableNames: 'lastGsShape lastWord lastCharacter currentWord temporaries arguments altMode'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeTextPresenter subclass: #JadeAutoTextPresenter3
 	instanceVariableNames: 'currentGsShape currentText previousText currentStyleName previousStyleName lastTimeKey wordRightSideIsEmpty lastParsedResult lastTextSelection'
 	classVariableNames: 'ReplacementDictionary'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
-
-"Global Aliases"!
-
 
 "Loose Methods"!
 
@@ -147,6 +155,7 @@ createComponents
 
 hasClassSideSelected
 	^parentPresenter hasClassSideSelected! !
+
 !CodeSourcePresenter categoriesForMethods!
 createComponents!public! !
 hasClassSideSelected!public! !
@@ -161,6 +170,7 @@ getSelectedClassName
 hasClassSideSelected
 
 	^(self selectedClass name subStrings: ' ') last = 'class'! !
+
 !JadeMethodListPresenter categoriesForMethods!
 getSelectedClassName!public! !
 hasClassSideSelected!public! !
@@ -171,6 +181,7 @@ hasClassSideSelected!public! !
 registry
 
 	^JadeAutoCompletationRegistryPreference default! !
+
 !JadePresenterA categoriesForMethods!
 registry!autocompletion!public! !
 !
@@ -186,6 +197,7 @@ hasClassSideSelected
 registry
 
 	^JadeAutoCompletationRegistryPreference default! !
+
 !JadeTextDocument categoriesForMethods!
 hasClassSideSelected!public! !
 registry!autocompletion!private! !
@@ -195,6 +207,7 @@ registry!autocompletion!private! !
 
 hasClassSideSelected
 	^parentPresenter hasClassSideSelected! !
+
 !MethodSourcePresenter categoriesForMethods!
 hasClassSideSelected!public! !
 !

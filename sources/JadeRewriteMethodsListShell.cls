@@ -5,9 +5,13 @@ JadeShell subclass: #JadeRewriteMethodsListShell
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeRewriteMethodsListShell guid: (GUID fromString: '{490a546a-4bb8-4dac-a1d7-175f6b4b1088}')!
+
 JadeRewriteMethodsListShell comment: ''!
+
 !JadeRewriteMethodsListShell categoriesForClass!Unclassified! !
+
 !JadeRewriteMethodsListShell methodsFor!
 
 createComponents
@@ -45,6 +49,7 @@ shellName
 updateCaption
 
 	self caption: self shellName! !
+
 !JadeRewriteMethodsListShell categoriesForMethods!
 createComponents!public! !
 currentRule!public! !

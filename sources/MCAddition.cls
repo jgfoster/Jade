@@ -5,9 +5,13 @@ MCPatchOperation subclass: #MCAddition
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCAddition guid: (GUID fromString: '{b78cb54f-d86c-4398-a734-2c5cfa934104}')!
+
 MCAddition comment: ''!
+
 !MCAddition categoriesForClass!Unclassified! !
+
 !MCAddition methodsFor!
 
 className
@@ -54,6 +58,7 @@ selector
 
 	^definition selector.
 ! !
+
 !MCAddition categoriesForMethods!
 className!public! !
 definition!public! !

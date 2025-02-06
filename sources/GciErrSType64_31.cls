@@ -5,7 +5,9 @@ GciErrSType subclass: #GciErrSType64_31
 	classVariableNames: '_OffsetOf_argCount _OffsetOf_args _OffsetOf_category _OffsetOf_context _OffsetOf_exceptionObj _OffsetOf_fatal _OffsetOf_message _OffsetOf_number _OffsetOf_reason'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GciErrSType64_31 guid: (GUID fromString: '{673bb5d8-2105-4a66-baeb-712876fb246c}')!
+
 GciErrSType64_31 addClassConstant: '_OffsetOf_argCount' value: 16r6C!
 GciErrSType64_31 addClassConstant: '_OffsetOf_args' value: 16r18!
 GciErrSType64_31 addClassConstant: '_OffsetOf_category' value: 16r0!
@@ -15,8 +17,11 @@ GciErrSType64_31 addClassConstant: '_OffsetOf_fatal' value: 16r70!
 GciErrSType64_31 addClassConstant: '_OffsetOf_message' value: 16r71!
 GciErrSType64_31 addClassConstant: '_OffsetOf_number' value: 16r68!
 GciErrSType64_31 addClassConstant: '_OffsetOf_reason' value: 16r472!
+
 GciErrSType64_31 comment: ''!
+
 !GciErrSType64_31 categoriesForClass!Unclassified! !
+
 !GciErrSType64_31 methodsFor!
 
 argCount
@@ -127,6 +132,7 @@ reason: anObject
 	size := anObject byteSize - 1 min: (1024 * 1).
 	anObject replaceBytesOf: bytes from: 1139 to: 1138 + size startingAt: 1.
 	bytes at: size+1139 put: 0! !
+
 !GciErrSType64_31 categoriesForMethods!
 argCount!**compiled accessors**!public! !
 argCount:!public! !
@@ -188,6 +194,7 @@ defineFields
 		defineField: #reason				type: reasonField					;
 		yourself.
 ! !
+
 !GciErrSType64_31 class categoriesForMethods!
 defineFields!public! !
 !

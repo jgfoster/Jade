@@ -5,9 +5,13 @@ GsError subclass: #GsCompileError
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsCompileError guid: (GUID fromString: '{e49be376-e1af-4368-a429-b691f6e547ca}')!
+
 GsCompileError comment: ''!
+
 !GsCompileError categoriesForClass!Unclassified! !
+
 !GsCompileError methodsFor!
 
 gatherData
@@ -22,6 +26,7 @@ list
 
 	^list.
 ! !
+
 !GsCompileError categoriesForMethods!
 gatherData!public! !
 list!public! !
@@ -51,6 +56,7 @@ wantsToHandle: aGciErrorSType session: aGciSession
 
 	^aGciErrorSType isCompileErrorInSession: aGciSession.
 ! !
+
 !GsCompileError class categoriesForMethods!
 errorListFor:inSession:!public! !
 wantsToHandle:session:!public! !

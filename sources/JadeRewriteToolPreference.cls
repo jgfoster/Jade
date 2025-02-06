@@ -5,9 +5,13 @@ JadePreferenceObject subclass: #JadeRewriteToolPreference
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeRewriteToolPreference guid: (GUID fromString: '{adcf92c9-9cfe-4192-bd4d-8c9738029967}')!
+
 JadeRewriteToolPreference comment: ''!
+
 !JadeRewriteToolPreference categoriesForClass!Unclassified! !
+
 !JadeRewriteToolPreference methodsFor!
 
 displayString
@@ -28,6 +32,7 @@ publishedAspects
 	aspects
 		add: (Aspect choice: #formatterClass from: (Array with: 'RBFormatter' with: 'RBConfigurableFormatter')).
 	^aspects! !
+
 !JadeRewriteToolPreference categoriesForMethods!
 displayString!public! !
 formatterClass!accessing!private! !

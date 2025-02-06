@@ -5,9 +5,13 @@ GciLibrary subclass: #GciThreadSafeLibrary
 	classVariableNames: 'OOP_ILLEGAL OOP_NIL'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GciThreadSafeLibrary guid: (GUID fromString: '{9edd7a96-1ba3-4be6-a416-2773ac69a324}')!
+
 GciThreadSafeLibrary comment: ''!
+
 !GciThreadSafeLibrary categoriesForClass!Unclassified! !
+
 !GciThreadSafeLibrary methodsFor!
 
 abortSession: session
@@ -906,6 +910,7 @@ version
 	productCode == 3 ifFalse: [self error: 'Unexpected product code (' , productCode printString , ')'].
 	string := string copyFrom: 1 to: (string indexOf: (Character codePoint: 0)) - 1.
 	^string! !
+
 !GciThreadSafeLibrary categoriesForMethods!
 abortSession:!public!required! !
 beginSession:!public!required! !

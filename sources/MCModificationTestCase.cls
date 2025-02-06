@@ -5,9 +5,13 @@ TestCase subclass: #MCModificationTestCase
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCModificationTestCase guid: (GUID fromString: '{c463b1c3-c30b-4a60-9509-7a646157e7da}')!
+
 MCModificationTestCase comment: ''!
+
 !MCModificationTestCase categoriesForClass!Unclassified! !
+
 !MCModificationTestCase methodsFor!
 
 methods: anArray
@@ -139,6 +143,7 @@ test04
 		assert: newMarkers = (Array with: #'added' -> 4);
 		yourself.
 ! !
+
 !MCModificationTestCase categoriesForMethods!
 methods:!public! !
 methods01!public! !

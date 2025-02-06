@@ -5,9 +5,13 @@ CodeSourcePresenter subclass: #MethodSourcePresenter
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MethodSourcePresenter guid: (GUID fromString: '{4eda4c47-5b55-436d-b9e2-ef2042660a98}')!
+
 MethodSourcePresenter comment: ''!
+
 !MethodSourcePresenter categoriesForClass!Unclassified! !
+
 !MethodSourcePresenter methodsFor!
 
 canSetBreakpoints
@@ -381,6 +385,7 @@ updateMethodStepPoints
 	].
 	documentPresenter view indicators: indicators.
 ! !
+
 !MethodSourcePresenter categoriesForMethods!
 canSetBreakpoints!Breakpoints!public! !
 clearBreakAtStepPoint:!public! !
@@ -417,6 +422,7 @@ publishedEventsOfInstances
 			add: #'savedMethod:inClass:';
 			yourself.
 ! !
+
 !MethodSourcePresenter class categoriesForMethods!
 publishedEventsOfInstances!public! !
 !

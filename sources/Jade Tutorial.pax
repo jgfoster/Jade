@@ -3,7 +3,6 @@ package := Package name: 'Jade Tutorial'.
 package paxVersion: 1;
 	basicComment: ''.
 
-
 package classNames
 	add: #GemStoneSyntaxTutorial;
 	add: #GsProfStef;
@@ -44,14 +43,12 @@ SmalltalkSyntaxTutorial subclass: #GemStoneSyntaxTutorial
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeWorkspace subclass: #GsProfStef
 	instanceVariableNames: 'dictionaryName index tutorial'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: 'current'!
-
-"Global Aliases"!
-
 
 "Loose Methods"!
 
@@ -60,6 +57,7 @@ JadeWorkspace subclass: #GsProfStef
 isProfStefAvailable
 
 	^false! !
+
 !GciSession categoriesForMethods!
 isProfStefAvailable!accessing!public! !
 !
@@ -69,6 +67,7 @@ isProfStefAvailable!accessing!public! !
 isProfStefAvailable
 
 	^true! !
+
 !GciSession33 categoriesForMethods!
 isProfStefAvailable!accessing!public! !
 !
@@ -128,6 +127,7 @@ removeProfStef
 		(each at: 1) removeKey: (each at: 2).
 	].
 ! !
+
 !JadeServer64bit32 categoriesForMethods!
 addProfStef!public!Tutorial! !
 newProfStefClass!public!Tutorial! !
@@ -139,6 +139,7 @@ removeProfStef!public!Tutorial! !
 profStef
 
 	GsProfStef showOnSession: gciSession.! !
+
 !JadeTranscript categoriesForMethods!
 profStef!event handling!public! !
 !

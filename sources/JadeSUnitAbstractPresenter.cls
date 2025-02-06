@@ -5,9 +5,13 @@ JadePresenter subclass: #JadeSUnitAbstractPresenter
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeSUnitAbstractPresenter guid: (GUID fromString: '{472418d5-e1b6-4d52-aa6f-01de7f19d38f}')!
+
 JadeSUnitAbstractPresenter comment: ''!
+
 !JadeSUnitAbstractPresenter categoriesForClass!Unclassified! !
+
 !JadeSUnitAbstractPresenter methodsFor!
 
 abortTransaction
@@ -82,6 +86,7 @@ setColorFor: aJadeTestResult
 				do: [:eachTest | eachTest == gsTestMethod ifTrue: [eachTest setPassed]]].
 	testCasesPresenter view invalidate.
 	textResultPresenter view backcolor: aJadeTestResult backgroundColor! !
+
 !JadeSUnitAbstractPresenter categoriesForMethods!
 abortTransaction!public! !
 commitTransaction!public! !

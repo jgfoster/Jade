@@ -5,9 +5,13 @@ JadeShell subclass: #MCRepositoryBrowser
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCRepositoryBrowser guid: (GUID fromString: '{ed52d4ac-3c47-4b09-830b-99228086125c}')!
+
 MCRepositoryBrowser comment: ''!
+
 !MCRepositoryBrowser categoriesForClass!Unclassified! !
+
 !MCRepositoryBrowser methodsFor!
 
 addDirectoryRepository
@@ -334,6 +338,7 @@ updateVersionList
 		self updateVersionInfo.
 	].
 ! !
+
 !MCRepositoryBrowser categoriesForMethods!
 addDirectoryRepository!add repository!public! !
 addFileTreeRepository!add repository!public! !
@@ -377,6 +382,7 @@ resource_Default_view
 \viewkind4\uc1\pard\f0\fs22 
 \par }
 ' 10256 1378 #resetCharFormat 832 10256 1538 8 #[44 0 0 0 0 0 0 0 0 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 4 0 0 0 27 0 0 0 168 2 0 0 104 1 0 0] 8 #() 1600 0 27 4208 170 192 34 4 10256 8 'repositoryCreationTemplate' 4208 8 'versionInfo' 0 410 ##(Smalltalk.TabViewXP) 34 28 0 4000 34 2 8 1140916736 1 11312 786 138 144 34 2 10240 4192 0 864 0 0 1 0 0 0 11312 0 8 4294903547 2114 0 0 918822 ##(Smalltalk.CompiledMethod) 2 3 ##(Smalltalk.ListControlView) #defaultGetTextBlock 575230339 8 #[30 105 226 0 106] #displayString 11440 7 257 0 2114 0 0 11458 2 3 ##(Smalltalk.IconicListAbstract) #defaultGetImageBlock 579598755 8 #[30 105 226 0 106] #iconImageIndex 11504 7 257 0 1184 0 0 0 0 0 #noIcons 0 0 0 0 0 1314 138 144 34 3 1378 #createAt:extent: 34 2 514 1 1 514 1369 729 11312 1378 #basicSelectionsByIndex: 34 1 8 #(2) 11312 1378 #tcmSetExtendedStyle:dwExStyle: 8 #(-1 0) 11312 1538 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 0 0 0 0 172 2 0 0 108 1 0 0] 8 #() 1600 0 27 1314 138 144 34 1 1378 #createAt:extent: 34 2 514 1 555 514 1369 729 4000 1538 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 21 1 0 0 172 2 0 0 129 2 0 0] 34 3 10256 4208 11312 1600 0 27 9 true 170 192 832 0 461638 4 ##(Smalltalk.MenuBar) 0 true 34 3 914 0 true 34 2 962 1 994 #addRepository 8 '&Add...' 1 1 0 0 0 962 1 994 #removeRepository 8 '&Remove...' 1 1 0 0 0 8 '&Repository' 0 134217729 0 0 37961 0 0 914 0 true 34 2 962 1 994 #addPackage 8 '&Add...' 1 1 0 0 0 962 1 994 #removePackage 8 'Remove...' 1 1 0 0 0 8 '&Package' 0 134217729 0 0 37967 0 0 914 0 true 34 1 962 1 994 #loadVersion 8 '&Load Version' 1 1 0 0 0 8 '&Version' 0 134217729 0 0 37971 0 0 8 '' 0 134217729 0 0 0 0 0 0 0 0 1 0 0 0 0 1 0 0 1314 138 144 34 3 1378 #createAt:extent: 34 2 514 2559 21 514 1401 1401 416 1378 #text: 34 1 8 'Monticello Repository Browser' 416 1378 #updateMenuBar 832 416 1538 8 #[44 0 0 0 0 0 0 0 0 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 4 0 0 10 0 0 0 187 7 0 0 198 2 0 0] 34 3 608 410 ##(Smalltalk.Splitter) 34 12 0 416 34 2 8 1140850688 1 12640 0 466 3584 0 519 0 0 0 12640 1314 138 144 34 1 1378 #createAt:extent: 34 2 514 1 545 514 1369 11 12640 1538 8 #[44 0 0 0 0 0 0 0 1 0 0 0 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 0 0 0 0 16 1 0 0 172 2 0 0 21 1 0 0] 8 #() 1600 0 27 4000 1600 0 27 )! !
+
 !MCRepositoryBrowser class categoriesForMethods!
 resource_Default_view!public!resources-views! !
 !

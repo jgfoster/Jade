@@ -5,9 +5,13 @@ Object subclass: #GciActivity
 	classVariableNames: 'Counter'
 	poolDictionaries: ''
 	classInstanceVariableNames: 'activity'!
+
 GciActivity guid: (GUID fromString: '{40ea9406-2b07-457f-9e85-9418c45fa80e}')!
+
 GciActivity comment: ''!
+
 !GciActivity categoriesForClass!Unclassified! !
+
 !GciActivity methodsFor!
 
 canBreak
@@ -153,6 +157,7 @@ writeOn: aStream
 		print: self msForResponse; tab;
 		print: response; cr.
 ! !
+
 !GciActivity categoriesForMethods!
 canBreak!public! !
 enableWindow!public! !
@@ -192,6 +197,7 @@ newWithSessionId: anInteger description: aString window: aView
 		initializeSessionId: anInteger description: aString window: aView;
 		yourself
 ! !
+
 !GciActivity class categoriesForMethods!
 activity!public! !
 new!public! !

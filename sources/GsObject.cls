@@ -5,9 +5,13 @@ Object subclass: #GsObject
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsObject guid: (GUID fromString: '{86a78fbd-348d-46b8-9a1b-e4c91d698eeb}')!
+
 GsObject comment: ''!
+
 !GsObject categoriesForClass!Unclassified! !
+
 !GsObject methodsFor!
 
 <= aGsObject2
@@ -87,6 +91,7 @@ printOn: aStream
 	name isNil ifTrue: [^super printOn: aStream].
 	aStream nextPutAll: name.
 ! !
+
 !GsObject categoriesForMethods!
 <=!public! !
 =!public! !
@@ -161,6 +166,7 @@ xmlBaseName
 
 	^self subclassResponsibility.
 ! !
+
 !GsObject class categoriesForMethods!
 fromStream:session:!public! !
 fromString:session:!public! !

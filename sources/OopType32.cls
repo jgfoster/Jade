@@ -5,9 +5,13 @@ DWORD subclass: #OopType32
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 OopType32 guid: (GUID fromString: '{5e753c2a-33e0-438c-8b48-549e19ccc28e}')!
+
 OopType32 comment: ''!
+
 !OopType32 categoriesForClass!Unclassified! !
+
 !OopType32 methodsFor!
 
 is64BitBoolean
@@ -58,6 +62,7 @@ printOn: aStream
 
 	aStream nextPutAll: 'Oop(' , self value printString , ')'.
 ! !
+
 !OopType32 categoriesForMethods!
 is64BitBoolean!public! !
 is64BitCharacter!public! !
@@ -76,6 +81,7 @@ elementSize
 
 	^4.
 ! !
+
 !OopType32 class categoriesForMethods!
 elementSize!public! !
 !

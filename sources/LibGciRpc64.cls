@@ -5,9 +5,13 @@ GciSingleThreadedLibrary subclass: #LibGciRpc64
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 LibGciRpc64 guid: (GUID fromString: '{ce7fe05a-c8ee-4a13-b4aa-7c8aef295620}')!
+
 LibGciRpc64 comment: ''!
+
 !LibGciRpc64 categoriesForClass!Unclassified! !
+
 !LibGciRpc64 methodsFor!
 
 errorStructureClass
@@ -419,6 +423,7 @@ specialFromOop: anOop
 	anOop isSmallDouble 	ifTrue: [^anOop smallDoubleAsFloat].
 	^nil.
 ! !
+
 !LibGciRpc64 categoriesForMethods!
 errorStructureClass!private! !
 gciClearStack:!private! !

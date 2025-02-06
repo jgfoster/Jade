@@ -5,9 +5,13 @@ GsObject subclass: #GsUserProfile
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsUserProfile guid: (GUID fromString: '{399e972a-24dd-4e6c-a458-fc8e949470a5}')!
+
 GsUserProfile comment: ''!
+
 !GsUserProfile categoriesForClass!Unclassified! !
+
 !GsUserProfile methodsFor!
 
 disabledReason
@@ -130,6 +134,7 @@ symbolList
 	list := string subStringsTrimmingTrailingEmptyElement: Character lf.
 	list := list collect: [:each | GsSymbolDictionary new initialize: each session: gciSession].
 	^list! !
+
 !GsUserProfile categoriesForMethods!
 disabledReason!public! !
 editGroup:value:!public! !
@@ -155,6 +160,7 @@ allIn: aGciSession
 	list := string subStringsTrimmingTrailingEmptyElement: Character lf.
 	list := list collect: [:each | self new initialize: each session: aGciSession].
 	^list! !
+
 !GsUserProfile class categoriesForMethods!
 allIn:!public! !
 !

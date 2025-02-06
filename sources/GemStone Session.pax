@@ -89,169 +89,198 @@ Object subclass: #GciSession
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 Object subclass: #JadeLog
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: 'debugLog'!
+
 Object subclass: #JadeServer
 	instanceVariableNames: 'classList classOrganizers readStream writeStream selectedClass methodFilterType methodFilters selections showUnimplementedMessages'
 	classVariableNames: 'AllGroups AllUsers ClassOrganizer ClientForwarder GemStoneError Globals GsFile GsMethodDictionary ProcessorScheduler SymbolDictionary SymbolList System UserGlobals UserProfile'
 	poolDictionaries: ''
 	classInstanceVariableNames: 'gsString'!
+
 Error subclass: #GsError
 	instanceVariableNames: 'gciErrSType gsProcess'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsError subclass: #GsAnsiError
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsError subclass: #GsCompileError
 	instanceVariableNames: 'list'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsError subclass: #GsEventError
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsError subclass: #GsFatalError
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsError subclass: #GsRuntimeError
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsAnsiError subclass: #GsTestFailure
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsEventError subclass: #GsClientForwarderSend
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsEventError subclass: #GsHardBreak
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsEventError subclass: #GsPause
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsEventError subclass: #GsSoftBreak
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsEventError subclass: #GsStackBreakpoint
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsFatalError subclass: #GsInvalidSessionError
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsRuntimeError subclass: #GsApplicationError
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsRuntimeError subclass: #GsDoesNotUnderstand
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsApplicationError subclass: #GsHaltError
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 Notification subclass: #TerminateProcess
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GciSession subclass: #GciSession24
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GciSession24 subclass: #GciSession30
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GciSession30 subclass: #GciSession33
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GciSession33 subclass: #GciSessionWithSocket
 	instanceVariableNames: 'socket'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeServer subclass: #JadeServer32bit
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeServer subclass: #JadeServer64bit
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeServer64bit subclass: #JadeServer64bit24
 	instanceVariableNames: ''
 	classVariableNames: 'Reflection'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeServer64bit24 subclass: #JadeServer64bit3x
 	instanceVariableNames: 'environment'
 	classVariableNames: 'Admonition ClientForwarderSend CompileError CompileWarning SessionTemps Transcript'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeServer64bit3x subclass: #JadeServer64bit32
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeServer64bit32 subclass: #JadeServer64bit33
 	instanceVariableNames: 'socket'
 	classVariableNames: 'Breakpoint GsNMethod GsSocket StringConfiguration Utf8'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeServer64bit33 subclass: #JadeServer64bit34
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeServer64bit34 subclass: #JadeServer64bit37
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 TestCase subclass: #JadeServerTestCase
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
-
-"Global Aliases"!
-
 
 "Loose Methods"!
 
@@ -261,6 +290,7 @@ jadeServerClass
 
 	self subclassResponsibility.
 ! !
+
 !GciLibrary categoriesForMethods!
 jadeServerClass!public!subclassResponsibility! !
 !
@@ -270,6 +300,7 @@ jadeServerClass!public!subclassResponsibility! !
 gciSessionClass
 
 	^GciSession! !
+
 !GciLibrary class categoriesForMethods!
 gciSessionClass!public! !
 !
@@ -280,6 +311,7 @@ jadeServerClass
 
 	^JadeServer32bit
 ! !
+
 !Gcilw6x categoriesForMethods!
 jadeServerClass!public! !
 !
@@ -290,6 +322,7 @@ jadeServerClass
 
 	^JadeServer64bit
 ! !
+
 !LibGciRpc64 categoriesForMethods!
 jadeServerClass!public! !
 !
@@ -300,6 +333,7 @@ jadeServerClass
 
 	^JadeServer64bit24
 ! !
+
 !LibGciRpc64_24 categoriesForMethods!
 jadeServerClass!public! !
 !
@@ -310,6 +344,7 @@ gciSessionClass
 
 	^GciSession24
 ! !
+
 !LibGciRpc64_24 class categoriesForMethods!
 gciSessionClass!public! !
 !
@@ -320,6 +355,7 @@ jadeServerClass
 
 	^JadeServer64bit3x
 ! !
+
 !LibGciRpc64_3_0 categoriesForMethods!
 jadeServerClass!public! !
 !
@@ -330,6 +366,7 @@ gciSessionClass
 
 	^GciSession30
 ! !
+
 !LibGciRpc64_3_0 class categoriesForMethods!
 gciSessionClass!public! !
 !
@@ -340,6 +377,7 @@ jadeServerClass
 
 	^JadeServer64bit3x
 ! !
+
 !LibGciRpc64_3_1_0 categoriesForMethods!
 jadeServerClass!public! !
 !
@@ -350,6 +388,7 @@ jadeServerClass
 
 	^JadeServer64bit32
 ! !
+
 !LibGciRpc64_3_2_0 categoriesForMethods!
 jadeServerClass!public! !
 !
@@ -360,6 +399,7 @@ jadeServerClass
 
 	^JadeServer64bit33
 ! !
+
 !LibGciRpc64_3_3_0 categoriesForMethods!
 jadeServerClass!public! !
 !
@@ -370,6 +410,7 @@ gciSessionClass
 
 	^GciSession33
 ! !
+
 !LibGciRpc64_3_3_0 class categoriesForMethods!
 gciSessionClass!public! !
 !
@@ -380,6 +421,7 @@ jadeServerClass
 
 	^JadeServer64bit34
 ! !
+
 !LibGciRpc64_3_4_0 categoriesForMethods!
 jadeServerClass!public! !
 !
@@ -390,6 +432,7 @@ jadeServerClass
 
 	^JadeServer64bit37
 ! !
+
 !LibGciRpc64_3_7_0 categoriesForMethods!
 jadeServerClass!public! !
 !
@@ -400,6 +443,7 @@ jadeServerClass
 
 	^JadeServer64bit33
 ! !
+
 !LibGciTs_3_3 categoriesForMethods!
 jadeServerClass!public! !
 !

@@ -5,9 +5,13 @@ JadeWorkspace subclass: #GsProfStef
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: 'current'!
+
 GsProfStef guid: (GUID fromString: '{494f1fe2-2494-4841-961a-12238584c390}')!
+
 GsProfStef comment: ''!
+
 !GsProfStef categoriesForClass!Unclassified! !
+
 !GsProfStef methodsFor!
 
 executeSelectionOrLine
@@ -91,6 +95,7 @@ updateLesson
 	codePane text: string.
 	self updateCaption.
 ! !
+
 !GsProfStef categoriesForMethods!
 executeSelectionOrLine!public! !
 first!public! !
@@ -176,6 +181,7 @@ showOnSession: aGciSession
 			current first.
 		].
 	].! !
+
 !GsProfStef class categoriesForMethods!
 clearCurrent!public! !
 current!public! !

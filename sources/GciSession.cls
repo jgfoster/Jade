@@ -5,7 +5,9 @@ Object subclass: #GciSession
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GciSession guid: (GUID fromString: '{c52a3e3c-b7f3-4c3c-ab3d-a925ecb8b114}')!
+
 GciSession comment: 'Permitted calls from within a non-blocking call:
 
 GciCallInProgress
@@ -16,7 +18,9 @@ GciNbEnd
 GciSetSessionId
 GciShutdown
 GciSoftBreak'!
+
 !GciSession categoriesForClass!Unclassified! !
+
 !GciSession methodsFor!
 
 _executeString: aString fromContextOop: anOopType environment: anInteger
@@ -1123,6 +1127,7 @@ valueOfOop: anOopType
 
 	^library session: gciSessionId valueOfOop: anOopType.
 ! !
+
 !GciSession categoriesForMethods!
 _executeString:fromContextOop:environment:!library-server!private! !
 _send:to:withAll:!library-server!private! !
@@ -1277,6 +1282,7 @@ publishedEventsOfInstances
     		yourself.
     
 ! !
+
 !GciSession class categoriesForMethods!
 libraryClass:stoneNRS:gemNRS:userID:password:hostUserID:password:initials:debugPath:!public! !
 new!public! !

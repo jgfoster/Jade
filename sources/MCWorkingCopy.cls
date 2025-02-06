@@ -5,9 +5,13 @@ GsObject subclass: #MCWorkingCopy
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCWorkingCopy guid: (GUID fromString: '{d388c1a7-ecc0-4fd6-b7ce-78433225bfa9}')!
+
 MCWorkingCopy comment: ''!
+
 !MCWorkingCopy categoriesForClass!Unclassified! !
+
 !MCWorkingCopy methodsFor!
 
 addRepository: aRepository
@@ -120,6 +124,7 @@ versionNameAndMessage
 	list := string subStrings: Character tab.
 	^list first -> list last.
 ! !
+
 !MCWorkingCopy categoriesForMethods!
 addRepository:!public! !
 ancestors!public! !

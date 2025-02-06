@@ -5,9 +5,13 @@ GsObject subclass: #GsMethod
 	classVariableNames: 'GsNMethodClassOop'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsMethod guid: (GUID fromString: '{b1e7fc81-607c-4011-8820-b81aaa95a565}')!
+
 GsMethod comment: ''!
+
 !GsMethod categoriesForClass!Unclassified! !
+
 !GsMethod methodsFor!
 
 <= aGsMethod
@@ -138,6 +142,7 @@ unimplementedSelectors
 
 warnings
 	^warnings! !
+
 !GsMethod categoriesForMethods!
 <=!public! !
 =!public! !
@@ -227,6 +232,7 @@ fromGsMethod2: aGsMethod2
 		initialize: (JadeServerReadStream on: string)
 		session: aGsMethod2 gciSession
 ! !
+
 !GsMethod class categoriesForMethods!
 add24RangeStopTo:withSource:!public! !
 addRangeStopTo:withSource:!public! !

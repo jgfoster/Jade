@@ -5,9 +5,13 @@ Object subclass: #JadeLog
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: 'debugLog'!
+
 JadeLog guid: (GUID fromString: '{a8c5b384-c19b-42d4-9c19-5fcf97de74de}')!
+
 JadeLog comment: ''!
+
 !JadeLog categoriesForClass!Unclassified! !
+
 !JadeLog class methodsFor!
 
 debug: aBoolean
@@ -30,6 +34,7 @@ log: aString
 
 	debugLog ifNotNil: [debugLog nextPutAll: Processor activeProcess id printString , ':' , Time millisecondClockValue printString , ':' , aString; cr; flush].
 ! !
+
 !JadeLog class categoriesForMethods!
 debug:!public! !
 debugFlag!public! !

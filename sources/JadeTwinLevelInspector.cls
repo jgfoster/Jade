@@ -5,9 +5,13 @@ TwinLevelInspector subclass: #JadeTwinLevelInspector
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeTwinLevelInspector guid: (GUID fromString: '{558eb5e8-7993-43e2-b4e3-19bf52deb555}')!
+
 JadeTwinLevelInspector comment: ''!
+
 !JadeTwinLevelInspector categoriesForClass!Unclassified! !
+
 !JadeTwinLevelInspector methodsFor!
 
 createComponents
@@ -24,6 +28,7 @@ openCustomPopUpFor: aSymbol ifNone: aNiladicValuable
 	self selectionOrNil ifNil: [^self].
 
 	self selectionOrNil openCustomPopUpFor: aSymbol ifNone: aNiladicValuable ! !
+
 !JadeTwinLevelInspector categoriesForMethods!
 createComponents!private! !
 openCustomPopUpFor:ifNone:!public! !

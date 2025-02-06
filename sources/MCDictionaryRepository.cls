@@ -5,9 +5,13 @@ MCRepository subclass: #MCDictionaryRepository
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCDictionaryRepository guid: (GUID fromString: '{e3f38d70-6ede-4358-ac87-4309206f17db}')!
+
 MCDictionaryRepository comment: ''!
+
 !MCDictionaryRepository categoriesForClass!Unclassified! !
+
 !MCDictionaryRepository methodsFor!
 
 allVersionInfoNames
@@ -94,6 +98,7 @@ versionInfoForPackageNamed: aString version: aString2
 	string := gciSession decode: string.
 	version := MCPackageVersion fromString: string session: gciSession.
 	^version! !
+
 !MCDictionaryRepository categoriesForMethods!
 allVersionInfoNames!public! !
 fullNameOfPackage:versionName:!public! !

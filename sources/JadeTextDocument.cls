@@ -5,9 +5,13 @@ TextDocument subclass: #JadeTextDocument
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeTextDocument guid: (GUID fromString: '{b31562b7-43a8-4f81-ae6b-add2de2f1c0b}')!
+
 JadeTextDocument comment: 'This class probably should not have any subclasses except Workspace (and Transcript). The CodeBrowser subclasses should be elsewhere since we don''t want to treat the code as an external text file that can be loaded and saved. '!
+
 !JadeTextDocument categoriesForClass!Unclassified! !
+
 !JadeTextDocument methodsFor!
 
 abortTransaction
@@ -454,6 +458,7 @@ validateUserInterface
 		view == DeafObject current ifTrue: [ex return: nil].
 		ex pass.
 	].! !
+
 !JadeTextDocument categoriesForMethods!
 abortTransaction!Jade!private! !
 aboutJade!private! !
@@ -552,6 +557,7 @@ shutdownOnExit
 
 	^false.
 ! !
+
 !JadeTextDocument class categoriesForMethods!
 defaultFileExtension!public! !
 fileTypes!public! !

@@ -5,10 +5,14 @@ JadeServer64bit24 subclass: #JadeServer64bit3x
 	classVariableNames: 'Admonition ClientForwarderSend CompileError CompileWarning SessionTemps Transcript'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeServer64bit3x guid: (GUID fromString: '{1dc3debb-81ec-4b7b-872e-82229e88781b}')!
+
 JadeServer64bit3x comment: '(System _sessionStateAt: 3).
 GciSession33 allInstances do: [:each | each initializeServer].'!
+
 !JadeServer64bit3x categoriesForClass!Unclassified! !
+
 !JadeServer64bit3x methodsFor!
 
 _allSelectors
@@ -173,6 +177,7 @@ nextPutAll: anObject
 		selector:#'nextPutAll:'
 		args: (Array with: (self _asString: anObject)).
 	exception defaultAction.  "return error direct to GCI"! !
+
 !JadeServer64bit3x categoriesForMethods!
 _allSelectors!Debugger!GsObject!private!System Browser! !
 _asString:!private!Transcript! !
@@ -196,6 +201,7 @@ gsMethodClassName
 
 	^'GsNMethod'
 ! !
+
 !JadeServer64bit3x class categoriesForMethods!
 gsMethodClassName!public! !
 !

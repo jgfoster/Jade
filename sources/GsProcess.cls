@@ -5,9 +5,13 @@ GsObject subclass: #GsProcess
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsProcess guid: (GUID fromString: '{0cb5149e-f4a3-413c-8ac6-2caf13e5fb15}')!
+
 GsProcess comment: ''!
+
 !GsProcess categoriesForClass!Unclassified! !
+
 !GsProcess methodsFor!
 
 description
@@ -74,6 +78,7 @@ type
 
 type: anObject
 	type := anObject! !
+
 !GsProcess categoriesForMethods!
 description!public! !
 frameForLevel:!public! !
@@ -98,6 +103,7 @@ xmlBaseName
 
 	^'process'.
 ! !
+
 !GsProcess class categoriesForMethods!
 session:oopType:!public! !
 xmlBaseName!public! !

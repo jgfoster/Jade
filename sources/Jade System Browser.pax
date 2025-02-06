@@ -5,7 +5,6 @@ package paxVersion: 1;
 
 package basicPackageVersion: '0.184'.
 
-
 package classNames
 	add: #JadeAutoSystemBrowserPresenter;
 	add: #JadeFindClassDialog;
@@ -206,34 +205,36 @@ JadeBrowserPresenter subclass: #JadeSystemBrowserPresenter
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeSystemBrowserPresenter subclass: #JadeAutoSystemBrowserPresenter
 	instanceVariableNames: 'lastGsShape bottomArrangement'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeValueDialog subclass: #JadeFindClassDialog
 	instanceVariableNames: 'classListPresenter nameEntryPresenter availableClasses'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeValueDialog subclass: #SUnitResultDialog
 	instanceVariableNames: 'listPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeShell subclass: #JadeSystemBrowser
 	instanceVariableNames: 'cardsPresenter roundTripCount'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeShell subclass: #MCPatchDiffBrowser
 	instanceVariableNames: 'patch includeIdenticalPresenter operationListPresenter diffPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
-
-"Global Aliases"!
-
 
 "Loose Methods"!
 
@@ -243,6 +244,7 @@ newMethodPresenter
 
 	^JadeTextPresenter new.
 ! !
+
 !JadeBrowserPresenter categoriesForMethods!
 newMethodPresenter!public! !
 !
@@ -1868,6 +1870,7 @@ writeList: aList
 	aList do: [:each | writeStream nextPutAll: each; tab].
 	writeStream lf.
 ! !
+
 !JadeServer categoriesForMethods!
 _addMethodCategoryNamesToMethodFilters!private!System Browser! !
 _browseMethodHistoryOf:in:!private!System Browser! !
@@ -1987,6 +1990,7 @@ systemBrowser: aString
 		].
 	^super systemBrowser: aString.
 ! !
+
 !JadeServer32bit categoriesForMethods!
 systemBrowser:!public!System Browser! !
 !
@@ -2014,6 +2018,7 @@ systemBrowser: aString
 		ex pass.
 	].
 ! !
+
 !JadeServer64bit categoriesForMethods!
 sbRemoveKey:fromDictionary:!private!System Browser! !
 systemBrowser:!public!System Browser! !
@@ -2038,6 +2043,7 @@ dictionaryAndSymbolOf: aClass forUser: aUserProfile
 		ifTrue: [nil]
 		ifFalse: [array first].
 ! !
+
 !JadeServer64bit32 categoriesForMethods!
 dictionaryAndSymbolOf:!private! !
 dictionaryAndSymbolOf:forUser:!private! !
@@ -2060,6 +2066,7 @@ sbUpdateMethodsByCategories
 	].
 	^selectors.
 ! !
+
 !JadeServer64bit34 categoriesForMethods!
 sbUpdateMethodsByCategories!private!System Browser! !
 !
@@ -2079,6 +2086,7 @@ sbUpdateMethodBreakPointsFor: aMethod
 	].
 	^list.
 ! !
+
 !JadeServer64bit37 categoriesForMethods!
 sbUpdateMethodBreakPointsFor:!private!System Browser! !
 !
@@ -2328,6 +2336,7 @@ sbUpdateMethodStepPointsFor: aMethod
 	^list.
 
 ! !
+
 !JadeServer64bit3x categoriesForMethods!
 _addMethodCategoryNamesToMethodFilters!private!System Browser! !
 _class:includesSelector:!Classes!private! !
@@ -2364,6 +2373,7 @@ jadeBrowseClasses
 		warning: 'Server initialization failed at login.'
 		caption: 'Unable to Open Browser'.
 ! !
+
 !JadeTextDocument categoriesForMethods!
 jadeBrowseClasses!Jade!private! !
 !
@@ -2374,6 +2384,7 @@ browseClasses
 
 	JadeSystemBrowser showOnSession: gciSession.
 ! !
+
 !JadeToolsToolBarPresenter categoriesForMethods!
 browseClasses!public! !
 !
@@ -2406,6 +2417,7 @@ compareVersion
 			left := temp].
 	patch := repositoryListPresenter selection patchFrom: left to: right.
 	MCPatchDiffBrowser showOn: patch! !
+
 !MCRepositoryBrowser categoriesForMethods!
 compareVersion!public!version actions! !
 !

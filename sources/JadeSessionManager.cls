@@ -5,9 +5,13 @@ RuntimeSessionManager subclass: #JadeSessionManager
 	classVariableNames: 'Version'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeSessionManager guid: (GUID fromString: '{8d7a4642-b8e1-43ea-94d5-e13390ca1f79}')!
+
 JadeSessionManager comment: ''!
+
 !JadeSessionManager categoriesForClass!Unclassified! !
+
 !JadeSessionManager methodsFor!
 
 defaultResLibPath
@@ -39,6 +43,7 @@ windowSystemStartup
 	ScintillaLibrary open: 'bin\SciLexer.dll'.		"Since this isn't adjacent to the executable, it needs a path to find it"
 	super windowSystemStartup.
 ! !
+
 !JadeSessionManager categoriesForMethods!
 defaultResLibPath!public! !
 main!public! !
@@ -87,6 +92,7 @@ version
 		ifTrue: [Version]
 		ifFalse: ['Development'].
 ! !
+
 !JadeSessionManager class categoriesForMethods!
 getVersion!public! !
 gitDescribe:!public! !

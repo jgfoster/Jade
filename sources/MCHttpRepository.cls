@@ -5,9 +5,13 @@ MCFileBasedRepository subclass: #MCHttpRepository
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCHttpRepository guid: (GUID fromString: '{140baba7-58f1-4dc6-96f5-510365c3df9c}')!
+
 MCHttpRepository comment: ''!
+
 !MCHttpRepository categoriesForClass!Unclassified! !
+
 !MCHttpRepository methodsFor!
 
 storeVersion: anMCWorkingCopy name: nameString message: messageString from: aMCVersionDialog
@@ -43,6 +47,7 @@ userAndPassword
 		serverPerform: #'mcUserAndPasswordInHTTP:' 
 		with: self.
 ! !
+
 !MCHttpRepository categoriesForMethods!
 storeVersion:name:message:from:!public! !
 updateVersionDialogTabIn:!public! !

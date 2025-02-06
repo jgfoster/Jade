@@ -5,9 +5,13 @@ GsObject subclass: #GsClass
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsClass guid: (GUID fromString: '{b3021acc-6eb1-40f5-93e7-6353e8db8a14}')!
+
 GsClass comment: ''!
+
 !GsClass categoriesForClass!Unclassified! !
+
 !GsClass methodsFor!
 
 addChild: aGsClass2
@@ -121,6 +125,7 @@ updateParentInDictionary: aDictionary
 		parent addChild: self.
 	].
 ! !
+
 !GsClass categoriesForMethods!
 addChild:!public! !
 addToDictionary:!public! !

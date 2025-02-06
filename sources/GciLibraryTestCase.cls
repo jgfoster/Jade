@@ -5,9 +5,13 @@ TestCase subclass: #GciLibraryTestCase
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GciLibraryTestCase guid: (GUID fromString: '{14f7f08c-7854-44c6-bdaa-e1b5055dc094}')!
+
 GciLibraryTestCase comment: ''!
+
 !GciLibraryTestCase categoriesForClass!Unclassified! !
+
 !GciLibraryTestCase methodsFor!
 
 test_abort
@@ -477,6 +481,7 @@ test_version
 		assert: (string beginsWith: '3.3');
 		yourself.
 ! !
+
 !GciLibraryTestCase categoriesForMethods!
 test_abort!public! !
 test_begin!public! !
@@ -523,6 +528,7 @@ isAbstract
 
 	^self name == #'GciLibraryTestCase'
 ! !
+
 !GciLibraryTestCase class categoriesForMethods!
 isAbstract!public! !
 !

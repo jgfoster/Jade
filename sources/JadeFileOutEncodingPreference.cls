@@ -5,9 +5,13 @@ JadePreferenceObject subclass: #JadeFileOutEncodingPreference
 	classVariableNames: 'JadeFileOutEncoding'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeFileOutEncodingPreference guid: (GUID fromString: '{0468e6df-2d50-4ee7-b37a-b81ce2f159bd}')!
+
 JadeFileOutEncodingPreference comment: ''!
+
 !JadeFileOutEncodingPreference categoriesForClass!Unclassified! !
+
 !JadeFileOutEncodingPreference methodsFor!
 
 displayString
@@ -33,6 +37,7 @@ publishedAspects
 	aspects := super publishedAspects.
 	aspects add: (Aspect choice: #jadeFileOutEncoding from: StdioFileStream getEncodingNames).
 	^aspects! !
+
 !JadeFileOutEncodingPreference categoriesForMethods!
 displayString!public! !
 icon!public! !
@@ -45,6 +50,7 @@ publishedAspects!public! !
 
 icon
 	^String icon! !
+
 !JadeFileOutEncodingPreference class categoriesForMethods!
 icon!public! !
 !

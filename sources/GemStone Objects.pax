@@ -40,34 +40,36 @@ Object subclass: #GsObject
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsObject subclass: #GsMethod
 	instanceVariableNames: 'behavior behaviorName breakPoints category isReadOnly originalSource source stepPoints unimplementedSelectors warnings'
 	classVariableNames: 'GsNMethodClassOop'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsObject subclass: #GsProcess
 	instanceVariableNames: 'stack type'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsObject subclass: #GsSession
 	instanceVariableNames: 'backlog cacheDesc description hasOldestCR host hostId id ip lifeTime objects pages primitive priority process quietTime serial state transaction viewAge voteState'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsObject subclass: #GsStackFrame
 	instanceVariableNames: 'ipOffset gsMethod stepPoint vars offsets breaks source'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 ReadStream subclass: #JadeServerReadStream
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
-
-"Global Aliases"!
-
 
 "Loose Methods"!
 
@@ -85,6 +87,7 @@ subStringsTrimmingTrailingEmptyElement: separatorOrSeparators
 	nonLastEmptyElementArray last isEmpty ifTrue: [^nonLastEmptyElementArray allButLast].
 
 	^nonLastEmptyElementArray! !
+
 !String categoriesForMethods!
 subStringsTrimmingTrailingEmptyElement:!copying!public! !
 !

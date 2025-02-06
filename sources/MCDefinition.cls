@@ -5,15 +5,20 @@ Object subclass: #MCDefinition
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCDefinition guid: (GUID fromString: '{055475ac-74a4-4268-bbf9-805e3c53183b}')!
+
 MCDefinition comment: ''!
+
 !MCDefinition categoriesForClass!Unclassified! !
+
 !MCDefinition methodsFor!
 
 selector
 
 	^''.
 ! !
+
 !MCDefinition categoriesForMethods!
 selector!public! !
 !
@@ -34,6 +39,7 @@ fromStream: aStream
 		initialize: aStream;
 		yourself.
 ! !
+
 !MCDefinition class categoriesForMethods!
 fromStream:!public! !
 !

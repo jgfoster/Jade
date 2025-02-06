@@ -5,9 +5,13 @@ GsObject subclass: #MCRepository
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCRepository guid: (GUID fromString: '{ae19dcb0-74d7-4643-b3cb-541231353c0f}')!
+
 MCRepository comment: ''!
+
 !MCRepository categoriesForClass!Unclassified! !
+
 !MCRepository methodsFor!
 
 allVersionInfoNames
@@ -106,6 +110,7 @@ versionInfoForPackageNamed: aString
 
 versionInfoForPackageNamed: aString version: aString2 
 	^Error notYetImplemented! !
+
 !MCRepository categoriesForMethods!
 allVersionInfoNames!public! !
 creationTemplate!public! !
@@ -168,6 +173,7 @@ listFromString: aString session: aGciSession
 
 	^(super listFromString: aString session: aGciSession) reject: [:each | each isNil].
 ! !
+
 !MCRepository class categoriesForMethods!
 allIn:!public! !
 fromString:session:!public! !

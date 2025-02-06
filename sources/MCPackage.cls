@@ -5,9 +5,13 @@ GsObject subclass: #MCPackage
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCPackage guid: (GUID fromString: '{c1da7939-7500-412e-b95b-88c59221ceaf}')!
+
 MCPackage comment: ''!
+
 !MCPackage categoriesForClass!Unclassified! !
+
 !MCPackage methodsFor!
 
 infoForVersion: aString
@@ -68,6 +72,7 @@ versionNames: aList
 	list := list asSortedCollection.	"at first it seemed that the server provided them in order but that seems to not be consistent"
 	list := list collect: [:each | MCVersionName new name: each value].
 	versionNames := list.! !
+
 !MCPackage categoriesForMethods!
 infoForVersion:!public! !
 isLoaded!public! !

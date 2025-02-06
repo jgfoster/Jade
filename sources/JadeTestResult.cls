@@ -5,9 +5,13 @@ Object subclass: #JadeTestResult
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeTestResult guid: (GUID fromString: '{8b60bb8a-1adb-469b-9149-b9f15f68562e}')!
+
 JadeTestResult comment: ''!
+
 !JadeTestResult categoriesForClass!Unclassified! !
+
 !JadeTestResult methodsFor!
 
 addError: selector
@@ -83,6 +87,7 @@ summary
 
 summary: anObject
 	summary := anObject! !
+
 !JadeTestResult categoriesForMethods!
 addError:!public! !
 addFailure:!public! !
@@ -109,6 +114,7 @@ summary:!accessing!private! !
 new
 
 	^super new initialize! !
+
 !JadeTestResult class categoriesForMethods!
 new!public! !
 !

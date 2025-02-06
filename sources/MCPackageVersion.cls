@@ -5,9 +5,13 @@ GsObject subclass: #MCPackageVersion
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCPackageVersion guid: (GUID fromString: '{75779a06-81a7-42de-8521-65d983f02d77}')!
+
 MCPackageVersion comment: ''!
+
 !MCPackageVersion categoriesForClass!Unclassified! !
+
 !MCPackageVersion methodsFor!
 
 ancestors
@@ -58,6 +62,7 @@ stepChildren
 
 time
 	^time! !
+
 !MCPackageVersion categoriesForMethods!
 ancestors!accessing!public! !
 author!accessing!public! !

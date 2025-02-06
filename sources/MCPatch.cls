@@ -5,9 +5,13 @@ GsObject subclass: #MCPatch
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCPatch guid: (GUID fromString: '{f78f623f-4cc4-4e69-bc3d-f6320fc96009}')!
+
 MCPatch comment: ''!
+
 !MCPatch categoriesForClass!Unclassified! !
+
 !MCPatch methodsFor!
 
 initialize: aString session: aGciSession
@@ -29,6 +33,7 @@ initialize: aString session: aGciSession
 
 operations
 	^operations! !
+
 !MCPatch categoriesForMethods!
 initialize:session:!public! !
 operations!public! !

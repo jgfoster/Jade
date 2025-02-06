@@ -5,9 +5,13 @@ ContactsShell subclass: #ContactEditor
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 ContactEditor guid: (GUID fromString: '{8f931be6-a07f-4b11-94dc-52527d28596d}')!
+
 ContactEditor comment: ''!
+
 !ContactEditor categoriesForClass!Unclassified! !
+
 !ContactEditor methodsFor!
 
 attemptLock: aSymbol
@@ -70,6 +74,7 @@ writeLock
 
 	self attemptLock: #write.
 ! !
+
 !ContactEditor categoriesForMethods!
 attemptLock:!public! !
 cancel!public! !
@@ -105,6 +110,7 @@ showOn: aContact inSession: aGciSession
 		showShell;
 		yourself.
 ! !
+
 !ContactEditor class categoriesForMethods!
 resource_Default_view!public!resources-views! !
 showOn:!public! !

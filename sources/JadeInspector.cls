@@ -5,9 +5,13 @@ JadeTextDocument subclass: #JadeInspector
 	classVariableNames: 'DefaultInspectorClass'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeInspector guid: (GUID fromString: '{7cade1f1-0352-4ff0-a34d-888a4de0cd14}')!
+
 JadeInspector comment: ''!
+
 !JadeInspector categoriesForClass!Unclassified! !
+
 !JadeInspector methodsFor!
 
 contextObject
@@ -174,6 +178,7 @@ setDocumentPresenterLabel
 setLastGsShape: className
 
 	codePane setDocumentPresenterWith: (self registry getClass: className)! !
+
 !JadeInspector categoriesForMethods!
 contextObject!private! !
 createComponents!accessing!private! !
@@ -250,6 +255,7 @@ showOn: anObject session: aGciSession
 		showShell;
 		yourself.
 ! !
+
 !JadeInspector class categoriesForMethods!
 defaultInspectorClass!public! !
 resource_Default_view!public! !

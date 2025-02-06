@@ -5,9 +5,13 @@ JadePreferenceObject subclass: #JadeAllSessionsPreference
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeAllSessionsPreference guid: (GUID fromString: '{546eb412-bc29-405c-b0f7-29f73e946fa4}')!
+
 JadeAllSessionsPreference comment: ''!
+
 !JadeAllSessionsPreference categoriesForClass!Unclassified! !
+
 !JadeAllSessionsPreference methodsFor!
 
 autoCommit
@@ -55,6 +59,7 @@ publishedAspects
 	self gciSession isAutoMigrate ifNotNil: [aspects add: (Aspect boolean: #autoMigrate)].
 	self gciSession isShowUnimplementedMessages ifNotNil: [aspects add: (Aspect boolean: #isShowUnimplementedMessages)].
 	^aspects! !
+
 !JadeAllSessionsPreference categoriesForMethods!
 autoCommit!public! !
 autoCommit:!public! !
@@ -74,6 +79,7 @@ publishedAspects!public! !
 icon
 
 	^Icon fromId: 'ListView.ico'! !
+
 !JadeAllSessionsPreference class categoriesForMethods!
 icon!public! !
 !

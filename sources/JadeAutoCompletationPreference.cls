@@ -5,9 +5,13 @@ JadePreferenceObject subclass: #JadeAutoCompletationPreference
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeAutoCompletationPreference guid: (GUID fromString: '{a4e50bc1-dc2a-45a1-95a7-fda7c959fa0d}')!
+
 JadeAutoCompletationPreference comment: ''!
+
 !JadeAutoCompletationPreference categoriesForClass!Unclassified! !
+
 !JadeAutoCompletationPreference methodsFor!
 
 displayString
@@ -88,6 +92,7 @@ publishedAspects
 		add: (Aspect boolean: #hideInstClassVars);
 		add: (Aspect boolean: #hidePoolDictionaries).
 	^aspects! !
+
 !JadeAutoCompletationPreference categoriesForMethods!
 displayString!public! !
 filterObjectMethods!accessing!private! !

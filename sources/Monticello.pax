@@ -126,144 +126,168 @@ Object subclass: #MCDefinition
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 Object subclass: #MCHttpRepositoryInfo
 	instanceVariableNames: 'location user password'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 Object subclass: #MCVersionName
 	instanceVariableNames: 'name isLoaded isModified'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsObject subclass: #MCPackage
 	instanceVariableNames: 'repository versionNames loaded'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsObject subclass: #MCPackageVersion
 	instanceVariableNames: 'date time author id ancestors stepChildren message'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsObject subclass: #MCPatch
 	instanceVariableNames: 'operations'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsObject subclass: #MCPatchOperation
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsObject subclass: #MCRepository
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsObject subclass: #MCVersionInfo
 	instanceVariableNames: 'date time author id ancestors stepChildren message'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsObject subclass: #MCWorkingCopy
 	instanceVariableNames: 'isModified ancestors repositories'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCPatchOperation subclass: #MCAddition
 	instanceVariableNames: 'definition'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCPatchOperation subclass: #MCModification
 	instanceVariableNames: 'obsoletion obsoletionMemo obsoletionMemoMarkers obsoletionLines modification modificationMemo modificationMemoMarkers modificationLines'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCPatchOperation subclass: #MCRemoval
 	instanceVariableNames: 'definition'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCRepository subclass: #MCDictionaryRepository
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCRepository subclass: #MCFileBasedRepository
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCFileBasedRepository subclass: #MCDirectoryRepository
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCFileBasedRepository subclass: #MCHttpRepository
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCDirectoryRepository subclass: #MCServerDirectoryRepository
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCServerDirectoryRepository subclass: #MCFileTreeRepository
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCFileTreeRepository subclass: #MCGitHubRepository
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCDefinition subclass: #MCClassDefinition
 	instanceVariableNames: 'className definition'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCDefinition subclass: #MCMethodDefinition
 	instanceVariableNames: 'classIsMeta source category selector className timeStamp'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCDefinition subclass: #MCOrganizationDefinition
 	instanceVariableNames: 'categories'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 Dialog subclass: #MCHttpRepositoryInfoDialog
 	instanceVariableNames: 'locationPresenter userPresenter passwordPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 Dialog subclass: #MCVersionDialog
 	instanceVariableNames: 'namePresenter messagePresenter repositoryListPresenter httpUserPresenter httpPasswordPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeShell subclass: #MCPatchBrowser
 	instanceVariableNames: 'patch includeIdenticalPresenter operationListPresenter leftTextPresenter leftMemoPresenter rightTextPresenter rightMemoPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeShell subclass: #MCRepositoryBrowser
 	instanceVariableNames: 'repositoryListPresenter packageListPresenter versionListPresenter repositoryCreationTemplatePresenter versionNamePresenter versionDatePresenter versionTimePresenter versionAuthorPresenter versionIDPresenter versionAncestorsPresenter versionStepChildrenPresenter versionMessagePresenter loadedVersionNames'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 TestCase subclass: #MCModificationTestCase
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
-
-"Global Aliases"!
-
 
 "Loose Methods"!
 
@@ -881,6 +905,7 @@ mcWorkingCopyClass
 
 	^self objectInBaseNamed: #'MCWorkingCopy'.
 ! !
+
 !JadeServer categoriesForMethods!
 _describeMCAddition:on:!Monticello!private! !
 _describeMCClassDefinition:on:!Monticello!private! !
@@ -938,6 +963,7 @@ jadeBrowseMonticello
 		warning: 'Server initialization failed at login.'
 		caption: 'Unable to Open Browser'.
 ! !
+
 !JadeTextDocument categoriesForMethods!
 jadeBrowseMonticello!Jade!private! !
 !
@@ -948,6 +974,7 @@ browseMonticello
 
 	MCRepositoryBrowser showOnSession: gciSession.
 ! !
+
 !JadeToolsToolBarPresenter categoriesForMethods!
 browseMonticello!public! !
 !

@@ -5,7 +5,9 @@ Object subclass: #JadeGsClassShape
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeGsClassShape guid: (GUID fromString: '{706d0cb1-9735-4db8-9d5a-45b1ca2c55a3}')!
+
 JadeGsClassShape comment: 'JadeGsClassShape represent individual information about GemStone/S classes.
 
 Instance of this class are only created through the user interface JadeAutoSystemBrowserPresenter.
@@ -13,7 +15,9 @@ Instance of this class are only created through the user interface JadeAutoSyste
 Each time a class is selected in the hierarchy browser an instance of this class is created and updated in the registry (JadeAutocompletationRegistry).
 
 The Autocompletation engine use instance of this class to show autocompletation options.'!
+
 !JadeGsClassShape categoriesForClass!Unclassified! !
+
 !JadeGsClassShape methodsFor!
 
 configuration
@@ -142,6 +146,7 @@ updateClassData
 	gsClassMethods isEmpty ifTrue: [gsClassMethods := previousShape gsClassMethods].
 
 	^self registry register: self! !
+
 !JadeGsClassShape categoriesForMethods!
 configuration!public! !
 existInRegistry!public! !

@@ -96,49 +96,54 @@ Object subclass: #JadeAbstractHistoryEntry
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsObject subclass: #GsMethod2
 	instanceVariableNames: 'gsClass category isTestCase'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeAbstractHistoryEntry subclass: #JadeMethodExplorerHistoryEntry
 	instanceVariableNames: 'treeSelection methodCategory gsMethod'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenterA subclass: #MethodListPresenter
 	instanceVariableNames: 'methodListPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 CodeSourcePresenter subclass: #MethodSourcePresenter
 	instanceVariableNames: 'currentSelector gsMethod originalSource'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeBrowserPresenter subclass: #JadeMethodListPresenter
 	instanceVariableNames: 'methodListPresenter methodSourcePresenter searchBlock'
 	classVariableNames: 'JadeMethodBrowserPresenterClass'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeMethodListPresenter subclass: #JadeTreeMethodListPresenter
 	instanceVariableNames: 'treeMethodsPresenter treeMethodsMap historyEntries entriesIndex historyList historyIndex'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeShell subclass: #JadeMethodHistoryBrowser
 	instanceVariableNames: 'versionListPresenter editorPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeShell subclass: #JadeMethodListBrowser
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
-
-"Global Aliases"!
-
 
 "Loose Methods"!
 
@@ -176,6 +181,7 @@ stepPointsFor: aGsMethod
 		with: aGsMethod
 		with: self.
 ! !
+
 !GsClass categoriesForMethods!
 methodsUpTo:filterList:isVariables:!Methods!public! !
 sourceFor:!Methods!public! !
@@ -200,6 +206,7 @@ browseSendersOf: aGsMethodOrString
 		browseSendersOf: aGsMethodOrString;
 		yourself.
 ! !
+
 !JadePresenterA categoriesForMethods!
 browseImplementorsOf:!public! !
 browseSendersOf:!public! !
@@ -668,6 +675,7 @@ streamOfMethods: aList
 
 	^self _encodeString: (self _streamOfMethods: aList)
 ! !
+
 !JadeServer categoriesForMethods!
 _addMethod:toStream:!Methods!private! !
 _behavior:categoryOfSelector:!Methods!private! !
@@ -706,6 +714,7 @@ sendersOf: anObject
 	^(anObject isKindOf: Utf8)
 		ifTrue: [super sendersOf: (self _decodeString: anObject)]
 		ifFalse: [super sendersOf: anObject]! !
+
 !JadeServer64bit33 categoriesForMethods!
 sendersOf:!Methods!public! !
 !
@@ -762,6 +771,7 @@ compileMethod: methodString behavior: aBehavior symbolList: aSymbolList inCatego
 	^method -> warnings
 
 ! !
+
 !JadeServer64bit3x categoriesForMethods!
 _behavior:categoryOfSelector:!Methods!private! !
 _methodsFor:categories:!Methods!private! !

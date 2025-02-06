@@ -5,9 +5,13 @@ MCPatchOperation subclass: #MCRemoval
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCRemoval guid: (GUID fromString: '{ba962c07-8639-4e40-89aa-6ce4eb10ab50}')!
+
 MCRemoval comment: ''!
+
 !MCRemoval categoriesForClass!Unclassified! !
+
 !MCRemoval methodsFor!
 
 className
@@ -48,6 +52,7 @@ selector
 
 	^definition selector.
 ! !
+
 !MCRemoval categoriesForMethods!
 className!public! !
 detailsString!public! !

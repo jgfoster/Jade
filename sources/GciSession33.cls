@@ -5,9 +5,13 @@ GciSession30 subclass: #GciSession33
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GciSession33 guid: (GUID fromString: '{085e991d-a17a-4475-bae7-c9c88012e5e4}')!
+
 GciSession33 comment: ''!
+
 !GciSession33 categoriesForClass!Unclassified! !
+
 !GciSession33 methodsFor!
 
 _isLarge
@@ -51,6 +55,7 @@ encode: aString
 gsHasPragmas
 
 	^true! !
+
 !GciSession33 categoriesForMethods!
 _isLarge!public! !
 _setNoStubbing!public! !

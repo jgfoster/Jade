@@ -5,9 +5,13 @@ ArrayedCollection variableSubclass: #CharacterCollection
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 CharacterCollection guid: (GUID fromString: '{4408ec10-3b63-4d56-a60f-56c628c34605}')!
+
 CharacterCollection comment: ''!
+
 !CharacterCollection categoriesForClass!Collections-Abstract! !
+
 !CharacterCollection methodsFor!
 
 asCharacterCollection
@@ -27,6 +31,7 @@ asUtf8String
 	writeStream := WriteStream on: Utf8String new.
 	self do: [:each | writeStream nextPut: each].
 	^writeStream contents! !
+
 !CharacterCollection categoriesForMethods!
 asCharacterCollection!public! !
 asUtf16String!public! !

@@ -5,9 +5,13 @@ Object subclass: #VWComponent
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 VWComponent guid: (GUID fromString: '{408b2bd9-180c-481f-970b-1ea93ba60cdd}')!
+
 VWComponent comment: ''!
+
 !VWComponent categoriesForClass!Unclassified! !
+
 !VWComponent methodsFor!
 
 addSharedVar: nameString initializer: codeString
@@ -96,6 +100,7 @@ readCommon
 	sharedVariables := Dictionary new.
 	self readAttributes.
 ! !
+
 !VWComponent categoriesForMethods!
 addSharedVar:initializer:!public! !
 category!public! !
@@ -117,6 +122,7 @@ from: anElement
 		initialize: anElement;
 		yourself.
 ! !
+
 !VWComponent class categoriesForMethods!
 from:!public! !
 !

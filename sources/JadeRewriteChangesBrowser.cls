@@ -5,9 +5,13 @@ JadePresenter subclass: #JadeRewriteChangesBrowser
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeRewriteChangesBrowser guid: (GUID fromString: '{e6020731-064c-4d12-91db-6f8a9f8ce241}')!
+
 JadeRewriteChangesBrowser comment: ''!
+
 !JadeRewriteChangesBrowser categoriesForClass!MVP-Presenters! !
+
 !JadeRewriteChangesBrowser methodsFor!
 
 createComponents
@@ -18,6 +22,7 @@ createComponents
 
 	differencePresenter := self add: DifferencesPresenter new name: 'diff'.
 	! !
+
 !JadeRewriteChangesBrowser categoriesForMethods!
 createComponents!public! !
 !

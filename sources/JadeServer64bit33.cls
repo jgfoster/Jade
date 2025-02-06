@@ -5,9 +5,13 @@ JadeServer64bit32 subclass: #JadeServer64bit33
 	classVariableNames: 'Breakpoint GsNMethod GsSocket StringConfiguration Utf8'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeServer64bit33 guid: (GUID fromString: '{4100a18b-fbc2-4ea5-86a8-b8a8c6194269}')!
+
 JadeServer64bit33 comment: ''!
+
 !JadeServer64bit33 categoriesForClass!Unclassified! !
+
 !JadeServer64bit33 methodsFor!
 
 _decodeString: anObject
@@ -438,6 +442,7 @@ readSocket: anInteger
 	socket write: bytes.
 	^bytes size.
 ! !
+
 !JadeServer64bit33 categoriesForMethods!
 _decodeString:!private! !
 _encodeString:!private! !

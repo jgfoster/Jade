@@ -5,7 +5,9 @@ ULARGE_INTEGER subclass: #OopType64
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 OopType64 guid: (GUID fromString: '{e5d12262-5936-4c83-b2c9-026c8197fbc9}')!
+
 OopType64 comment: '#define OOP_TAG_RAM_OOP     0x0 /* 2r000  memory pointer ObjSType* */
 #define OOP_TAG_POM_OOP     0x1 /* 2r001  disk objId */
   // disk objIds have the form 0x0000nnnnnnnnnn01 , with the 
@@ -20,7 +22,9 @@ OopType64 comment: '#define OOP_TAG_RAM_OOP     0x0 /* 2r000  memory pointer Obj
 
 #define OOP_TAG_SPECIAL_MASK  0x6    /* any special oop */
 '!
+
 !OopType64 categoriesForClass!Unclassified! !
+
 !OopType64 methodsFor!
 
 = anOopType64
@@ -269,6 +273,7 @@ smallDoubleAsFloat
 	].
 	^(frac + 16r8000000000000 / 16r8000000000000 * (2 raisedTo: expn - 127) * sign) asFloat.
 ! !
+
 !OopType64 categoriesForMethods!
 =!public! !
 asDate!converting!public! !

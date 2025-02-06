@@ -21,7 +21,6 @@ AEZpbGVWZXJzaW9uEgEAAAoAAAAxLCAwLCAwLCAxEgEAABAAAABPcmlnaW5hbEZpbGVuYW1lEgEA
 AAwAAABDb250YWN0cy5leGUSAQAADgAAAFByb2R1Y3RWZXJzaW9uEgEAAAoAAAAxLCAwLCAwLCAx
 ygAAANAAAABiAAAAAQAAAAYCCgBEV09SREFycmF5cgAAAAQAAAAJBLAEAwAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==').
-
 package classNames
 	add: #Contact;
 	add: #ContactEditor;
@@ -62,41 +61,42 @@ JadeImageStripper subclass: #ContactsImageStripper
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 Model subclass: #Contact
 	instanceVariableNames: 'oop name title phone version'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 Shell subclass: #ContactsShell
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 ContactsShell subclass: #ContactEditor
 	instanceVariableNames: 'contact namePresenter titlePresenter phonePresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 ContactsShell subclass: #ContactsBrowser
 	instanceVariableNames: 'listPresenter beginPresenter listClassPresenter commitRecordPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeLoginShell subclass: #ContactsLoginShell
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeSessionManager subclass: #ContactsSessionManager
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
-
-"Global Aliases"!
-
-
-"Loose Methods"!
 
 "End of package definition"!
 

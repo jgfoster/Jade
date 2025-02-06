@@ -5,9 +5,13 @@ MCRepository subclass: #MCFileBasedRepository
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCFileBasedRepository guid: (GUID fromString: '{02ab65a3-7933-4ff3-a1c8-7960c4414821}')!
+
 MCFileBasedRepository comment: ''!
+
 !MCFileBasedRepository categoriesForClass!Unclassified! !
+
 !MCFileBasedRepository methodsFor!
 
 allVersionInfoNames
@@ -59,6 +63,7 @@ versionInfoForPackageNamed: packageName version: versionName
 
 	^self versionInfoForPackageNamed: packageName , '-' , versionName.
 ! !
+
 !MCFileBasedRepository categoriesForMethods!
 allVersionInfoNames!public! !
 fullNameOfPackage:versionName:!public! !

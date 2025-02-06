@@ -5,9 +5,13 @@ ReadStream subclass: #JadeServerReadStream
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeServerReadStream guid: (GUID fromString: '{ed24cd81-a45e-4685-bbe8-b0dd53109f59}')!
+
 JadeServerReadStream comment: ''!
+
 !JadeServerReadStream categoriesForClass!Unclassified! !
+
 !JadeServerReadStream methodsFor!
 
 nextLineAsList
@@ -45,6 +49,7 @@ upToTab
 
 	^self upTo: Character tab
 ! !
+
 !JadeServerReadStream categoriesForMethods!
 nextLineAsList!public! !
 nextList!public! !

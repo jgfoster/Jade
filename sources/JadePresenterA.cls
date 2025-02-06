@@ -5,9 +5,13 @@ JadePresenter subclass: #JadePresenterA
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenterA guid: (GUID fromString: '{ccc9b223-b3b5-44fd-bf88-60f48b65dc99}')!
+
 JadePresenterA comment: ''!
+
 !JadePresenterA categoriesForClass!Unclassified! !
+
 !JadePresenterA methodsFor!
 
 aboutToEditLabel: anObject accept: aValueHolder
@@ -316,6 +320,7 @@ userSelection
 
 	^nil.
 ! !
+
 !JadePresenterA categoriesForMethods!
 aboutToEditLabel:accept:!label edit!public! !
 canEditLabel:!label edit!public! !
@@ -426,6 +431,7 @@ script
 	].
 	^stream contents.
 ! !
+
 !JadePresenterA class categoriesForMethods!
 createIn:gciSession:!public! !
 script!public! !

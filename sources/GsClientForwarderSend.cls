@@ -5,7 +5,9 @@ GsEventError subclass: #GsClientForwarderSend
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsClientForwarderSend guid: (GUID fromString: '{12ab69fe-6b24-4cb4-8cfc-7782a7b028c7}')!
+
 GsClientForwarderSend comment: '
 System 
 	_signalGciError: 2336
@@ -17,7 +19,9 @@ System
 		0 "number of arguments" ]
     signalDictionary: GemStoneError.
 '!
+
 !GsClientForwarderSend categoriesForClass!Unclassified! !
+
 !GsClientForwarderSend methodsFor!
 
 signal
@@ -25,6 +29,7 @@ signal
 	self gatherData.
 	^tag clientForwardError: gciErrSType.
 ! !
+
 !GsClientForwarderSend categoriesForMethods!
 signal!public! !
 !
@@ -35,6 +40,7 @@ wantsToHandle: aGciErrorSType session: aGciSession
 
 	^aGciErrorSType isClientForwarderSendInSession: aGciSession.
 ! !
+
 !GsClientForwarderSend class categoriesForMethods!
 wantsToHandle:session:!public! !
 !

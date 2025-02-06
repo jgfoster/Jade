@@ -5,12 +5,16 @@ JadeSystemBrowserPresenter subclass: #JadeAutoSystemBrowserPresenter
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeAutoSystemBrowserPresenter guid: (GUID fromString: '{a4b39ce8-df3a-4c06-a336-25f599463ae0}')!
+
 JadeAutoSystemBrowserPresenter comment: 'This class register information in the registry (JadeAutocompletationRegistry) each time a user select a class in the hierarchy browser.
 
 see:
 #registerClassData'!
+
 !JadeAutoSystemBrowserPresenter categoriesForClass!Unclassified! !
+
 !JadeAutoSystemBrowserPresenter methodsFor!
 
 bottomArrangement
@@ -214,6 +218,7 @@ updateMethodList
 	self hasClassSideSelected ifTrue: [^lastGsShape gsClassMethods: self gsClassMethods].
 
 	^lastGsShape gsMethods: self gsMethods.! !
+
 !JadeAutoSystemBrowserPresenter categoriesForMethods!
 bottomArrangement!accessing!private! !
 bottomArrangement:!accessing!private! !

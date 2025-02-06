@@ -5,9 +5,13 @@ JadeLoginShell subclass: #ContactsLoginShell
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 ContactsLoginShell guid: (GUID fromString: '{8d6109e0-73a1-41f4-8afa-ed30a9a140eb}')!
+
 ContactsLoginShell comment: ''!
+
 !ContactsLoginShell categoriesForClass!Unclassified! !
+
 !ContactsLoginShell methodsFor!
 
 initialSetupCode
@@ -69,6 +73,7 @@ postLogin: aGciSession
 		ContactsBrowser showOn: aGciSession.
 	].
 ! !
+
 !ContactsLoginShell categoriesForMethods!
 initialSetupCode!public! !
 onViewOpened!public! !

@@ -5,9 +5,13 @@ JadeShell subclass: #JadeMethodListBrowser
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeMethodListBrowser guid: (GUID fromString: '{046cebd5-f142-4382-99ff-b3fd8b8032b9}')!
+
 JadeMethodListBrowser comment: ''!
+
 !JadeMethodListBrowser categoriesForClass!Unclassified! !
+
 !JadeMethodListBrowser methodsFor!
 
 defaultPresenterName
@@ -46,6 +50,7 @@ switchToTreeView
 
 	self view destroy.
 ! !
+
 !JadeMethodListBrowser categoriesForMethods!
 defaultPresenterName!public! !
 presenterClass!overrides!private! !
@@ -90,6 +95,7 @@ showOnSession: aGciSession
 		showShell;
 		yourself.
 ! !
+
 !JadeMethodListBrowser class categoriesForMethods!
 resource_List_view!public!resources-views! !
 resource_Tree_view!public!resources-views! !

@@ -5,9 +5,13 @@ Object subclass: #JadeGsMethodShape
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeGsMethodShape guid: (GUID fromString: '{1aa1fb1a-ff88-4de6-ba91-71450fbb3ec6}')!
+
 JadeGsMethodShape comment: ''!
+
 !JadeGsMethodShape categoriesForClass!Unclassified! !
+
 !JadeGsMethodShape methodsFor!
 
 applied
@@ -76,6 +80,7 @@ source
 
 source: anObject
 	source := anObject! !
+
 !JadeGsMethodShape categoriesForMethods!
 applied!accessing!private! !
 applied:!accessing!private! !
@@ -107,6 +112,7 @@ newFor: className methodName: methodName source: source
 		methodName: methodName;
 		source: source;
 		yourself! !
+
 !JadeGsMethodShape class categoriesForMethods!
 newFor:methodName:source:!public! !
 !

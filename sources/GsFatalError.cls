@@ -5,9 +5,13 @@ GsError subclass: #GsFatalError
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsFatalError guid: (GUID fromString: '{71eabb54-3a5a-4ca2-bca3-44b39d453586}')!
+
 GsFatalError comment: ''!
+
 !GsFatalError categoriesForClass!Unclassified! !
+
 !GsFatalError methodsFor!
 
 defaultAction
@@ -18,6 +22,7 @@ defaultAction
 	self gciSession beInvalidSession.
 	TerminateProcess signal.
 ! !
+
 !GsFatalError categoriesForMethods!
 defaultAction!public! !
 !
@@ -28,6 +33,7 @@ wantsToHandle: aGciErrorSType session: aGciSession
 
 	^aGciErrorSType number // 1000 = 4.
 ! !
+
 !GsFatalError class categoriesForMethods!
 wantsToHandle:session:!public! !
 !

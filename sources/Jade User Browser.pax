@@ -5,7 +5,6 @@ package paxVersion: 1;
 
 package basicPackageVersion: '0.031'.
 
-
 package classNames
 	add: #AllUsersPresenter;
 	add: #AllUsersShell;
@@ -72,54 +71,60 @@ GsObject subclass: #GsGlobal
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsObject subclass: #GsSymbolDictionary
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsObject subclass: #GsUserProfile
 	instanceVariableNames: 'lastLoginTime remainingLogins isDisabled maxSessions language disabledReason lastPasswordChange isSpecial'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenterA subclass: #AllUsersPresenter
 	instanceVariableNames: 'userListPresenter userProfilePresenter passwordLimitsPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenterA subclass: #UserListPresenter
 	instanceVariableNames: 'userListPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenterA subclass: #UserProfileDetailsPresenter
 	instanceVariableNames: 'userIDPresenter maxLoginsPresenter languagePresenter lastLoginPresenter disabledReasonPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenterA subclass: #UserProfilePasswordPresenter
 	instanceVariableNames: 'whenPasswordChangedPresenter loginsRemainingPresenter isSpecialUserPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenterA subclass: #UserProfilePresenter
 	instanceVariableNames: 'user detailsPresenter passwordPresenter symbolListPresenter groupListPresenter privilegeListPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenterA subclass: #UserProfileSetPresenter
 	instanceVariableNames: 'disallowUsedPasswordsPresenter minPasswordSizePresenter maxPasswordSizePresenter maxRepeatingCharsPresenter maxConsecutiveCharsPresenter maxCharsOfSameTypePresenter staleAccountAgeLimitPresenter passwordAgeLimitPresenter passwordAgeWarningPresenter disallowedPasswordListPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeShell subclass: #AllUsersShell
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
-
-"Global Aliases"!
-
 
 "Loose Methods"!
 
@@ -250,6 +255,7 @@ userList
 	list do: [:each | self _addUser: each toStream: stream].
 	^self _encodeString: stream contents.
 ! !
+
 !JadeServer categoriesForMethods!
 _addUser:toStream:!private!UserProfile! !
 addGroup:toUser:!public!UserProfile! !
@@ -276,6 +282,7 @@ _addUser: aUserProfile toStream: aStream
 		_addUser: aUserProfile 
 		toStream: aStream.
 ! !
+
 !JadeServer32bit categoriesForMethods!
 _addUser:toStream:!private!UserProfile! !
 !
@@ -293,6 +300,7 @@ _addUser: aUserProfile toStream: aStream
 		ex return.
 	].
 ! !
+
 !JadeServer64bit categoriesForMethods!
 _addUser:toStream:!private!UserProfile! !
 !
@@ -308,6 +316,7 @@ jadeBrowseUsers
 		warning: 'Server initialization failed at login.'
 		caption: 'Unable to Open Browser'.
 ! !
+
 !JadeTextDocument categoriesForMethods!
 jadeBrowseUsers!Jade!private! !
 !
@@ -318,6 +327,7 @@ browseUsers
 
 	AllUsersShell showOnSession: gciSession.
 ! !
+
 !JadeToolsToolBarPresenter categoriesForMethods!
 browseUsers!public! !
 !

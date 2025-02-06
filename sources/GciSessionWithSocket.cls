@@ -5,9 +5,13 @@ GciSession33 subclass: #GciSessionWithSocket
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GciSessionWithSocket guid: (GUID fromString: '{604cbf33-d6be-45ff-b250-4654b42aa062}')!
+
 GciSessionWithSocket comment: ''!
+
 !GciSessionWithSocket categoriesForClass!Unclassified! !
+
 !GciSessionWithSocket methodsFor!
 
 _continueProcess: aContextOop
@@ -110,6 +114,7 @@ terminate: anOopType
 		withAll: (Array with: anOopType with: #'terminate').
 	TerminateProcess signal.
 ! !
+
 !GciSessionWithSocket categoriesForMethods!
 _continueProcess:!long running!private! !
 _send:to:withAll:!private! !
@@ -133,6 +138,7 @@ from: aGciSession withSocket: aSocket
 new
 
 	self error: 'use #''from:withSocket:'''.! !
+
 !GciSessionWithSocket class categoriesForMethods!
 from:withSocket:!public! !
 new!public! !

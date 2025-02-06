@@ -5,9 +5,13 @@ JadeImageStripper subclass: #ContactsImageStripper
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 ContactsImageStripper guid: (GUID fromString: '{9b58c50c-364b-4f25-b578-718999cb9c5b}')!
+
 ContactsImageStripper comment: ''!
+
 !ContactsImageStripper categoriesForClass!Unclassified! !
+
 !ContactsImageStripper methodsFor!
 
 closeLoginShells
@@ -23,6 +27,7 @@ requiredPackageNames
 		add: 'Jade Login';
 		yourself.
 ! !
+
 !ContactsImageStripper categoriesForMethods!
 closeLoginShells!public! !
 requiredPackageNames!public! !

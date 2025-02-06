@@ -5,9 +5,13 @@ LibGciRpc64 subclass: #LibGciRpc64_24
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 LibGciRpc64_24 guid: (GUID fromString: '{4df6b51f-e61c-4046-9413-2db70136a4c1}')!
+
 LibGciRpc64_24 comment: ''!
+
 !LibGciRpc64_24 categoriesForClass!Unclassified! !
+
 !LibGciRpc64_24 class methodsFor!
 
 displayName
@@ -19,6 +23,7 @@ fileNameSearch
 
 	^'libgcirpc64-244.dll'
 ! !
+
 !LibGciRpc64_24 class categoriesForMethods!
 displayName!public! !
 fileNameSearch!public! !

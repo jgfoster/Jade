@@ -5,9 +5,13 @@ Object subclass: #VWSourceFile
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 VWSourceFile guid: (GUID fromString: '{e9ca297e-6f08-4dbd-afc9-5de48a98e4c0}')!
+
 VWSourceFile comment: ''!
+
 !VWSourceFile categoriesForClass!Unclassified! !
+
 !VWSourceFile methodsFor!
 
 addClass: anElement
@@ -278,6 +282,7 @@ removeSPort
 	list := list select: [:each | each beginsWith: 'Sp'].
 	list do: [:each | self removeAllInPackage: each].
 ! !
+
 !VWSourceFile categoriesForMethods!
 addClass:!public! !
 addComment:!public! !
@@ -330,6 +335,7 @@ fromString: aString
 		yourself.
 
 ! !
+
 !VWSourceFile class categoriesForMethods!
 fromDocument:!public! !
 fromPath:!public! !

@@ -5,9 +5,13 @@ SmalltalkSyntaxTutorial subclass: #GemStoneSyntaxTutorial
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GemStoneSyntaxTutorial guid: (GUID fromString: '{3b693f04-b02c-4d7b-9f42-671a30534155}')!
+
 GemStoneSyntaxTutorial comment: ''!
+
 !GemStoneSyntaxTutorial categoriesForClass!Kernel-Objects! !
+
 !GemStoneSyntaxTutorial methodsFor!
 
 basicTypesArray
@@ -597,6 +601,7 @@ so, select the line (or click anywhere on the line) and do one of the following:
 ProfStef goto: 2.
 ProfStef next.'
 ! !
+
 !GemStoneSyntaxTutorial categoriesForMethods!
 basicTypesArray!pages!public! !
 basicTypesCharacters!pages!public! !

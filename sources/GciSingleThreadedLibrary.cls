@@ -5,7 +5,9 @@ GciLibrary subclass: #GciSingleThreadedLibrary
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GciSingleThreadedLibrary guid: (GUID fromString: '{afffafeb-5777-4d4b-a7d0-931922158468}')!
+
 GciSingleThreadedLibrary comment: 'JadeLoginShell show.
 GciLibrary current gciCommit.
 GciLibrary current nbCallResult.
@@ -20,7 +22,9 @@ Array
 	with: library nbCallDone
 	with: library nbCallResult.
 '!
+
 !GciSingleThreadedLibrary categoriesForClass!Unclassified! !
+
 !GciSingleThreadedLibrary methodsFor!
 
 _releaseOops: anArray
@@ -731,6 +735,7 @@ version
 
 	^self gciVersion.
 ! !
+
 !GciSingleThreadedLibrary categoriesForMethods!
 _releaseOops:!public!required! !
 _semaphore!private! !

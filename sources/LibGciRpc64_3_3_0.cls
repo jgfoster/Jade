@@ -5,9 +5,13 @@ LibGciRpc64_3_1_0 subclass: #LibGciRpc64_3_3_0
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 LibGciRpc64_3_3_0 guid: (GUID fromString: '{905626b7-882d-4151-8165-7b33d4bc9095}')!
+
 LibGciRpc64_3_3_0 comment: ''!
+
 !LibGciRpc64_3_3_0 categoriesForClass!Unclassified! !
+
 !LibGciRpc64_3_3_0 methodsFor!
 
 fetchBytes: anOopType classOop: oopClass
@@ -175,6 +179,7 @@ specialFromOop: anOop
 verifyEnvironment: anInteger
 
 	anInteger == 0 ifFalse: [self error: 'Only environment 0 is supported in this version!!!!!!!!'].! !
+
 !LibGciRpc64_3_3_0 categoriesForMethods!
 fetchBytes:classOop:!public! !
 gciExecute_:_:_:!private! !

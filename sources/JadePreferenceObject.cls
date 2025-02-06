@@ -5,9 +5,13 @@ Object subclass: #JadePreferenceObject
 	classVariableNames: 'GCISession'
 	poolDictionaries: ''
 	classInstanceVariableNames: 'default'!
+
 JadePreferenceObject guid: (GUID fromString: '{de90c1cb-ce50-4954-ab40-04d64c17817b}')!
+
 JadePreferenceObject comment: ''!
+
 !JadePreferenceObject categoriesForClass!Unclassified! !
+
 !JadePreferenceObject methodsFor!
 
 default
@@ -23,6 +27,7 @@ openCustomPopUpFor: symbolName ifNone: aNiladicValuable
 	Subclasses with special options (can no be implemented using Dolphin Aspects mechanism) should rewrite this method  (see JadeAutoCompletationRegistryPreference)."
 
 	^aNiladicValuable value! !
+
 !JadePreferenceObject categoriesForMethods!
 default!public! !
 gciSession!public! !
@@ -43,6 +48,7 @@ gciSession
 gciSession: aGciSession
 
 	^GCISession := aGciSession! !
+
 !JadePreferenceObject class categoriesForMethods!
 default!public! !
 gciSession!public! !

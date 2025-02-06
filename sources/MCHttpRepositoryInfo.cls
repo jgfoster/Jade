@@ -5,9 +5,13 @@ Object subclass: #MCHttpRepositoryInfo
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCHttpRepositoryInfo guid: (GUID fromString: '{9297ce93-5e15-48ce-8be4-01aa17099f34}')!
+
 MCHttpRepositoryInfo comment: ''!
+
 !MCHttpRepositoryInfo categoriesForClass!Unclassified! !
+
 !MCHttpRepositoryInfo methodsFor!
 
 initialize
@@ -34,6 +38,7 @@ user
 
 user: anObject
 	user := anObject! !
+
 !MCHttpRepositoryInfo categoriesForMethods!
 initialize!private! !
 location!accessing!private! !
@@ -52,6 +57,7 @@ new
 		initialize;
 		yourself.
 ! !
+
 !MCHttpRepositoryInfo class categoriesForMethods!
 new!public! !
 !

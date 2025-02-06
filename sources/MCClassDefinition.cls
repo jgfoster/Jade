@@ -5,9 +5,13 @@ MCDefinition subclass: #MCClassDefinition
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCClassDefinition guid: (GUID fromString: '{4d46b46e-f290-4992-93c5-79caee623c11}')!
+
 MCClassDefinition comment: ''!
+
 !MCClassDefinition categoriesForClass!Unclassified! !
+
 !MCClassDefinition methodsFor!
 
 className
@@ -44,6 +48,7 @@ initialize: aStream
 source
 
 	^self displayMemo! !
+
 !MCClassDefinition categoriesForMethods!
 className!public! !
 detailsString!public! !

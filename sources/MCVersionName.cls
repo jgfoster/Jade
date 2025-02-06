@@ -5,9 +5,13 @@ Object subclass: #MCVersionName
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCVersionName guid: (GUID fromString: '{f4afbc1c-2c99-4741-8fba-5c571f07ca36}')!
+
 MCVersionName comment: ''!
+
 !MCVersionName categoriesForClass!Unclassified! !
+
 !MCVersionName methodsFor!
 
 <= anMCVersionName
@@ -48,6 +52,7 @@ printOn: aStream
 		ifFalse: [name].
 	aStream nextPutAll: string.
 ! !
+
 !MCVersionName categoriesForMethods!
 <=!public! !
 initialize!public! !
@@ -68,6 +73,7 @@ new
 		initialize;
 		yourself.
 ! !
+
 !MCVersionName class categoriesForMethods!
 new!public! !
 !

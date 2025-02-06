@@ -5,9 +5,13 @@ TestCase subclass: #JadeServerTestCase
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeServerTestCase guid: (GUID fromString: '{494dcd74-2e61-4aa2-9836-c23515c37947}')!
+
 JadeServerTestCase comment: ''!
+
 !JadeServerTestCase categoriesForClass!Unclassified! !
+
 !JadeServerTestCase methodsFor!
 
 testSocket
@@ -65,6 +69,7 @@ testSocket
 		assert: (encoder readObjectFrom: stream) == nil;
 		yourself.
 ! !
+
 !JadeServerTestCase categoriesForMethods!
 testSocket!public! !
 !

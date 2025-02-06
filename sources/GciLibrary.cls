@@ -5,9 +5,13 @@ ExternalLibrary subclass: #GciLibrary
 	classVariableNames: 'ActiveLibrary'
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GciLibrary guid: (GUID fromString: '{ad9a79e0-d6ef-4d77-83fc-015b118b2331}')!
+
 GciLibrary comment: ''!
+
 !GciLibrary categoriesForClass!Unclassified! !
+
 !GciLibrary methodsFor!
 
 abortSession: anInteger
@@ -267,6 +271,7 @@ version
 
 	self subclassResponsibility.
 ! !
+
 !GciLibrary categoriesForMethods!
 abortSession:!public!subclassResponsibility! !
 beginSession:!public!subclassResponsibility! !
@@ -402,6 +407,7 @@ withDisplayName: aString
 
 	^self allSubclasses detect: [:each | each displayName = aString].
 ! !
+
 !GciLibrary class categoriesForMethods!
 activeLibrary!public! !
 addMissingMethods!public! !

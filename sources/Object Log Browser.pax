@@ -5,7 +5,6 @@ package paxVersion: 1;
 
 package basicPackageVersion: '0.022'.
 
-
 package classNames
 	add: #ObjectLogBrowser;
 	add: #ObjectLogEntryViewer;
@@ -49,14 +48,12 @@ JadeShell subclass: #ObjectLogBrowser
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeShell subclass: #ObjectLogEntryViewer
 	instanceVariableNames: 'entryArray oopPresenter classNamePresenter pidPresenter stampPresenter labelPresenter priorityPresenter tagPresenter objectStringPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
-
-"Global Aliases"!
-
 
 "Loose Methods"!
 
@@ -108,6 +105,7 @@ sbObjectLog: anOrderedCollection
 		writeStream lf.
 	].
 ! !
+
 !JadeServer categoriesForMethods!
 sbObjectLog:!private!System Browser! !
 !
@@ -123,6 +121,7 @@ jadeBrowseObjectLog
 		warning: 'Server initialization failed at login.'
 		caption: 'Unable to Open Browser'.
 ! !
+
 !JadeTextDocument categoriesForMethods!
 jadeBrowseObjectLog!Jade!private! !
 !

@@ -5,9 +5,13 @@ ExternalArray subclass: #OopType32Array
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 OopType32Array guid: (GUID fromString: '{73aa2718-0f19-4b5e-af7f-a3d2d8fbb1c4}')!
+
 OopType32Array comment: ''!
+
 !OopType32Array categoriesForClass!Unclassified! !
+
 !OopType32Array methodsFor!
 
 elementClass
@@ -26,6 +30,7 @@ uncheckedAt: index  put: anOopType32
 		put: anOopType32 value.
 
 ! !
+
 !OopType32Array categoriesForMethods!
 elementClass!constants!public! !
 uncheckedAt:!accessing!private! !
@@ -38,6 +43,7 @@ elementSize
 
 	^4.
 ! !
+
 !OopType32Array class categoriesForMethods!
 elementSize!instance creation!private! !
 !

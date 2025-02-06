@@ -5,9 +5,13 @@ Object subclass: #PharoClass
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 PharoClass guid: (GUID fromString: '{312fc20f-afd9-4869-b375-9545ee6cae76}')!
+
 PharoClass comment: ''!
+
 !PharoClass categoriesForClass!Unclassified! !
+
 !PharoClass methodsFor!
 
 addChild: aPharoClass
@@ -121,6 +125,7 @@ writeMethodsTo: aStream
 	].
 	children do: [:each | each writeMethodsTo: aStream].
 ! !
+
 !PharoClass categoriesForMethods!
 addChild:!public! !
 classInstVarNames:!public! !
@@ -145,6 +150,7 @@ superclassName: superclassName subclass: subclassName instVarNames: instVarNames
 		superclassName: superclassName subclass: subclassName instVarNames: instVarNames classVarNames: classVarNames package: packageName;
 		yourself
 ! !
+
 !PharoClass class categoriesForMethods!
 superclassName:subclass:instVarNames:classVarNames:package:!public! !
 !

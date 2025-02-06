@@ -5,9 +5,13 @@ JadeServer subclass: #JadeServer64bit
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeServer64bit guid: (GUID fromString: '{36fd8c46-21b4-4852-977c-1a9889969313}')!
+
 JadeServer64bit comment: ''!
+
 !JadeServer64bit categoriesForClass!Unclassified! !
+
 !JadeServer64bit methodsFor!
 
 _asString: anObject
@@ -41,6 +45,7 @@ _mcInitialsA: aString
 homeMethodFor: aGsMethod
 
 	^[aGsMethod homeMethod] on: Error do: [:ex | ex return: aGsMethod]! !
+
 !JadeServer64bit categoriesForMethods!
 _asString:!private!Transcript! !
 _installTranscript!private!Transcript! !
@@ -62,6 +67,7 @@ gsClassDefinitionStringFor: aClass
 		instancesInvariant: false
 		isModifiable: false.'
 ! !
+
 !JadeServer64bit class categoriesForMethods!
 gsClassDefinitionStringFor:!public! !
 !

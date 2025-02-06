@@ -5,7 +5,9 @@ Model subclass: #Contact
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 Contact guid: (GUID fromString: '{4f617257-ba88-4fce-ad0b-5d8918fea0ef}')!
+
 Contact comment: '
 | segment dict newUser |
 segment := Segment newInRepository: SystemRepository.
@@ -34,7 +36,9 @@ newUser
 	yourself.
 System commitTransaction ifFalse: [nil error: ''commit failed''].
 '!
+
 !Contact categoriesForClass!Unclassified! !
+
 !Contact methodsFor!
 
 attemptLock: aSymbol session: aGciSession
@@ -129,6 +133,7 @@ version
 version: anInteger
 	version := anInteger.
 ! !
+
 !Contact categoriesForMethods!
 attemptLock:session:!public! !
 initialize!public! !
@@ -205,6 +210,7 @@ new
 		initialize;
 		yourself.
 ! !
+
 !Contact class categoriesForMethods!
 fillListString!public! !
 fromString:!public! !

@@ -5,9 +5,13 @@ JadePreferenceObject subclass: #JadeCurrentSessionPreference
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeCurrentSessionPreference guid: (GUID fromString: '{3fc7627f-1c65-46e7-86d3-cdff3b99d401}')!
+
 JadeCurrentSessionPreference comment: ''!
+
 !JadeCurrentSessionPreference categoriesForClass!Unclassified! !
+
 !JadeCurrentSessionPreference methodsFor!
 
 codeFont
@@ -46,6 +50,7 @@ publishedAspects
 		add: (Aspect font: #codeFont);
 		add: (Aspect boolean: #debug).
 	^aspects! !
+
 !JadeCurrentSessionPreference categoriesForMethods!
 codeFont!public! !
 codeFont:!public! !
@@ -62,6 +67,7 @@ publishedAspects!public! !
 
 icon
 	^Icon fromId: 'SMALLTALKOPTIONSFOLDER.ICO'! !
+
 !JadeCurrentSessionPreference class categoriesForMethods!
 icon!public! !
 !

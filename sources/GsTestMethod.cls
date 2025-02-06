@@ -5,9 +5,13 @@ Object subclass: #GsTestMethod
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsTestMethod guid: (GUID fromString: '{49ac780a-e100-43d1-812c-5132b52980ab}')!
+
 GsTestMethod comment: ''!
+
 !GsTestMethod categoriesForClass!Unclassified! !
+
 !GsTestMethod methodsFor!
 
 className
@@ -54,6 +58,7 @@ setPassed
 
 	result := 'passed'
 	! !
+
 !GsTestMethod categoriesForMethods!
 className!accessing!private! !
 className:!accessing!private! !
@@ -86,6 +91,7 @@ newOn: className methodName: methodName
 		className: className;
 		methodName: methodName;
 		yourself! !
+
 !GsTestMethod class categoriesForMethods!
 icon!public! !
 name:!public! !

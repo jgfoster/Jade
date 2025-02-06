@@ -5,9 +5,13 @@ GsObject subclass: #GsStackFrame
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GsStackFrame guid: (GUID fromString: '{06285ec9-259c-47b7-980f-c6eca7ced95e}')!
+
 GsStackFrame comment: ''!
+
 !GsStackFrame categoriesForClass!Unclassified! !
+
 !GsStackFrame methodsFor!
 
 breaks
@@ -71,6 +75,7 @@ vars
 
 vars: anObject
 	vars := anObject! !
+
 !GsStackFrame categoriesForMethods!
 breaks!public! !
 gsMethod!accessing!public! !
@@ -93,6 +98,7 @@ xmlBaseName
 
 	^'frame'.
 ! !
+
 !GsStackFrame class categoriesForMethods!
 xmlBaseName!public! !
 !

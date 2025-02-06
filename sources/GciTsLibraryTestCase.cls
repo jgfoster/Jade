@@ -5,9 +5,13 @@ GciLibraryTestCase subclass: #GciTsLibraryTestCase
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 GciTsLibraryTestCase guid: (GUID fromString: '{2e0598bb-4af7-4844-b149-7a3990fd628e}')!
+
 GciTsLibraryTestCase comment: ''!
+
 !GciTsLibraryTestCase categoriesForClass!Unclassified! !
+
 !GciTsLibraryTestCase methodsFor!
 
 setUp
@@ -27,6 +31,7 @@ test_break
 		session: session breakHard: true;
 		yourself.
 ! !
+
 !GciTsLibraryTestCase categoriesForMethods!
 setUp!private! !
 test_break!public! !
@@ -37,6 +42,7 @@ test_break!public! !
 resources
 
 	^IdentitySet with: GciTsLibraryTestResource! !
+
 !GciTsLibraryTestCase class categoriesForMethods!
 resources!public! !
 !

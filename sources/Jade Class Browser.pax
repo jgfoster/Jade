@@ -5,7 +5,6 @@ package paxVersion: 1;
 
 package basicPackageVersion: '0.071'.
 
-
 package classNames
 	add: #GsClass;
 	add: #JadeMigrateClassDialog;
@@ -45,14 +44,12 @@ GsObject subclass: #GsClass
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeValueDialog subclass: #JadeMigrateClassDialog
 	instanceVariableNames: 'copyMethodsPresenter recompileSubclassesPresenter migrateInstancesPresenter removeFromClassHistoryPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
-
-"Global Aliases"!
-
 
 "Loose Methods"!
 
@@ -119,6 +116,7 @@ superclassesOf: aClass isMeta: aBoolean
 	list := myClass _allSuperList , (Array with: myClass).
 	^self _encodeString: (self _stringForClassList: list).
 ! !
+
 !JadeServer categoriesForMethods!
 _addClass:toStream:!Classes!private! !
 _addClass:toStream:isVisible:fromDictionary:!Classes!private! !

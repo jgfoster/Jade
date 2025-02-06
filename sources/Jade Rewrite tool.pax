@@ -52,56 +52,60 @@ Object subclass: #JadeGsMethodShape
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePreferenceObject subclass: #JadeRewriteToolPreference
 	instanceVariableNames: 'formatterClass'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenter subclass: #JadeRewriteChangesBrowser
 	instanceVariableNames: 'changedMethodsPresenter differencePresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenter subclass: #JadeRewriteMethodsList
 	instanceVariableNames: 'methodsPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadePresenter subclass: #JadeRewriteTool
 	instanceVariableNames: 'searchTextPresenter replaceTextPresenter isMethodPresenter candidatesMethodsList scopeRadioPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeRewriteMethodsList subclass: #JadeRewriteReplaceMethodsList
 	instanceVariableNames: 'differencePresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeRewriteMethodsList subclass: #JadeRewriteSearchMethodsList
 	instanceVariableNames: 'sourcePresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeShell subclass: #JadeRewriteMethodsListShell
 	instanceVariableNames: 'rewriteMethodsListPresenter'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeRewriteMethodsListShell subclass: #JadeRewriteReplaceMethodsListShell
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 JadeRewriteMethodsListShell subclass: #JadeRewriteSearchMethodsListShell
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
-
-"Global Aliases"!
-
-
-"Loose Methods"!
 
 "End of package definition"!
 

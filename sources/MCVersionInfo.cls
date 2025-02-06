@@ -5,9 +5,13 @@ GsObject subclass: #MCVersionInfo
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
+
 MCVersionInfo guid: (GUID fromString: '{202a46bc-0a0e-407f-a82d-5ad5b9de8b87}')!
+
 MCVersionInfo comment: ''!
+
 !MCVersionInfo categoriesForClass!Unclassified! !
+
 !MCVersionInfo methodsFor!
 
 gciSession: aGciSession oop: anInteger 
@@ -37,6 +41,7 @@ timeStamp
 
 	^date , ' ' , time.
 ! !
+
 !MCVersionInfo categoriesForMethods!
 gciSession:oop:!public! !
 message!public! !
@@ -51,6 +56,7 @@ gciSession: aGciSession oop: anInteger
 		gciSession: aGciSession 
 		oop: anInteger.
 ! !
+
 !MCVersionInfo class categoriesForMethods!
 gciSession:oop:!public! !
 !
