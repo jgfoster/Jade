@@ -204,7 +204,7 @@ evaluateA: aBlock
 
 	| result shell waitFlag |
 	shell := View active.
-	shell disable.
+	shell ifNotNil: [shell disable].
 	waitFlag := true.
 	[
 		[
@@ -220,7 +220,7 @@ evaluateA: aBlock
 	] newProcess name: 'GciSession>>withExplanation:doB: - 1'; resume.
 	"waiting would be better done with a Semaphore, but we need to run the input loop anyway"
 	SessionManager inputState loopWhile: [waitFlag].
-	shell enable.
+	shell ifNotNil: [shell enable].
 	((result isKindOf: Error) and: [(result isKindOf: GciError) not and: [(result isKindOf: GsError) not]]) ifTrue: [
 		self error: result description.	"We want the error to be in the active process"
 	].

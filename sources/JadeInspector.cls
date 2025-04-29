@@ -173,6 +173,13 @@ setDocumentPresenterLabel
 		documentPresenter value: model printString.
 		^self.
 	].
+	(model isKindOf: ScaledDecimal) ifTrue: [
+		self view caption: 'SmallScaledDecimal'.
+		documentPresenter value: model printString.
+		^self.
+	].
+	self view caption: 'Unknown Special'.
+	documentPresenter value: model printString.
 !
 
 setLastGsShape: className
