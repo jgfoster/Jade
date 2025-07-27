@@ -94,6 +94,8 @@ package classNames
 	add: #LibGciRpc64_3_7_0;
 	add: #LibGciRpc64_3_7_1;
 	add: #LibGciRpc64_3_7_2;
+	add: #LibGciRpc64_3_7_4_1;
+	add: #LibGciRpc64_3_7_4_3;
 	add: #LibGciTs_3_3;
 	add: #OopType32;
 	add: #OopType32Array;
@@ -608,6 +610,18 @@ LibGciRpc64_3_7_0 subclass: #LibGciRpc64_3_7_1
 	classInstanceVariableNames: ''!
 
 LibGciRpc64_3_7_0 subclass: #LibGciRpc64_3_7_2
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+LibGciRpc64_3_7_0 subclass: #LibGciRpc64_3_7_4_1
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	classInstanceVariableNames: ''!
+
+LibGciRpc64_3_7_0 subclass: #LibGciRpc64_3_7_4_3
 	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
