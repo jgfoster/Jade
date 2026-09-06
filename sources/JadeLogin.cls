@@ -415,7 +415,7 @@ defaultXML
 
 ^'<?xml version="1.0"?>
 <JadeLogin 
-	gemVersion="64-bit 3.7.4.3" 
+	gemVersion="64-bit 3.7.6" 
 	stoneHost="localhost" 
 	stoneName="gs64stone" 
 	stoneNRS="!!tcp@localhost#server!!gs64stone" 
