@@ -2159,7 +2159,6 @@ onViewOpened
 	globalsPresenter		view contextMenu: (Menu fromStrings: self globalsMenuStrings		).
 	methodListPresenter		view contextMenu: (Menu fromStrings: self methodsMenuStrings		).
 	methodSourcePresenter	view contextMenu: (Menu fromStrings: self editMenuStrings			);
-		isBackgroundDwellEnabled: true;
 		isBraceHighlightingEnabled: true;
 		yourself.
 	packageListPresenter 	view contextMenu: (Menu fromStrings: self pkgsMenuStrings		).
